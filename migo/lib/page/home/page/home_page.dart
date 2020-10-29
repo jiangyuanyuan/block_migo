@@ -19,8 +19,10 @@ class HomePage extends StatelessWidget {
                 color: AppColor.divigrey,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(8))
               ),
-              child: ListView.builder(itemBuilder: (context, index){
-                return HomeCell();
+              child: ListView.builder(
+                padding: const EdgeInsets.all(20),
+                itemBuilder: (context, index){
+                  return HomeCell();
               }),
             ),
           )

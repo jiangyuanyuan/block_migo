@@ -19,9 +19,20 @@ class MineActionView extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: titles.map((e) => _DetailView(img: imgs[titles.indexOf(e)], titles: e,)).toList(),
+        children: titles.map((e) => InkWell(
+          onTap: () => _jump(context, titles.indexOf(e)),
+          child: _DetailView(img: imgs[titles.indexOf(e)], titles: e,))).toList(),
       ),
     );
+  }
+
+  void _jump(BuildContext context, int status) {
+    switch (status) {
+      case 0:
+        Navigator.pushNamed(context, "/package");
+        break;
+      default:
+    }
   }
 }
 
