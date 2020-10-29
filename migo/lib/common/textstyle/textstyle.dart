@@ -1,6 +1,5 @@
 import 'package:migo/common/const/cosnt.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 export '../const/cosnt.dart' show AppColor;
 
 enum FamilyEnum {
@@ -30,7 +29,7 @@ class AppFont {
     }
 
     return TextStyle(
-      fontSize: fontszie.sp,
+      fontSize: fontszie,
       color: color,
       fontWeight: fontWeight,
       decoration: decoration,

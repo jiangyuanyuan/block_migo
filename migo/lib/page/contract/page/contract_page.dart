@@ -5,7 +5,7 @@ class ContractPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Text("Mine"),
+        child: Text("兑换"),
       ),
     );
   }

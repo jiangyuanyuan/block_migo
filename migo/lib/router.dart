@@ -1,4 +1,5 @@
 
+import 'package:migo/login&regist/page/lanuage_page.dart';
 import 'package:migo/root/root.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ final routes = {
   '/pwdsetting': (context,{arguments}) => PwdSettingPage(params: arguments,),// 第一次登录密码设置
   '/forgetpwd': (context) => ForgetPwdPage(),// 忘记密码
   '/resetpwd': (context) => ResetPwdPage(),  // 重新设置密码
+  '/language': (context) => LanguagePage(),  // 重新设置密码
 };
 
 var onGenerateRoute = (RouteSettings settings) {

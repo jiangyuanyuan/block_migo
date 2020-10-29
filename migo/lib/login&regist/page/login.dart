@@ -1,5 +1,6 @@
 import 'package:migo/common/commview/bottom_buttom.dart';
 import 'package:migo/common/const/cosnt.dart';
+import 'package:migo/common/language/i18n.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/login&regist/view/phone_textfield.dart';
@@ -54,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SizedBox(height: size.height * 0.05,),
-                Text("你好，\n欢迎来到币小贝！", 
+                Text(S.of(context).app_information, 
                   style: AppFont.textStyle(25, color: AppColor.font333, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: size.height * 0.1),

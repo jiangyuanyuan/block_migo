@@ -86,16 +86,23 @@ class Tool {
   static String number(num sender, int fixed) {
     if(sender == null) return "0.0";
     if(fixed == null) fixed = 2;
-    
     String res = "$sender";
     final temp = res.split(".");
     if(temp.length < 2) {
       return res;
     } else {
       if(temp[1].length > fixed) {
-        return temp[0] + "." + temp[1].substring(0, fixed);
+        res = temp[0] + "." + temp[1].substring(0, fixed);
+        if(temp[1].length < fixed) {
+          res += "0" * (fixed - temp[1].length);
+        }
+        return res;
       } else {
-        return temp[0] + "." + temp[1];
+        res = temp[0] + "." + temp[1];
+        if(temp[1].length < fixed) {
+          res += "0" * (fixed - temp[1].length);
+        }
+        return res;
       }
     }
   }

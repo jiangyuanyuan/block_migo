@@ -1,9 +1,9 @@
 import 'package:migo/common/const/cosnt.dart';
-import 'package:migo/page/coins/page/coins_page.dart';
+
 import 'package:migo/page/contract/page/contract_page.dart';
 import 'package:migo/page/home/page/home_page.dart';
+import 'package:migo/page/market/page/market_page.dart';
 import 'package:migo/page/mine/page/mine_page.dart';
-import 'package:migo/page/order/page/order_page.dart';
 import 'package:flutter/material.dart';
 
 class RootPage extends StatefulWidget {
@@ -17,17 +17,15 @@ class _RootPageState extends State<RootPage> {
   PageController _pageController = PageController(initialPage: 0);
   List<Widget> pages = <Widget>[
           HomePage(),
-          OrderPage(),
           ContractPage(),
-          CoinsPage(),
+          MarketPage(),
           MinePage()
         ];
 
   static const List<String> tabTitles = [
     "首页",
-    "交易圈", 
-    "智能交易", 
-    '排行榜', 
+    "兑换", 
+    '市场', 
     '我的'
   ];
 
@@ -58,7 +56,11 @@ class _RootPageState extends State<RootPage> {
       activeIcon: Image.asset("assets/${tabIconsName[index]}", color: AppColor.blue,),
       title: Padding(
         padding: const EdgeInsets.only(top: 6.0),
-        child: Text(e, style: TextStyle(fontSize: 10, color: currentIndex == index ? AppColor.blue : AppColor.fontgrey)),
+        child: Text(e, style: TextStyle(
+          fontSize: 10, 
+          color: currentIndex == index ? AppColor.yellowMain : AppColor.fontgrey,
+          fontWeight: FontWeight.bold
+        )),
       ));
     }).toList();
   }

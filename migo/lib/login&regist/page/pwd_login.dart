@@ -31,7 +31,6 @@ class _PwdLoginPageState extends State<PwdLoginPage> {
   @override
   void initState() {
     super.initState();
-    _phoneController.text = widget.params["phone"];
   }
 
   void _login(BuildContext context) {

@@ -1,5 +1,4 @@
 typedef void EventCallback(arg);
-
 class EventKeys {
   static const String RefreshAPI = "RefreshAPI"; // 添加成功之后刷新API
   static const String Opendrawer = "Opendrawer"; // 打开侧边栏
