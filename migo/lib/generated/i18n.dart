@@ -42,6 +42,22 @@ class I18n implements WidgetsLocalizations {
   String get language => "中文";
   /// "语言"
   String get lang => "语言";
+  /// "首页"
+  String get home => "首页";
+  /// "兑换"
+  String get exchange => "兑换";
+  /// "市场"
+  String get market => "市场";
+  /// "我的"
+  String get mine => "我的";
+  /// "我的背包"
+  String get mypackage => "我的背包";
+  /// "充值"
+  String get recharge => "充值";
+  /// "提现"
+  String get withdraw => "提现";
+  /// "邀请好友"
+  String get invite => "邀请好友";
 }
 
 class _I18n_zh_CN extends I18n {
@@ -69,6 +85,30 @@ class _I18n_en_US extends I18n {
   /// "Language"
   @override
   String get lang => "Language";
+  /// "Home"
+  @override
+  String get home => "Home";
+  /// "Exchange"
+  @override
+  String get exchange => "Exchange";
+  /// "Market"
+  @override
+  String get market => "Market";
+  /// "Mine"
+  @override
+  String get mine => "Mine";
+  /// "My backpackage"
+  @override
+  String get mypackage => "My backpackage";
+  /// "Recharge"
+  @override
+  String get recharge => "Recharge";
+  /// "Withdraw"
+  @override
+  String get withdraw => "Withdraw";
+  /// "Invite friends"
+  @override
+  String get invite => "Invite friends";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

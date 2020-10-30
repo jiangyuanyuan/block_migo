@@ -3,5 +3,14 @@
     "login":"登陆",
     "loginout":"登出",
     "language":"中文",
-    "lang":"语言"
+    "lang":"语言",
+    "home":"首页",
+    "exchange":"兑换",
+    "market":"市场",
+    "mine":"我的",
+
+    "mypackage": "我的背包",
+    "recharge": "充值",
+    "withdraw": "提现",
+    "invite": "邀请好友"
 }

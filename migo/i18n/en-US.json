@@ -3,5 +3,13 @@
     "login": "Sign in",
     "loginout": "Sign out",
     "language": "English",
-    "lang": "Language"
+    "lang": "Language",
+    "home": "Home",
+    "exchange": "Exchange",
+    "market": "Market",
+    "mine": "Mine",
+    "mypackage": "My backpackage",
+    "recharge": "Recharge",
+    "withdraw": "Withdraw",
+    "invite": "Invite friends"
 }

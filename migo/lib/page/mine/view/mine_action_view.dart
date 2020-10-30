@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:migo/generated/i18n.dart';
 
 class MineActionView extends StatelessWidget {
-  static const List<String> titles = [
-    "我的背包",
-    "充值",
-    "提现",
-    "邀请好友"
-  ];
+  // static const List<String> titles = [
+  //   "我的背包",
+  //   "充值",
+  //   "提现",
+  //   "邀请好友"
+  // ];
   static const List<String> imgs = [
     "我的背包",
     "充值",
@@ -15,6 +16,12 @@ class MineActionView extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    List<String> titles = [
+      I18n.of(context).mypackage,
+      I18n.of(context).recharge,
+      I18n.of(context).withdraw,
+      I18n.of(context).invite,
+    ];
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Row(

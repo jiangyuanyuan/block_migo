@@ -1,4 +1,5 @@
 import 'package:migo/common/const/cosnt.dart';
+import 'package:migo/generated/i18n.dart';
 
 import 'package:migo/page/contract/page/contract_page.dart';
 import 'package:migo/page/home/page/home_page.dart';
@@ -22,12 +23,12 @@ class _RootPageState extends State<RootPage> {
           MinePage()
         ];
 
-  static const List<String> tabTitles = [
-    "首页",
-    "兑换", 
-    '市场', 
-    '我的'
-  ];
+  // static const List<String> tabTitles = [
+  //   "首页",
+  //   "兑换", 
+  //   '市场', 
+  //   '我的'
+  // ];
 
   static const List<String> tabIconsName = [
     "icon_zhuyexz.png",
@@ -49,6 +50,12 @@ class _RootPageState extends State<RootPage> {
   }
 
   List<BottomNavigationBarItem> _createTabarList() {
+    List<String> tabTitles = [
+      I18n.of(context).home,
+      I18n.of(context).exchange,
+      I18n.of(context).market,
+      I18n.of(context).mine,
+    ];
     return tabTitles.map((e) {
       final index = tabTitles.indexOf(e);
       return BottomNavigationBarItem(
