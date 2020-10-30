@@ -1,6 +1,11 @@
 
 import 'package:migo/login&regist/page/lanuage_page.dart';
+import 'package:migo/page/mine/page/invite_record_page.dart';
+import 'package:migo/page/mine/page/mine_invite_page.dart';
+import 'package:migo/page/mine/page/mine_mod.dart';
+import 'package:migo/page/mine/page/mine_mod_name.dart';
 import 'package:migo/page/mine/page/mine_package_page.dart';
+import 'package:migo/page/mine/page/mine_setting.dart';
 import 'package:migo/root/root.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +30,11 @@ final routes = {
 
   /// mine
   '/package': (context,{arguments}) => MinePackagePage(),// 第一次登录密码设置
+  '/setting': (context,{arguments}) => MineSettingPage(),// 第一次登录密码设置
+  '/invite': (context,{arguments}) => MineInvitePage(),// 第一次登录密码设置
+  '/inviterecord': (context,{arguments}) => InviteRecordPage(),// 第一次登录密码设置
+  '/mod': (context,{arguments}) => MineModPage(),// 第一次登录密码设置
+  '/modname': (context,{arguments}) => MineModNamePage(params: arguments,),// 第一次登录密码设置
 };
 
 var onGenerateRoute = (RouteSettings settings) {

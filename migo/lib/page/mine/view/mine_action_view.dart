@@ -31,7 +31,12 @@ class MineActionView extends StatelessWidget {
       case 0:
         Navigator.pushNamed(context, "/package");
         break;
+      case 1:
+        break;
+      case 2: 
+        break;
       default:
+        Navigator.pushNamed(context, "/invite");
     }
   }
 }

@@ -17,40 +17,45 @@ class MainHeadView extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 30,),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Image.asset("default.png")
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.only(top: 40, left: 15),
-                    color: Colors.yellow,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 40.0, left: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("小脑虎"),
-                        Row(
-                          children: [
-                            LevelView(titles: "等级",),
-                            SizedBox(width: 20,),
-                            LevelView(titles: "称号",),
-                          ],
-                        ),
-                        LevelView(titles: "我的团队",),
-                      ],
+              InkWell(
+                onTap: () => Navigator.pushNamed(context, "/mod"),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Image.asset("default.png")
+                    Container(
+                      height: 60,
+                      width: 60,
+                      margin: const EdgeInsets.only(top: 40, left: 15),
+                      color: Colors.yellow,
                     ),
-                  ),
-                  Spacer(),
-                  IconButton(
-                    icon: Icon(Icons.menu),
-                    padding: EdgeInsets.only(top: 15),
-                    onPressed: () {},
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(top: 40.0, left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("小脑虎"),
+                          Row(
+                            children: [
+                              LevelView(titles: "等级",),
+                              SizedBox(width: 20,),
+                              LevelView(titles: "称号",),
+                            ],
+                          ),
+                          LevelView(titles: "我的团队",),
+                        ],
+                      ),
+                    ),
+                    Spacer(),
+                    IconButton(
+                      icon: Icon(Icons.menu),
+                      padding: EdgeInsets.only(top: 15),
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/setting");
+                      },
+                    )
+                  ],
+                ),
               ),
 
               SizedBox(height: 40,),
@@ -66,7 +71,7 @@ class MainHeadView extends StatelessWidget {
           ),
         ),
 
-
+        /// mine action
         MineActionView(),
         Container(height: 100, color: Colors.red,),
         Padding(
