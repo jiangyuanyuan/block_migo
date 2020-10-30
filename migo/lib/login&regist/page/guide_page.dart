@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:migo/common/authbyimage/auth_manager.dart';
 import 'package:migo/common/const/cosnt.dart';
-import 'package:migo/common/language/i18n.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/page/lanuage_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:migo/main.dart' show FreeLocalizations;
@@ -52,7 +52,7 @@ class _GuidePageState extends State<GuidePage> {
             // Text("语言切换")
             InkWell(
               onTap: () => Navigator.pushNamed(context, "/language"),
-              child: Text("语言切换"),
+              child: Text(I18n.of(context).lang),
             ),
             Text("One MIGO One World"),
             // Text("登入")

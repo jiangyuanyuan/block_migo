@@ -1,4 +1,5 @@
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:migo/generated/i18n.dart';
 import 'package:migo/provider/user.dart';
 import 'package:migo/router.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'common/const/cosnt.dart';
-import 'common/language/i18n.dart';
 import 'common/util/t_event_bus.dart';
 import 'login&regist/page/guide_page.dart';
 
@@ -43,11 +43,11 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: onGenerateRoute,
       home: GuidePage(),
       localizationsDelegates: const [
-        S.delegate,
+        I18n.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      supportedLocales: S.delegate.supportedLocales,
+      supportedLocales: I18n.delegate.supportedLocales,
       builder: (context, child) {
         ScreenUtil.init(context, width: 375, height: 667, allowFontScaling: true);
         FlutterStatusbarcolor.setStatusBarColor(Colors.transparent, animate: true);
@@ -105,6 +105,8 @@ class _FreeLocalizations extends State<FreeLocalizations> {
     Future<Locale> locale = getDeviceLocale();
     locale.then((locales) {
       changeLocale(locales);
+      // 设置语言
+      I18n.locale = locales;
     });
   }
 
