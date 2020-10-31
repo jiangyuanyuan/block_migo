@@ -128,13 +128,13 @@ class MineModPage extends StatelessWidget {
               detailColor: AppColor.font333,
               onTap: () => Navigator.pushNamed(context, "/modname", arguments: {"modname": true, 'val':""}),
             ),
-            SettingCell(
-              title: "UID", 
-              detail: user.data?.id ?? "--",
-              detailColor: AppColor.font333,
-              showArrowIcon: false,
-              // onTap: () => Navigator.pushNamed(context, "/modname", arguments: {'modname': false, 'val':""}),
-            ),
+            // SettingCell(
+            //   title: "UID", 
+            //   detail: user.data?.id ?? "--",
+            //   detailColor: AppColor.font333,
+            //   showArrowIcon: false,
+            //   // onTap: () => Navigator.pushNamed(context, "/modname", arguments: {'modname': false, 'val':""}),
+            // ),
           ],
         );
       })

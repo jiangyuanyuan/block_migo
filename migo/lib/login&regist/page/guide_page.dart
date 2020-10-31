@@ -53,10 +53,11 @@ class _GuidePageState extends State<GuidePage> {
             Text("One MIGO One World"),
             // Text("登入")
             InkWell(
-              onTap: () => _jumpToRoot(context),
-              // onTap: () {
-              //   AuthManager.loadingBlockPuzzle(context);
-              // },
+              // onTap: () => _jumpToRoot(context),
+              onTap: () {
+                // AuthManager.loadingBlockPuzzle(context);
+                Navigator.pushNamed(context, "/login");
+              },
               child: Text("登入"),
             ),
           ],

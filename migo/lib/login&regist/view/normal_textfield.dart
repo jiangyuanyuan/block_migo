@@ -14,6 +14,8 @@ class NormalTextfield extends StatelessWidget {
   final TextEditingController controller;
   final Color backgroundColor;
   final double borderRadius;
+  final Function(String val) onSubmited;
+  final Function(String val) onChanged;
 
   const NormalTextfield({
     Key key, 
@@ -26,6 +28,8 @@ class NormalTextfield extends StatelessWidget {
     this.inputFormatters,
     this.controller,
     this.borderRadius = 3,
+    this.onChanged,
+    this.onSubmited,
     this.backgroundColor = AppColor.grey
   }) : super(key: key);
 

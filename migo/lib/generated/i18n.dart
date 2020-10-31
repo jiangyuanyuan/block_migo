@@ -40,8 +40,8 @@ class I18n implements WidgetsLocalizations {
   String get loginout => "登出";
   /// "中文"
   String get language => "中文";
-  /// "语言"
-  String get lang => "语言";
+  /// "切换语言"
+  String get lang => "切换语言";
   /// "首页"
   String get home => "首页";
   /// "兑换"
@@ -58,6 +58,44 @@ class I18n implements WidgetsLocalizations {
   String get withdraw => "提现";
   /// "邀请好友"
   String get invite => "邀请好友";
+  /// "密码"
+  String get password => "密码";
+  /// "手机"
+  String get phone => "手机";
+  /// "邮箱"
+  String get email => "邮箱";
+  /// "请输入手机号码"
+  String get pleaseinputphone => "请输入手机号码";
+  /// "请输入邮箱"
+  String get pleaseinputemail => "请输入邮箱";
+  /// "请输入密码"
+  String get pleaseinputpwd => "请输入密码";
+  /// "请输入验证码"
+  String get verificationcode => "请输入验证码";
+  /// "确认并前往登陆"
+  String get confirmlogin => "确认并前往登陆";
+  /// "获取验证码"
+  String get getcoude => "获取验证码";
+  /// "重新获取"
+  String get reacquire => "重新获取";
+  /// "设置"
+  String get setting => "设置";
+  /// "安全中心"
+  String get safecenter => "安全中心";
+  /// "帮助反馈"
+  String get feedback => "帮助反馈";
+  /// "关于"
+  String get about => "关于";
+  /// "实名认证"
+  String get verified => "实名认证";
+  /// "目前绑定"
+  String get currentbinding => "目前绑定";
+  /// "登入密码"
+  String get loginpwd => "登入密码";
+  /// "交易密码"
+  String get txpassword => "交易密码";
+  /// "保存"
+  String get save => "保存";
 }
 
 class _I18n_zh_CN extends I18n {
@@ -109,6 +147,63 @@ class _I18n_en_US extends I18n {
   /// "Invite friends"
   @override
   String get invite => "Invite friends";
+  /// "Password"
+  @override
+  String get password => "Password";
+  /// "Mobile"
+  @override
+  String get phone => "Mobile";
+  /// "Email"
+  @override
+  String get email => "Email";
+  /// "Phone number"
+  @override
+  String get pleaseinputphone => "Phone number";
+  /// "Email"
+  @override
+  String get pleaseinputemail => "Email";
+  /// "Password"
+  @override
+  String get pleaseinputpwd => "Password";
+  /// "Verification code"
+  @override
+  String get verificationcode => "Verification code";
+  /// "Confirm and Sign in"
+  @override
+  String get confirmlogin => "Confirm and Sign in";
+  /// "Verification code"
+  @override
+  String get getcoude => "Verification code";
+  /// "Reacquire"
+  @override
+  String get reacquire => "Reacquire";
+  /// "Setting"
+  @override
+  String get setting => "Setting";
+  /// "Security center"
+  @override
+  String get safecenter => "Security center";
+  /// "Feedback"
+  @override
+  String get feedback => "Feedback";
+  /// "About"
+  @override
+  String get about => "About";
+  /// "Verified"
+  @override
+  String get verified => "Verified";
+  /// "Current binding"
+  @override
+  String get currentbinding => "Current binding";
+  /// "Login password"
+  @override
+  String get loginpwd => "Login password";
+  /// "Transaction password"
+  @override
+  String get txpassword => "Transaction password";
+  /// "Save"
+  @override
+  String get save => "Save";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

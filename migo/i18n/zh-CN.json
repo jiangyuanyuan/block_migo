@@ -3,7 +3,9 @@
     "login":"登陆",
     "loginout":"登出",
     "language":"中文",
-    "lang":"语言",
+    "lang":"切换语言",
+
+
     "home":"首页",
     "exchange":"兑换",
     "market":"市场",
@@ -12,5 +14,27 @@
     "mypackage": "我的背包",
     "recharge": "充值",
     "withdraw": "提现",
-    "invite": "邀请好友"
+    "invite": "邀请好友",
+
+    "password": "密码",
+    "phone": "手机",
+    "email": "邮箱",
+    "pleaseinputphone": "请输入手机号码",
+    "pleaseinputemail": "请输入邮箱",
+    "pleaseinputpwd": "请输入密码",
+    "verificationcode":"请输入验证码",
+    "confirmlogin": "确认并前往登陆",
+    "getcoude": "获取验证码",
+    "reacquire": "重新获取",
+
+    "setting": "设置",
+    "safecenter": "安全中心",
+    "feedback": "帮助反馈",
+    "about": "关于",
+
+    "verified":"实名认证",
+    "currentbinding":"目前绑定",
+    "loginpwd":"登入密码",
+    "txpassword":"交易密码",
+    "save":"保存"
 }

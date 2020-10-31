@@ -5,13 +5,15 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/time_tool.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/common/util/time_tool.dart';
+import 'package:migo/generated/i18n.dart';
 
 
 class SmsCounterView extends StatefulWidget {
   
   final String phone;
-
-  const SmsCounterView({Key key, this.phone}) : super(key: key);
+  final bool isemail;
+  const SmsCounterView({Key key, this.phone, this.isemail = false}) : super(key: key);
 
   @override
   _SmsCounterViewState createState() => _SmsCounterViewState();
@@ -21,18 +23,22 @@ class _SmsCounterViewState extends State<SmsCounterView> {
 
   TimeTool _timer;
   int counter = 59;
-  bool isstop = false;
+  bool isstop = true;
 
   @override
   void initState() {
     super.initState();
-    _beginTimer();
   }
 
   @override
   void dispose() {
-    _timer.stop();
+    _timer?.stop();
     super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(SmsCounterView oldWidget) {
+    super.didUpdateWidget(oldWidget);
   }
 
   void _beginTimer() {
@@ -55,8 +61,20 @@ class _SmsCounterViewState extends State<SmsCounterView> {
   }
 
   void _resend() {
+    String phone = widget.phone ?? "";
+    if(widget.isemail && widget.phone == null) {
+      EasyLoading.showError(I18n.of(context).pleaseinputphone);
+      return;
+    }
+    if(!widget.isemail && phone.isEmpty) {
+      EasyLoading.showError(I18n.of(context).pleaseinputphone);
+      return;
+    }
     EasyLoading.show(status: "Loading...");
-    Networktool.request(API.sms + widget.phone, method: HTTPMETHOD.GET, success: (data){
+    Networktool.request(widget.isemail ? API.emailcode : API.sms, method: HTTPMETHOD.POST, params: {
+      "${widget.isemail ? 'email' : 'phone'}": widget.phone,
+      "type": 0
+    }, success: (data){
       // 回传新发的验证码
       _beginTimer();
     },finaly: () => EasyLoading.dismiss());
@@ -66,14 +84,8 @@ class _SmsCounterViewState extends State<SmsCounterView> {
   Widget build(BuildContext context) {
     return isstop ? InkWell(
       onTap: _resend,
-      child: Text("重新发送", style: AppFont.textStyle(14, color: Colors.blue),))
-      : Text.rich(
-      TextSpan(
-        children: [
-          TextSpan(text: "$counter", style: AppFont.textStyle(14, color: Colors.blue)),
-          TextSpan(text: " 秒后重新发送验证码", style: AppFont.textStyle(14, color: Colors.grey)),
-        ]
-      )
+      child: Text(I18n.of(context).getcoude, style: AppFont.textStyle(16, color: AppColor.blue),))
+      : Text("${I18n.of(context).reacquire}（{$counter}s）", style: AppFont.textStyle(16, color: AppColor.fontgrey)
     );
   }
 }

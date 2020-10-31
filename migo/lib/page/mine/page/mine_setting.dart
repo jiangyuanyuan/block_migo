@@ -3,6 +3,7 @@ import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/bottom_buttom.dart';
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/view/cache_cell.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +13,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MineSettingPage extends StatefulWidget {
 
   static const List<String> titles = [
+    "邀请好友",
     "安全中心",
-    "清除缓存",
-    "问题反馈",
-    "用户协议",
-    "隐私条款说明",
-    "当前版本"
+    "操作语言",
+    "帮助反馈",
+    "关于",
   ];
 
   @override
@@ -29,10 +29,13 @@ class _MineSettingPageState extends State<MineSettingPage> {
   void _jump(int sender) {
     switch (sender) {
       case 0:
+        Navigator.pushNamed(context, "/invite");
+        break;
+      case 1:
         Navigator.pushNamed(context, "/safe");
         break;
       case 2:
-        Navigator.pushNamed(context, "/feedback");
+        Navigator.pushNamed(context, "/language");
         break;
       default:
     }
@@ -41,8 +44,19 @@ class _MineSettingPageState extends State<MineSettingPage> {
   void _exitLogin() {
     Alert.showConfirmDialog(context, title: "确定要退出登录",sureCallback:(){
       SharedPreferences.getInstance().then((value) => value.clear());// 清楚用户数据
-      Navigator.pushNamedAndRemoveUntil(context, '/pwdlogin',(route) => false);
+      Navigator.pushNamedAndRemoveUntil(context, '/login',(route) => false);
     });
+  }
+
+  String _getTitle(BuildContext context,int index) {
+    List<String> titles = [
+      I18n.of(context).invite,
+      I18n.of(context).safecenter,
+      I18n.of(context).lang,
+      I18n.of(context).feedback,
+      I18n.of(context).about,
+    ];
+    return titles[index];
   }
 
   @override
@@ -50,7 +64,7 @@ class _MineSettingPageState extends State<MineSettingPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: NormalAppbar.normal(
-        title: Text("设置"),
+        title: Text(I18n.of(context).setting),
         onPress: () => Navigator.pop(context)
       ),
       body: Column(
@@ -58,16 +72,16 @@ class _MineSettingPageState extends State<MineSettingPage> {
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                if(index == 1) return MineSettingClear();
-                if(index == MineSettingPage.titles.length - 1) return VersionCell();
-                return SettingCell(title: MineSettingPage.titles[index], onTap: () => _jump(index),);
+              //   if(index == 1) return MineSettingClear();
+              //   if(index == MineSettingPage.titles.length - 1) return VersionCell();
+                return SettingCell(title: _getTitle(context, index), onTap: () => _jump(index),);
               }, 
               itemCount: MineSettingPage.titles.length
             ),
           ),
           SafeArea(
             child: BottomButton(
-              title: "退出登录",
+              title: I18n.of(context).loginout,
               onTap: _exitLogin,
             ),
           )
