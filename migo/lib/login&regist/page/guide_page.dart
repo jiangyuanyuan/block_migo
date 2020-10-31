@@ -18,7 +18,6 @@ class GuidePage extends StatefulWidget {
 
 class _GuidePageState extends State<GuidePage> {
 
-  bool pushed = false;
   @override
   void initState() {
     super.initState();
@@ -26,9 +25,6 @@ class _GuidePageState extends State<GuidePage> {
 
 
   void _jumpToRoot(BuildContext context) async {
-    setState(() {
-      pushed = true;
-    });
     final share = await SharedPreferences.getInstance();
     if(share.getString(AppConst.KEY_user_token) != null) {
       Navigator.of(context).pushReplacementNamed('/root');
@@ -57,7 +53,7 @@ class _GuidePageState extends State<GuidePage> {
             Text("One MIGO One World"),
             // Text("登入")
             InkWell(
-              onTap: () => Navigator.pushReplacementNamed(context, "/root"),
+              onTap: () => _jumpToRoot(context),
               // onTap: () {
               //   AuthManager.loadingBlockPuzzle(context);
               // },
