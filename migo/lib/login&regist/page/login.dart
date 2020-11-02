@@ -70,19 +70,19 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     Navigator.pushNamed(context, "/pwdlogin", arguments: {"phone": _controller.text});
   }
 
-  List<Widget> _createTabs(BuildContext context) {
-    List<String> titles = [
-      I18n.of(context).phone,
-      I18n.of(context).email,
-    ];
-    return titles.map((e) => Text(
-      e, 
-      style: AppFont.textStyle(
-        tabIndex == titles.indexOf(e) ? 20 : 14, 
-        color: tabIndex == titles.indexOf(e) ? Colors.white : Colors.white38),
-      )
-    ).toList();
-  }
+  // List<Widget> _createTabs(BuildContext context) {
+  //   List<String> titles = [
+  //     I18n.of(context).phone,
+  //     I18n.of(context).email,
+  //   ];
+  //   return titles.map((e) => Text(
+  //     e, 
+  //     style: AppFont.textStyle(
+  //       tabIndex == titles.indexOf(e) ? 20 : 14, 
+  //       color: tabIndex == titles.indexOf(e) ? Colors.white : Colors.white38),
+  //     )
+  //   ).toList();
+  // }
 
   String _getTitle(BuildContext context) {
     switch (modtype) {
@@ -121,26 +121,29 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                 },
               )
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 4, left: 14),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: TabBar(
-                  tabs: _createTabs(context),
-                  indicatorPadding: const EdgeInsets.only(left: 30, right: 30,),
-                  labelPadding: const EdgeInsets.only(top: 16, bottom: 10, right: 16, left: 16),
-                  controller: _tabController,
-                  indicatorWeight: 3,
-                  indicatorColor: Colors.white,
-                  isScrollable: true,
-                  onTap: (sender) {
-                    _pageController.jumpToPage(sender);
-                    setState(() {
-                      tabIndex = sender;
-                    });
-                  },
+            Padding(
+              padding: const EdgeInsets.only(top: 48.0, bottom: 40),
+              child: Image.asset("assets/logo.png"),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset("assets/phone_left.png"),
+                    Text(I18n.of(context).phone, textAlign: TextAlign.center, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),)
+                  ],
                 ),
-              ),
+                SizedBox(width: 1,),
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset("assets/email_right.png"),
+                    Text(I18n.of(context).email, textAlign: TextAlign.center, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),)
+                  ],
+                )
+              ],
             ),
             Expanded(
               child: PageView(

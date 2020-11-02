@@ -39,8 +39,12 @@ class NormalTextfield extends StatelessWidget {
       height: 51,
       margin: margin ?? EdgeInsets.zero,
       decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(borderRadius)
+        // color: backgroundColor,
+        // borderRadius: BorderRadius.circular(borderRadius)
+        image: DecorationImage(
+          image: AssetImage("assets/input_back.png"),
+          fit: BoxFit.fill
+        )
       ),
       child: TextField(
         obscureText: obscureText,

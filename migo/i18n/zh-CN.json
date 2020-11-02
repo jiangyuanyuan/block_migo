@@ -1,6 +1,6 @@
 {
     "greetTo": "你好 {name}",
-    "login":"登陆",
+    "login":"登入",
     "loginout":"登出",
     "language":"中文",
     "lang":"切换语言",
@@ -23,7 +23,7 @@
     "pleaseinputemail": "请输入邮箱",
     "pleaseinputpwd": "请输入密码",
     "verificationcode":"请输入验证码",
-    "confirmlogin": "确认并前往登陆",
+    "confirmlogin": "登陆",
     "getcoude": "获取验证码",
     "reacquire": "重新获取",
 

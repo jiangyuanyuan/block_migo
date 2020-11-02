@@ -34,8 +34,8 @@ class I18n implements WidgetsLocalizations {
 
   /// "你好 ${name}"
   String greetTo(String name) => "你好 ${name}";
-  /// "登陆"
-  String get login => "登陆";
+  /// "登入"
+  String get login => "登入";
   /// "登出"
   String get loginout => "登出";
   /// "中文"
@@ -72,8 +72,8 @@ class I18n implements WidgetsLocalizations {
   String get pleaseinputpwd => "请输入密码";
   /// "请输入验证码"
   String get verificationcode => "请输入验证码";
-  /// "确认并前往登陆"
-  String get confirmlogin => "确认并前往登陆";
+  /// "登陆"
+  String get confirmlogin => "登陆";
   /// "获取验证码"
   String get getcoude => "获取验证码";
   /// "重新获取"
@@ -168,9 +168,9 @@ class _I18n_en_US extends I18n {
   /// "Verification code"
   @override
   String get verificationcode => "Verification code";
-  /// "Confirm and Sign in"
+  /// "Sign in"
   @override
-  String get confirmlogin => "Confirm and Sign in";
+  String get confirmlogin => "Sign in";
   /// "Verification code"
   @override
   String get getcoude => "Verification code";
