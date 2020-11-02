@@ -18,7 +18,9 @@
     "pleaseinputphone": "Phone number",
     "pleaseinputemail": "Email",
     "pleaseinputpwd": "Password",
-    "confirmlogin": "Sign in",
+    "pleaseinputnewpwd": "New password",
+    "confirminputnewpwd": "Confirm password",
+    "confirmlogin": "Confirm and Sign in",
     "setting": "Setting",
     "safecenter": "Security center",
     "feedback": "Feedback",
@@ -30,5 +32,14 @@
     "verificationcode": "Verification code",
     "getcoude": "Verification code",
     "reacquire": "Reacquire",
-    "save": "Save"
+    "save": "Save",
+    "erroraccount": "Error account or password",
+    "forgetpwd": "Forget password?",
+    "register": "Sign up",
+    "next": "Next",
+    "newer": "Novice",
+    "sure": "Confirm",
+    "cancel": "Cancel",
+    "canyouexit": "Are you sure you want to log out?",
+    "resetpwd": "Reset password"
 }

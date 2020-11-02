@@ -230,6 +230,7 @@ class Alert {
           buttonPadding: EdgeInsets.zero,
           insetPadding: EdgeInsets.zero,
           titlePadding: EdgeInsets.zero,
+          elevation: 0,
           backgroundColor: Colors.transparent,
           content: child,
         );

@@ -23,11 +23,13 @@ class _GuidePageState extends State<GuidePage> {
 
 
   void _jumpToRoot(BuildContext context) async {
+    Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
+    return;
     final share = await SharedPreferences.getInstance();
     if(share.getString(AppConst.KEY_user_token) != null) {
-      Navigator.of(context).pushReplacementNamed('/root');
+      Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
     } else {
-      Navigator.of(context).pushReplacementNamed('/login');
+      Navigator.of(context).pushNamed('/login');
     }
   }
 
@@ -38,35 +40,37 @@ class _GuidePageState extends State<GuidePage> {
     ScreenUtil.init(context, width: 375, height: 667, allowFontScaling: true);
     return Scaffold(
       backgroundColor: AppColor.back998,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              children: [
-                Image.asset("assets/手机.png"),
-                Positioned(
-                  right: 40,
-                  top: 40,
-                  child: InkWell(
-                    onTap: () => Navigator.pushNamed(context, "/language"),
-                    child: Image.asset("assets/语言切换.png")
-                  ),
-                )
-              ],
-            ),
-            SizedBox(height: 40,),
-            BtnAction(
-              title: I18n.of(context).login,
-              onTap: () {
-                Navigator.pushNamed(context, "/login");
-              },
-            ),
-            // BtnAction(
-            //   title: I18n.of(context).login,
-            //   backImg: "btn_inactive.png",
-            // )
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/背景图.png"),
+            fit: BoxFit.cover
+          )
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Stack(
+                children: [
+                  Image.asset("assets/手机.png"),
+                  Positioned(
+                    right: 40,
+                    top: 40,
+                    child: InkWell(
+                      onTap: () => Navigator.pushNamed(context, "/language"),
+                      child: Image.asset("assets/语言切换.png")
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 40,),
+              BtnAction(
+                title: I18n.of(context).login,
+                onTap: () => _jumpToRoot(context),
+              ),
+            ],
+          ),
         ),
       ),
     );

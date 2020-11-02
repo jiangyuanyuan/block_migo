@@ -4,6 +4,7 @@ import 'package:migo/common/commview/bottom_buttom.dart';
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/mine/view/alert_exit.dart';
 import 'package:migo/page/mine/view/cache_cell.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
 import 'package:flutter/material.dart';
@@ -42,10 +43,14 @@ class _MineSettingPageState extends State<MineSettingPage> {
   }
 
   void _exitLogin() {
-    Alert.showConfirmDialog(context, title: "确定要退出登录",sureCallback:(){
+    // Alert.showConfirmDialog(context, title: "确定要退出登录",sureCallback:(){
+    //   SharedPreferences.getInstance().then((value) => value.clear());// 清楚用户数据
+    //   Navigator.pushNamedAndRemoveUntil(context, '/login',(route) => false);
+    // });
+    Alert.showViewDialog(context, AlertExitView(onSure: () {
       SharedPreferences.getInstance().then((value) => value.clear());// 清楚用户数据
       Navigator.pushNamedAndRemoveUntil(context, '/login',(route) => false);
-    });
+    },));
   }
 
   String _getTitle(BuildContext context,int index) {

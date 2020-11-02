@@ -16,7 +16,7 @@ class MainHeadView extends StatelessWidget {
           height: 250,
           child: Column(
             children: [
-              SizedBox(height: 30,),
+              SizedBox(height: 30),
               InkWell(
                 onTap: () => Navigator.pushNamed(context, "/mod"),
                 child: Row(

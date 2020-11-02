@@ -72,8 +72,12 @@ class I18n implements WidgetsLocalizations {
   String get pleaseinputpwd => "请输入密码";
   /// "请输入验证码"
   String get verificationcode => "请输入验证码";
-  /// "登陆"
-  String get confirmlogin => "登陆";
+  /// "请输入新密码"
+  String get pleaseinputnewpwd => "请输入新密码";
+  /// "请确认新密码"
+  String get confirminputnewpwd => "请确认新密码";
+  /// "确认并前往登入"
+  String get confirmlogin => "确认并前往登入";
   /// "获取验证码"
   String get getcoude => "获取验证码";
   /// "重新获取"
@@ -96,6 +100,24 @@ class I18n implements WidgetsLocalizations {
   String get txpassword => "交易密码";
   /// "保存"
   String get save => "保存";
+  /// "新手"
+  String get newer => "新手";
+  /// "用户名或密码错误"
+  String get erroraccount => "用户名或密码错误";
+  /// "忘记密码?"
+  String get forgetpwd => "忘记密码?";
+  /// "注册新账号"
+  String get register => "注册新账号";
+  /// "下一步"
+  String get next => "下一步";
+  /// "确认"
+  String get sure => "确认";
+  /// "取消"
+  String get cancel => "取消";
+  /// "请问确定要登出吗？"
+  String get canyouexit => "请问确定要登出吗？";
+  /// "设置新密码"
+  String get resetpwd => "设置新密码";
 }
 
 class _I18n_zh_CN extends I18n {
@@ -168,9 +190,15 @@ class _I18n_en_US extends I18n {
   /// "Verification code"
   @override
   String get verificationcode => "Verification code";
-  /// "Sign in"
+  /// "New password"
   @override
-  String get confirmlogin => "Sign in";
+  String get pleaseinputnewpwd => "New password";
+  /// "Confirm password"
+  @override
+  String get confirminputnewpwd => "Confirm password";
+  /// "Confirm and Sign in"
+  @override
+  String get confirmlogin => "Confirm and Sign in";
   /// "Verification code"
   @override
   String get getcoude => "Verification code";
@@ -204,6 +232,33 @@ class _I18n_en_US extends I18n {
   /// "Save"
   @override
   String get save => "Save";
+  /// "Novice"
+  @override
+  String get newer => "Novice";
+  /// "Error account or password"
+  @override
+  String get erroraccount => "Error account or password";
+  /// "Forget password?"
+  @override
+  String get forgetpwd => "Forget password?";
+  /// "Sign up"
+  @override
+  String get register => "Sign up";
+  /// "Next"
+  @override
+  String get next => "Next";
+  /// "Confirm"
+  @override
+  String get sure => "Confirm";
+  /// "Cancel"
+  @override
+  String get cancel => "Cancel";
+  /// "Are you sure you want to log out?"
+  @override
+  String get canyouexit => "Are you sure you want to log out?";
+  /// "Reset password"
+  @override
+  String get resetpwd => "Reset password";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

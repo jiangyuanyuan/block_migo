@@ -19,7 +19,7 @@ class NormalAppbar{
       actions: actions,
       leading: leading == null ? IconButton(
         padding: const EdgeInsets.all(0),
-        icon: Image.asset("assets/icon_zuo.png"),
+        icon: Image.asset("assets/icon_zuo.png", color: Colors.white,),
         onPressed: onPress,
       ) : leading,
     );

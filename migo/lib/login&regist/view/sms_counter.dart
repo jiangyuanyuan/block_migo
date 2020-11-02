@@ -84,8 +84,8 @@ class _SmsCounterViewState extends State<SmsCounterView> {
   Widget build(BuildContext context) {
     return isstop ? InkWell(
       onTap: _resend,
-      child: Text(I18n.of(context).getcoude, style: AppFont.textStyle(16, color: AppColor.blue),))
-      : Text("${I18n.of(context).reacquire}（{$counter}s）", style: AppFont.textStyle(16, color: AppColor.fontgrey)
+      child: Text(I18n.of(context).getcoude, style: AppFont.textStyle(12, color: AppColor.back998),))
+      : Text("${I18n.of(context).reacquire}（{$counter}s）", style: AppFont.textStyle(12, color: AppColor.back998.withOpacity(0.3))
     );
   }
 }

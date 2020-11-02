@@ -22,14 +22,14 @@ class AuthManager {
   }
 
   //滑动拼图
-  static void loadingBlockPuzzle(BuildContext context, {barrierDismissible = true}) {
+  static void loadingBlockPuzzle(BuildContext context, {barrierDismissible = true, Function() success}) {
     showDialog<Null>(
       context: context,
       barrierDismissible: barrierDismissible,
       builder: (BuildContext context) {
         return BlockPuzzleCaptchaPage(
           onSuccess: (v){
-
+            if(success != null) success();
           },
           onFail: (){
 

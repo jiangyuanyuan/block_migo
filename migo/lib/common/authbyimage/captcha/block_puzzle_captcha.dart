@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:migo/common/textstyle/textstyle.dart';
+
 import '../request/HttpManager.dart';
 import '../request/encrypt_util.dart';
 import '../tools/object_utils.dart';
@@ -54,7 +56,7 @@ class _BlockPuzzleCaptchaPageState extends State<BlockPuzzleCaptchaPage>
   GlobalKey _baseImageKey = new GlobalKey();
   //滑块
   GlobalKey _slideImageKey = new GlobalKey();
-  double _bottomSliderSize = 60;
+  double _bottomSliderSize = 50;
 
 
   //------------动画------------
@@ -321,7 +323,7 @@ class _BlockPuzzleCaptchaPageState extends State<BlockPuzzleCaptchaPage>
   ///顶部，提示+关闭
   _topContainer() {
     return Container(
-      height: 50,
+      height: _bottomSliderSize,
       padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
       decoration: BoxDecoration(
         border: Border(bottom: BorderSide(width: 1, color: Color(0xffe5e5e5))),
@@ -331,7 +333,7 @@ class _BlockPuzzleCaptchaPageState extends State<BlockPuzzleCaptchaPage>
         children: <Widget>[
           Text(
             '请完成安全验证',
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 16, color: AppColor.fontgrey),
           ),
           IconButton(
               icon: Icon(Icons.highlight_off),
@@ -437,7 +439,7 @@ class _BlockPuzzleCaptchaPageState extends State<BlockPuzzleCaptchaPage>
   _bottomContainer() {
     return baseSize.width >0
         ? Container(
-        height: 50,
+        height: _bottomSliderSize,
         width: baseSize.width,
 //            color: Colors.cyanAccent,
         child: Stack(

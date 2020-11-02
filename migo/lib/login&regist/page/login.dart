@@ -1,16 +1,14 @@
+import 'package:migo/common/authbyimage/auth_manager.dart';
+import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/appbar.dart';
-import 'package:migo/common/commview/bottom_buttom.dart';
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/login_email.dart';
 import 'package:migo/login&regist/view/login_phone.dart';
-import 'package:migo/login&regist/view/phone_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
-import '../view/rich_protocol.dart';
 
 class LoginPage extends StatefulWidget {
   final Map param;
@@ -24,15 +22,13 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
 
   FocusNode _focusNode = FocusNode();
   TextEditingController _controller = TextEditingController();
-  TabController _tabController;
   int tabIndex = 0;
   PageController _pageController = PageController();
-  // 1: 修改密码 2: 修改交易密码
+  // 1: 修改密码 2: 修改交易密码 3 忘记密码
   int modtype = 0;
   @override
   void dispose() {
     _controller.dispose();
-    _tabController.dispose();
     _pageController.dispose();
     super.dispose();
   }
@@ -43,7 +39,6 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     if(widget.param != null) {
       modtype = widget.param["modtype"];
     }
-    _tabController = TabController(length: 2, vsync: this);
   }
 
   void _jumpSmsCode() {
@@ -59,30 +54,22 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       EasyLoading.showToast(isemail ? I18n.of(context).pleaseinputemail : I18n.of(context).pleaseinputphone);
       return;
     }
+    if(modtype == 3) { // 忘记密码
+      Navigator.pushNamed(context, "/loginsetpwd");
+      return;
+    }
     if(pwd.isEmpty) {
       EasyLoading.showToast(I18n.of(context).pleaseinputpwd);
       return;
     }
-    Navigator.of(context).pushReplacementNamed('/root');
+    // Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
+    // Alert.showViewDialog(context, );
+    AuthManager.loadingBlockPuzzle(context, success: () {
+      Future.delayed(const Duration(milliseconds: 100)).then((value) {
+        Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
+      });
+    });
   }
-
-  void _jumpPwdlogin() {
-    Navigator.pushNamed(context, "/pwdlogin", arguments: {"phone": _controller.text});
-  }
-
-  // List<Widget> _createTabs(BuildContext context) {
-  //   List<String> titles = [
-  //     I18n.of(context).phone,
-  //     I18n.of(context).email,
-  //   ];
-  //   return titles.map((e) => Text(
-  //     e, 
-  //     style: AppFont.textStyle(
-  //       tabIndex == titles.indexOf(e) ? 20 : 14, 
-  //       color: tabIndex == titles.indexOf(e) ? Colors.white : Colors.white38),
-  //     )
-  //   ).toList();
-  // }
 
   String _getTitle(BuildContext context) {
     switch (modtype) {
@@ -91,6 +78,10 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
         break;
       case 1:
         return I18n.of(context).setting + " " + I18n.of(context).loginpwd;
+        break;
+      case 3: 
+        return I18n.of(context).forgetpwd;
+        break;
       default:
         return I18n.of(context).setting + " " + I18n.of(context).txpassword;
     }
@@ -98,69 +89,90 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    
-    final size = MediaQuery.of(context).size;
-
+  
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       backgroundColor: AppColor.back998,
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () => _focusNode.unfocus(),
-        child: Column(
-          children: [
-            NormalAppbar.normal(
-              color: AppColor.back998,
-              title: Text(_getTitle(context), style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),),
-              leading: IconButton(
-                icon: Image.asset("assets/icon_zuo.png", color: Colors.white,),
-                onPressed: () {
-                  if(Navigator.canPop(context)) {
-                     Navigator.pop(context);
-                  }
-                },
-              )
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 48.0, bottom: 40),
-              child: Image.asset("assets/logo.png"),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset("assets/phone_left.png"),
-                    Text(I18n.of(context).phone, textAlign: TextAlign.center, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),)
-                  ],
-                ),
-                SizedBox(width: 1,),
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset("assets/email_right.png"),
-                    Text(I18n.of(context).email, textAlign: TextAlign.center, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),)
-                  ],
-                )
-              ],
-            ),
-            Expanded(
-              child: PageView(
-                controller: _pageController,
-                children: [
-                  LoginPhoneView(modetype: modtype, onLogin: (sender, pwd) => _login(sender, pwd, false),),
-                  LoginEmailView(modtype: modtype, onLogin: (sender, pwd) => _login(sender, pwd, true))
-                ],
-                onPageChanged: (value) {
-                  setState(() {
-                    tabIndex = value;
-                  });
-                  _tabController.animateTo(value);
-                },
-              ),
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/背景图.png"),
+              fit: BoxFit.cover
             )
-          ],
+          ),
+          child: Column(
+            children: [
+              NormalAppbar.normal(
+                color: Colors.transparent,
+                title: Text(_getTitle(context), style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),),
+                leading: IconButton(
+                  icon: Image.asset("assets/icon_zuo.png", color: Colors.white,),
+                  onPressed: () {
+                    if(Navigator.canPop(context)) {
+                       Navigator.pop(context);
+                    }
+                  },
+                )
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 48.0, bottom: 40),
+                child: Image.asset("assets/logo.png"),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        tabIndex = 0;
+                      });
+                      _pageController.animateToPage(0, duration: const Duration(milliseconds: 200), curve: Curves.bounceInOut);
+                    },
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Image.asset("assets/phone_left.png"),
+                        Text(I18n.of(context).phone, textAlign: TextAlign.center, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 1,),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        tabIndex = 1;
+                      });
+                      _pageController.animateToPage(1, duration: const Duration(milliseconds: 200), curve: Curves.bounceInOut);
+                    },
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Image.asset("assets/email_right.png"),
+                        Text(I18n.of(context).email, textAlign: TextAlign.center, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              Expanded(
+                child: PageView(
+                  controller: _pageController,
+                  children: [
+                    LoginPhoneView(modetype: modtype, onLogin: (sender, pwd) => _login(sender, pwd, false),),
+                    LoginEmailView(modtype: modtype, onLogin: (sender, pwd) => _login(sender, pwd, true))
+                  ],
+                  onPageChanged: (value) {
+                    setState(() {
+                      tabIndex = value;
+                    });
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

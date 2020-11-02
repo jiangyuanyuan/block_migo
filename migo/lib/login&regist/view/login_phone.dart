@@ -25,6 +25,8 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
   FocusNode _pwdNode = FocusNode();
   bool ispwd = true;
   String phone = "";
+  bool showerror = false;
+
   @override
   void dispose() {
     _phoneController.dispose();
@@ -67,71 +69,102 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 30, left: 24, right: 24, bottom: 10),
-                  child: NormalTextfield(
-                      controller: _phoneController,
-                      focusNode: _phoneNode,
-                      backgroundColor: Colors.transparent,
-                      hintText: I18n.of(context).pleaseinputphone,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        WhitelistingTextInputFormatter.digitsOnly
-                      ],
-                      onSubmited: (val) {
-                        setState(() {
-                          phone = val;
-                        });
-                      },
-                      onChanged: (val) {
-                        setState(() {
-                          phone = val;
-                        });
-                      },
-                    ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Stack(
+                    alignment: Alignment.center,
                     children: [
                       NormalTextfield(
-                        focusNode: _pwdNode,
-                        controller: _pwdController,
-                        hintText: I18n.of(context).pleaseinputpwd,
-                        obscureText: ispwd,
-                      ),
-                      Positioned(
-                        right: 0,
-                        child: IconButton(
-                          icon: Image.asset("assets/${ispwd ? "ico_passw_eye_show" : "ico_passw_eye_hide"}.png"),
-                          onPressed: () {
+                          controller: _phoneController,
+                          focusNode: _phoneNode,
+                          backgroundColor: Colors.transparent,
+                          hintText: I18n.of(context).pleaseinputphone,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            WhitelistingTextInputFormatter.digitsOnly
+                          ],
+                          onSubmited: (val) {
                             setState(() {
-                              ispwd = !ispwd;
+                              phone = val;
                             });
                           },
+                          onChanged: (val) {
+                            setState(() {
+                              phone = val;
+                            });
+                          },
+                        ),
+                      Visibility(
+                        visible: showerror,
+                        child: Positioned.fill(
+                          child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                showerror = false;
+                                _phoneNode.requestFocus();
+                              });
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.all(4.5),
+                              alignment: Alignment.centerLeft,
+                              padding: const EdgeInsets.only(left: 10),
+                              color: const Color(0xffFFE7E7),
+                              child: Text(I18n.of(context).erroraccount, style: AppFont.textStyle(12, color: AppColor.red),),
+                            ),
+                          ),
                         ),
                       )
                     ],
                   ),
                 ),
                 Visibility(
+                  visible: widget.modetype == 0,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Stack(
+                      children: [
+                        NormalTextfield(
+                          focusNode: _pwdNode,
+                          controller: _pwdController,
+                          hintText: I18n.of(context).pleaseinputpwd,
+                          obscureText: ispwd,
+                        ),
+                        Positioned(
+                          right: 0,
+                          child: IconButton(
+                            icon: Image.asset("assets/${ispwd ? "ico_passw_eye_show" : "ico_passw_eye_hide"}.png"),
+                            onPressed: () {
+                              setState(() {
+                                ispwd = !ispwd;
+                              });
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Visibility(
                   visible: widget.modetype != 0,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Row(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Stack(
                       children: [
-                        Expanded(
-                          child: NormalTextfield(
-                            hintText: I18n.of(context).verificationcode,
-                            backgroundColor: Colors.white,
-                            maxLength: 6,
-                            inputFormatters: [
-                              WhitelistingTextInputFormatter.digitsOnly
-                            ],
-                            keyboardType: TextInputType.number,
-                            focusNode: _codefocusNode,
-                            controller: _codeController,
-                          ),
+                        NormalTextfield(
+                          hintText: I18n.of(context).verificationcode,
+                          backgroundColor: Colors.white,
+                          maxLength: 6,
+                          inputFormatters: [
+                            WhitelistingTextInputFormatter.digitsOnly
+                          ],
+                          keyboardType: TextInputType.number,
+                          focusNode: _codefocusNode,
+                          controller: _codeController,
                         ),
-                        SmsCounterView(phone: phone,)
+                        Positioned(
+                          right: 12,
+                          top: 0,
+                          bottom: 0,
+                          child: Center(child: SmsCounterView(phone: phone,)),
+                        )
                       ],
                     ),
                   ),
@@ -144,23 +177,32 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
                       _clear();
                       if(widget.onLogin != null)widget.onLogin(_phoneController.text, _pwdController.text);
                     },
-                    title: widget.modetype == 0 ? I18n.of(context).confirmlogin : I18n.of(context).save,
+                    title: widget.modetype == 0 ? I18n.of(context).login : I18n.of(context).next,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("忘记密码", style: AppFont.textStyle(12, color: Colors.black54),),
-                      Container(
-                        height: 10,
-                        width: 1.5,
-                        margin: const EdgeInsets.symmetric(horizontal: 10),
-                        color: const Color(0xffD8D8D8),
+                  padding: const EdgeInsets.only(bottom: 30.0),
+                  child: Visibility(
+                    visible: widget.modetype == 0,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: () => Navigator.pushNamed(context, "/login", arguments: {'modtype': 3}),
+                            child: Text(I18n.of(context).forgetpwd, style: AppFont.textStyle(12, color: Colors.black54),)
+                          ),
+                          Container(
+                            height: 10,
+                            width: 1.5,
+                            margin: const EdgeInsets.symmetric(horizontal: 10),
+                            color: const Color(0xffD8D8D8),
+                          ),
+                          Text(I18n.of(context).register, style: AppFont.textStyle(12, color: AppColor.back998),)
+                        ],
                       ),
-                      Text("注册新账号", style: AppFont.textStyle(12, color: AppColor.back998),)
-                    ],
+                    ),
                   ),
                 )
               ],
