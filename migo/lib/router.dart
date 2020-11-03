@@ -1,12 +1,17 @@
 
 import 'package:migo/login&regist/page/lanuage_page.dart';
 import 'package:migo/login&regist/page/login_set_pwd.dart';
+import 'package:migo/page/contract/page/exchange_success_page.dart';
+import 'package:migo/page/contract/page/recharge_page.dart';
+import 'package:migo/page/contract/page/reflect_page.dart';
+import 'package:migo/page/contract/page/reflect_success_page.dart';
 import 'package:migo/page/mine/page/invite_record_page.dart';
 import 'package:migo/page/mine/page/mine_invite_page.dart';
 import 'package:migo/page/mine/page/mine_mod.dart';
 import 'package:migo/page/mine/page/mine_mod_name.dart';
 import 'package:migo/page/mine/page/mine_package_page.dart';
 import 'package:migo/page/mine/page/mine_setting.dart';
+import 'package:migo/page/mine/page/mine_team_page.dart';
 import 'package:migo/page/mine/page/safe_page.dart';
 import 'package:migo/root/root.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,6 +36,15 @@ final routes = {
   '/mod': (context,{arguments}) => MineModPage(),// 第一次登录密码设置
   '/modname': (context,{arguments}) => MineModNamePage(params: arguments,),// 第一次登录密码设置
   '/safe': (context,{arguments}) => SafePage(),// 第一次登录密码设置
+
+
+  /// exchange
+  '/exchangesuccess': (context,{arguments}) => ExchangeSuccessPage(params: arguments,),// 第一次登录密码设置
+  '/recharge': (context,{arguments}) => RechagePage(),// 第一次登录密码设置
+  '/reflect': (context,{arguments}) => ReflectPage(),// 第一次登录密码设置
+  '/reflectsuccess': (context,{arguments}) => ReflectSuccessPage(),// 第一次登录密码设置
+  '/mineteam': (context,{arguments}) => MineTeamPage(),// 第一次登录密码设置
+  
 };
 
 var onGenerateRoute = (RouteSettings settings) {

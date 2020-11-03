@@ -2,10 +2,12 @@ import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/generated/i18n.dart';
 
 import 'package:migo/page/contract/page/contract_page.dart';
+import 'package:migo/page/contract/page/recharge_page.dart';
 import 'package:migo/page/home/page/home_page.dart';
 import 'package:migo/page/market/page/market_page.dart';
 import 'package:migo/page/mine/page/mine_page.dart';
 import 'package:flutter/material.dart';
+import 'package:migo/page/mine/page/mine_team_page.dart';
 
 class RootPage extends StatefulWidget {
   @override
@@ -18,8 +20,10 @@ class _RootPageState extends State<RootPage> {
   PageController _pageController = PageController(initialPage: 0);
   List<Widget> pages = <Widget>[
           HomePage(),
+          // RechagePage(),
           ContractPage(),
-          MarketPage(),
+          MineTeamPage(),
+          // MarketPage(),
           MinePage()
         ];
 
@@ -31,11 +35,10 @@ class _RootPageState extends State<RootPage> {
   // ];
 
   static const List<String> tabIconsName = [
-    "icon_zhuyexz.png",
-    "icon_jiaoyiquan.png",
-    "icon_zhinengjiaoyi.png",
-    "icon_paihangbang.png",
-    "icon_wode.png"
+    "home.png",
+    "home_recharge.png",
+    "home_reflect.png",
+    "home_exchange.png",
   ];
 
   @override
@@ -53,14 +56,14 @@ class _RootPageState extends State<RootPage> {
     List<String> tabTitles = [
       I18n.of(context).home,
       I18n.of(context).exchange,
-      I18n.of(context).market,
+      I18n.of(context).team,
       I18n.of(context).mine,
     ];
     return tabTitles.map((e) {
       final index = tabTitles.indexOf(e);
       return BottomNavigationBarItem(
-      icon: Image.asset("assets/${tabIconsName[index]}", color: AppColor.fontgrey,),
-      activeIcon: Image.asset("assets/${tabIconsName[index]}", color: AppColor.blue,),
+      icon: Image.asset("assets/${tabIconsName[index]}",),
+      activeIcon: Image.asset("assets/${tabIconsName[index]}",),
       title: Padding(
         padding: const EdgeInsets.only(top: 6.0),
         child: Text(e, style: TextStyle(

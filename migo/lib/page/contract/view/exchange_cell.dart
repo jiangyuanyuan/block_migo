@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 class ExchangeCell extends StatefulWidget {
   final bool ispre;
@@ -25,8 +26,8 @@ class _ExchangeCellState extends State<ExchangeCell> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(widget.ispre ? "输出" : "输出（预估）", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-              Text("余额: 44.848485", style: AppFont.textStyle(12, color: AppColor.back998),)
+              Text(widget.ispre ? I18n.of(context).output : "${I18n.of(context).output}(${I18n.of(context).estimate})", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+              Text("${I18n.of(context).balance}: 44.848485", style: AppFont.textStyle(12, color: AppColor.back998),)
             ],
           ),
           Row(
@@ -58,7 +59,7 @@ class _ExchangeCellState extends State<ExchangeCell> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("选择币种", style: AppFont.textStyle(12, color: Colors.white),),
+                    Text(I18n.of(context).choosecoin, style: AppFont.textStyle(12, color: Colors.white),),
                     SizedBox(width: 5,),
                     Image.asset("assets/pull.png")
                   ],

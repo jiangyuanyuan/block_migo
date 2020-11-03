@@ -6,7 +6,6 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/login&regist/view/sms_counter.dart';
-import 'package:migo/login&regist/view/sms_input.dart';
 
 class LoginEmailView extends StatefulWidget {
   final Function(String phone, String pwd) onLogin;

@@ -21,3 +21,9 @@ samples, guidance on mobile development, and a full API reference.
 首页新手选项图切图
 盲盒弹窗切图
 个人中心切图
+
+
+兑换页面 "500 USDT 每 MIGO"旁边图标
+兑换成功勾勾图标,
+选择币种右边的按钮
+提现页面扫描icon

@@ -56,6 +56,20 @@ class I18n implements WidgetsLocalizations {
   String get recharge => "充值";
   /// "提现"
   String get withdraw => "提现";
+  /// "提现地址："
+  String get withdrawaddress => "提现地址：";
+  /// "提现数量："
+  String get withdrawnum => "提现数量：";
+  /// "提现规则："
+  String get withdrawrule => "提现规则：";
+  /// "提现成功"
+  String get withdrawsuccess => "提现成功";
+  /// "到账数量："
+  String get arrivalquantity => "到账数量：";
+  /// "团队"
+  String get team => "团队";
+  /// "我的团队"
+  String get myteam => "我的团队";
   /// "邀请好友"
   String get invite => "邀请好友";
   /// "密码"
@@ -70,6 +84,8 @@ class I18n implements WidgetsLocalizations {
   String get pleaseinputemail => "请输入邮箱";
   /// "请输入密码"
   String get pleaseinputpwd => "请输入密码";
+  /// "输入交易密码"
+  String get pleasetxpassword => "输入交易密码";
   /// "请输入验证码"
   String get verificationcode => "请输入验证码";
   /// "请输入新密码"
@@ -82,6 +98,8 @@ class I18n implements WidgetsLocalizations {
   String get getcoude => "获取验证码";
   /// "重新获取"
   String get reacquire => "重新获取";
+  /// "兑换成功"
+  String get exchagesuccess => "兑换成功";
   /// "设置"
   String get setting => "设置";
   /// "安全中心"
@@ -90,6 +108,16 @@ class I18n implements WidgetsLocalizations {
   String get feedback => "帮助反馈";
   /// "关于"
   String get about => "关于";
+  /// "数量"
+  String get number => "数量";
+  /// "日期"
+  String get date => "日期";
+  /// "时间"
+  String get time => "时间";
+  /// "总计"
+  String get total => "总计";
+  /// "完成"
+  String get finish => "完成";
   /// "实名认证"
   String get verified => "实名认证";
   /// "目前绑定"
@@ -102,6 +130,34 @@ class I18n implements WidgetsLocalizations {
   String get save => "保存";
   /// "新手"
   String get newer => "新手";
+  /// "输出"
+  String get output => "输出";
+  /// "预估"
+  String get estimate => "预估";
+  /// "余额"
+  String get balance => "余额";
+  /// "选择币种"
+  String get choosecoin => "选择币种";
+  /// "价格"
+  String get price => "价格";
+  /// "手续费减免"
+  String get feereduction => "手续费减免";
+  /// "当前${level}级别"
+  String currlevel(String level) => "当前${level}级别";
+  /// "下一级${level}级别"
+  String nextlevel(String level) => "下一级${level}级别";
+  /// "立即兑换"
+  String get redeemnow => "立即兑换";
+  /// "确认兑换"
+  String get confirmexchange => "确认兑换";
+  /// "供应量"
+  String get supply => "供应量";
+  /// "最少获得"
+  String get leastget => "最少获得";
+  /// "价格滑点"
+  String get priceslippage => "价格滑点";
+  /// "手续费"
+  String get handlingfee => "手续费";
   /// "用户名或密码错误"
   String get erroraccount => "用户名或密码错误";
   /// "忘记密码?"
@@ -116,6 +172,26 @@ class I18n implements WidgetsLocalizations {
   String get cancel => "取消";
   /// "请问确定要登出吗？"
   String get canyouexit => "请问确定要登出吗？";
+  /// "扫描二维码进行充值"
+  String get scanqrtorecharge => "扫描二维码进行充值";
+  /// "充值地址（复制地址如下)"
+  String get copyaddress => "充值地址（复制地址如下)";
+  /// "1. 该币种合约地址为migo.token"
+  String get notice1 => "1. 该币种合约地址为migo.token";
+  /// "2. 此地址只接受EOS，发送其他币种到此地址将不可找回。"
+  String get notice2 => "2. 此地址只接受EOS，发送其他币种到此地址将不可找回。";
+  /// "3. 默认充值至钱包余额。"
+  String get notice3 => "3. 默认充值至钱包余额。";
+  /// "4. 您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。"
+  String get notice4 => "4. 您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。";
+  /// "请输入或长按粘贴"
+  String get pleaseinputorcopy => "请输入或长按粘贴";
+  /// "请输入数量"
+  String get pleaseinputonumber => "请输入数量";
+  /// "可提数量："
+  String get availableamount => "可提数量：";
+  /// "实际到账："
+  String get actualarrival => "实际到账：";
   /// "设置新密码"
   String get resetpwd => "设置新密码";
 }
@@ -166,6 +242,27 @@ class _I18n_en_US extends I18n {
   /// "Withdraw"
   @override
   String get withdraw => "Withdraw";
+  /// "Withdrawal address:"
+  @override
+  String get withdrawaddress => "Withdrawal address:";
+  /// "Withdraw quantity:"
+  @override
+  String get withdrawnum => "Withdraw quantity:";
+  /// "Withdrawal rules:"
+  @override
+  String get withdrawrule => "Withdrawal rules:";
+  /// "Withdraw success"
+  @override
+  String get withdrawsuccess => "Withdraw success";
+  /// "Arrival quantity:"
+  @override
+  String get arrivalquantity => "Arrival quantity:";
+  /// "Team"
+  @override
+  String get team => "Team";
+  /// "My Team"
+  @override
+  String get myteam => "My Team";
   /// "Invite friends"
   @override
   String get invite => "Invite friends";
@@ -187,6 +284,9 @@ class _I18n_en_US extends I18n {
   /// "Password"
   @override
   String get pleaseinputpwd => "Password";
+  /// "Enter transaction password"
+  @override
+  String get pleasetxpassword => "Enter transaction password";
   /// "Verification code"
   @override
   String get verificationcode => "Verification code";
@@ -205,6 +305,9 @@ class _I18n_en_US extends I18n {
   /// "Reacquire"
   @override
   String get reacquire => "Reacquire";
+  /// "Successful redemption"
+  @override
+  String get exchagesuccess => "Successful redemption";
   /// "Setting"
   @override
   String get setting => "Setting";
@@ -217,6 +320,21 @@ class _I18n_en_US extends I18n {
   /// "About"
   @override
   String get about => "About";
+  /// "Quantity"
+  @override
+  String get number => "Quantity";
+  /// "Date"
+  @override
+  String get date => "Date";
+  /// "Time"
+  @override
+  String get time => "Time";
+  /// "Total"
+  @override
+  String get total => "Total";
+  /// "Done"
+  @override
+  String get finish => "Done";
   /// "Verified"
   @override
   String get verified => "Verified";
@@ -235,6 +353,48 @@ class _I18n_en_US extends I18n {
   /// "Novice"
   @override
   String get newer => "Novice";
+  /// "Output"
+  @override
+  String get output => "Output";
+  /// "Estimate"
+  @override
+  String get estimate => "Estimate";
+  /// "Balance"
+  @override
+  String get balance => "Balance";
+  /// "Currency"
+  @override
+  String get choosecoin => "Currency";
+  /// "Price"
+  @override
+  String get price => "Price";
+  /// "Fee reduction"
+  @override
+  String get feereduction => "Fee reduction";
+  /// "Current level ${level}"
+  @override
+  String currlevel(String level) => "Current level ${level}";
+  /// "Next level ${level}"
+  @override
+  String nextlevel(String level) => "Next level ${level}";
+  /// "Redeem now"
+  @override
+  String get redeemnow => "Redeem now";
+  /// "Confirm redemption"
+  @override
+  String get confirmexchange => "Confirm redemption";
+  /// "Supply"
+  @override
+  String get supply => "Supply";
+  /// "Least get"
+  @override
+  String get leastget => "Least get";
+  /// "Price slippage"
+  @override
+  String get priceslippage => "Price slippage";
+  /// "Handling fee"
+  @override
+  String get handlingfee => "Handling fee";
   /// "Error account or password"
   @override
   String get erroraccount => "Error account or password";
@@ -256,6 +416,36 @@ class _I18n_en_US extends I18n {
   /// "Are you sure you want to log out?"
   @override
   String get canyouexit => "Are you sure you want to log out?";
+  /// "Scan the QR code to recharge"
+  @override
+  String get scanqrtorecharge => "Scan the QR code to recharge";
+  /// "Recharge address (copy address)"
+  @override
+  String get copyaddress => "Recharge address (copy address)";
+  /// "1. The contract address of this currency is migo.token"
+  @override
+  String get notice1 => "1. The contract address of this currency is migo.token";
+  /// "2. This address only accepts EOS, sending other currencies to this address will not be able to retrieve it."
+  @override
+  String get notice2 => "2. This address only accepts EOS, sending other currencies to this address will not be able to retrieve it.";
+  /// "3. Recharge to the wallet balance by default."
+  @override
+  String get notice3 => "3. Recharge to the wallet balance by default.";
+  /// "4. Your recharge address will not change frequently, you can recharge; if there is any change, we will try our best to notify you via website announcement or email."
+  @override
+  String get notice4 => "4. Your recharge address will not change frequently, you can recharge; if there is any change, we will try our best to notify you via website announcement or email.";
+  /// "Please enter or long press to paste"
+  @override
+  String get pleaseinputorcopy => "Please enter or long press to paste";
+  /// "Please enter the quantity"
+  @override
+  String get pleaseinputonumber => "Please enter the quantity";
+  /// "Available amount:"
+  @override
+  String get availableamount => "Available amount:";
+  /// "Actual arrival:"
+  @override
+  String get actualarrival => "Actual arrival:";
   /// "Reset password"
   @override
   String get resetpwd => "Reset password";
