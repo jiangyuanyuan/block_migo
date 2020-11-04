@@ -1,7 +1,10 @@
 
+import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/home/view/alert_shovelview.dart';
+import 'package:migo/page/home/view/home_action.dart';
 import 'package:migo/page/home/view/home_cell.dart';
 import 'package:migo/page/home/view/home_head_view.dart';
 
@@ -14,11 +17,16 @@ class _HomePageState extends State<HomePage> {
 
   bool isnewer = false;
 
-
   void _changehome(bool sender) {
     setState(() {
       isnewer = sender;
     });
+  }
+
+  void _cellAction() {
+    Alert.showViewDialog(context, AlertShovelView(onSure: () {
+      Navigator.pushNamed(context, "/package");
+    },));
   }
 
   @override
@@ -34,6 +42,22 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             HomeHeadView(),
+            Visibility(
+              visible: isnewer,
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 34),
+                padding: const EdgeInsets.only(top: 23),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    HomeActionView(title: I18n.of(context).mypackage,),
+                    HomeActionView(title: I18n.of(context).myearn,),
+                    HomeActionView(title: I18n.of(context).myteam,),
+                    HomeActionView(title: I18n.of(context).invite,),
+                  ],
+                ),
+              ),
+            ),
             Expanded(
               child: Container(
                 margin: const EdgeInsets.only(top: 30),
@@ -103,7 +127,10 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         itemCount: 10,
                         itemBuilder: (context, index){
-                          return HomeCell();
+                          return InkWell(
+                            onTap: _cellAction,
+                            child: HomeCell()
+                          );
                       }),
                     ),
                   ],

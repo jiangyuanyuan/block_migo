@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/appbar.dart';
+import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 class InviteRecordPage extends StatefulWidget {
   @override
@@ -11,15 +13,16 @@ class _InviteRecordPageState extends State<InviteRecordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NormalAppbar.normal(
-        title: Text("邀请记录"),
-        onPress: () => Navigator.pop(context)
-      ),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return _Cell();
-        }
-      ),
+      body: CommbackView(
+        titles: I18n.of(context).inviterecord,
+        onPop: () => Navigator.pop(context),
+        child: ListView.builder(
+          padding: EdgeInsets.symmetric(horizontal: 16,vertical: 30),
+          itemBuilder: (context, index) {
+            return _Cell();
+          }
+        ),
+      )
     );
   }
 }

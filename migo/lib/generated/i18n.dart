@@ -70,6 +70,8 @@ class I18n implements WidgetsLocalizations {
   String get team => "团队";
   /// "我的团队"
   String get myteam => "我的团队";
+  /// "我的收益"
+  String get myearn => "我的收益";
   /// "邀请好友"
   String get invite => "邀请好友";
   /// "密码"
@@ -78,6 +80,8 @@ class I18n implements WidgetsLocalizations {
   String get phone => "手机";
   /// "邮箱"
   String get email => "邮箱";
+  /// "恭喜获得"
+  String get congratulations => "恭喜获得";
   /// "请输入手机号码"
   String get pleaseinputphone => "请输入手机号码";
   /// "请输入邮箱"
@@ -128,12 +132,40 @@ class I18n implements WidgetsLocalizations {
   String get txpassword => "交易密码";
   /// "保存"
   String get save => "保存";
+  /// "金铲子"
+  String get shovel_gold => "金铲子";
+  /// "银铲子"
+  String get shovel_sliver => "银铲子";
+  /// "铜铲子"
+  String get shovel_iron => "铜铲子";
   /// "新手"
   String get newer => "新手";
+  /// "前往背包查看"
+  String get gotopackage => "前往背包查看";
+  /// "邀请记录"
+  String get inviterecord => "邀请记录";
+  /// "可用资产"
+  String get availablebalance => "可用资产";
+  /// "分享奖励"
+  String get teamgroupshare => "分享奖励";
+  /// "领导奖金"
+  String get teamgroupleader => "领导奖金";
+  /// "直推奖"
+  String get teamgrouppush => "直推奖";
   /// "输出"
   String get output => "输出";
   /// "预估"
   String get estimate => "预估";
+  /// "昨日团队收益价值"
+  String get lasetteamvalue => "昨日团队收益价值";
+  /// "总价值收益"
+  String get totalteamvalue => "总价值收益";
+  /// "建立自己团队的矿场\n参与MIGO矿池分红"
+  String get totalnotice => "建立自己团队的矿场\n参与MIGO矿池分红";
+  /// "立即参与"
+  String get teamjoin => "立即参与";
+  /// "小区静态产出"
+  String get teamstaticvalue => "小区静态产出";
   /// "余额"
   String get balance => "余额";
   /// "选择币种"
@@ -263,6 +295,9 @@ class _I18n_en_US extends I18n {
   /// "My Team"
   @override
   String get myteam => "My Team";
+  /// "My earnings"
+  @override
+  String get myearn => "My earnings";
   /// "Invite friends"
   @override
   String get invite => "Invite friends";
@@ -275,6 +310,9 @@ class _I18n_en_US extends I18n {
   /// "Email"
   @override
   String get email => "Email";
+  /// "Congratulations"
+  @override
+  String get congratulations => "Congratulations";
   /// "Phone number"
   @override
   String get pleaseinputphone => "Phone number";
@@ -350,15 +388,57 @@ class _I18n_en_US extends I18n {
   /// "Save"
   @override
   String get save => "Save";
+  /// "Golden shovel"
+  @override
+  String get shovel_gold => "Golden shovel";
+  /// "Sliver shovel"
+  @override
+  String get shovel_sliver => "Sliver shovel";
+  /// "Copper shovel"
+  @override
+  String get shovel_iron => "Copper shovel";
   /// "Novice"
   @override
   String get newer => "Novice";
+  /// "Go to backpack"
+  @override
+  String get gotopackage => "Go to backpack";
+  /// "Invitation record"
+  @override
+  String get inviterecord => "Invitation record";
+  /// "Available balance"
+  @override
+  String get availablebalance => "Available balance";
+  /// "Share rewards"
+  @override
+  String get teamgroupshare => "Share rewards";
+  /// "Leadership Bonus"
+  @override
+  String get teamgroupleader => "Leadership Bonus";
+  /// "Direct Push Award"
+  @override
+  String get teamgrouppush => "Direct Push Award";
   /// "Output"
   @override
   String get output => "Output";
   /// "Estimate"
   @override
   String get estimate => "Estimate";
+  /// "Yesterday's team earnings value"
+  @override
+  String get lasetteamvalue => "Yesterday's team earnings value";
+  /// "Total revenue value"
+  @override
+  String get totalteamvalue => "Total revenue value";
+  /// "Build your own team of mines\nparticipate in MIGO mining pool dividends"
+  @override
+  String get totalnotice => "Build your own team of mines\nparticipate in MIGO mining pool dividends";
+  /// "Participate now"
+  @override
+  String get teamjoin => "Participate now";
+  /// "Community static output"
+  @override
+  String get teamstaticvalue => "Community static output";
   /// "Balance"
   @override
   String get balance => "Balance";

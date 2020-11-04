@@ -31,18 +31,20 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   }
 
   void _submit() {
-    Navigator.pushNamed(context, '/reflect');
-    return;
+    
     if(_animation.value == 1) {
-      Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (sender) {
-        Navigator.pushNamed(context, "/exchangesuccess");
+      Alert.showBottomViewDialog(context, AlertExhangeView(onSure: () {
+        Future.delayed(const Duration(milliseconds: 100)).then((value) => _jump());
       },));
-      // Alert.showBottomViewDialog(context, AlertExhangeView(onSure: () {
-        
-      // },));
     } else {
       _animationController.forward();
     }
+  }
+
+  void _jump() {
+    Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (sender) {
+        Navigator.pushNamed(context, "/exchangesuccess");
+      },));
   }
 
   @override

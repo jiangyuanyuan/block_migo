@@ -5,6 +5,7 @@ import 'package:migo/page/contract/page/exchange_success_page.dart';
 import 'package:migo/page/contract/page/recharge_page.dart';
 import 'package:migo/page/contract/page/reflect_page.dart';
 import 'package:migo/page/contract/page/reflect_success_page.dart';
+import 'package:migo/page/mine/page/coins_detial_page.dart';
 import 'package:migo/page/mine/page/invite_record_page.dart';
 import 'package:migo/page/mine/page/mine_invite_page.dart';
 import 'package:migo/page/mine/page/mine_mod.dart';
@@ -36,6 +37,7 @@ final routes = {
   '/mod': (context,{arguments}) => MineModPage(),// 第一次登录密码设置
   '/modname': (context,{arguments}) => MineModNamePage(params: arguments,),// 第一次登录密码设置
   '/safe': (context,{arguments}) => SafePage(),// 第一次登录密码设置
+  '/coinsdetail': (context,{arguments}) => CoinsDetailPage(),// 第一次登录密码设置
 
 
   /// exchange

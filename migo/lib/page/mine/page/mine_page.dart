@@ -12,7 +12,10 @@ class MinePage extends StatelessWidget {
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
           if(index == 0) return MainHeadView();
-          return MineCoinCell();
+          return InkWell(
+            onTap: () => Navigator.pushNamed(context, "/coinsdetail"),
+            child: MineCoinCell()
+          );
         }
       ),
     );

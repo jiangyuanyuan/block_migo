@@ -11,7 +11,7 @@ class CommbackView extends StatelessWidget {
   final String titles;
   final String backImg;
   final Function() onPop;
-  const CommbackView({Key key, this.backImg = "背景图.png", this.onPop, this.titles, this.leading, this.actions, this.child}) : super(key: key);
+  const CommbackView({Key key, this.backImg = "背景图.png", this.onPop, @required this.titles, this.leading, this.actions, @required this.child}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
