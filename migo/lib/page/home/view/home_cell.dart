@@ -2,6 +2,10 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
 
 class HomeCell extends StatelessWidget {
+  final int index;
+
+  const HomeCell({Key key, this.index}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Padding(

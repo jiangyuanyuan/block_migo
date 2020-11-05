@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
     // Alert.showViewDialog(context, AlertShovelView(onSure: () {
     //   Navigator.pushNamed(context, "/package");
     // },));
+    Navigator.pushNamed(context, "/homedetail");
   }
 
   void _floatingAction() {
