@@ -19,6 +19,12 @@ class SafePage extends StatelessWidget {
 
   void _jump(BuildContext context, int index) {
     switch (index) {
+      case 0:
+        Navigator.pushNamed(context, "/mineauth");
+        break;
+      case 1:
+        Navigator.pushNamed(context, "/mineexchangebind");
+        break;
       case 2:
         Navigator.pushNamed(context, "/login", arguments: {'modtype': 1});
         break;

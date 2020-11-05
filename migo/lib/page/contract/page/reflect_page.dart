@@ -47,7 +47,7 @@ class _ReflectPageState extends State<ReflectPage> {
                   Positioned(
                     right: 10,
                     height: 42,
-                    child: Icon(Icons.next_week),
+                    child: Image.asset("assets/coin_select.png"),
                   )
                 ],
               ),

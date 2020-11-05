@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/appbar.dart';
+import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/model/user_model.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
 import 'package:migo/provider/user.dart';
@@ -89,12 +91,10 @@ class MineModPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: NormalAppbar.normal(
-        title: Text("编辑个人资料"),
-        onPress: () => Navigator.pop(context)
-      ),
-      body: Consumer<UserModel>(builder: (context, user,child){
+      body: CommbackView(
+        titles: I18n.of(context).setting,
+        onPop: () => Navigator.pop(context),
+        child: Consumer<UserModel>(builder: (context, user,child){
         return Column(
           children: <Widget>[
             InkWell(
@@ -116,7 +116,7 @@ class MineModPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 10,),
-                    Image.asset("assets/icon_you.png")
+                    Image.asset("assets/icon_you.png", color: const Color(0xff654248),)
                   ],
                 ),
               ),
@@ -128,16 +128,10 @@ class MineModPage extends StatelessWidget {
               detailColor: AppColor.font333,
               onTap: () => Navigator.pushNamed(context, "/modname", arguments: {"modname": true, 'val':""}),
             ),
-            // SettingCell(
-            //   title: "UID", 
-            //   detail: user.data?.id ?? "--",
-            //   detailColor: AppColor.font333,
-            //   showArrowIcon: false,
-            //   // onTap: () => Navigator.pushNamed(context, "/modname", arguments: {'modname': false, 'val':""}),
-            // ),
           ],
         );
-      })
+      }),
+      )
     );
   }
 }

@@ -129,7 +129,8 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                                     Row(
                                       children: [
                                         Text("1.343747 / MICO", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                                        Icon(Icons.change_history)
+                                        // Icon(Icons.change_history)
+                                        Image.asset("assets/change_icon.png")
                                       ],
                                     ),
                                     Padding(

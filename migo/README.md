@@ -35,5 +35,9 @@ samples, guidance on mobile development, and a full API reference.
 邀请记录列表背景图.
 我的页码-背景图,币种icon,设置图标,(背包,充值,提现,邀请)图标
 设置列表页背景图
-我的团队黑色背景
+我的团队黑色背景,
 
+
+我的团队棕色背景图
+设置列表页背景图
+上传证件照图片背景图

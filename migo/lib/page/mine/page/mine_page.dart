@@ -8,7 +8,7 @@ class MinePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: 9,
+        itemCount: 2,
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
           if(index == 0) return MainHeadView();

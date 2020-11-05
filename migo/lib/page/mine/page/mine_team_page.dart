@@ -12,6 +12,14 @@ class MineTeamPage extends StatefulWidget {
 
 class _MineTeamPageState extends State<MineTeamPage> {
   int tabIndex = 0;
+
+  List<String> _tags() {
+    return [
+      I18n.of(context).teamgroupshare,
+      I18n.of(context).teamgroupleader,
+      I18n.of(context).teamgrouppush,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +30,7 @@ class _MineTeamPageState extends State<MineTeamPage> {
           IconButton(
             icon: Image.asset("assets/ico_incom_hist_def.png"),
             onPressed: () {
-
+              Navigator.pushNamed(context, "/teamrecord");
             },
           )
         ],
@@ -46,14 +54,14 @@ class _MineTeamPageState extends State<MineTeamPage> {
                         children: [
                           Text("${I18n.of(context).totalteamvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xff816C65)),),
                           SizedBox(height: 10,),
-                          Text("+9000.56", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
+                          Text("+9000.56", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                         ],
                       ),
                       Column(
                         children: [
                           Text("${I18n.of(context).teamstaticvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xff816C65)),),
                           SizedBox(height: 10,),
-                          Text("2000.28", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
+                          Text("2000.28", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                         ],
                       )
                     ],
@@ -70,14 +78,23 @@ class _MineTeamPageState extends State<MineTeamPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(I18n.of(context).totalnotice, style: AppFont.textStyle(14, fontWeight: FontWeight.bold, color: Colors.white),),
+                            Text(I18n.of(context).totalnotice, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white, shadows: [
+                              Shadow(
+                                offset: Offset(0.0, 2.0),
+                                blurRadius: 3.0,
+                                color: Colors.black.withOpacity(0.5),
+                              ),
+                            ]),),
                             SizedBox(height: 10,),
-                            Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Image.asset("assets/btn_team_join_def.png"),
-                                Text(I18n.of(context).teamjoin, style: AppFont.textStyle(12, color: Colors.white),)
-                              ],
+                            InkWell(
+                              onTap: () => Navigator.pushNamed(context, "/teamearth"),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Image.asset("assets/btn_team_join_def.png"),
+                                  Text(I18n.of(context).teamjoin, style: AppFont.textStyle(12, color: Colors.white, showshadow: true),)
+                                ],
+                              ),
                             )
                           ],
                         )
@@ -88,6 +105,7 @@ class _MineTeamPageState extends State<MineTeamPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 40.0),
                   child: MineTeamTabarView(
+                    titles: _tags(),
                     onTabIndex: (sender) {
                       setState(() {
                         tabIndex = sender;

@@ -1,25 +1,29 @@
-import 'package:flutter/material.dart';
 
-class MineUnderlineTabIndicator extends Decoration {
+import 'package:flutter/material.dart';
+// 默认高度从46改为40
+const double _kTabHeight = 40.0;
+const double _kTextAndIconTabHeight = 72.0;
+ 
+class RoundUnderlineTabIndicator extends Decoration {
   /// Create an underline style selected tab indicator.
   ///
   /// The [borderSide] and [insets] arguments must not be null.
-  const MineUnderlineTabIndicator({
+  const RoundUnderlineTabIndicator({
     this.borderSide = const BorderSide(width: 2.0, color: Colors.white),
     this.insets = EdgeInsets.zero,
   }) : assert(borderSide != null),
-       assert(insets != null);
-
+        assert(insets != null);
+ 
   /// The color and weight of the horizontal line drawn below the selected tab.
   final BorderSide borderSide;
-
+ 
   /// Locates the selected tab's underline relative to the tab's boundary.
   ///
   /// The [TabBar.indicatorSize] property can be used to define the
   /// tab indicator's bounds in terms of its (centered) tab widget with
   /// [TabIndicatorSize.label], or the entire tab with [TabIndicatorSize.tab].
   final EdgeInsetsGeometry insets;
-
+ 
   @override
   Decoration lerpFrom(Decoration a, double t) {
     if (a is UnderlineTabIndicator) {
@@ -30,7 +34,7 @@ class MineUnderlineTabIndicator extends Decoration {
     }
     return super.lerpFrom(a, t);
   }
-
+ 
   @override
   Decoration lerpTo(Decoration b, double t) {
     if (b is UnderlineTabIndicator) {
@@ -41,36 +45,41 @@ class MineUnderlineTabIndicator extends Decoration {
     }
     return super.lerpTo(b, t);
   }
-
+ 
   @override
   _UnderlinePainter createBoxPainter([ VoidCallback onChanged ]) {
     return _UnderlinePainter(this, onChanged);
   }
 }
-
+ 
 class _UnderlinePainter extends BoxPainter {
   _UnderlinePainter(this.decoration, VoidCallback onChanged)
-    : assert(decoration != null),
-      super(onChanged);
-
-  final MineUnderlineTabIndicator decoration;
-
+      : assert(decoration != null),
+        super(onChanged);
+ 
+  final RoundUnderlineTabIndicator decoration;
+ 
   BorderSide get borderSide => decoration.borderSide;
   EdgeInsetsGeometry get insets => decoration.insets;
-
-    Rect _indicatorRectFor(Rect rect, TextDirection textDirection) {
+ 
+  Rect _indicatorRectFor(Rect rect, TextDirection textDirection) {
     assert(rect != null);
     assert(textDirection != null);
     final Rect indicator = insets.resolve(textDirection).deflateRect(rect);
-
+//    return Rect.fromLTWH(
+//      indicator.left,
+//      indicator.bottom - borderSide.width,
+//      indicator.width,
+//      borderSide.width,
+//    );
     //希望的宽度
-    double wantWidth = 20;
+    double wantWidth = 28;
     //取中间坐标
     double cw = (indicator.left + indicator.right) / 2;
     return Rect.fromLTWH(cw - wantWidth / 2,
         indicator.bottom - borderSide.width, wantWidth, borderSide.width);
   }
-
+ 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     assert(configuration != null);
@@ -78,7 +87,20 @@ class _UnderlinePainter extends BoxPainter {
     final Rect rect = offset & configuration.size;
     final TextDirection textDirection = configuration.textDirection;
     final Rect indicator = _indicatorRectFor(rect, textDirection).deflate(borderSide.width / 2.0);
-    final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.square;
+//    final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.square;
+    // 改为圆角
+    final Paint paint = borderSide.toPaint()
+    ..strokeCap = StrokeCap.square
+    ..strokeWidth = 2
+    ..color = const Color(0xffF5C83D)
+    ;
+    final Paint paint2 = borderSide.toPaint()
+    ..strokeCap = StrokeCap.square
+    ..strokeWidth = 6
+    ..style = PaintingStyle.stroke
+    ..color = const Color(0xff3F1E1B)
+    ;
+    canvas.drawLine(indicator.bottomLeft, indicator.bottomRight, paint2);
     canvas.drawLine(indicator.bottomLeft, indicator.bottomRight, paint);
   }
 }

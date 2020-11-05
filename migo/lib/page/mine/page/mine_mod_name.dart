@@ -1,8 +1,13 @@
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/bottom_buttom.dart';
+import 'package:migo/common/commview/btn_action.dart';
+import 'package:migo/common/commview/btn_image_bottom.dart';
+import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/model/user_model.dart';
+import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/provider/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -80,51 +85,30 @@ class _MineModNamePageState extends State<MineModNamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: NormalAppbar.normal(
-        title: Text("编辑个人资料"),
-        onPress: () => Navigator.pop(context)
-      ),
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 51,
-              margin: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: AppColor.f9f9f9,
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: TextField(
-                focusNode: focusNode,
-                controller: controller,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(
-                      "[a-zA-Z]|[\u4e00-\u9fa5]|[0-9]")), //只能输入汉字或者字母或数字
-                ],
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  labelStyle: AppFont.textStyle(15, color: AppColor.font333),
-                  hintText: modname ? "输入姓名(10字内)" : '请输入个性签名(10字内)',
-                  counterText: "",
-                  prefix: SizedBox(width: 15,),
-                  hintStyle: AppFont.textStyle(16, color: AppColor.fontgrey),
-                  suffixIcon: IconButton(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    icon: Icon(Icons.cancel, color: const Color(0xffcccccc),),
-                    onPressed: () => controller.clear(),
-                  ),
+      body: GestureDetector(
+        onTap: () {
+          focusNode.unfocus();
+        },
+        behavior: HitTestBehavior.translucent,
+        child: CommbackView(
+          titles: "更改昵称",
+          onPop: () => Navigator.pop(context),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: <Widget>[
+                NormalTextfield(
+                  hintText: "请输入昵称",
+                  controller: controller,
+                  focusNode: focusNode,
                 ),
-                onChanged: (val) {
-                  if(val.length > 10) controller.text = val.substring(0,10);
-                },
-              ),
+                BtnImageBottomView(
+                  title: I18n.of(context).save,
+                  onTap: _save,
+                )
+              ],
             ),
-            Spacer(),
-            BottomButton(
-              title: "保存",
-              onTap: _save,
-            )
-          ],
+          ),
         ),
       ),
     );

@@ -8,6 +8,9 @@ import 'package:migo/page/contract/page/reflect_success_page.dart';
 import 'package:migo/page/home/page/home_detail_page.dart';
 import 'package:migo/page/mine/page/coins_detial_page.dart';
 import 'package:migo/page/mine/page/invite_record_page.dart';
+import 'package:migo/page/mine/page/mine_auth_page.dart';
+import 'package:migo/page/mine/page/mine_auth_upload.dart';
+import 'package:migo/page/mine/page/mine_exchange_bind.dart';
 import 'package:migo/page/mine/page/mine_invite_page.dart';
 import 'package:migo/page/mine/page/mine_mod.dart';
 import 'package:migo/page/mine/page/mine_mod_name.dart';
@@ -15,6 +18,8 @@ import 'package:migo/page/mine/page/mine_package_page.dart';
 import 'package:migo/page/mine/page/mine_setting.dart';
 import 'package:migo/page/mine/page/mine_team_page.dart';
 import 'package:migo/page/mine/page/safe_page.dart';
+import 'package:migo/page/mine/page/team_earth_page.dart';
+import 'package:migo/page/mine/page/team_record_page.dart';
 import 'package:migo/root/root.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +44,11 @@ final routes = {
   '/modname': (context,{arguments}) => MineModNamePage(params: arguments,),// 第一次登录密码设置
   '/safe': (context,{arguments}) => SafePage(),// 第一次登录密码设置
   '/coinsdetail': (context,{arguments}) => CoinsDetailPage(),// 第一次登录密码设置
+  '/teamrecord': (context,{arguments}) => TeamRecordPage(),// 第一次登录密码设置
+  '/teamearth': (context,{arguments}) => TeamEarthPage(),// 第一次登录密码设置
+  '/mineauth': (context,{arguments}) => MineAuthPage(),// 第一次登录密码设置
+  '/authupload': (context,{arguments}) => MineAuthUploadPage(),// 第一次登录密码设置
+  '/mineexchangebind': (context,{arguments}) => MineExchangeBindPage(),// 第一次登录密码设置
 
 
   /// home

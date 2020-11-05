@@ -34,13 +34,16 @@ class MainHeadView extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 17, bottom: 10),
-          child: PhysicalModel(
-            color: Colors.transparent,
-            shape: BoxShape.circle,
-            clipBehavior: Clip.antiAlias,
-            child: Image.asset("assets/default.png"),
+        InkWell(
+          onTap: () => Navigator.pushNamed(context, "/mod"),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 17, bottom: 10),
+            child: PhysicalModel(
+              color: Colors.transparent,
+              shape: BoxShape.circle,
+              clipBehavior: Clip.antiAlias,
+              child: Image.asset("assets/default.png"),
+            ),
           ),
         ),
         Text("ID：MIGO", style: AppFont.textStyle(
@@ -72,9 +75,17 @@ class MainHeadView extends StatelessWidget {
         Container(
           alignment: Alignment.centerLeft,
           color: Colors.white,
-          padding: const EdgeInsets.only(left: 15.0, top: 20),
-          child: Text("资产账户", style: AppFont.textStyle(14, fontWeight: FontWeight.bold),),
-        )
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 19, top: 19, bottom: 19),
+                child: Text("资产账户", style: AppFont.textStyle(14, fontWeight: FontWeight.bold),),
+              ),
+              Divider(height: 1)
+            ],
+          ),
+        ),
       ],
     ),
     );

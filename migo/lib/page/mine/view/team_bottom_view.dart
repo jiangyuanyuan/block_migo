@@ -22,17 +22,17 @@ class _TeamBottomViewState extends State<TeamBottomView> {
   @override
   void initState() {
     super.initState();
-    _pageController.addListener(() {
-      _changeOffset(_pageController.page);
-    });
-    left = (ScreenUtil.screenWidthDp / 3 / 2) - 15;
+    // _pageController.addListener(() {
+    //   _changeOffset(_pageController.page);
+    // });
+    // left = (ScreenUtil.screenWidthDp / 3 / 2) - 15;
   }
 
-  void _changeOffset(double offset) {
-    setState(() {
-      left = ScreenUtil.screenWidthDp / 3 * (offset) + ScreenUtil.screenWidthDp / 3 / 2 - 15;
-    });
-  }
+  // void _changeOffset(double offset) {
+  //   setState(() {
+  //     left = ScreenUtil.screenWidthDp / 3 * (offset) + ScreenUtil.screenWidthDp / 3 / 2 - 15;
+  //   });
+  // }
 
   @override
   void dispose() {
@@ -79,7 +79,7 @@ class _TeamBottomViewState extends State<TeamBottomView> {
             decoration: BoxDecoration(
               color: Colors.red,
               gradient: LinearGradient(
-              colors: [Colors.transparent, Color(0xE64B7897).withOpacity(0.01), Colors.black],
+              colors: [Colors.transparent, Color(0xff4B7897).withOpacity(0.01), Colors.black],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             )
@@ -124,10 +124,10 @@ class _TeamBottomViewState extends State<TeamBottomView> {
             ],
           )
         )),
-        Positioned(
-          left: left,
-          child: Image.asset("assets/line_team_curre_def.png"),
-        )
+        // Positioned(
+        //   left: left,
+        //   child: Image.asset("assets/line_team_curre_def.png"),
+        // )
       ],
     );
   }

@@ -15,7 +15,7 @@ class RechagePage extends StatelessWidget {
         onPop: () => Navigator.pop(context),
         actions: [
           IconButton(
-            icon: Icon(Icons.reorder),
+            icon: Image.asset("assets/coins_record.png"),
             onPressed: () {
 
             },
@@ -43,7 +43,7 @@ class RechagePage extends StatelessWidget {
                     Positioned(
                       right: 10,
                       height: 42,
-                      child: Icon(Icons.next_week),
+                      child: Image.asset("assets/coin_select.png"),
                     )
                   ],
                 ),
@@ -81,7 +81,7 @@ class RechagePage extends StatelessWidget {
                         children: [
                           Text("color: const Color(0xffE5F0FA),", style: AppFont.textStyle(12, color: AppColor.back998),),
                           IconButton(
-                            icon: Icon(Icons.content_copy, color: AppColor.back998,),
+                            icon: Image.asset("assets/coin_copy.png"),
                             onPressed: () {
                               ScreenTool.copy("bb");
                             },

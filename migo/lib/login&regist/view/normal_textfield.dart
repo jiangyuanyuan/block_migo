@@ -16,6 +16,7 @@ class NormalTextfield extends StatelessWidget {
   final double borderRadius;
   final Function(String val) onSubmited;
   final Function(String val) onChanged;
+  final TextAlign align;
 
   const NormalTextfield({
     Key key, 
@@ -24,6 +25,7 @@ class NormalTextfield extends StatelessWidget {
     this.obscureText = false,
     this.maxLength,
     this.focusNode,
+    this.align = TextAlign.left,
     this.keyboardType,
     this.inputFormatters,
     this.controller,
@@ -52,6 +54,7 @@ class NormalTextfield extends StatelessWidget {
         keyboardType: keyboardType,
         focusNode: focusNode,
         controller: controller,
+        textAlign: align,
         inputFormatters: inputFormatters,
         decoration: InputDecoration(
           border: InputBorder.none,

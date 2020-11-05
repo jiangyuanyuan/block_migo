@@ -51,7 +51,7 @@ class ExchangeSuccessPage extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        Image.asset("assets/pull_next.png"),
+                        Image.asset("assets/success_icon.png"),
                         Padding(
                           padding: const EdgeInsets.only(top: 16, bottom: 20.0),
                           child: Text(I18n.of(context).exchagesuccess, style: AppFont.textStyle(14, color: AppColor.back998, fontWeight: FontWeight.bold),),

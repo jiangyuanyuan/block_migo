@@ -1,6 +1,8 @@
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/bottom_buttom.dart';
+import 'package:migo/common/commview/btn_action.dart';
+import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
@@ -67,31 +69,31 @@ class _MineSettingPageState extends State<MineSettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: NormalAppbar.normal(
-        title: Text(I18n.of(context).setting),
-        onPress: () => Navigator.pop(context)
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-              //   if(index == 1) return MineSettingClear();
-              //   if(index == MineSettingPage.titles.length - 1) return VersionCell();
-                return SettingCell(title: _getTitle(context, index), onTap: () => _jump(index),);
-              }, 
-              itemCount: MineSettingPage.titles.length
+      body: CommbackView(
+        titles: I18n.of(context).setting,
+        onPop: () => Navigator.pop(context),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                itemBuilder: (context, index) {
+                //   if(index == 1) return MineSettingClear();
+                //   if(index == MineSettingPage.titles.length - 1) return VersionCell();
+                  return SettingCell(title: _getTitle(context, index), onTap: () => _jump(index),);
+                }, 
+                itemCount: MineSettingPage.titles.length
+              ),
             ),
-          ),
-          SafeArea(
-            child: BottomButton(
-              title: I18n.of(context).loginout,
-              onTap: _exitLogin,
-            ),
-          )
-        ],
-      ),
+            SafeArea(
+              child: BtnAction(
+                title: I18n.of(context).loginout,
+                onTap: _exitLogin,
+              ),
+            )
+          ],
+        ),
+      )
     );
   }
 }
