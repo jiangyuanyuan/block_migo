@@ -29,7 +29,7 @@ class HomeCell extends StatelessWidget {
                         alignment: Alignment.center,
                         child: Text("赚取MIGO", style: AppFont.textStyle(12, color: AppColor.yellowMain),)
                       ),
-                      Text("MIGO乐乡", style: AppFont.textStyle(12, color: Colors.white, fontWeight: FontWeight.bold),)
+                      Text("MIGO${index == 0 ? "乐乡" : "乐屋"}", style: AppFont.textStyle(12, color: Colors.white, fontWeight: FontWeight.bold),)
                     ],
                   ),
                 ),

@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                         itemBuilder: (context, index){
                           return InkWell(
                             onTap: _cellAction,
-                            child: HomeCell()
+                            child: HomeCell(index: index,)
                           );
                       }),
                     ),
