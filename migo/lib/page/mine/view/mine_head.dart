@@ -1,84 +1,82 @@
+import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
+import 'package:migo/page/home/view/home_gradient_text.dart';
 
 import 'mine_action_view.dart';
 
 class MainHeadView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/背景图.png"),
+          fit: BoxFit.cover
+        ),
+      ),
+      child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-          color: AppColor.blue,
-          height: 250,
-          child: Column(
+        SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(height: 30),
-              InkWell(
-                onTap: () => Navigator.pushNamed(context, "/mod"),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Image.asset("default.png")
-                    Container(
-                      height: 60,
-                      width: 60,
-                      margin: const EdgeInsets.only(top: 40, left: 15),
-                      color: Colors.yellow,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40.0, left: 15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("小脑虎"),
-                          Row(
-                            children: [
-                              LevelView(titles: "等级",),
-                              SizedBox(width: 20,),
-                              LevelView(titles: "称号",),
-                            ],
-                          ),
-                          LevelView(titles: "我的团队",),
-                        ],
-                      ),
-                    ),
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(Icons.menu),
-                      padding: EdgeInsets.only(top: 15),
-                      onPressed: () {
-                        Navigator.pushNamed(context, "/setting");
-                      },
-                    )
-                  ],
-                ),
-              ),
-
-              SizedBox(height: 40,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _DetailView(title: "团队总业绩(MICOs)", detail: Tool.number(5000.09, 2),),
-                  _DetailView(title: "日收益(MICOs)", detail: Tool.number(5000.09, 2),),
-                  _DetailView(title: "我的面值(MICOs)", detail: Tool.number(5000.09, 2),),
-                ],
+              SizedBox(width: 42,),
+              Image.asset("assets/logo.png", height: 20,),
+              IconButton(
+                icon: Image.asset("assets/mine_setting.png"),
+                onPressed: () => Navigator.pushNamed(context, "/setting"),
               )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 17, bottom: 10),
+          child: PhysicalModel(
+            color: Colors.transparent,
+            shape: BoxShape.circle,
+            clipBehavior: Clip.antiAlias,
+            child: Image.asset("assets/default.png"),
+          ),
+        ),
+        Text("ID：MIGO", style: AppFont.textStyle(
+          14, 
+          color: Colors.white, 
+          fontWeight: FontWeight.bold,
+          showshadow: true
+        ),),
+        Text("我的团队：123", style: AppFont.textStyle(
+          12, 
+          color: const Color(0xffDBF0FF),
+          showshadow: true
+        ),),
+        SizedBox(height: 20,),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _DetailView(title: "团队总业绩(MICOs)", detail: Tool.number(5000.09, 2),),
+              _DetailView(title: "日收益(MICOs)", detail: Tool.number(5000.09, 2),),
+              _DetailView(title: "我的面值(MICOs)", detail: Tool.number(5000.09, 2),),
             ],
           ),
         ),
 
         /// mine action
         MineActionView(),
-        Container(height: 100, color: Colors.red,),
-        Padding(
+        Container(
+          alignment: Alignment.centerLeft,
+          color: Colors.white,
           padding: const EdgeInsets.only(left: 15.0, top: 20),
           child: Text("资产账户", style: AppFont.textStyle(14, fontWeight: FontWeight.bold),),
         )
       ],
+    ),
     );
   }
 }
@@ -108,9 +106,23 @@ class _DetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title),
-        Text(detail)
+        Text(title, style: AppFont.textStyle(
+            12, 
+            color: const Color(0xffDBF0FF),
+            showshadow: true
+          ),
+        ),
+        SizedBox(height: 8,),
+        HomeGradientText(
+          data: detail,
+          fontstyle: AppFont.textStyle(
+            16, 
+            fontWeight: FontWeight.bold,
+            showshadow: true
+          ),
+        )
       ],
     );
   }

@@ -23,7 +23,13 @@ class GradientText extends StatelessWidget {
        textAlign: textAlign,
        style: (style == null)
            ? TextStyle(color: Colors.white)
-           : style.copyWith(color: Colors.white),
+           : style.copyWith(color: Colors.white, shadows: [
+                    Shadow(
+                      offset: Offset(0.0, 1.0),
+                      blurRadius: 3.0,
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                  ]),
      ),
    );
  }

@@ -25,11 +25,19 @@ class HomeDetailUserView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("已使用 铜铲子", style: AppFont.textStyle(12, color: Colors.white),),
+              Text("已使用 铜铲子", style: AppFont.textStyle(
+                12, 
+                color: Colors.white,
+                showshadow: true
+              ),),
               SizedBox(width: 4,),
               HomeGradientText(
                 data: "1个",
-                fontstyle: AppFont.textStyle(12, fontWeight: FontWeight.bold),
+                fontstyle: AppFont.textStyle(
+                  12, 
+                  fontWeight: FontWeight.bold,
+                  showshadow: true
+                ),
               ),
             ],
           ),
@@ -37,10 +45,17 @@ class HomeDetailUserView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("获得", style: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold),),
+              Text("获得", style: AppFont.textStyle(
+                24, 
+                color: Colors.white, 
+                fontWeight: FontWeight.bold,
+                showshadow: true
+              ),),
               HomeGradientText(
                 data: " 60 MIGOs",
-                fontstyle: AppFont.textStyle(24, fontWeight: FontWeight.bold),
+                fontstyle: AppFont.textStyle(24, 
+                fontWeight: FontWeight.bold,
+                showshadow: true),
               ),
             ],
           ),

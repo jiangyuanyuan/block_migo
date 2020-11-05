@@ -36,8 +36,8 @@ class _RootPageState extends State<RootPage> {
 
   static const List<String> tabIconsName = [
     "home.png",
-    "home_recharge.png",
-    "home_reflect.png",
+    "tab_exchange.png",
+    "home_team.png",
     "home_exchange.png",
   ];
 

@@ -15,7 +15,9 @@ class BtnAction extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Image.asset("assets/$backImg", fit: BoxFit.fill,),
-          Text(title, style: AppFont.textStyle(14, color: Colors.white),)
+          Text(title, style: AppFont.textStyle(
+            14, 
+            color: Colors.white, showshadow: true),)
         ],
       ),
     );

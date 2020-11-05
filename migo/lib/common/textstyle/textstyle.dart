@@ -14,6 +14,7 @@ class AppFont {
     FontWeight fontWeight = FontWeight.normal, 
     FamilyEnum family = FamilyEnum.normal,
     Color color = AppColor.font333,
+    bool showshadow = false,
     TextDecoration decoration = TextDecoration.none}) {
 
     String fontFamily = "PingFang-Regular";
@@ -33,6 +34,13 @@ class AppFont {
       color: color,
       fontWeight: fontWeight,
       decoration: decoration,
+      shadows: showshadow == false ? [] : [
+                    Shadow(
+                      offset: Offset(0.0, 1.0),
+                      blurRadius: 3.0,
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                  ],
       fontFamily: fontFamily
     );
   }

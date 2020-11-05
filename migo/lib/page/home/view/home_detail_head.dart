@@ -16,14 +16,18 @@ class HomeDetailHeadView extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("使用中铲子", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),),
+              Text("使用中铲子", style: AppFont.textStyle(
+                12, 
+                color: const Color(0xffDBF0FF),
+                showshadow: true
+              ),),
               SizedBox(height: 8,),
               HomeGradientText(
                 data: "2",
                 fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20,),
-              Text("矿池日产量", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),),
+              Text("矿池日产量", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
               SizedBox(height: 10,),
               HomeGradientText(
                 data: "1.8",
@@ -34,14 +38,14 @@ class HomeDetailHeadView extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text("挖矿周期", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),),
+              Text("挖矿周期", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
               SizedBox(height: 8,),
               HomeGradientText(
                 data: "30天",
                 fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20,),
-              Text("矿池总产量", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),),
+              Text("矿池总产量", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF),showshadow: true),),
               HomeGradientText(
                 data: "20",
                 fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),

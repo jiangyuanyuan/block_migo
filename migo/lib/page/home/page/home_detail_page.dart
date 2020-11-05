@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/page/contract/view/alert_password_view.dart';
 import 'package:migo/page/home/view/alert_pay_view.dart';
 import 'package:migo/page/home/view/home_detail_cell.dart';
 import 'package:migo/page/home/view/home_detail_head.dart';
@@ -23,9 +25,15 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
   void _getAction() {
     Alert.showBottomViewDialog(context, AlertHomePayView(
       onSure: () {
-        
+        Future.delayed(const Duration(milliseconds: 100)).then((value) => _inputPwd());    
       },
     ));
+  }
+
+  void _inputPwd() {
+    Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (pwd){
+      EasyLoading.showToast("支付成功");
+    }));
   }
   @override
   Widget build(BuildContext context) {

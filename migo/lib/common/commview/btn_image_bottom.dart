@@ -22,7 +22,9 @@ class BtnImageBottomView extends StatelessWidget {
             fit: BoxFit.fill
           )
         ),
-        child: Text(title, style: AppFont.textStyle(14, color: Colors.white),),
+        child: Text(title, style: AppFont.textStyle(
+          14, 
+          color: Colors.white, showshadow: true),),
       ),
     );
   }

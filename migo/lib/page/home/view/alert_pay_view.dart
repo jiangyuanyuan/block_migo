@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/login&regist/view/normal_textfield.dart';
 
 class AlertHomePayView extends StatelessWidget {
   final Function() onSure;
@@ -36,7 +37,10 @@ class AlertHomePayView extends StatelessWidget {
               width: double.infinity,
               color: AppColor.divigrey,
             ),
-            _InputView(),
+            SizedBox(height: 25,),
+            _InputView(title: "MIGO", bannce: "12",),
+            _InputView(title: "USDT", bannce: "11",),
+            SizedBox(height: 20,),
             BtnAction(
               title: I18n.of(context).sure,
               onTap: () {
@@ -60,10 +64,28 @@ class _InputView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset("assets/coin_icon.png")
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 27),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Image.asset("assets/coin_icon.png"),
+              SizedBox(width: 4,),
+              Text(title, style: AppFont.textStyle(12, color: AppColor.back998),)
+            ],
+          ),
+          SizedBox(height: 9,),
+          NormalTextfield(
+            hintText: I18n.of(context).pleaseinputonumber,
+          ),
+          SizedBox(height: 10,),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Text(I18n.of(context).balance + ":" + bannce, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+          )
+        ],
+      ),
     );
   }
 }
