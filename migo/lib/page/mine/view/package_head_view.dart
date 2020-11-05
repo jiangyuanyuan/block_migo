@@ -6,7 +6,7 @@ class PackageHeadView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 26, left: 32, right: 32, bottom: 40),
+      padding: const EdgeInsets.only(top: 26, left: 32, right: 32),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

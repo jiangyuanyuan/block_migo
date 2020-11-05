@@ -24,6 +24,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _cellAction() {
+    // Alert.showViewDialog(context, AlertShovelView(onSure: () {
+    //   Navigator.pushNamed(context, "/package");
+    // },));
+  }
+
+  void _floatingAction() {
     Alert.showViewDialog(context, AlertShovelView(onSure: () {
       Navigator.pushNamed(context, "/package");
     },));
@@ -32,6 +38,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: InkWell(
+        onTap: () {
+          _floatingAction();
+        },
+        child: Image.asset("assets/icon.png")
+      ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -50,10 +62,14 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    HomeActionView(title: I18n.of(context).mypackage,),
-                    HomeActionView(title: I18n.of(context).myearn,),
-                    HomeActionView(title: I18n.of(context).myteam,),
-                    HomeActionView(title: I18n.of(context).invite,),
+                    HomeActionView(
+                      title: I18n.of(context).mypackage, 
+                      img: "home_package.png",
+                      onTap: () => Navigator.pushNamed(context, "/package"),
+                    ),
+                    HomeActionView(title: I18n.of(context).myearn, img: "home_earn.png"),
+                    HomeActionView(title: I18n.of(context).myteam, img: "home_team.png"),
+                    HomeActionView(title: I18n.of(context).invite, img: "home_mine.png"),
                   ],
                 ),
               ),
@@ -124,8 +140,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Expanded(
                       child: ListView.builder(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
-                        itemCount: 10,
+                        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+                        itemCount: 2,
                         itemBuilder: (context, index){
                           return InkWell(
                             onTap: _cellAction,

@@ -31,6 +31,7 @@ class _MineTeamTabarViewState extends State<MineTeamTabarView> with SingleTicker
   Widget build(BuildContext context) {
     return TabBar(
       controller: _tabController,
+      indicatorColor: Colors.transparent,
       tabs: [
         Text(I18n.of(context).teamgroupshare, style: AppFont.textStyle(tabIndex == 0 ? 16 : 14, color: tabIndex == 0 ? Colors.white : const Color(0xffDBDAE0)),),
         Text(I18n.of(context).teamgroupleader, style: AppFont.textStyle(tabIndex == 1 ? 16 : 14, color: tabIndex == 1 ? Colors.white : const Color(0xffDBDAE0))),

@@ -1,18 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:migo/common/commview/btn_action.dart';
+import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 
 class PackageCell extends StatelessWidget {
+  final Function() onUserAction;
+
+  const PackageCell({Key key, this.onUserAction}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 20, right: 20, left: 20),
-      color: Colors.green,
+      margin: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+      padding: const EdgeInsets.only(top: 19),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/Image.png"),
+          fit: BoxFit.fill
+        )
+      ),
       child: Column(
         children: [
           Row(
             children: [
-              Icon(Icons.cached),
-              SizedBox(width: 25,),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 25),
+                child: Image.asset("assets/shovel_gold.png"),
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -32,12 +45,9 @@ class PackageCell extends StatelessWidget {
               )
             ],
           ),
-          Container(
-            color: Colors.red,
-            width: double.infinity,
-            height: 40,
-            alignment: Alignment.center,
-            child: Text("使用"),
+          BtnImageBottomView(
+            title: "使用",
+            onTap: onUserAction,
           )
         ],
       ),

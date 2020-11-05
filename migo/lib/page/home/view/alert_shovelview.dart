@@ -5,14 +5,27 @@ import 'package:migo/page/home/view/get_shovel_view.dart';
 
 class AlertShovelView extends StatelessWidget {
   final Function() onSure;
-
-  const AlertShovelView({Key key, this.onSure}) : super(key: key);
+  final String btntitles;
+  final String titles;
+  final bool showclose;
+  const AlertShovelView({Key key, this.btntitles, this.titles, this.showclose = false, this.onSure}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
+        Visibility(
+          visible: showclose,
+          child: InkWell(
+            onTap: () => Navigator.pop(context),
+            child: Container(
+              child: Image.asset("assets/red_close.png"),
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(bottom: 10),
+            ),
+          ),
+        ),
         Stack(
           alignment: Alignment.center,
           children: [
@@ -24,7 +37,7 @@ class AlertShovelView extends StatelessWidget {
               right: 21,
               child: Column(
                 children: [
-                  Text(I18n.of(context).congratulations, style: AppFont.textStyle(16, color: Colors.white),),
+                  Text(titles ?? I18n.of(context).congratulations, style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
                   Expanded(
                     child: Container(
                       margin: const EdgeInsets.only(top: 20),
@@ -67,7 +80,7 @@ class AlertShovelView extends StatelessWidget {
                     fit: BoxFit.fill
                   ),
                 ),
-                child: Text(I18n.of(context).gotopackage, style: AppFont.textStyle(14, color: Colors.white),),
+                child: Text(btntitles ?? I18n.of(context).gotopackage, style: AppFont.textStyle(14, color: Colors.white),),
               ),
             ),
       ],

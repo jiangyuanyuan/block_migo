@@ -12,7 +12,7 @@ class HomeActionView extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
-          Icon(Icons.add),
+          Image.asset("assets/$img"),
           SizedBox(height: 8,),
           Text(title, style: AppFont.textStyle(10, color: Colors.white),)
         ],
