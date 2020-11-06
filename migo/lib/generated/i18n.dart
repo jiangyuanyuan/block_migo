@@ -68,6 +68,8 @@ class I18n implements WidgetsLocalizations {
   String get arrivalquantity => "到账数量：";
   /// "团队"
   String get team => "团队";
+  /// "日收益"
+  String get dayincome => "日收益";
   /// "我的团队"
   String get myteam => "我的团队";
   /// "我的收益"
@@ -76,6 +78,22 @@ class I18n implements WidgetsLocalizations {
   String get invite => "邀请好友";
   /// "密码"
   String get password => "密码";
+  /// "请填写身份证上的姓名"
+  String get pleaseinputname => "请填写身份证上的姓名";
+  /// "请填写证件号"
+  String get pleaseinputid => "请填写证件号";
+  /// "姓名"
+  String get name => "姓名";
+  /// "证件类型"
+  String get idtype => "证件类型";
+  /// "证件号"
+  String get idnumber => "证件号";
+  /// "驾驶证"
+  String get iddrive => "驾驶证";
+  /// "护照"
+  String get idprotect => "护照";
+  /// "身份证"
+  String get idcard => "身份证";
   /// "手机"
   String get phone => "手机";
   /// "邮箱"
@@ -146,6 +164,8 @@ class I18n implements WidgetsLocalizations {
   String get inviterecord => "邀请记录";
   /// "可用资产"
   String get availablebalance => "可用资产";
+  /// "可用资产"
+  String get assetaccount => "可用资产";
   /// "分享奖励"
   String get teamgroupshare => "分享奖励";
   /// "领导奖金"
@@ -296,12 +316,44 @@ class I18n implements WidgetsLocalizations {
   String get teamleadertotal => "共";
   /// "团队人数"
   String get teamnumber => "团队人数";
+  /// "团队总业绩"
+  String get teamperformance => "团队总业绩";
   /// "大区动态收益"
   String get dynamicincome => "大区动态收益";
   /// "直推奖"
   String get directPushAward => "直推奖";
   /// "达标领导奖励"
   String get aimreward => "达标领导奖励";
+  /// "我的面值"
+  String get denomination => "我的面值";
+  /// "更新资产"
+  String get coinupdate => "更新资产";
+  /// "历史记录"
+  String get history => "历史记录";
+  /// "提示"
+  String get notice => "提示";
+  /// "上传证件照"
+  String get uploadid => "上传证件照";
+  /// "证件照正面"
+  String get idfront => "证件照正面";
+  /// "证件照反面"
+  String get idback => "证件照反面";
+  /// "拍摄"
+  String get takephoto => "拍摄";
+  /// "从相册选择"
+  String get album => "从相册选择";
+  /// "提交"
+  String get submit => "提交";
+  /// "更改绑定"
+  String get changebind => "更改绑定";
+  /// "当前绑定"
+  String get currbind => "当前绑定";
+  /// "绑定规则：手机号及邮箱选择一个绑定即可"
+  String get bindrule => "绑定规则：手机号及邮箱选择一个绑定即可";
+  /// "1. 证件类型:身份证、护照或驾照。\n2. 必须看清证件信息和脸，需要手持证件拍摄。\n3. 证件文档不可超过500kb。\n4. 照片内容真实有效，不得做任何修改。\n5. 上传文档格式为pdf、jpg、 jpeg和png。"
+  String get uploadnotice => "1. 证件类型:身份证、护照或驾照。\n2. 必须看清证件信息和脸，需要手持证件拍摄。\n3. 证件文档不可超过500kb。\n4. 照片内容真实有效，不得做任何修改。\n5. 上传文档格式为pdf、jpg、 jpeg和png。";
+  /// "姓名、证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请您慎重填写真实信息。"
+  String get authnotice => "姓名、证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请您慎重填写真实信息。";
   /// "人"
   String get peopleintotal => "人";
 }
@@ -370,6 +422,9 @@ class _I18n_en_US extends I18n {
   /// "Team"
   @override
   String get team => "Team";
+  /// "Daily income"
+  @override
+  String get dayincome => "Daily income";
   /// "My Team"
   @override
   String get myteam => "My Team";
@@ -382,6 +437,30 @@ class _I18n_en_US extends I18n {
   /// "Password"
   @override
   String get password => "Password";
+  /// "Please fill in the name on the ID"
+  @override
+  String get pleaseinputname => "Please fill in the name on the ID";
+  /// "Please fill in the ID number"
+  @override
+  String get pleaseinputid => "Please fill in the ID number";
+  /// "Name"
+  @override
+  String get name => "Name";
+  /// "Type of certificate"
+  @override
+  String get idtype => "Type of certificate";
+  /// "ID number"
+  @override
+  String get idnumber => "ID number";
+  /// "Driver license"
+  @override
+  String get iddrive => "Driver license";
+  /// "Passport"
+  @override
+  String get idprotect => "Passport";
+  /// "ID card"
+  @override
+  String get idcard => "ID card";
   /// "Mobile"
   @override
   String get phone => "Mobile";
@@ -487,6 +566,9 @@ class _I18n_en_US extends I18n {
   /// "Available balance"
   @override
   String get availablebalance => "Available balance";
+  /// "Asset account"
+  @override
+  String get assetaccount => "Asset account";
   /// "Share"
   @override
   String get teamgroupshare => "Share";
@@ -712,6 +794,9 @@ class _I18n_en_US extends I18n {
   /// "Number of team"
   @override
   String get teamnumber => "Number of team";
+  /// "Team Grades"
+  @override
+  String get teamperformance => "Team Grades";
   /// "Regional dynamic income"
   @override
   String get dynamicincome => "Regional dynamic income";
@@ -721,6 +806,51 @@ class _I18n_en_US extends I18n {
   /// "Reward for meeting standards"
   @override
   String get aimreward => "Reward for meeting standards";
+  /// "My value"
+  @override
+  String get denomination => "My value";
+  /// "Update"
+  @override
+  String get coinupdate => "Update";
+  /// "History record"
+  @override
+  String get history => "History record";
+  /// "Notice"
+  @override
+  String get notice => "Notice";
+  /// "Upload ID photo"
+  @override
+  String get uploadid => "Upload ID photo";
+  /// "Front of ID photo"
+  @override
+  String get idfront => "Front of ID photo";
+  /// "Reverse side of ID"
+  @override
+  String get idback => "Reverse side of ID";
+  /// "Take photo"
+  @override
+  String get takephoto => "Take photo";
+  /// "Select from album"
+  @override
+  String get album => "Select from album";
+  /// "Submit"
+  @override
+  String get submit => "Submit";
+  /// "Change binding"
+  @override
+  String get changebind => "Change binding";
+  /// "Current binding"
+  @override
+  String get currbind => "Current binding";
+  /// "Binding rule: select one of mobile phone number and email to bind"
+  @override
+  String get bindrule => "Binding rule: select one of mobile phone number and email to bind";
+  /// "1. Type of document: ID card, passport or driver’s license.\n2. The document information and face must be clearly seen, and the document must be hand-held to take pictures.\n3. The document must not exceed 500kb.\n4. The content of the photo is true and valid, No modification is allowed.\n5. The uploaded file formats are pdf, jpg, jpeg and png."
+  @override
+  String get uploadnotice => "1. Type of document: ID card, passport or driver’s license.\n2. The document information and face must be clearly seen, and the document must be hand-held to take pictures.\n3. The document must not exceed 500kb.\n4. The content of the photo is true and valid, No modification is allowed.\n5. The uploaded file formats are pdf, jpg, jpeg and png.";
+  /// "The name and ID number cannot be changed after the first submission. In order to avoid filling in false information, the recharge and withdrawal cannot be approved, please fill in the real information carefully."
+  @override
+  String get authnotice => "The name and ID number cannot be changed after the first submission. In order to avoid filling in false information, the recharge and withdrawal cannot be approved, please fill in the real information carefully.";
   /// "people in total"
   @override
   String get peopleintotal => "people in total";

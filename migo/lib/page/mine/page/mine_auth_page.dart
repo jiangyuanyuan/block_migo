@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/commview/custom_menu_view.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 class MineAuthPage extends StatefulWidget {
   @override
@@ -24,11 +26,19 @@ class _MineAuthPageState extends State<MineAuthPage> {
     _numcontroller.dispose();
     super.dispose();
   }
+
+  List<String> _createtitle(BuildContext context) {
+    return [
+      I18n.of(context).idcard,
+      I18n.of(context).iddrive,
+      I18n.of(context).idprotect,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CommbackView(
-        titles: "实名认证",
+        titles: I18n.of(context).verified,
         onPop: () => Navigator.pop(context),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -38,7 +48,7 @@ class _MineAuthPageState extends State<MineAuthPage> {
               Stack(
                 children: [
                   NormalTextfield(
-                    hintText: "请填写身份证上的姓名",
+                    hintText: I18n.of(context).pleaseinputname,
                     align: TextAlign.right,
                     controller: _controller,
                     focusNode: _focusNode,
@@ -52,7 +62,7 @@ class _MineAuthPageState extends State<MineAuthPage> {
                       padding: const EdgeInsets.only(left: 12),
                       color: Colors.white,
                       alignment: Alignment.centerLeft,
-                      child: Text("姓名", style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                      child: Text(I18n.of(context).name, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
 
                     ),
                   )
@@ -79,25 +89,31 @@ class _MineAuthPageState extends State<MineAuthPage> {
                       padding: const EdgeInsets.only(left: 12),
                       color: Colors.white,
                       alignment: Alignment.centerLeft,
-                      child: Text("证件类型", style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                      child: Text(I18n.of(context).idtype, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
                     ),
                   ),
                   Positioned(
-                    right: 5,
+                    right: 15,
                     top: 8,
+                    left: 100,
                     bottom: 8,
                     child: Container(
-                      padding: const EdgeInsets.only(right: 12),
+                      height: 28,
                       color: Colors.white,
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        children: [
-                          Text("证件类型", style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
-                          SizedBox(width: 6,),
-                          Image.asset("assets/sign_choos_arrow_down.png")
-                        ],
+                      alignment: Alignment.centerRight,
+                      child: CustiomMenuView(
+                        backgroundColor: Colors.white,
+                        titles: _createtitle(context),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(I18n.of(context).idcard, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                            SizedBox(width: 6,),
+                            Image.asset("assets/sign_choos_arrow_down.png")
+                          ],
+                        ),
                       ),
-                    ),
+                    )
                   ),
                 ],
               ),
@@ -105,7 +121,7 @@ class _MineAuthPageState extends State<MineAuthPage> {
               Stack(
                 children: [
                   NormalTextfield(
-                    hintText: "请填写证件号",
+                    hintText: I18n.of(context).pleaseinputid,
                     align: TextAlign.right,
                     controller: _numcontroller,
                     focusNode: _numfocusNode,
@@ -119,7 +135,7 @@ class _MineAuthPageState extends State<MineAuthPage> {
                       padding: const EdgeInsets.only(left: 12),
                       color: Colors.white,
                       alignment: Alignment.centerLeft,
-                      child: Text("证件号", style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                      child: Text(I18n.of(context).idnumber, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
                     ),
                   )
                 ],
@@ -131,14 +147,14 @@ class _MineAuthPageState extends State<MineAuthPage> {
                   children: [
                     Image.asset("assets/sign_tip_arrow_right.png"),
                     SizedBox(width: 6,),
-                    Text("提示", style: AppFont.textStyle(14, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),)
+                    Text(I18n.of(context).notice, style: AppFont.textStyle(14, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),)
                   ],
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: Text(
-                  "姓名、证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请您慎重填写真实信息。",
+                  I18n.of(context).authnotice,
                   style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),
                 ),
               ),

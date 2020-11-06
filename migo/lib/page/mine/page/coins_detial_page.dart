@@ -19,7 +19,7 @@ class CoinsDetailPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.contact_mail, size: 48,),
+                      Image.asset("assets/usdt.png", width: 48, height: 48, fit: BoxFit.fill,),
                       SizedBox(width: 10,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +44,7 @@ class CoinsDetailPage extends StatelessWidget {
                       ),
                       BtnAction(
                         backImg: "btn_team_join_def.png",
-                        title: "更新资产",
+                        title: I18n.of(context).coinupdate,
                       )
                     ],
                   )
@@ -64,7 +64,7 @@ class CoinsDetailPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         SizedBox(width: 24,),
-                        Text("历史记录"),
+                        Text(I18n.of(context).history, style: AppFont.textStyle(12, color: Colors.black),),
                         Spacer(),
                         IconButton(
                           icon: Image.asset("assets/ico_hist_filt-def.png"),
@@ -118,7 +118,7 @@ class _Cell extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("充值", style: AppFont.textStyle(14, color: Colors.black),),
+                  Text("${index == 2 ? I18n.of(context).withdraw:I18n.of(context).recharge}", style: AppFont.textStyle(14, color: Colors.black),),
                   SizedBox(height: 4,),
                   Text("16:43",style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)))
                 ],

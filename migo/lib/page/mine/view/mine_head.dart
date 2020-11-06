@@ -3,6 +3,7 @@ import 'package:migo/common/util/tool.dart';
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
+import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/home/view/home_gradient_text.dart';
 
 import 'mine_action_view.dart';
@@ -52,20 +53,20 @@ class MainHeadView extends StatelessWidget {
           fontWeight: FontWeight.bold,
           showshadow: true
         ),),
-        Text("我的团队：123", style: AppFont.textStyle(
+        Text("${I18n.of(context).myteam}：123", style: AppFont.textStyle(
           12, 
           color: const Color(0xffDBF0FF),
           showshadow: true
         ),),
         SizedBox(height: 20,),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _DetailView(title: "团队总业绩(MICOs)", detail: Tool.number(5000.09, 2),),
-              _DetailView(title: "日收益(MICOs)", detail: Tool.number(5000.09, 2),),
-              _DetailView(title: "我的面值(MICOs)", detail: Tool.number(5000.09, 2),),
+              _DetailView(title: "${I18n.of(context).teamperformance}(MICOs)", detail: Tool.number(5000.09, 2),),
+              _DetailView(title: "${I18n.of(context).dailyoutput}(MICOs)", detail: Tool.number(5000.09, 2),),
+              _DetailView(title: "${I18n.of(context).dayincome}(MICOs)", detail: Tool.number(5000.09, 2),),
             ],
           ),
         ),
@@ -80,7 +81,7 @@ class MainHeadView extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 19, top: 19, bottom: 19),
-                child: Text("资产账户", style: AppFont.textStyle(14, fontWeight: FontWeight.bold),),
+                child: Text(I18n.of(context).assetaccount, style: AppFont.textStyle(14, fontWeight: FontWeight.bold),),
               ),
               Divider(height: 1)
             ],

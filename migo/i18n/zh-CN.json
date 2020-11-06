@@ -20,11 +20,23 @@
     "withdrawsuccess":"提现成功",
     "arrivalquantity":"到账数量：",
     "team":"团队",
+    "dayincome": "日收益",
     "myteam":"我的团队",
     "myearn":"我的收益",
     "invite": "邀请好友",
 
     "password": "密码",
+
+    "pleaseinputname":"请填写身份证上的姓名",
+    "pleaseinputid":"请填写证件号",
+    "name":"姓名",
+    "idtype":"证件类型",
+    "idnumber":"证件号",
+    "iddrive":"驾驶证",
+    "idprotect":"护照",
+    "idcard":"身份证",
+
+
     "phone": "手机",
     "email": "邮箱",
     "congratulations":"恭喜获得",
@@ -61,6 +73,7 @@
     "gotopackage": "前往背包查看",
     "inviterecord": "邀请记录",
     "availablebalance": "可用资产",
+    "assetaccount": "可用资产",
 
 
     "teamgroupshare":"分享奖励",
@@ -144,8 +157,27 @@
     "space":"{sender}",
     "teamleadertotal":"共",
     "teamnumber":"团队人数",
+    "teamperformance": "团队总业绩",
     "dynamicincome":"大区动态收益",
     "directPushAward":"直推奖",
     "aimreward":"达标领导奖励",
+    "denomination":"我的面值",
+    "coinupdate":"更新资产",
+    "history":"历史记录",
+    "notice":"提示",
+    "uploadid":"上传证件照",
+
+    "idfront": "证件照正面",
+    "idback": "证件照反面",
+    "takephoto":"拍摄",
+    "album":"从相册选择",
+    "submit":"提交",
+    
+    "changebind":"更改绑定",
+    "currbind":"当前绑定",
+    "bindrule":"绑定规则：手机号及邮箱选择一个绑定即可",
+
+    "uploadnotice":"1. 证件类型:身份证、护照或驾照。\n2. 必须看清证件信息和脸，需要手持证件拍摄。\n3. 证件文档不可超过500kb。\n4. 照片内容真实有效，不得做任何修改。\n5. 上传文档格式为pdf、jpg、 jpeg和png。",
+    "authnotice":"姓名、证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请您慎重填写真实信息。",
     "peopleintotal":"人"
 }

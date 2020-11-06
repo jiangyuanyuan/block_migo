@@ -3,6 +3,7 @@ import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 class MineAuthUploadPage extends StatefulWidget {
 
@@ -13,7 +14,7 @@ class MineAuthUploadPage extends StatefulWidget {
 class _MineAuthUploadPageState extends State<MineAuthUploadPage> {
 
   void _chooseImage(bool isright) {
-    Alert.showBottomDialog(context, ["拍摄", "从相册选择"]);
+    Alert.showBottomDialog(context, [I18n.of(context).takephoto, I18n.of(context).album]);
   }
 
   void _submit() {
@@ -23,33 +24,29 @@ class _MineAuthUploadPageState extends State<MineAuthUploadPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CommbackView(
-        titles: "上传证件照",
+        titles: I18n.of(context).uploadid,
         onPop: () => Navigator.pop(context),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _Detail(title: "证件照正面", onTap: () => _chooseImage(true),),
+              _Detail(title: I18n.of(context).idfront, onTap: () => _chooseImage(true),),
               SizedBox(height: 20,),
-              _Detail(title: "证件照反面", onTap: () => _chooseImage(false),),
+              _Detail(title: I18n.of(context).idback, onTap: () => _chooseImage(false),),
               Padding(
                   padding: const EdgeInsets.only(left: 24.0, top: 46),
                   child: Row(
                     children: [
                       Image.asset("assets/sign_tip_arrow_right.png"),
                       SizedBox(width: 6,),
-                      Text("提示", style: AppFont.textStyle(14, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),)
+                      Text(I18n.of(context).notice, style: AppFont.textStyle(14, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),)
                     ],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 10),
                   child: Text(
-                    '''1. 证件类型:身份证、护照或驾照。
-2. 必须看清证件信息和脸，需要手持证件拍摄。
-3. 证件文档不可超过500kb。
-4. 照片内容真实有效，不得做任何修改。
-5. 上传文档格式为pdf、jpg、 jpeg和png。''',
+                    I18n.of(context).uploadnotice,
                     style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),
                   ),
                 ),
@@ -58,7 +55,7 @@ class _MineAuthUploadPageState extends State<MineAuthUploadPage> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: BtnImageBottomView(
-                      title: "提交",
+                      title: I18n.of(context).submit,
                       onTap: _submit,
                     ),
                   ),
@@ -104,7 +101,7 @@ class _Detail extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(Icons.add, color: const Color(0xff654248),),
-                Text("上传照片", style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),)
+                Text(I18n.of(context).uploadid, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),)
               ],
             ),
           ),

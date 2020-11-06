@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/commview/custom_menu_view.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
@@ -36,7 +37,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CommbackView(
-        titles: "更改绑定",
+        titles: I18n.of(context).changebind,
         onPop: () => Navigator.pop(context),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -45,7 +46,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 16.0, bottom: 14),
-                child: Text("目前绑定", style: AppFont.textStyle(16, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),),
+                child: Text(I18n.of(context).currbind, style: AppFont.textStyle(16, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),),
               ),
               Container(
                 width: double.infinity,
@@ -62,12 +63,12 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0, bottom: 14, top: 24),
-                child: Text("更改绑定", style: AppFont.textStyle(16, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),),
+                child: Text(I18n.of(context).changebind, style: AppFont.textStyle(16, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),),
               ),
               Stack(
                 children: [
                   NormalTextfield(
-                    hintText: "请填写证件号",
+                    hintText: I18n.of(context).pleaseinputphone,
                     align: TextAlign.right,
                     controller: _editingController,
                     focusNode: _focusNode,
@@ -81,12 +82,16 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                       padding: const EdgeInsets.only(left: 12),
                       color: Colors.white,
                       alignment: Alignment.centerLeft,
-                      child: Row(
-                        children: [
-                          Text("证件号", style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
-                          SizedBox(width: 6,),
-                          Image.asset("assets/sign_choos_arrow_down.png"),
-                        ],
+                      child: CustiomMenuView(
+                        backgroundColor: Colors.white,
+                        titles: [I18n.of(context).phone, I18n.of(context).email],
+                        child: Row(
+                          children: [
+                            Text(I18n.of(context).phone, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                            SizedBox(width: 6,),
+                            Image.asset("assets/sign_choos_arrow_down.png"),
+                          ],
+                        ),
                       ),
                     ),
                   )
@@ -121,13 +126,13 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                   children: [
                     Image.asset("assets/sign_tip_arrow_right.png"),
                     SizedBox(width: 6,),
-                    Text("绑定规则：手机号及邮箱选择一个绑定即可", style: AppFont.textStyle(14, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),)
+                    Expanded(child: Text(I18n.of(context).bindrule, style: AppFont.textStyle(14, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),))
                   ],
                 ),
               ),
               SizedBox(height: 46,),
               BtnImageBottomView(
-                title: "确认",
+                title: I18n.of(context).submit,
                 onTap: _submit,
               )
             ],
