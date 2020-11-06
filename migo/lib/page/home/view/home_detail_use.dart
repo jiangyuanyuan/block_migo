@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 import 'home_gradient_text.dart';
 
@@ -8,6 +9,16 @@ class HomeDetailUserView extends StatelessWidget {
   final Function() onTap;
 
   const HomeDetailUserView({Key key, this.onTap}) : super(key: key);
+
+  String _getString(BuildContext context) {
+    List<String> titles = [
+      I18n.of(context).shovel_gold,
+      I18n.of(context).shovel_sliver,
+      I18n.of(context).shovel_iron,
+    ];
+    return I18n.of(context).homeused + " " + titles[0];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,14 +36,14 @@ class HomeDetailUserView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("已使用 铜铲子", style: AppFont.textStyle(
+              Text(_getString(context), style: AppFont.textStyle(
                 12, 
                 color: Colors.white,
                 showshadow: true
               ),),
               SizedBox(width: 4,),
               HomeGradientText(
-                data: "1个",
+                data: "X1",
                 fontstyle: AppFont.textStyle(
                   12, 
                   fontWeight: FontWeight.bold,
@@ -45,7 +56,7 @@ class HomeDetailUserView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("获得", style: AppFont.textStyle(
+              Text(I18n.of(context).obtain, style: AppFont.textStyle(
                 24, 
                 color: Colors.white, 
                 fontWeight: FontWeight.bold,
@@ -60,7 +71,7 @@ class HomeDetailUserView extends StatelessWidget {
             ],
           ),
           BtnImageBottomView(
-            title: "立即挖矿",
+            title: I18n.of(context).minenow,
             onTap: onTap,
           )
         ],

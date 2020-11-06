@@ -1,5 +1,6 @@
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
+import 'package:migo/generated/i18n.dart';
 
 class HomeCell extends StatelessWidget {
   final int index;
@@ -27,9 +28,9 @@ class HomeCell extends StatelessWidget {
                         height: 25,
                         margin: const EdgeInsets.only(bottom: 20),
                         alignment: Alignment.center,
-                        child: Text("赚取MIGO", style: AppFont.textStyle(12, color: AppColor.yellowMain),)
+                        child: Text("${I18n.of(context).homeearn} MIGO", style: AppFont.textStyle(12, color: AppColor.yellowMain),)
                       ),
-                      Text("MIGO${index == 0 ? "乐乡" : "乐屋"}", style: AppFont.textStyle(12, color: Colors.white, fontWeight: FontWeight.bold),)
+                      Text("MIGO${index == 0 ? "乐乡" : "乐都"}", style: AppFont.textStyle(12, color: Colors.white, fontWeight: FontWeight.bold),)
                     ],
                   ),
                 ),
@@ -39,10 +40,10 @@ class HomeCell extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("抵押：4000 MIGO-USDT", style: AppFont.textStyle(12, color: Colors.white),),
-                      Text("日产量：165", style: AppFont.textStyle(12, color: Colors.white),),
-                      Text("挖矿周期：45天", style: AppFont.textStyle(12, color: Colors.white),),
-                      Text("挖矿量：0", style: AppFont.textStyle(12, color: Colors.white),),
+                      Text("${I18n.of(context).mortgage}：4000 MIGO-USDT", style: AppFont.textStyle(12, color: Colors.white),),
+                      Text("${I18n.of(context).dailyoutput}：165", style: AppFont.textStyle(12, color: Colors.white),),
+                      Text("${I18n.of(context).miningcycle}：45 ${I18n.of(context).day}", style: AppFont.textStyle(12, color: Colors.white),),
+                      Text("${I18n.of(context).miningamount}：0", style: AppFont.textStyle(12, color: Colors.white),),
                     ],
                   ),
                 )

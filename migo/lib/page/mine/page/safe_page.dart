@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/appbar.dart';
+import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
 
@@ -38,12 +39,15 @@ class SafePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NormalAppbar.normal(
-        title: Text(I18n.of(context).safecenter),
-        onPress: () => Navigator.pop(context)
-      ),
-      body: Column(
-        children: _create(context),
+      body: CommbackView(
+        titles: I18n.of(context).safecenter,
+        onPop: () => Navigator.pop(context),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: _create(context),
+          ),
+        ),
       ),
     );
   }

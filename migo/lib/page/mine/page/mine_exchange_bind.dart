@@ -53,7 +53,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                 padding: const EdgeInsets.only(left: 14),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/input_back.png"),
+                    image: AssetImage("assets/bg_list_bound_def.png"),
                     fit: BoxFit.fill
                   )
                 ),

@@ -1,4 +1,5 @@
 import 'package:migo/common/const/cosnt.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 
 import 'package:migo/page/contract/page/contract_page.dart';
@@ -44,6 +45,9 @@ class _RootPageState extends State<RootPage> {
   @override
   void initState() {
     super.initState();
+    EventBus.instance.addListener(EventKeys.JumtoTeam, (arg) { 
+      _pageController.jumpToPage(2);
+    });
   }
 
   @override

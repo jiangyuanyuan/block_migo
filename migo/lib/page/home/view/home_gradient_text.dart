@@ -10,11 +10,22 @@ class HomeGradientText extends StatelessWidget {
   Widget build(BuildContext context) {
     return GradientText(
       data,
-      gradient: LinearGradient(colors: [
-        Color(0xffFFD765),
-        Color(0xffFF9C00),
-        Color(0xffFFF5BE)
-      ],begin: Alignment.topCenter, end: Alignment.bottomCenter),
+      gradient: LinearGradient(
+        colors: [
+          Color(0xffFFD765),
+          Color(0xffFFD765),
+          Color(0xffFF9C00),
+          Color(0xffFFF5BE),
+          Color(0xffFFF5BE)
+        ],
+        begin: Alignment.topCenter, 
+        end: Alignment.bottomCenter,
+        // stops: [
+        //   1,
+        //   0.5,
+        //   0.1
+        // ]
+      ),
       style: fontstyle,
     );
   }

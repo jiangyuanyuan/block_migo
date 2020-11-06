@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:migo/common/commview/appbar.dart';
+import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/generated/i18n.dart';
 
 class MineInvitePage extends StatefulWidget {
   @override
@@ -10,17 +12,16 @@ class _MineInvitePageState extends State<MineInvitePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NormalAppbar.normal(
-        title: Text("邀请好友"),
-        onPress: () => Navigator.pop(context),
+      body: CommbackView(
+        titles: I18n.of(context).invite,
+        onPop: () => Navigator.pop(context),
         actions: [
-          FlatButton(
-            child: Text('邀请记录'),
-            onPressed: () {
-              Navigator.pushNamed(context, "/inviterecord");
-            },
+          IconButton(
+            icon: Image.asset("assets/coins_record.png"),
+            onPressed: () => Navigator.pushNamed(context, "/inviterecord"),
           )
-        ]
+        ],
+        child: Container(),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/view/mine_reward_view.dart';
 import 'package:migo/page/mine/view/team_leading_detail.dart';
 import 'package:migo/page/mine/view/team_share_detail.dart';
@@ -42,18 +43,18 @@ class _TeamBottomViewState extends State<TeamBottomView> {
 
   String _getLeftTitle(BuildContext context) {
     List<String> temp = [
-      "今日完成认证人数",
-      "目前称号",
-      "达标等级"
+      I18n.of(context).numberpeople,
+      I18n.of(context).currtitle,
+      I18n.of(context).compliancelevel
     ];
     return temp[widget.tabindex];
   }
 
   String _getRightTitle(BuildContext context) {
     List<String> temp = [
-      "累积完成认证人数",
-      "小区累计质押挖矿",
-      "见点奖励"
+      I18n.of(context).totalnumberpeople,
+      I18n.of(context).cumulativepledgedmining,
+      I18n.of(context).seePoint
     ];
     return temp[widget.tabindex];
   }
@@ -77,12 +78,8 @@ class _TeamBottomViewState extends State<TeamBottomView> {
           height: 130,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.red,
-              gradient: LinearGradient(
-              colors: [Colors.transparent, Color(0xff4B7897).withOpacity(0.01), Colors.black],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            )
+              color: const Color(0xff23496E),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(8))
             ),
             padding: const EdgeInsets.only(top: 26, left: 32, right: 26),
             child: Row(
@@ -101,12 +98,12 @@ class _TeamBottomViewState extends State<TeamBottomView> {
                   children: [
                     Text(_getRightTitle(context), style: AppFont.textStyle(12, color: Color(0xffDBF0FF)),),
                     SizedBox(height: 10,),
-                    Text(widget.tabindex == 2 ? "4-6代 \n 每个有效用户0.8MIGOs" : "190", textAlign: TextAlign.right, style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
+                    Text(widget.tabindex == 2 ? "4-6 ${I18n.of(context).generation} \n ${I18n.of(context).everyactiveuser} 0.8MIGOs" : "190", textAlign: TextAlign.right, style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
                   ],
                 ),
               ],
             ),
-          ),
+          ), 
         ),
         Positioned.fill(
           top: widget.tabindex == 2 ? 107 : 88,

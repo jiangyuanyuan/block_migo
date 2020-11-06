@@ -224,8 +224,86 @@ class I18n implements WidgetsLocalizations {
   String get availableamount => "可提数量：";
   /// "实际到账："
   String get actualarrival => "实际到账：";
+  /// "赚取"
+  String get homeearn => "赚取";
+  /// "抵押"
+  String get mortgage => "抵押";
+  /// "日产量"
+  String get dailyoutput => "日产量";
+  /// "挖矿周期"
+  String get miningcycle => "挖矿周期";
+  /// "挖矿量"
+  String get miningamount => "挖矿量";
+  /// "矿池日产量"
+  String get miningoutput => "矿池日产量";
+  /// "矿池总产量"
+  String get miningtotaloutput => "矿池总产量";
+  /// "获得"
+  String get obtain => "获得";
+  /// "立即挖矿"
+  String get minenow => "立即挖矿";
+  /// "已使用"
+  String get homeused => "已使用";
+  /// "挖矿支付记录"
+  String get miningpaymentrecord => "挖矿支付记录";
+  /// "挖矿收益记录"
+  String get miningrevenuerecord => "挖矿收益记录";
+  /// "团队收益记录"
+  String get teamearnrecord => "团队收益记录";
+  /// "支付"
+  String get pay => "支付";
+  /// "分享奖励"
+  String get sharerewards => "分享奖励";
+  /// "目前称号"
+  String get currtitle => "目前称号";
+  /// "小区累计质押挖矿"
+  String get cumulativepledgedmining => "小区累计质押挖矿";
+  /// "达标等级"
+  String get compliancelevel => "达标等级";
+  /// "见点奖励"
+  String get seePoint => "见点奖励";
+  /// "使用中铲子"
+  String get shovelinuse => "使用中铲子";
+  /// "天"
+  String get day => "天";
+  /// "已认证"
+  String get inviteverified => "已认证";
+  /// "全部"
+  String get all => "全部";
+  /// "代"
+  String get generation => "代";
+  /// "每个有效用户"
+  String get everyactiveuser => "每个有效用户";
+  /// "奖励"
+  String get reward => "奖励";
+  /// "享受"
+  String get enjoy => "享受";
+  /// "当前等级"
+  String get currentlevel => "当前等级";
+  /// "矿池分红"
+  String get minedividends => "矿池分红";
+  /// "我的小区"
+  String get mycommunity => "我的小区";
+  /// "今日完成认证人数"
+  String get numberpeople => "今日完成认证人数";
+  /// "累计完成认证人数"
+  String get totalnumberpeople => "累计完成认证人数";
   /// "设置新密码"
   String get resetpwd => "设置新密码";
+  /// "${sender}"
+  String space(String sender) => "${sender}";
+  /// "共"
+  String get teamleadertotal => "共";
+  /// "团队人数"
+  String get teamnumber => "团队人数";
+  /// "大区动态收益"
+  String get dynamicincome => "大区动态收益";
+  /// "直推奖"
+  String get directPushAward => "直推奖";
+  /// "达标领导奖励"
+  String get aimreward => "达标领导奖励";
+  /// "人"
+  String get peopleintotal => "人";
 }
 
 class _I18n_zh_CN extends I18n {
@@ -409,33 +487,33 @@ class _I18n_en_US extends I18n {
   /// "Available balance"
   @override
   String get availablebalance => "Available balance";
-  /// "Share rewards"
+  /// "Share"
   @override
-  String get teamgroupshare => "Share rewards";
-  /// "Leadership Bonus"
+  String get teamgroupshare => "Share";
+  /// "Leadership"
   @override
-  String get teamgroupleader => "Leadership Bonus";
-  /// "Direct Push Award"
+  String get teamgroupleader => "Leadership";
+  /// "Direct push"
   @override
-  String get teamgrouppush => "Direct Push Award";
+  String get teamgrouppush => "Direct push";
   /// "Output"
   @override
   String get output => "Output";
   /// "Estimate"
   @override
   String get estimate => "Estimate";
-  /// "Yesterday's team earnings value"
+  /// "Yesterday's team earnings"
   @override
-  String get lasetteamvalue => "Yesterday's team earnings value";
-  /// "Total revenue value"
+  String get lasetteamvalue => "Yesterday's team earnings";
+  /// "Total revenue"
   @override
-  String get totalteamvalue => "Total revenue value";
-  /// "Build your own team of mines\nparticipate in MIGO mining pool dividends"
+  String get totalteamvalue => "Total revenue";
+  /// "Build team of mines\nParticipate pool dividends"
   @override
-  String get totalnotice => "Build your own team of mines\nparticipate in MIGO mining pool dividends";
-  /// "Participate now"
+  String get totalnotice => "Build team of mines\nParticipate pool dividends";
+  /// "Participate"
   @override
-  String get teamjoin => "Participate now";
+  String get teamjoin => "Participate";
   /// "Community static output"
   @override
   String get teamstaticvalue => "Community static output";
@@ -526,9 +604,126 @@ class _I18n_en_US extends I18n {
   /// "Actual arrival:"
   @override
   String get actualarrival => "Actual arrival:";
+  /// "Earn"
+  @override
+  String get homeearn => "Earn";
+  /// "Mortgage"
+  @override
+  String get mortgage => "Mortgage";
+  /// "Daily output"
+  @override
+  String get dailyoutput => "Daily output";
+  /// "Mining cycle"
+  @override
+  String get miningcycle => "Mining cycle";
+  /// "Mining amount"
+  @override
+  String get miningamount => "Mining amount";
+  /// "Daily output"
+  @override
+  String get miningoutput => "Daily output";
+  /// "Total output"
+  @override
+  String get miningtotaloutput => "Total output";
+  /// "Obtain"
+  @override
+  String get obtain => "Obtain";
+  /// "Mine now"
+  @override
+  String get minenow => "Mine now";
+  /// "Used"
+  @override
+  String get homeused => "Used";
+  /// "Mining payment record"
+  @override
+  String get miningpaymentrecord => "Mining payment record";
+  /// "Mining revenue record"
+  @override
+  String get miningrevenuerecord => "Mining revenue record";
+  /// "Team revenue record"
+  @override
+  String get teamearnrecord => "Team revenue record";
+  /// "Pay"
+  @override
+  String get pay => "Pay";
+  /// "Sharing rewards"
+  @override
+  String get sharerewards => "Sharing rewards";
+  /// "Current title"
+  @override
+  String get currtitle => "Current title";
+  /// "Cumulative pledged mining"
+  @override
+  String get cumulativepledgedmining => "Cumulative pledged mining";
+  /// "Compliance level"
+  @override
+  String get compliancelevel => "Compliance level";
+  /// "See Point Reward"
+  @override
+  String get seePoint => "See Point Reward";
+  /// "Shovel in use"
+  @override
+  String get shovelinuse => "Shovel in use";
+  /// "Days"
+  @override
+  String get day => "Days";
+  /// "Verified"
+  @override
+  String get inviteverified => "Verified";
+  /// "All"
+  @override
+  String get all => "All";
+  /// "generation"
+  @override
+  String get generation => "generation";
+  /// "Every active user"
+  @override
+  String get everyactiveuser => "Every active user";
+  /// "Reward"
+  @override
+  String get reward => "Reward";
+  /// "Enjoy"
+  @override
+  String get enjoy => "Enjoy";
+  /// "My level"
+  @override
+  String get currentlevel => "My level";
+  /// "Mining pool dividend"
+  @override
+  String get minedividends => "Mining pool dividend";
+  /// "My community"
+  @override
+  String get mycommunity => "My community";
+  /// "Number of people certified"
+  @override
+  String get numberpeople => "Number of people certified";
+  /// "Total certified"
+  @override
+  String get totalnumberpeople => "Total certified";
   /// "Reset password"
   @override
   String get resetpwd => "Reset password";
+  /// "${sender}"
+  @override
+  String space(String sender) => "${sender}";
+  /// ""
+  @override
+  String get teamleadertotal => "";
+  /// "Number of team"
+  @override
+  String get teamnumber => "Number of team";
+  /// "Regional dynamic income"
+  @override
+  String get dynamicincome => "Regional dynamic income";
+  /// "Direct Push Award"
+  @override
+  String get directPushAward => "Direct Push Award";
+  /// "Reward for meeting standards"
+  @override
+  String get aimreward => "Reward for meeting standards";
+  /// "people in total"
+  @override
+  String get peopleintotal => "people in total";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

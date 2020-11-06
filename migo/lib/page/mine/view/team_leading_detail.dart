@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 class TeamLeadingDetailView extends StatelessWidget {
   @override
@@ -13,20 +14,20 @@ class TeamLeadingDetailView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("我的小区", style: AppFont.textStyle(12, color: Colors.black)),
+              Text(I18n.of(context).mycommunity, style: AppFont.textStyle(12, color: Colors.black)),
               Text.rich(
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: "共",
+                      text: I18n.of(context).teamleadertotal,
                       style: AppFont.textStyle(12, color: Colors.black)
                     ),
                     TextSpan(
-                      text: "42",
+                      text: "42 ",
                       style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold)
                     ),
                     TextSpan(
-                      text: "人",
+                      text: I18n.of(context).peopleintotal,
                       style: AppFont.textStyle(12, color: Colors.black)
                     ),
                   ]
@@ -80,7 +81,7 @@ class _Cell extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("团队人数", style: AppFont.textStyle(12, color: Colors.black),),
+                          Text(I18n.of(context).teamnumber, style: AppFont.textStyle(12, color: Colors.black),),
                           Text("23", style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold),),
                         ],
                       ),
@@ -88,7 +89,7 @@ class _Cell extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("大区动态收益", style: AppFont.textStyle(12, color: Colors.black),),
+                        Text(I18n.of(context).dynamicincome, style: AppFont.textStyle(12, color: Colors.black),),
                         Text.rich(
                           TextSpan(
                             children: [

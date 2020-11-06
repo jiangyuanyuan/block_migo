@@ -23,7 +23,7 @@ class AlertHomePayView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(width: 24,),
-                Text("支付 MIGO", style: AppFont.textStyle(14,color: AppColor.back998, fontWeight: FontWeight.bold),),
+                Text("${I18n.of(context).pay} MIGO", style: AppFont.textStyle(14,color: AppColor.back998, fontWeight: FontWeight.bold),),
                 IconButton(
                   icon: Icon(Icons.cancel, color: const Color(0xffdedede),),
                   onPressed: () {

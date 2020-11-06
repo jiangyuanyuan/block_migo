@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_action.dart';
+import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 class MineRewardView extends StatelessWidget {
   @override
@@ -18,9 +20,9 @@ class MineRewardView extends StatelessWidget {
         ),
         Container(
           width: double.infinity,
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: BtnAction(
-            title: "马上邀请好友",
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+          child: BtnImageBottomView(
+            title: I18n.of(context).invite,
           ),
         )
       ],
@@ -38,7 +40,7 @@ class _Cell extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("直推奖", style: AppFont.textStyle(14, color: Colors.black),),
+              Text(I18n.of(context).directPushAward, style: AppFont.textStyle(14, color: Colors.black),),
               Text.rich(
                 TextSpan(
                   children: [
@@ -53,7 +55,7 @@ class _Cell extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("10/15达标领导奖励", style: AppFont.textStyle(14, color: Colors.black.withOpacity(0.5)),),
+              Text("10/15 ${I18n.of(context).aimreward}", style: AppFont.textStyle(14, color: Colors.black.withOpacity(0.5)),),
               Text("2020/10/28 22:57", style: AppFont.textStyle(14, color: Colors.black.withOpacity(0.5)),)
             ],
           ),

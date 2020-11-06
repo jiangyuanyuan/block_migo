@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_action.dart';
+import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 class TeamShareDetailView extends StatelessWidget {
   @override
@@ -11,21 +13,22 @@ class TeamShareDetailView extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 20, left: 24),
-          child: Text("分享奖励", style: AppFont.textStyle(12, color: Colors.black)),
+          child: Text(I18n.of(context).sharerewards, style: AppFont.textStyle(12, color: Colors.black)),
         ),
         Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               _Cell(),
-              _Cell(),
+              _Cell(showlevel: true,),
             ],
           ),
         ),
         Container(
           width: double.infinity,
-          child: BtnAction(
-            title: "马上邀请好友",
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: BtnImageBottomView(
+            title: I18n.of(context).invite,
           ),
         )
       ],
@@ -34,15 +37,23 @@ class TeamShareDetailView extends StatelessWidget {
 }
 
 class _Cell extends StatelessWidget {
+  final bool showlevel;
+
+  const _Cell({Key key, this.showlevel = false}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
           height: 104,
-          color: const Color(0xffFEE1BF),
           padding: const EdgeInsets.all(14),
           margin: const EdgeInsets.only(bottom: 10),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg_list_price_def.png"),
+              fit: BoxFit.fill
+            )
+          ),
           child: Row(
             children: [
               Container(
@@ -67,18 +78,28 @@ class _Cell extends StatelessWidget {
                 ),
               ),
 
-              Text("享受7-9代 \n2%奖励", textAlign: TextAlign.left, style: AppFont.textStyle(16, color: const Color(0xff654248), fontWeight: FontWeight.bold),)
+              Text(
+                "${I18n.of(context).enjoy}7-9 ${I18n.of(context).generation} \n2% ${I18n.of(context).reward}", 
+                textAlign: TextAlign.left, 
+                style: AppFont.textStyle(
+                  16, 
+                  color: const Color(0xff654248), 
+                  fontWeight: FontWeight.bold
+                ),)
             ],
           ),
         ),
         Positioned(
           left: 23,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Image.asset("assets/bg_price_level_def.png"),
-              Text("当前等级", style: AppFont.textStyle(12, color: Colors.white),)
-            ],
+          child: Visibility(
+            visible: showlevel,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset("assets/bg_price_level_def.png"),
+                Text(I18n.of(context).currentlevel, style: AppFont.textStyle(12, color: Colors.white),)
+              ],
+            ),
           ),
         )
       ],

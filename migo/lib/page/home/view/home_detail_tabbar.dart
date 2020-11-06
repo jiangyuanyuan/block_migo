@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 class HomeDetailBarView extends StatefulWidget {
   final Function(int tabindex) onTabIndex;
@@ -52,8 +53,8 @@ class _RechargeHeadViewState extends State<HomeDetailBarView> with SingleTickerP
               labelStyle: AppFont.textStyle(14, color: AppColor.back998),
               unselectedLabelStyle: AppFont.textStyle(14, color: Colors.black.withOpacity(0.5)),
               tabs: [
-                Text("挖矿支付记录"),
-                Text("挖矿收益记录"),
+                Text(I18n.of(context).miningpaymentrecord),
+                Text(I18n.of(context).miningrevenuerecord),
               ],
             )
           ),

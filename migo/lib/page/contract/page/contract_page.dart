@@ -68,7 +68,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                 Positioned(
                   left: 0,
                   right: 0,
-                  top: 390 + _animation.value * 200,
+                  top: 370 + _animation.value * 200,
                   child: ExchangeBottomView(),
                 ),
                 Positioned.fill(

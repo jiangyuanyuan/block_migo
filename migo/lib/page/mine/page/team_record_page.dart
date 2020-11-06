@@ -14,18 +14,18 @@ class _TeamRecordPageState extends State<TeamRecordPage> {
   int tabIndex = 0;
   List<String> _tags() {
     return [
-      "全部",
+      I18n.of(context).all,
       I18n.of(context).teamgroupshare,
       I18n.of(context).teamgroupleader,
       I18n.of(context).teamgrouppush,
-      "矿池分红"
+      I18n.of(context).minedividends
     ];
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CommbackView(
-        titles: "团队收益记录",
+        titles: I18n.of(context).teamearnrecord,
         onPop: () => Navigator.pop(context),
         child: Column(
           children: [

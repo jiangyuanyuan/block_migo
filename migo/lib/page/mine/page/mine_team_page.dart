@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/home/view/home_gradient_text.dart';
 import 'package:migo/page/mine/view/mine_team_tab.dart';
 import 'package:migo/page/mine/view/team_bottom_view.dart';
 
@@ -40,10 +41,10 @@ class _MineTeamPageState extends State<MineTeamPage> {
             child: Column(
               children: [
                 SizedBox(height: 42,),
-                Text(I18n.of(context).lasetteamvalue + "(MICOs)", style: AppFont.textStyle(12, color: const Color(0xff816C65)),),
+                Text(I18n.of(context).lasetteamvalue + "(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                 Padding(
                   padding: const EdgeInsets.only(top:10.0, bottom: 20),
-                  child: Text("+9000.56", style: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold),),
+                  child: HomeGradientText(data: "+9000.56", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold),),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -52,16 +53,16 @@ class _MineTeamPageState extends State<MineTeamPage> {
                     children: [
                       Column(
                         children: [
-                          Text("${I18n.of(context).totalteamvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xff816C65)),),
+                          Text("${I18n.of(context).totalteamvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                           SizedBox(height: 10,),
-                          Text("+9000.56", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                          HomeGradientText(data: "+9000.56", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                         ],
                       ),
                       Column(
                         children: [
-                          Text("${I18n.of(context).teamstaticvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xff816C65)),),
+                          Text("${I18n.of(context).teamstaticvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                           SizedBox(height: 10,),
-                          Text("2000.28", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                          HomeGradientText(data: "2000.28", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                         ],
                       )
                     ],
@@ -78,13 +79,7 @@ class _MineTeamPageState extends State<MineTeamPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(I18n.of(context).totalnotice, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white, shadows: [
-                              Shadow(
-                                offset: Offset(0.0, 2.0),
-                                blurRadius: 3.0,
-                                color: Colors.black.withOpacity(0.5),
-                              ),
-                            ]),),
+                            Text(I18n.of(context).totalnotice, style: AppFont.textStyle(12, fontWeight: FontWeight.bold, color: Colors.white),),
                             SizedBox(height: 10,),
                             InkWell(
                               onTap: () => Navigator.pushNamed(context, "/teamearth"),
@@ -102,10 +97,11 @@ class _MineTeamPageState extends State<MineTeamPage> {
                     ],
                   ),
                 ),
-                Padding(
+                Container(
                   padding: const EdgeInsets.only(top: 40.0),
                   child: MineTeamTabarView(
                     titles: _tags(),
+                    isscrolll: false,
                     onTabIndex: (sender) {
                       setState(() {
                         tabIndex = sender;

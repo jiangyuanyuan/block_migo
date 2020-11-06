@@ -6,6 +6,7 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/page/contract/view/alert_password_view.dart';
+import 'package:migo/page/contract/view/choose_coin_view.dart';
 
 class ReflectPage extends StatefulWidget {
   
@@ -29,27 +30,31 @@ class _ReflectPageState extends State<ReflectPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 42,
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18),
-              child: Stack(
-                children: [
-                  Image.asset("assets/input_back.png", fit: BoxFit.fill, width: double.infinity,),
-                  Positioned(
-                    left: 10,
-                    height: 42,
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Text("选择币种", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
-                    ),
+              child: ChooseCoinView(
+                child: Container(
+                  height: 42,
+                  child: Stack(
+                    children: [
+                      Image.asset("assets/input_back.png", fit: BoxFit.fill, width: double.infinity,),
+                      Positioned(
+                        left: 10,
+                        height: 42,
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Text("选择币种", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
+                        ),
+                      ),
+                      Positioned(
+                        right: 10,
+                        height: 42,
+                        child: Image.asset("assets/coin_select.png"),
+                      )
+                    ],
                   ),
-                  Positioned(
-                    right: 10,
-                    height: 42,
-                    child: Image.asset("assets/coin_select.png"),
-                  )
-                ],
+                ),
+                titles: ["USDT", "BTC"],
               ),
             ),
             Container(
@@ -66,13 +71,16 @@ class _ReflectPageState extends State<ReflectPage> {
                     SizedBox(height: 12,),
                     Stack(
                       children: [
-                        NormalTextfield(
-                          hintText: I18n.of(context).pleaseinputorcopy,
+                        IgnorePointer(
+                          ignoring: true,
+                          child: NormalTextfield(
+                            hintText: I18n.of(context).pleaseinputorcopy,
+                          ),
                         ),
                         Positioned(
                           right: 0,
                           child: IconButton(
-                            icon: Image.asset("assets/ico_passw_eye_hide.png"),
+                            icon: Image.asset("assets/scan_icon.png"),
                             onPressed: () {
                             },
                           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/page/home/view/home_gradient_text.dart';
 import 'package:migo/page/mine/view/mine_team_tab.dart';
 
 class TeamEarthPage extends StatelessWidget {
@@ -21,10 +22,10 @@ class TeamEarthPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("我的新增业绩(MICOs)", style: AppFont.textStyle(12, color: const Color(0xff816C65)),),
+            Text("我的新增业绩(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 20),
-              child: Text("37983", style: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+              child: HomeGradientText(data: "37983", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -34,17 +35,17 @@ class TeamEarthPage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("起止日期", style: AppFont.textStyle(12, color: const Color(0xff816C65)),),
+                      Text("起止日期", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                       SizedBox(height: 10,),
-                      Text("10/15~10/30", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                      HomeGradientText(data: "10/15~10/30", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text("分红日期", style: AppFont.textStyle(12, color: const Color(0xff816C65)),),
+                      Text("分红日期", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                       SizedBox(height: 10,),
-                      Text("10/20~10/30", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                      HomeGradientText(data: "10/20~10/30", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                     ],
                   )
                 ],
@@ -54,17 +55,24 @@ class TeamEarthPage extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.only(top: 30),
                 decoration: BoxDecoration(
-                  color: Colors.red,
+                  color: const Color(0xff23496E),
                   borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
-                  gradient: LinearGradient(
-                    colors: [Colors.transparent, Color(0xff4B7897).withOpacity(0.01), Colors.black],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  )
                 ),
                 child: Column(
                   children: [
-                    MineTeamTabarView(titles: ["团队概况", "我的直推"],),
+                    SizedBox(
+                      height: 52,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 31.0),
+                            child: Text("团队概况", style: AppFont.textStyle(14, color: Colors.white),),
+                          ),
+                          Spacer(),
+                          MineTeamTabarView(titles: ["我的直推", "我的伞下"], isscrolll: true,)
+                        ],
+                      ),
+                    ),
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(

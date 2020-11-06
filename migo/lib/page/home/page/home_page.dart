@@ -2,6 +2,7 @@
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/home/view/alert_shovelview.dart';
 import 'package:migo/page/home/view/home_action.dart';
@@ -69,8 +70,16 @@ class _HomePageState extends State<HomePage> {
                       onTap: () => Navigator.pushNamed(context, "/package"),
                     ),
                     HomeActionView(title: I18n.of(context).myearn, img: "home_earn.png"),
-                    HomeActionView(title: I18n.of(context).myteam, img: "home_team.png"),
-                    HomeActionView(title: I18n.of(context).invite, img: "home_mine.png"),
+                    HomeActionView(
+                      title: I18n.of(context).myteam, 
+                      img: "home_team.png",
+                      onTap: () => EventBus.instance.commit(EventKeys.JumtoTeam, null),
+                    ),
+                    HomeActionView(
+                      title: I18n.of(context).invite, 
+                      img: "home_mine.png",
+                      onTap: () => Navigator.pushNamed(context, "/invite"),
+                    ),
                   ],
                 ),
               ),
