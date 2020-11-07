@@ -160,5 +160,15 @@
     "bindrule": "Binding rule: select one of mobile phone number and email to bind",
     "uploadnotice": "1. Type of document: ID card, passport or driver’s license.\n2. The document information and face must be clearly seen, and the document must be hand-held to take pictures.\n3. The document must not exceed 500kb.\n4. The content of the photo is true and valid, No modification is allowed.\n5. The uploaded file formats are pdf, jpg, jpeg and png.",
     "authnotice": "The name and ID number cannot be changed after the first submission. In order to avoid filling in false information, the recharge and withdrawal cannot be approved, please fill in the real information carefully.",
+    "currtotalproduce": "Current Total Productivity",
+    "packagesize": "Backpack Capacity",
+    "todaypreget": "Today's estimate obtained",
+    "totalgetmigos": "Cumulative output",
+    "specification": "specification",
+    "durability": "Durability",
+    "production": "Production Volume",
+    "volume": "Volume",
+    "use": "Use",
+    "usernotice": "Are you sure you want to use this item?",
     "price": "Price"
 }

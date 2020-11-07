@@ -350,6 +350,26 @@ class I18n implements WidgetsLocalizations {
   String get currbind => "当前绑定";
   /// "绑定规则：手机号及邮箱选择一个绑定即可"
   String get bindrule => "绑定规则：手机号及邮箱选择一个绑定即可";
+  /// "当前总生产率"
+  String get currtotalproduce => "当前总生产率";
+  /// "背包容量"
+  String get packagesize => "背包容量";
+  /// "今日预估获得"
+  String get todaypreget => "今日预估获得";
+  /// "累计产出"
+  String get totalgetmigos => "累计产出";
+  /// "规格"
+  String get specification => "规格";
+  /// "耐久度"
+  String get durability => "耐久度";
+  /// "生产量"
+  String get production => "生产量";
+  /// "体积"
+  String get volume => "体积";
+  /// "使用"
+  String get use => "使用";
+  /// "请问确定要使用此道具吗?"
+  String get usernotice => "请问确定要使用此道具吗?";
   /// "1. 证件类型:身份证、护照或驾照。\n2. 必须看清证件信息和脸，需要手持证件拍摄。\n3. 证件文档不可超过500kb。\n4. 照片内容真实有效，不得做任何修改。\n5. 上传文档格式为pdf、jpg、 jpeg和png。"
   String get uploadnotice => "1. 证件类型:身份证、护照或驾照。\n2. 必须看清证件信息和脸，需要手持证件拍摄。\n3. 证件文档不可超过500kb。\n4. 照片内容真实有效，不得做任何修改。\n5. 上传文档格式为pdf、jpg、 jpeg和png。";
   /// "姓名、证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请您慎重填写真实信息。"
@@ -845,6 +865,36 @@ class _I18n_en_US extends I18n {
   /// "Binding rule: select one of mobile phone number and email to bind"
   @override
   String get bindrule => "Binding rule: select one of mobile phone number and email to bind";
+  /// "Current Total Productivity"
+  @override
+  String get currtotalproduce => "Current Total Productivity";
+  /// "Backpack Capacity"
+  @override
+  String get packagesize => "Backpack Capacity";
+  /// "Today's estimate obtained"
+  @override
+  String get todaypreget => "Today's estimate obtained";
+  /// "Cumulative output"
+  @override
+  String get totalgetmigos => "Cumulative output";
+  /// "specification"
+  @override
+  String get specification => "specification";
+  /// "Durability"
+  @override
+  String get durability => "Durability";
+  /// "Production Volume"
+  @override
+  String get production => "Production Volume";
+  /// "Volume"
+  @override
+  String get volume => "Volume";
+  /// "Use"
+  @override
+  String get use => "Use";
+  /// "Are you sure you want to use this item?"
+  @override
+  String get usernotice => "Are you sure you want to use this item?";
   /// "1. Type of document: ID card, passport or driver’s license.\n2. The document information and face must be clearly seen, and the document must be hand-held to take pictures.\n3. The document must not exceed 500kb.\n4. The content of the photo is true and valid, No modification is allowed.\n5. The uploaded file formats are pdf, jpg, jpeg and png."
   @override
   String get uploadnotice => "1. Type of document: ID card, passport or driver’s license.\n2. The document information and face must be clearly seen, and the document must be hand-held to take pictures.\n3. The document must not exceed 500kb.\n4. The content of the photo is true and valid, No modification is allowed.\n5. The uploaded file formats are pdf, jpg, jpeg and png.";

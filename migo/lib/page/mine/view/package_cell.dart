@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 class PackageCell extends StatelessWidget {
   final Function() onUserAction;
@@ -21,32 +22,33 @@ class PackageCell extends StatelessWidget {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 25),
+                padding: const EdgeInsets.only(left: 20.0, right: 20),
                 child: Image.asset("assets/shovel_gold.png"),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("金铲", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("规格：8500", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("生产量：1.35", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text(I18n.of(context).shovel_gold, style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).specification}：8500", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).production}：1.35", style: AppFont.textStyle(12, color: Colors.white),),
                 ],
               ),
-              SizedBox(width: 45,),
+              // SizedBox(width: 45,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(" ", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("规格：8500", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("生产量：1.35", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).durability}：8500", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).volume}：1.35", style: AppFont.textStyle(12, color: Colors.white),),
                 ],
               )
             ],
           ),
           BtnImageBottomView(
-            title: "使用",
+            title: I18n.of(context).use,
             onTap: onUserAction,
           )
         ],

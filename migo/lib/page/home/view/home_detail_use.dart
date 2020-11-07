@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:migo/common/commview/CustomProgressView.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
@@ -73,7 +74,7 @@ class HomeDetailUserView extends StatelessWidget {
           BtnImageBottomView(
             title: I18n.of(context).minenow,
             onTap: onTap,
-          )
+          ),
         ],
       ),
     );

@@ -35,7 +35,7 @@ class MinePackagePage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return PackageCell(onUserAction: () {
                       Alert.showViewDialog(context, AlertShovelView(
-                        titles: "请问确定要使用此道具吗?",
+                        titles: I18n.of(context).usernotice,
                         btntitles: I18n.of(context).sure,
                         showclose: true,
                       ));
