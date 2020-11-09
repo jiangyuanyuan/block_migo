@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:migo/common/commview/custom_menu_view.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 
@@ -11,6 +12,7 @@ class ExchangeCell extends StatefulWidget {
 }
 
 class _ExchangeCellState extends State<ExchangeCell> {
+  String coins = "USDT";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,22 +49,32 @@ class _ExchangeCellState extends State<ExchangeCell> {
                 ),
               ),
               Text("MAX", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-              Container(
-                margin: const EdgeInsets.only(left: 26),
-                width: 92,
-                height: 24,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColor.back998,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(I18n.of(context).choosecoin, style: AppFont.textStyle(12, color: Colors.white),),
-                    SizedBox(width: 5,),
-                    Image.asset("assets/pull.png")
-                  ],
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: CustiomMenuView(
+                  titles: ["USDT", "MIGO"],
+                  onSelected: (index, val) {
+                    setState(() {
+                      coins = val;
+                    });
+                  },
+                  child: Container(
+                    width: 92,
+                    height: 24,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: AppColor.back998,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(coins, style: AppFont.textStyle(12, color: Colors.white),),
+                        SizedBox(width: 5,),
+                        Image.asset("assets/pull.png")
+                      ],
+                    ),
+                  ),
                 ),
               )
             ],

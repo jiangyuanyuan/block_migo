@@ -59,6 +59,7 @@ dependencies:
   flutter_i18n: ^0.20.1
   steel_crypt: ^1.5.3
   encrypt: ^4.0.0
+  flutter_gifimage: ^1.0.1
 
 dev_dependencies:
   flutter_test:

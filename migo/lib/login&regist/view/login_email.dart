@@ -161,7 +161,7 @@ class _LoginPhoneViewState extends State<LoginEmailView> {
                           right: 12,
                           top: 0,
                           bottom: 0,
-                          child: Center(child: SmsCounterView(phone: phone,)),
+                          child: Center(child: SmsCounterView(phone: phone, isemail: true,)),
                         )
                       ],
                     ),

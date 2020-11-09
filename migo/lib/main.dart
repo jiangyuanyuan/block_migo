@@ -107,6 +107,7 @@ class _FreeLocalizations extends State<FreeLocalizations> {
       changeLocale(locales);
       // 设置语言
       I18n.locale = locales;
+      teventBus.fire(locales);
     });
   }
 

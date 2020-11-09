@@ -1,5 +1,6 @@
 
 import 'package:migo/common/commview/alert.dart';
+import 'package:migo/common/commview/refresh.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:migo/common/util/event_bus.dart';
@@ -8,6 +9,7 @@ import 'package:migo/page/home/view/alert_shovelview.dart';
 import 'package:migo/page/home/view/home_action.dart';
 import 'package:migo/page/home/view/home_cell.dart';
 import 'package:migo/page/home/view/home_head_view.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,7 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   bool isnewer = false;
-
+  RefreshController _refreshController = RefreshController();
   void _changehome(bool sender) {
     setState(() {
       isnewer = sender;
@@ -35,6 +37,17 @@ class _HomePageState extends State<HomePage> {
     Alert.showViewDialog(context, AlertShovelView(onSure: () {
       Navigator.pushNamed(context, "/package");
     },));
+  }
+
+  void _endRefresh() {
+    Future.delayed(const Duration(milliseconds: 2000)).then((value) => _refreshController.refreshCompleted());
+    _refreshController.loadComplete();
+  }
+
+  @override
+  void dispose() {
+    _refreshController.dispose();
+    super.dispose();
   }
 
   @override
@@ -149,15 +162,20 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Expanded(
-                      child: ListView.builder(
-                        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-                        itemCount: 2,
-                        itemBuilder: (context, index){
-                          return InkWell(
-                            onTap: _cellAction,
-                            child: HomeCell(index: index,)
-                          );
-                      }),
+                      child: RefreshWidget(
+                        onRefresh: _endRefresh,
+                        onLoading: _endRefresh,
+                        controller: _refreshController,
+                        child: ListView.builder(
+                          padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+                          itemCount: 2,
+                          itemBuilder: (context, index){
+                            return InkWell(
+                              onTap: _cellAction,
+                              child: HomeCell(index: index,)
+                            );
+                        }),
+                      ),
                     ),
                   ],
                 ),

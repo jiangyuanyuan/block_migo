@@ -56,6 +56,8 @@ class NormalTextfield extends StatelessWidget {
         controller: controller,
         textAlign: align,
         inputFormatters: inputFormatters,
+        onChanged: onChanged,
+        onSubmitted: onSubmited,
         decoration: InputDecoration(
           border: InputBorder.none,
           labelStyle: AppFont.textStyle(15, color: AppColor.font333),

@@ -62,7 +62,7 @@ class HomeDetailUserView extends StatelessWidget {
                 color: Colors.white, 
                 fontWeight: FontWeight.bold,
                 showshadow: true
-              ),),
+              )),
               HomeGradientText(
                 data: " 60 MIGOs",
                 fontstyle: AppFont.textStyle(24, 

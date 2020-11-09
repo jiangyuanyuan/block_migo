@@ -134,7 +134,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
-                        Image.asset("assets/phone_left.png"),
+                        Image.asset("assets/${tabIndex == 0 ? "phone_left":"phone_in_left"}.png"),
                         Text(I18n.of(context).phone, textAlign: TextAlign.center, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),)
                       ],
                     ),
@@ -150,7 +150,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
-                        Image.asset("assets/email_right.png"),
+                        Image.asset("assets/${tabIndex != 1 ? "email_right" : "email_in_right"}.png"),
                         Text(I18n.of(context).email, textAlign: TextAlign.center, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),)
                       ],
                     ),

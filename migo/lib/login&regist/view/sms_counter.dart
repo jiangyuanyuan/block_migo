@@ -24,10 +24,12 @@ class _SmsCounterViewState extends State<SmsCounterView> {
   TimeTool _timer;
   int counter = 59;
   bool isstop = true;
+  String phone = "";
 
   @override
   void initState() {
     super.initState();
+    phone = widget.phone;
   }
 
   @override
@@ -85,7 +87,7 @@ class _SmsCounterViewState extends State<SmsCounterView> {
     return isstop ? InkWell(
       onTap: _resend,
       child: Text(I18n.of(context).getcoude, style: AppFont.textStyle(12, color: AppColor.back998),))
-      : Text("${I18n.of(context).reacquire}（{$counter}s）", style: AppFont.textStyle(12, color: AppColor.back998.withOpacity(0.3))
+      : Text("${I18n.of(context).reacquire}（${counter}s）", style: AppFont.textStyle(12, color: AppColor.back998.withOpacity(0.3))
     );
   }
 }

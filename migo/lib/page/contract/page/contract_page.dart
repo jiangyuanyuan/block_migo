@@ -68,7 +68,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                 Positioned(
                   left: 0,
                   right: 0,
-                  top: 370 + _animation.value * 200,
+                  top: 390 + _animation.value * 200,
                   child: ExchangeBottomView(),
                 ),
                 Positioned.fill(
@@ -129,7 +129,6 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                                     Row(
                                       children: [
                                         Text("1.343747 / MICO", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                                        // Icon(Icons.change_history)
                                         Image.asset("assets/change_icon.png")
                                       ],
                                     ),

@@ -85,11 +85,13 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
                             setState(() {
                               phone = val;
                             });
+                            print(val);
                           },
                           onChanged: (val) {
                             setState(() {
                               phone = val;
                             });
+                            print(val);
                           },
                         ),
                       Visibility(
