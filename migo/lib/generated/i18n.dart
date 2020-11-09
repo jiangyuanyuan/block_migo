@@ -374,6 +374,14 @@ class I18n implements WidgetsLocalizations {
   String get uploadnotice => "1. 证件类型:身份证、护照或驾照。\n2. 必须看清证件信息和脸，需要手持证件拍摄。\n3. 证件文档不可超过500kb。\n4. 照片内容真实有效，不得做任何修改。\n5. 上传文档格式为pdf、jpg、 jpeg和png。";
   /// "姓名、证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请您慎重填写真实信息。"
   String get authnotice => "姓名、证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请您慎重填写真实信息。";
+  /// "我的邀请码: "
+  String get myinvitecode => "我的邀请码: ";
+  /// "邀请5个好友并完成实名认证 \n 即可获得一个盲盒"
+  String get myinvitecodenotice => "邀请5个好友并完成实名认证 \n 即可获得一个盲盒";
+  /// "邀请链接"
+  String get invitelink => "邀请链接";
+  /// "保存海报"
+  String get saveimage => "保存海报";
   /// "人"
   String get peopleintotal => "人";
 }
@@ -901,6 +909,18 @@ class _I18n_en_US extends I18n {
   /// "The name and ID number cannot be changed after the first submission. In order to avoid filling in false information, the recharge and withdrawal cannot be approved, please fill in the real information carefully."
   @override
   String get authnotice => "The name and ID number cannot be changed after the first submission. In order to avoid filling in false information, the recharge and withdrawal cannot be approved, please fill in the real information carefully.";
+  /// "Invitation code: "
+  @override
+  String get myinvitecode => "Invitation code: ";
+  /// "Invite 5 friends and complete real-name authentication \n to get a blind box"
+  @override
+  String get myinvitecodenotice => "Invite 5 friends and complete real-name authentication \n to get a blind box";
+  /// "Invite Link"
+  @override
+  String get invitelink => "Invite Link";
+  /// "Save Poster"
+  @override
+  String get saveimage => "Save Poster";
   /// "people in total"
   @override
   String get peopleintotal => "people in total";

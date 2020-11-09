@@ -1,11 +1,8 @@
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
-
 import 'package:migo/page/contract/page/contract_page.dart';
-import 'package:migo/page/contract/page/recharge_page.dart';
 import 'package:migo/page/home/page/home_page.dart';
-import 'package:migo/page/market/page/market_page.dart';
 import 'package:migo/page/mine/page/mine_page.dart';
 import 'package:flutter/material.dart';
 import 'package:migo/page/mine/page/mine_team_page.dart';

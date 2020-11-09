@@ -75,6 +75,8 @@ class HomeDetailUserView extends StatelessWidget {
             title: I18n.of(context).minenow,
             onTap: onTap,
           ),
+          // CustomProgressView(titles: "12 days", progress: 0.3,)
+          // CustomProgressView(titles: "12 days", issmall: true, progress: 0.3,)
         ],
       ),
     );
