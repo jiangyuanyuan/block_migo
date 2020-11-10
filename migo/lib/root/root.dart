@@ -6,6 +6,8 @@ import 'package:migo/page/home/page/home_page.dart';
 import 'package:migo/page/mine/page/mine_page.dart';
 import 'package:flutter/material.dart';
 import 'package:migo/page/mine/page/mine_team_page.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 
 class RootPage extends StatefulWidget {
   @override
@@ -45,6 +47,7 @@ class _RootPageState extends State<RootPage> {
     EventBus.instance.addListener(EventKeys.JumtoTeam, (arg) { 
       _pageController.jumpToPage(2);
     });
+    print(Provider.of<UserModel>(context, listen: false).data?.id);
   }
 
   @override

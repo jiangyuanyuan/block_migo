@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
+import 'package:migo/page/mine/model/me_model.dart';
 
 class MineCoinCell extends StatelessWidget {
+  final MineCoinModel model;
+
+  const MineCoinCell({Key key, this.model}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,16 +18,18 @@ class MineCoinCell extends StatelessWidget {
               Image.asset("assets/usdt.png"),
               SizedBox(width: 20,),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("USDT", style: AppFont.textStyle(14, color: Colors.black),),
+                  Text(model.coinName, style: AppFont.textStyle(14, color: Colors.black),),
                   SizedBox(height: 4,),
                   Text("Tether", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
                 ],
               ),
               Spacer(),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text("0.998", style: AppFont.textStyle(14, color: Colors.black),),
+                  Text(Tool.number(model.amount, 4), style: AppFont.textStyle(14, color: Colors.black),),
                   SizedBox(height: 4,),
                   Text("¥0.00", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
                 ],

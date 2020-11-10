@@ -84,7 +84,7 @@ class Tool {
   }
 
   static String number(num sender, int fixed) {
-    if(sender == null) return "0.0";
+    if(sender == null) return "0.00";
     if(fixed == null) fixed = 2;
     String res = "$sender";
     final temp = res.split(".");

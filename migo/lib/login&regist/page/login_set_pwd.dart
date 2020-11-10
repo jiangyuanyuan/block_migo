@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/btn_action.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 
@@ -18,9 +21,59 @@ class _LoginSetPwdState extends State<LoginSetPwd> {
   TextEditingController _pwdController = TextEditingController();
   FocusNode _pwd1Node = FocusNode();
   FocusNode _pwdNode = FocusNode();
+  bool istxpwd = false;
 
   void _submit() {
-    Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
+    if(_pwdController.text.isEmpty) {
+      EasyLoading.showToast(I18n.of(context).pleaseinputnewpwd);
+      return;
+    }
+    if(_pwd1Controller.text.isEmpty) {
+      EasyLoading.showToast(I18n.of(context).pleaseinputpwd);
+      return;
+    }
+    if(_pwd1Controller.text != _pwdController.text) {
+      EasyLoading.showError(I18n.of(context).notsamepwd);
+      return;
+    }
+    if(istxpwd) {
+      ///设置交易密码
+      EasyLoading.show(status: "Loading...");
+      Networktool.request(API.changeTXPwd, params: {
+        	"txPwd": Tool.generateMd5(_pwd1Controller.text),
+          "userCode": widget.param["code"],
+          "userNumber": widget.param["account"],
+      }, success: (data) {
+        EasyLoading.showToast(I18n.of(context).success);
+        Navigator.pop(context);
+        Navigator.pop(context);
+      }, fail: (msg) => EasyLoading.showError(msg),);
+    } else {
+      /// 忘记密码
+      EasyLoading.show(status: "Loading...");
+      Networktool.request(API.updatePwd, params: {
+        	"passWord": Tool.generateMd5(_pwd1Controller.text),
+          "userCode": widget.param["code"],
+          "userNumber":widget.param["account"]
+      }, success: (data) {
+        EasyLoading.showToast(I18n.of(context).success);
+        Navigator.pop(context);
+        Navigator.pop(context);
+      }, fail: (msg) => EasyLoading.showError(msg),);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    istxpwd = widget.param["istxpwd"];
+  }
+
+  @override
+  void dispose() { 
+    _pwd1Controller.dispose();
+    _pwdController.dispose();
+    super.dispose();
   }
 
   @override
@@ -45,7 +98,7 @@ class _LoginSetPwdState extends State<LoginSetPwd> {
             children: [
               NormalAppbar.normal(
                 color: Colors.transparent,
-                title: Text(I18n.of(context).resetpwd, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),),
+                title: Text(istxpwd ? I18n.of(context).txpassword : I18n.of(context).resetpwd, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),),
                 leading: IconButton(
                   icon: Image.asset("assets/icon_zuo.png", color: Colors.white,),
                   onPressed: () {
@@ -91,9 +144,9 @@ class _LoginSetPwdState extends State<LoginSetPwd> {
                     ),
                     SizedBox(height: 22,),
                     BtnAction(
-                      title: I18n.of(context).confirmlogin,
+                      title: istxpwd ? I18n.of(context).submit : I18n.of(context).confirmlogin,
                       onTap: _submit,
-                    )
+                    ),
                   ],
                 ),
               )

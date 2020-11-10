@@ -3,6 +3,8 @@ import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 
 class SafePage extends StatelessWidget {
 
@@ -13,7 +15,12 @@ class SafePage extends StatelessWidget {
       I18n.of(context).loginpwd,
       I18n.of(context).txpassword,
     ];
-    return titles.map((e) => SettingCell(title: e, onTap: () {
+    final data = Provider.of<UserModel>(context, listen: false).data;
+    String account = data.mobile;
+    if(data.registerType == 1) {
+      account = data.mobile;
+    }
+    return titles.map((e) => SettingCell(title: e, detail: titles.indexOf(e) == 1 ? account : "", onTap: () {
       _jump(context, titles.indexOf(e));
     },)).toList();
   }

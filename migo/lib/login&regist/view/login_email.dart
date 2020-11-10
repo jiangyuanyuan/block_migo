@@ -8,7 +8,7 @@ import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/login&regist/view/sms_counter.dart';
 
 class LoginEmailView extends StatefulWidget {
-  final Function(String phone, String pwd) onLogin;
+  final Function(String phone, String pwd, String code) onLogin;
   final int modtype;
   const LoginEmailView({Key key, this.modtype, this.onLogin}) : super(key: key);
   @override
@@ -76,9 +76,6 @@ class _LoginPhoneViewState extends State<LoginEmailView> {
                           backgroundColor: Colors.transparent,
                           hintText: I18n.of(context).pleaseinputemail,
                           keyboardType: TextInputType.emailAddress,
-                          inputFormatters: [
-                            WhitelistingTextInputFormatter.digitsOnly
-                          ],
                           onSubmited: (val) {
                             setState(() {
                               phone = val;
@@ -173,7 +170,7 @@ class _LoginPhoneViewState extends State<LoginEmailView> {
                   child: BtnAction(
                     onTap: () {
                       _clear();
-                      if(widget.onLogin != null)widget.onLogin(_emailController.text, _pwdController.text);
+                      if(widget.onLogin != null)widget.onLogin(_emailController.text, _pwdController.text, _codeController.text);
                     },
                     title: widget.modtype == 0 ? I18n.of(context).login : I18n.of(context).next,
                   ),
@@ -191,13 +188,13 @@ class _LoginPhoneViewState extends State<LoginEmailView> {
                             onTap: () => Navigator.pushNamed(context, "/login", arguments: {'modtype': 3}),
                             child: Text(I18n.of(context).forgetpwd, style: AppFont.textStyle(12, color: Colors.black54),)
                           ),
-                          Container(
-                            height: 10,
-                            width: 1.5,
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            color: const Color(0xffD8D8D8),
-                          ),
-                          Text(I18n.of(context).register, style: AppFont.textStyle(12, color: AppColor.back998),)
+                          // Container(
+                          //   height: 10,
+                          //   width: 1.5,
+                          //   margin: const EdgeInsets.symmetric(horizontal: 10),
+                          //   color: const Color(0xffD8D8D8),
+                          // ),
+                          // Text(I18n.of(context).register, style: AppFont.textStyle(12, color: AppColor.back998),)
                         ],
                       ),
                     ),

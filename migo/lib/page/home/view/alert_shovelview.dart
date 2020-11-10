@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/home/model/home_box_model.dart';
 import 'package:migo/page/home/view/get_shovel_view.dart';
 
 class AlertShovelView extends StatelessWidget {
@@ -8,7 +9,8 @@ class AlertShovelView extends StatelessWidget {
   final String btntitles;
   final String titles;
   final bool showclose;
-  const AlertShovelView({Key key, this.btntitles, this.titles, this.showclose = false, this.onSure}) : super(key: key);
+  final List<HomeShovelModel> list;
+  const AlertShovelView({Key key, this.list, this.btntitles, this.titles, this.showclose = false, this.onSure}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,11 +52,7 @@ class AlertShovelView extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            ShovelCellView(number: 1, shovelType: 0,),
-                            ShovelCellView(number: 1, shovelType: 0,),
-                            ShovelCellView(number: 1, shovelType: 0,),
-                          ],
+                          children: list.map((e) => ShovelCellView(model: e,)).toList(),
                         ),
                       ),
                     ),

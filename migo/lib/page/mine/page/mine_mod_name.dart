@@ -61,16 +61,18 @@ class _MineModNamePageState extends State<MineModNamePage> {
   void _requestMod(String val) {
     EasyLoading.show(status: "Loading...");
     Map<String, dynamic> params;
-    if(modname) {
-      params = {"logo":"","userName": val};
-    } else {
-      params = {"logo":"", "gender":"", "userSign": val,"nickName": ""};
-    }
+  //   	"logoUrl": "",
+	// "nickName": ""
+    // if(modname) {
+      params = {"logoUrl":"","nickName": val};
+    // } else {
+      // params = {"logo":"", "gender":"", "userSign": val,"nickName": ""};
+    // }
     Networktool.request(
       API.mod, 
       params: params,
       success: (data){
-        EasyLoading.showSuccess("修改成功");
+        EasyLoading.showSuccess(I18n.of(context).success);
         // 更新用户缓存信息
         // if(data["data"] != null) UserInfoModel.saveData(data["data"]);
         final temp = Provider.of<UserModel>(context, listen: false);

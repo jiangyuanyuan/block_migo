@@ -18,8 +18,8 @@ enum HTTPMETHOD {
 }
 
 const String _Host = "http://47.242.81.154:8070/";
-const String _Host_test = "http://120.25.153.148:8070/";
-// const String _Host_test = "http://10.168.1.36:8073/";
+const String _Host_test = "http://120.78.65.149:8079/";
+// const String _Host_test = "http://192.168.0.104:8079/";
 
 class Networktool {
   
@@ -98,7 +98,7 @@ class Networktool {
     if(code == 200) {
       print("jsondata =====> ${json.encode(response.data)}");
       if(response.data["code"] != 200) {
-        // if(fail != null)fail(response.data["msg"]);
+        if(fail != null)fail(response.data["msg"]);
         if(response.data["code"] == 401) {
           SharedPreferences.getInstance().then((value) => value.clear());// 清楚用户数据
           EventBus.instance.commit(EventKeys.Login, null);

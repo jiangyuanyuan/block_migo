@@ -2,19 +2,32 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
+import 'package:migo/page/home/model/banner_model.dart';
 
 class HomeHeadView extends StatefulWidget {
+  final List<HomeBannerModel> banners;
+  const HomeHeadView({Key key, this.banners}) : super(key: key);
   @override
   _HomeHeadViewState createState() => _HomeHeadViewState();
 }
 
 class _HomeHeadViewState extends State<HomeHeadView> {
-  List<String> banners = [
-    "as",
-    "bb",
-    "cc"
-  ];
   int bannerIndex = 0;
+  List<HomeBannerModel> banners;
+  @override
+  void initState() {
+    banners = widget.banners;
+    super.initState();
+  }
+  @override
+  void didUpdateWidget(HomeHeadView oldWidget) {
+    if(banners != null && banners.length > 0) {
+      if(banners.length != widget.banners.length || banners.first.bannerUrl != widget.banners.first.bannerUrl) {
+        banners = widget.banners;
+      }
+    }
+    super.didUpdateWidget(oldWidget);
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +38,7 @@ class _HomeHeadViewState extends State<HomeHeadView> {
         Container(
           height: 130,
           margin: const EdgeInsets.only(left: 16, right: 16, top: 14, bottom: 10),
-          child: HomeBannerView(banners: banners, onChanged: (sender) {
+          child: HomeBannerView(banners: banners.map((e) => e.bannerUrl).toList(), onChanged: (sender) {
             setState(() {
               bannerIndex = sender;
             });

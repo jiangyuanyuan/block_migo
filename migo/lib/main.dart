@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'common/const/cosnt.dart';
+import 'common/language/custom_cupertinolocal.dart';
 import 'common/util/t_event_bus.dart';
 import 'login&regist/page/guide_page.dart';
 
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         I18n.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        ChineseCupertinoLocalizations.delegate,
       ],
       supportedLocales: I18n.delegate.supportedLocales,
       builder: (context, child) {

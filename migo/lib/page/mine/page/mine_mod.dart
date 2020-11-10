@@ -94,43 +94,52 @@ class MineModPage extends StatelessWidget {
       body: CommbackView(
         titles: I18n.of(context).setting,
         onPop: () => Navigator.pop(context),
-        child: Consumer<UserModel>(builder: (context, user,child){
-        return Column(
-          children: <Widget>[
-            InkWell(
-              onTap: () => _alert(context),
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: Row(
-                  children: <Widget>[
-                    Text("头像", style: AppFont.textStyle(15, color: AppColor.font333),),
-                    Spacer(),
-                    SizedBox(
-                      height: 80,
-                      width: 80,
-                      child: PhysicalModel(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                        clipBehavior: Clip.antiAlias,
-                        child: user.data?.logo == null ? Image.asset("assets/default.png") : Image.network(user.data?.logo, fit: BoxFit.cover,),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Consumer<UserModel>(builder: (context, user,child){
+          return Column(
+            children: <Widget>[
+              InkWell(
+                onTap: () => _alert(context),
+                child: Container(
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/bg_list_sett_def.png"),
+                      fit: BoxFit.fill
+                    )
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Text("头像", style: AppFont.textStyle(15, color: AppColor.font333),),
+                      Spacer(),
+                      SizedBox(
+                        height: 40,
+                        width: 40,
+                        child: PhysicalModel(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                          clipBehavior: Clip.antiAlias,
+                          child: user.data?.logo == null ? Image.asset("assets/default.png") : Image.network(user.data?.logo, fit: BoxFit.cover,),
+                        ),
                       ),
-                    ),
-                    SizedBox(width: 10,),
-                    Image.asset("assets/icon_you.png", color: const Color(0xff654248),)
-                  ],
+                      SizedBox(width: 10,),
+                      Image.asset("assets/icon_you.png", color: const Color(0xff654248),)
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Divider(indent: 15, endIndent: 15,),
-            SettingCell(
-              title: "昵称", 
-              detail: user.data?.nickName ?? "",
-              detailColor: AppColor.font333,
-              onTap: () => Navigator.pushNamed(context, "/modname", arguments: {"modname": true, 'val':""}),
-            ),
-          ],
-        );
+              Divider(indent: 15, endIndent: 15,),
+              SettingCell(
+                title: "昵称", 
+                detail: user.data?.nickName ?? "",
+                detailColor: AppColor.font333,
+                onTap: () => Navigator.pushNamed(context, "/modname", arguments: {"modname": true, 'val':""}),
+              ),
+            ],
+          );
       }),
+        ),
       )
     );
   }

@@ -8,7 +8,7 @@ class AppConst {
   ///
   /// 修改这个,注意修改single => websocket的地址
   ///
-  static const bool APP_IS_RELEASE = true;
+  static const bool APP_IS_RELEASE = false;
 
   ///
   /// usertoken
@@ -26,13 +26,6 @@ class AppConst {
 
   /// 缓存的banner图
   static const String APP_BANNERS_KEY = "APP_BANNERS_KEY";
-
-  ///
-  /// test data
-  ///
-  static const String KConstData = '''
-  {"ch":"market.btcusdt.kline.1day","status":"ok","ts":1594778752403,"data":[{"id":1594742400,"open":9220.01,"close":9250.19,"low":9210.0,"high":9275.0,"amount":6681.430723164349,"vol":6.180599482122426E7,"count":0},{"id":1594656000,"open":9290.28,"close":9220.01,"low":9117.12,"high":9321.74,"amount":29028.893313235458,"vol":2.673504187475434E8,"count":0}]}
-''';
 }
 
 class AppColor {

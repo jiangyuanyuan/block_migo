@@ -288,6 +288,8 @@ class I18n implements WidgetsLocalizations {
   String get day => "天";
   /// "已认证"
   String get inviteverified => "已认证";
+  /// "未认证"
+  String get notinviteverified => "未认证";
   /// "全部"
   String get all => "全部";
   /// "代"
@@ -384,6 +386,10 @@ class I18n implements WidgetsLocalizations {
   String get saveimage => "保存海报";
   /// "人"
   String get peopleintotal => "人";
+  /// "操作成功"
+  String get success => "操作成功";
+  /// "密码不一致"
+  String get notsamepwd => "密码不一致";
 }
 
 class _I18n_zh_CN extends I18n {
@@ -780,6 +786,9 @@ class _I18n_en_US extends I18n {
   /// "Verified"
   @override
   String get inviteverified => "Verified";
+  /// "Not Verified"
+  @override
+  String get notinviteverified => "Not Verified";
   /// "All"
   @override
   String get all => "All";
@@ -924,6 +933,12 @@ class _I18n_en_US extends I18n {
   /// "people in total"
   @override
   String get peopleintotal => "people in total";
+  /// "Successed"
+  @override
+  String get success => "Successed";
+  /// "Passwords are not consistent"
+  @override
+  String get notsamepwd => "Passwords are not consistent";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

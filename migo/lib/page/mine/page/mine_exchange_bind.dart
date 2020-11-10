@@ -1,11 +1,16 @@
 import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/commview/custom_menu_view.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/login&regist/view/sms_counter.dart';
+import 'package:migo/page/contract/view/alert_password_view.dart';
+import 'package:migo/provider/user.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
@@ -21,6 +26,8 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
   FocusNode _focusNode = FocusNode();
   FocusNode _codefocusNode = FocusNode();
   String phone = "";
+  /// 手机号
+  int type = 1;
   
   @override
   void dispose() {
@@ -29,8 +36,45 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
     super.dispose();
   }
 
-  void _submit() {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 100)).then((value){
+      if(mounted) setState(() {
+        type = Provider.of<UserModel>(context, listen: false).data.registerType;
+      });
+    });
+  }
 
+  void _submit() {
+    if(_editingController.text.isEmpty) {
+      EasyLoading.showToast(type == 1 ? I18n.of(context).pleaseinputphone : I18n.of(context).pleaseinputemail);
+      return;
+    }
+    if(_codeController.text.isEmpty) {
+      EasyLoading.showToast(I18n.of(context).verificationcode);
+      return;
+    }
+
+    Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (pwd) {
+      EasyLoading.show(status: "Loading...");
+      Networktool.request(API.changeBinding, params: {
+        	"txPwd": pwd,
+          "userCode": _codeController.text,
+          "userNumber": _editingController.text
+      }, success: (data) {
+        EasyLoading.showToast(I18n.of(context).success);
+        final temp = Provider.of<UserModel>(context, listen: false);
+        final curr = temp.data;
+        if(type == 1) {
+          curr.mobile = _editingController.text;
+        } else {
+          curr.email = _editingController.text;
+        }
+        temp.setModel(curr);
+        Navigator.pop(context);
+      }, fail: (msg) => EasyLoading.showToast(msg),);
+    },));
   }
 
   @override
@@ -59,7 +103,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                   )
                 ),
                 alignment: Alignment.centerLeft,
-                child: Text("19803801948", style: AppFont.textStyle(14, color: Colors.white, showshadow: true),),
+                child: Consumer<UserModel>(builder: (context, value, child) => Text(value.data.mobile ?? value.data.email, style: AppFont.textStyle(14, color: Colors.white, showshadow: true),),)
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0, bottom: 14, top: 24),
@@ -68,10 +112,20 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
               Stack(
                 children: [
                   NormalTextfield(
-                    hintText: I18n.of(context).pleaseinputphone,
+                    hintText: type == 1 ? I18n.of(context).pleaseinputphone : I18n.of(context).pleaseinputemail,
                     align: TextAlign.right,
                     controller: _editingController,
                     focusNode: _focusNode,
+                    onChanged: (val) {
+                      setState(() {
+                        phone = val;
+                      });
+                    },
+                    onSubmited: (val) {
+                      setState(() {
+                        phone = val;
+                      });
+                    },
                   ),
                   Positioned(
                     left: 5,
@@ -82,16 +136,12 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                       padding: const EdgeInsets.only(left: 12),
                       color: Colors.white,
                       alignment: Alignment.centerLeft,
-                      child: CustiomMenuView(
-                        backgroundColor: Colors.white,
-                        titles: [I18n.of(context).phone, I18n.of(context).email],
-                        child: Row(
-                          children: [
-                            Text(I18n.of(context).phone, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
-                            SizedBox(width: 6,),
-                            Image.asset("assets/sign_choos_arrow_down.png"),
-                          ],
-                        ),
+                      child: Row(
+                        children: [
+                          Text(type == 1  ? I18n.of(context).phone : I18n.of(context).email, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                          SizedBox(width: 6,),
+                          Image.asset("assets/sign_choos_arrow_down.png"),
+                        ],
                       ),
                     ),
                   )
@@ -115,7 +165,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                     right: 12,
                     top: 0,
                     bottom: 0,
-                    child: Center(child: SmsCounterView(phone: phone,)),
+                    child: Center(child: SmsCounterView(phone: phone, isemail: type != 1,)),
                   )
                 ],
               ),

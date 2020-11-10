@@ -23,8 +23,6 @@ class _GuidePageState extends State<GuidePage> {
 
 
   void _jumpToRoot(BuildContext context) async {
-    Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
-    return;
     final share = await SharedPreferences.getInstance();
     if(share.getString(AppConst.KEY_user_token) != null) {
       Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);

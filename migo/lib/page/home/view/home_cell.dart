@@ -1,11 +1,12 @@
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/home/model/home_list_model.dart';
 
 class HomeCell extends StatelessWidget {
   final int index;
-
-  const HomeCell({Key key, this.index}) : super(key: key);
+  final HomeModel model;
+  const HomeCell({Key key, this.index, this.model}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,9 @@ class HomeCell extends StatelessWidget {
                         height: 25,
                         margin: const EdgeInsets.only(bottom: 20),
                         alignment: Alignment.center,
-                        child: Text("${I18n.of(context).homeearn} MIGO", style: AppFont.textStyle(12, color: AppColor.yellowMain),)
+                        child: Text("${I18n.of(context).homeearn} ${model.mineCoinName}", style: AppFont.textStyle(12, color: AppColor.yellowMain),)
                       ),
-                      Text("MIGO${index == 0 ? "乐乡" : "乐都"}", style: AppFont.textStyle(12, color: Colors.white, fontWeight: FontWeight.bold),)
+                      Text(model.mineTitle, style: AppFont.textStyle(12, color: Colors.white, fontWeight: FontWeight.bold),)
                     ],
                   ),
                 ),
@@ -40,10 +41,10 @@ class HomeCell extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("${I18n.of(context).mortgage}：4000 MIGO-USDT", style: AppFont.textStyle(12, color: Colors.white),),
-                      Text("${I18n.of(context).dailyoutput}：165", style: AppFont.textStyle(12, color: Colors.white),),
-                      Text("${I18n.of(context).miningcycle}：45 ${I18n.of(context).day}", style: AppFont.textStyle(12, color: Colors.white),),
-                      Text("${I18n.of(context).miningamount}：0", style: AppFont.textStyle(12, color: Colors.white),),
+                      Text("${I18n.of(context).mortgage}：${model.pledgeAmount} ${model.pledgeCoinName}-${model.mineCoinName}", style: AppFont.textStyle(12, color: Colors.white),),
+                      Text("${I18n.of(context).dailyoutput}：${model.totalMine / model.mineTimes}", style: AppFont.textStyle(12, color: Colors.white),),
+                      Text("${I18n.of(context).miningcycle}：${model.mineTimes} ${I18n.of(context).day}", style: AppFont.textStyle(12, color: Colors.white),),
+                      Text("${I18n.of(context).miningamount}：${model.totalMine}", style: AppFont.textStyle(12, color: Colors.white),),
                     ],
                   ),
                 )

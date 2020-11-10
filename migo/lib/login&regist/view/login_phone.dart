@@ -8,7 +8,7 @@ import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/login&regist/view/sms_counter.dart';
 
 class LoginPhoneView extends StatefulWidget {
-  final Function(String phone, String pwd) onLogin;
+  final Function(String phone, String pwd, String phoneCode) onLogin;
   final int modetype;
   const LoginPhoneView({Key key, this.modetype, this.onLogin}) : super(key: key);
   @override
@@ -177,7 +177,7 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
                   child: BtnAction(
                     onTap: () {
                       _clear();
-                      if(widget.onLogin != null)widget.onLogin(_phoneController.text, _pwdController.text);
+                      if(widget.onLogin != null)widget.onLogin(_phoneController.text, _pwdController.text, _codeController.text);
                     },
                     title: widget.modetype == 0 ? I18n.of(context).login : I18n.of(context).next,
                   ),
@@ -195,13 +195,13 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
                             onTap: () => Navigator.pushNamed(context, "/login", arguments: {'modtype': 3}),
                             child: Text(I18n.of(context).forgetpwd, style: AppFont.textStyle(12, color: Colors.black54),)
                           ),
-                          Container(
-                            height: 10,
-                            width: 1.5,
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            color: const Color(0xffD8D8D8),
-                          ),
-                          Text(I18n.of(context).register, style: AppFont.textStyle(12, color: AppColor.back998),)
+                          // Container(
+                          //   height: 10,
+                          //   width: 1.5,
+                          //   margin: const EdgeInsets.symmetric(horizontal: 10),
+                          //   color: const Color(0xffD8D8D8),
+                          // ),
+                          // Text(I18n.of(context).register, style: AppFont.textStyle(12, color: AppColor.back998),)
                         ],
                       ),
                     ),

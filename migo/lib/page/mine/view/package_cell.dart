@@ -3,11 +3,29 @@ import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/mine/model/mine_package_model.dart';
 
 class PackageCell extends StatelessWidget {
   final Function() onUserAction;
+  final MineShovelModel model;
+  const PackageCell({Key key, this.model, this.onUserAction}) : super(key: key);
 
-  const PackageCell({Key key, this.onUserAction}) : super(key: key);
+  static const List<String> imgs = [
+    "shovel_gold.png",
+    "shovel_sliver.png",
+    "shovel_iron.png",
+  ];
+
+  String _getImage() {
+    if(model.toolbox.toolName.contains("金") || model.toolbox.toolName.toLowerCase().contains("gold")) {
+      return imgs[0];
+    } else if(model.toolbox.toolName.contains("银") || model.toolbox.toolName.toLowerCase().contains("sliver")) {
+      return imgs[1];
+    } else {
+      return imgs[2];
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,14 +44,14 @@ class PackageCell extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20),
-                child: Image.asset("assets/shovel_gold.png"),
+                child: Image.asset("assets/${_getImage()}"),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(I18n.of(context).shovel_gold, style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("${I18n.of(context).specification}：8500", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("${I18n.of(context).production}：1.35", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text(model.toolbox.toolName, style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).specification}：${model.toolbox.toolSpecs}", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).production}：${model.toolbox.baseEfficiency}", style: AppFont.textStyle(12, color: Colors.white),),
                 ],
               ),
               // SizedBox(width: 45,),
@@ -41,8 +59,8 @@ class PackageCell extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(" ", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("${I18n.of(context).durability}：8500", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("${I18n.of(context).volume}：1.35", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).durability}：${model.toolbox.durable}", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).volume}：${model.toolbox.volume}", style: AppFont.textStyle(12, color: Colors.white),),
                 ],
               )
             ],

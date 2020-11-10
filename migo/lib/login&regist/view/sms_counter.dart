@@ -73,10 +73,9 @@ class _SmsCounterViewState extends State<SmsCounterView> {
       return;
     }
     EasyLoading.show(status: "Loading...");
-    Networktool.request(widget.isemail ? API.emailcode : API.sms, method: HTTPMETHOD.POST, params: {
-      "${widget.isemail ? 'email' : 'phone'}": widget.phone,
-      "type": 0
-    }, success: (data){
+    String url = API.sms + "$phone/1";
+    if(widget.isemail) url = API.emailcode + "$phone";
+    Networktool.request(url, method: HTTPMETHOD.GET, success: (data){
       // 回传新发的验证码
       _beginTimer();
     },finaly: () => EasyLoading.dismiss());

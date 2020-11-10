@@ -1,10 +1,18 @@
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/refresh.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/home/model/banner_model.dart';
+import 'package:migo/page/home/model/home_box_model.dart';
+import 'package:migo/page/home/model/home_list_model.dart';
+import 'package:migo/page/home/page/home_box.dart';
+import 'package:migo/page/home/page/web_page.dart';
 import 'package:migo/page/home/view/alert_shovelview.dart';
 import 'package:migo/page/home/view/home_action.dart';
 import 'package:migo/page/home/view/home_cell.dart';
@@ -16,31 +24,100 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
 
   bool isnewer = false;
   RefreshController _refreshController = RefreshController();
+  List<HomeBannerModel> banners = [];
+  List<HomeModel> list = [];
+  List<HomeBoxModel> boxList = [];
+  List<HomeShovelModel> shoveList = [];
+  @override
+  bool get wantKeepAlive => false;
+
+  @override
+  void initState() {
+    super.initState();
+    _requestBanner();
+    _requestList();
+    _requestBox();
+  }
+
+  void _requestBanner() {
+    Networktool.request(API.banner+"1", method: HTTPMETHOD.GET, success: (data){
+      final temp = HomeBannerResponse.fromJson(data);
+      banners = temp.data;
+      if(mounted) setState(() {
+        
+      });
+    });
+  }
+
+  void _requestList() {
+    Networktool.request(API.getMineBaseList + "${isnewer ? "1":"2"}", method: HTTPMETHOD.GET, success: (data){
+      final temp = HomeListReponse.fromJson(data);
+      list = temp.data;
+      if(mounted) setState(() {
+        
+      });
+    },finaly: _endRefresh);
+  }
+
+  /// 查询盲盒
+  void _requestBox() {
+    Networktool.request(API.getMyNotOpenBox, success: (data) {
+      final temp = HomeBoxReponse.fromJson(data);
+      boxList.clear();
+      temp.data.forEach((element) { 
+        if(element.status == 0) {
+          boxList.add(element);
+        }
+      });
+      if(mounted) setState(() {
+      });
+    });
+  }
+
   void _changehome(bool sender) {
     setState(() {
       isnewer = sender;
     });
+    _refreshController.requestRefresh();
   }
 
   void _cellAction() {
-    // Alert.showViewDialog(context, AlertShovelView(onSure: () {
-    //   Navigator.pushNamed(context, "/package");
-    // },));
     Navigator.pushNamed(context, "/homedetail");
+    // Navigator.push(context, CupertinoPageRoute(builder: (context) => WebPage(),));
   }
 
   void _floatingAction() {
-    Alert.showViewDialog(context, AlertShovelView(onSure: () {
-      Navigator.pushNamed(context, "/package");
-    },));
+    EasyLoading.show(status: "Loading...");
+    Networktool.request(API.openBox, success: (data){
+      EasyLoading.dismiss();
+      // print(data);
+      final temp = HomeBoxRespose.fromJson(data).data.shovelList;
+      setState(() {
+        shoveList = temp;
+      });
+      Alert.showViewDialog(context, AlertShovelView(onSure: () {
+        Navigator.pushNamed(context, "/package");
+      },));
+    }, fail: (msg) => EasyLoading.showToast(msg),);
+    
+  }
+
+  void _onRefresh() {
+    _requestList();
+    _requestBanner();
+    _requestBox();
+  }
+
+  void _onLoading() {
+
   }
 
   void _endRefresh() {
-    Future.delayed(const Duration(milliseconds: 2000)).then((value) => _refreshController.refreshCompleted());
+    _refreshController.refreshCompleted();
     _refreshController.loadComplete();
   }
 
@@ -57,7 +134,7 @@ class _HomePageState extends State<HomePage> {
         onTap: () {
           _floatingAction();
         },
-        child: Image.asset("assets/icon.png")
+        child: boxList.length == 0 ? SizedBox() : Image.asset("assets/icon.png")
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -68,7 +145,7 @@ class _HomePageState extends State<HomePage> {
         ),
         child: Column(
           children: [
-            HomeHeadView(),
+            HomeHeadView(banners: banners,),
             Visibility(
               visible: isnewer,
               child: Container(
@@ -163,16 +240,16 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Expanded(
                       child: RefreshWidget(
-                        onRefresh: _endRefresh,
-                        onLoading: _endRefresh,
+                        onRefresh: _onRefresh,
+                        onLoading: _onLoading,
                         controller: _refreshController,
                         child: ListView.builder(
                           padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-                          itemCount: 2,
+                          itemCount: list.length,
                           itemBuilder: (context, index){
                             return InkWell(
                               onTap: _cellAction,
-                              child: HomeCell(index: index,)
+                              child: HomeCell(index: index, model: list[index],)
                             );
                         }),
                       ),

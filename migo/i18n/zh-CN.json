@@ -143,6 +143,7 @@
     "shovelinuse":"使用中铲子",
     "day":"天",
     "inviteverified":"已认证",
+    "notinviteverified":"未认证",
     "all":"全部",
     "generation":"代",
     "everyactiveuser":"每个有效用户",
@@ -193,5 +194,7 @@
     "myinvitecodenotice":"邀请5个好友并完成实名认证 \n 即可获得一个盲盒",
     "invitelink":"邀请链接",
     "saveimage":"保存海报",
-    "peopleintotal":"人"
+    "peopleintotal":"人",
+    "success":"操作成功",
+    "notsamepwd":"密码不一致"
 }

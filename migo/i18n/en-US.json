@@ -125,6 +125,7 @@
     "miningpaymentrecord": "Mining payment record",
     "miningrevenuerecord": "Mining revenue record",
     "inviteverified": "Verified",
+    "notinviteverified": "Not Verified",
     "pay": "Pay",
     "day": "Days",
     "space": "{sender}",
@@ -174,5 +175,7 @@
     "myinvitecodenotice": "Invite 5 friends and complete real-name authentication \n to get a blind box",
     "invitelink": "Invite Link",
     "saveimage": "Save Poster",
-    "price": "Price"
+    "price": "Price",
+    "notsamepwd": "Passwords are not consistent",
+    "success": "Successed"
 }
