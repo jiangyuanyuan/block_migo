@@ -390,6 +390,8 @@ class I18n implements WidgetsLocalizations {
   String get peopleintotal => "人";
   /// "操作成功"
   String get success => "操作成功";
+  /// "1. 提现会扣取部分手续费，以实际到账为主。"
+  String get withDrawNotice => "1. 提现会扣取部分手续费，以实际到账为主。";
   /// "密码不一致"
   String get notsamepwd => "密码不一致";
 }
@@ -941,6 +943,9 @@ class _I18n_en_US extends I18n {
   /// "Successed"
   @override
   String get success => "Successed";
+  /// "1. Withdrawal will deduct part of the handling fee, which is based on the actual arrival."
+  @override
+  String get withDrawNotice => "1. Withdrawal will deduct part of the handling fee, which is based on the actual arrival.";
   /// "Passwords are not consistent"
   @override
   String get notsamepwd => "Passwords are not consistent";

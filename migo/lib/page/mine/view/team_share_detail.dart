@@ -80,7 +80,7 @@ class _Cell extends StatelessWidget {
                     border: Border.all(width: 4, color: const Color(0xff654248))
                   ),
                   alignment: Alignment.center,
-                  child: Text("M5", style: AppFont.textStyle(24, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                  child: Text("M0", style: AppFont.textStyle(24, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
                 ),
               ),
 

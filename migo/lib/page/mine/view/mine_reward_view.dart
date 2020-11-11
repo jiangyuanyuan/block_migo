@@ -11,7 +11,7 @@ class MineRewardView extends StatelessWidget {
       children: [
         Expanded(
           child: ListView.separated(
-            itemCount: 10,
+            itemCount: 0,
             padding: EdgeInsets.zero,
             separatorBuilder: (context, index) => Divider(height: 1,),
             itemBuilder: (context, index) {

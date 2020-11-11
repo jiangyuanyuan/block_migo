@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
           ///开启抖动动画
           ///参数shakeCount 用来配置抖动次数
           ///通过 controller start 方法默认为 1
-          _shakeAnimationController.start(shakeCount: 1);
+          _shakeAnimationController.start(shakeCount: 10000);
         }
       }
     });
@@ -103,6 +103,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
       });
       Alert.showViewDialog(context, AlertShovelView(onSure: () {
         Navigator.pushNamed(context, "/package");
+        _shakeAnimationController.stop();
       },));
     }, fail: (msg) => EasyLoading.showToast(msg),);
     

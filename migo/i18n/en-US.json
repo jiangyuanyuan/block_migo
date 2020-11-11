@@ -130,6 +130,7 @@
     "pay": "Pay",
     "day": "Days",
     "space": "{sender}",
+    "withDrawNotice": "1. Withdrawal will deduct part of the handling fee, which is based on the actual arrival.",
     "teamleadertotal": "",
     "peopleintotal": "people in total",
     "dayincome": "Daily income",

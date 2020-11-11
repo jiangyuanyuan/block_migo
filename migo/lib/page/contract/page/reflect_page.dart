@@ -103,11 +103,11 @@ class _ReflectPageState extends State<ReflectPage> {
                       ),
                       child: Column(
                         children: [
-                          _Row(titles: I18n.of(context).availableamount, val: "1283 MIGO",),
+                          _Row(titles: I18n.of(context).availableamount, val: "0 MIGO",),
                           SizedBox(height: 10,),
-                          _Row(titles: I18n.of(context).handlingfee, val: "5%",),
+                          _Row(titles: I18n.of(context).handlingfee, val: "0%",),
                           SizedBox(height: 10,),
-                          _Row(titles: I18n.of(context).actualarrival, val: "12 MIGO",)
+                          _Row(titles: I18n.of(context).actualarrival, val: "0 MIGO",)
                         ],
                       ),
                     ),
@@ -115,7 +115,7 @@ class _ReflectPageState extends State<ReflectPage> {
                       padding: const EdgeInsets.only(top: 20.0, bottom: 10),
                       child: Text(I18n.of(context).withdrawrule, style: AppFont.textStyle(12, color: Colors.black),),
                     ),
-                    Text("1. 提现会扣取部分手续费，以实际到账为主。", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                    Text(I18n.of(context).withDrawNotice, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
                     SizedBox(height: 32,),
                     BtnAction(
                       title: I18n.of(context).sure,

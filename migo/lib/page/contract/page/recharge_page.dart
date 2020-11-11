@@ -5,6 +5,7 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/screen_tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/contract/view/recharge_head_view.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class RechagePage extends StatelessWidget {
   @override
@@ -37,7 +38,7 @@ class RechagePage extends StatelessWidget {
                       height: 42,
                       child: Container(
                         alignment: Alignment.center,
-                        child: Text("选择币种", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
+                        child: Text("--", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
                       ),
                     ),
                     Positioned(
@@ -64,7 +65,8 @@ class RechagePage extends StatelessWidget {
                     Container(
                       width: 180,
                       height: 180,
-                      color: Colors.red,
+                      color: Colors.white,
+                      child: QrImage(data: "www.baidu",),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
@@ -79,11 +81,11 @@ class RechagePage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("color: const Color(0xffE5F0FA),", style: AppFont.textStyle(12, color: AppColor.back998),),
+                          Text("xxxxxxxxxxxxx", style: AppFont.textStyle(12, color: AppColor.back998),),
                           IconButton(
                             icon: Image.asset("assets/coin_copy.png"),
                             onPressed: () {
-                              ScreenTool.copy("bb");
+                              ScreenTool.copy("xxxxxxxxxxxxx");
                             },
                           )
                         ],
@@ -98,7 +100,7 @@ class RechagePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("温馨提示：", style: AppFont.textStyle(14, color: Colors.white),),
+                    Text(I18n.of(context).notice, style: AppFont.textStyle(14, color: Colors.white),),
                     SizedBox(height: 20,),
                     Text(I18n.of(context).notice1, style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
                     SizedBox(height: 10,),

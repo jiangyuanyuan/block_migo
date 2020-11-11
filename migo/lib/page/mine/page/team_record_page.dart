@@ -54,7 +54,7 @@ class _TeamRecordPageState extends State<TeamRecordPage> {
                     return _Cell();
                   }, 
                   separatorBuilder: (context, index) => Divider(height: 1, color: const Color(0xffD8D8D8),), 
-                  itemCount: 8
+                  itemCount: 0
                 ),
               ),
             )

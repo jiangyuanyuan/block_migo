@@ -23,7 +23,7 @@ class TeamLeadingDetailView extends StatelessWidget {
                       style: AppFont.textStyle(12, color: Colors.black)
                     ),
                     TextSpan(
-                      text: "42 ",
+                      text: "0 ",
                       style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold)
                     ),
                     TextSpan(
@@ -40,7 +40,7 @@ class TeamLeadingDetailView extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             padding: const EdgeInsets.all(16),
-            itemCount: 10,
+            itemCount: 0,
             itemBuilder: (context, index){
               return _Cell(index: index + 1,);
             }

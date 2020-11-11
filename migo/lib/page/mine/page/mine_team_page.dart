@@ -44,7 +44,7 @@ class _MineTeamPageState extends State<MineTeamPage> {
                 Text(I18n.of(context).lasetteamvalue + "(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                 Padding(
                   padding: const EdgeInsets.only(top:10.0, bottom: 20),
-                  child: HomeGradientText(data: "+9000.56", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold),),
+                  child: HomeGradientText(data: "+0000.00", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold),),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -55,14 +55,14 @@ class _MineTeamPageState extends State<MineTeamPage> {
                         children: [
                           Text("${I18n.of(context).totalteamvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                           SizedBox(height: 10,),
-                          HomeGradientText(data: "+9000.56", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                          HomeGradientText(data: "+0000.00", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                         ],
                       ),
                       Column(
                         children: [
                           Text("${I18n.of(context).teamstaticvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                           SizedBox(height: 10,),
-                          HomeGradientText(data: "2000.28", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                          HomeGradientText(data: "0000.00", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                         ],
                       )
                     ],

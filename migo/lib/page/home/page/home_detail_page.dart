@@ -98,7 +98,7 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
                                 return HomeDetailCell(tabindex: tabindex,);
                               }, 
                               separatorBuilder: (context, index) => Divider(height: 1,), 
-                              itemCount: 10
+                              itemCount: 0
                             ),
                           )
                         ],

@@ -25,7 +25,7 @@ class TeamEarthPage extends StatelessWidget {
             Text("我的新增业绩(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 20),
-              child: HomeGradientText(data: "37983", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+              child: HomeGradientText(data: "0000", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -82,13 +82,13 @@ class TeamEarthPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
                         child: Column(
                           children: [
-                            _Cell(left: "我的直推人数", right: "100",),
+                            _Cell(left: "我的直推人数", right: "0",),
                             SizedBox(height: 16,),
                             _Cell(left: "有效用户数", right: "2020/10/28 22:57",),
                             SizedBox(height: 16,),
-                            _Cell(left: "本周新增质押MEGO", right: "373.34343432",),
+                            _Cell(left: "本周新增质押MEGO", right: "0.00",),
                             SizedBox(height: 16,),
-                            _Cell(left: "累计质押MEGO", right: "1373.34343432",),
+                            _Cell(left: "累计质押MEGO", right: "0.00",),
                           ],
                         ),
                       ),
