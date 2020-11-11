@@ -72,9 +72,9 @@ class MainHeadView extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _DetailView(title: "${I18n.of(context).teamperformance}(MICO)", detail: Tool.number(model?.totalTeamUserAmount, 2),),
-                  _DetailView(title: "${I18n.of(context).dailyoutput}(MICO)", detail: Tool.number(0.0, 2),),
-                  _DetailView(title: "${I18n.of(context).dayincome}(MICO)", detail: Tool.number(model?.todayProfit, 2),),
+                  _DetailView(title: "${I18n.of(context).teamperformance}(MIGO)", detail: Tool.number(model?.totalTeamUserAmount, 2),),
+                  _DetailView(title: "${I18n.of(context).dailyoutput}(MIGO)", detail: Tool.number(0.0, 2),),
+                  _DetailView(title: "${I18n.of(context).dayincome}(MIGO)", detail: Tool.number(model?.todayProfit, 2),),
                 ],
               ),
             ),

@@ -94,7 +94,7 @@ class _Cell extends StatelessWidget {
                           TextSpan(
                             children: [
                               TextSpan(text: "123479", style: AppFont.textStyle(12, color: AppColor.green, fontWeight: FontWeight.bold),),
-                              TextSpan(text: " MICO", style: AppFont.textStyle(12, color: Colors.black),)
+                              TextSpan(text: " MIGO", style: AppFont.textStyle(12, color: Colors.black),)
                             ]
                           )
                         )

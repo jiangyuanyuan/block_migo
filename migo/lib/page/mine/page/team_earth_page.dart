@@ -22,7 +22,7 @@ class TeamEarthPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("我的新增业绩(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
+            Text("我的新增业绩(MIGOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 20),
               child: HomeGradientText(data: "0000", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),

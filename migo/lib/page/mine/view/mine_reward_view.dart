@@ -49,7 +49,7 @@ class _Cell extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(text: "+39", style: AppFont.textStyle(14, color: AppColor.green, fontWeight: FontWeight.bold)),
-                    TextSpan(text: " MICOs", style: AppFont.textStyle(14, color: Colors.black)),
+                    TextSpan(text: " MIGOs", style: AppFont.textStyle(14, color: Colors.black)),
                   ]
                 )
               )
