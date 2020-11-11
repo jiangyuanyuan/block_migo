@@ -86,11 +86,14 @@ class _MineSettingPageState extends State<MineSettingPage> {
               ),
             ),
             SafeArea(
-              child: BtnAction(
-                title: I18n.of(context).loginout,
-                onTap: _exitLogin,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20.0),
+                child: BtnAction(
+                  title: I18n.of(context).loginout,
+                  onTap: _exitLogin,
+                ),
               ),
-            )
+            ),
           ],
         ),
       )

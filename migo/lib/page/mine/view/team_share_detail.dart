@@ -20,8 +20,8 @@ class TeamShareDetailView extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                _Cell(),
-                _Cell(showlevel: true,),
+                _Cell(index: 0, showlevel: true,),
+                _Cell(index: 1,),
               ],
             ),
           ),
@@ -44,8 +44,8 @@ class TeamShareDetailView extends StatelessWidget {
 
 class _Cell extends StatelessWidget {
   final bool showlevel;
-
-  const _Cell({Key key, this.showlevel = false}) : super(key: key);
+  final int index;
+  const _Cell({Key key, this.index, this.showlevel = false}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -80,12 +80,12 @@ class _Cell extends StatelessWidget {
                     border: Border.all(width: 4, color: const Color(0xff654248))
                   ),
                   alignment: Alignment.center,
-                  child: Text("M0", style: AppFont.textStyle(24, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                  child: Text("M$index", style: AppFont.textStyle(24, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
                 ),
               ),
 
               Text(
-                "${I18n.of(context).enjoy}7-9 ${I18n.of(context).generation} \n2% ${I18n.of(context).reward}", 
+                index == 1 ? "${I18n.of(context).enjoy}1 ${I18n.of(context).generation} \n20% ${I18n.of(context).reward}" : "暂无奖励", 
                 textAlign: TextAlign.left, 
                 style: AppFont.textStyle(
                   16, 

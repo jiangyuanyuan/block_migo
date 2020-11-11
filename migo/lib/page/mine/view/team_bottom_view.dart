@@ -98,7 +98,8 @@ class _TeamBottomViewState extends State<TeamBottomView> {
                   children: [
                     Text(_getRightTitle(context), style: AppFont.textStyle(12, color: Color(0xffDBF0FF)),),
                     SizedBox(height: 10,),
-                    Text(widget.tabindex == 2 ? "4-6 ${I18n.of(context).generation} \n ${I18n.of(context).everyactiveuser} 0.8MIGOs" : "0", textAlign: TextAlign.right, style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
+                    // Text(widget.tabindex == 2 ? "4-6 ${I18n.of(context).generation} \n ${I18n.of(context).everyactiveuser} 0.8MIGOs" : "0", textAlign: TextAlign.right, style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
+                    Text(widget.tabindex == 2 ? "暂无奖励" : "0", textAlign: TextAlign.right, style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
                   ],
                 ),
               ],

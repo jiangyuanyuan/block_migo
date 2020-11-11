@@ -41,7 +41,7 @@ class _MineTeamPageState extends State<MineTeamPage> {
             child: Column(
               children: [
                 SizedBox(height: 42,),
-                Text(I18n.of(context).lasetteamvalue + "(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
+                Text(I18n.of(context).lasetteamvalue + "(MICO)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                 Padding(
                   padding: const EdgeInsets.only(top:10.0, bottom: 20),
                   child: HomeGradientText(data: "+0000.00", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold),),
@@ -53,14 +53,14 @@ class _MineTeamPageState extends State<MineTeamPage> {
                     children: [
                       Column(
                         children: [
-                          Text("${I18n.of(context).totalteamvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
+                          Text("${I18n.of(context).totalteamvalue}(MICO)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                           SizedBox(height: 10,),
                           HomeGradientText(data: "+0000.00", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                         ],
                       ),
                       Column(
                         children: [
-                          Text("${I18n.of(context).teamstaticvalue}(MICOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
+                          Text("${I18n.of(context).teamstaticvalue}(MICO)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                           SizedBox(height: 10,),
                           HomeGradientText(data: "0000.00", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                         ],

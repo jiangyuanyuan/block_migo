@@ -61,7 +61,7 @@ class MainHeadView extends StatelessWidget {
               fontWeight: FontWeight.bold,
               showshadow: true
             ),),
-            Text("${I18n.of(context).myteam}：${value.data.nickName}", style: AppFont.textStyle(
+            Text("${I18n.of(context).myteam}：${model?.teamUserCount ?? 0}", style: AppFont.textStyle(
               12, 
               color: const Color(0xffDBF0FF),
               showshadow: true
@@ -72,9 +72,9 @@ class MainHeadView extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _DetailView(title: "${I18n.of(context).teamperformance}(MICOs)", detail: Tool.number(model?.totalTeamUserAmount, 2),),
-                  _DetailView(title: "${I18n.of(context).dailyoutput}(MICOs)", detail: Tool.number(0.0, 2),),
-                  _DetailView(title: "${I18n.of(context).dayincome}(MICOs)", detail: Tool.number(model?.todayProfit, 2),),
+                  _DetailView(title: "${I18n.of(context).teamperformance}(MICO)", detail: Tool.number(model?.totalTeamUserAmount, 2),),
+                  _DetailView(title: "${I18n.of(context).dailyoutput}(MICO)", detail: Tool.number(0.0, 2),),
+                  _DetailView(title: "${I18n.of(context).dayincome}(MICO)", detail: Tool.number(model?.todayProfit, 2),),
                 ],
               ),
             ),

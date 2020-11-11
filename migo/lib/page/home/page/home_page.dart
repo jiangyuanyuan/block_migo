@@ -77,6 +77,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
           ///通过 controller start 方法默认为 1
           _shakeAnimationController.start(shakeCount: 10000);
         }
+      } else {
+        _shakeAnimationController.stop();
       }
     });
   }

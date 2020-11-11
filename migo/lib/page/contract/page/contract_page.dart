@@ -75,6 +75,10 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
       final temp = ExchangeResponse.fromJson(data);
       exchangeCoinModel = temp.data;
       if(exchangeCoinModel.canUseInputCoinNames != null && exchangeCoinModel.canUseInputCoinNames.length > 0) currCoinName = exchangeCoinModel.canUseInputCoinNames.first;
+      if(exchangeCoinModel?.canUseInputCoinNames != null && exchangeCoinModel.canUseInputCoinNames.length > 0) {
+        _onselectedCoin(exchangeCoinModel.canUseInputCoinNames.first, 0);
+      }
+      
       if(mounted) setState(() {
         
       });
@@ -209,6 +213,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                                 titles: outputTitles,
                                 onSelected: _onselectedCoin2,
                                 outputAmount: outputAmount,
+                                currCoinsName: outcoinname,
                                 tradings: exchangeCoinModel?.tradings,
                               ),
                             ),
