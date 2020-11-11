@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:migo/common/commview/CustomProgressView.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/model/mine_package_model.dart';
 
@@ -23,6 +25,21 @@ class PackageCell extends StatelessWidget {
       return imgs[1];
     } else {
       return imgs[2];
+    }
+  }
+
+  Widget _create(BuildContext context) {
+    if(model.useTime == null) {
+      return BtnImageBottomView(
+        title: I18n.of(context).use,
+        onTap: onUserAction,
+      );
+    } else {
+      String title = Tool.timeHourAndDay(model.useTime, model.canUseTime);
+      return CustomProgressView(
+        issmall: true,
+        titles: title,
+      );
     }
   }
 
@@ -65,10 +82,7 @@ class PackageCell extends StatelessWidget {
               )
             ],
           ),
-          BtnImageBottomView(
-            title: I18n.of(context).use,
-            onTap: onUserAction,
-          )
+          _create(context)
         ],
       ),
     );

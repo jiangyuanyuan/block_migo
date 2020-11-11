@@ -18,6 +18,7 @@ import 'package:migo/page/home/view/home_action.dart';
 import 'package:migo/page/home/view/home_cell.dart';
 import 'package:migo/page/home/view/home_head_view.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:shake_animation_widget/shake_animation_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -27,19 +28,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
 
   bool isnewer = false;
-  RefreshController _refreshController = RefreshController();
+  RefreshController _refreshController = RefreshController(initialRefresh: true);
   List<HomeBannerModel> banners = [];
   List<HomeModel> list = [];
-  List<HomeBoxModel> boxList = [];
   List<HomeShovelModel> shoveList = [];
+  final _shakeAnimationController = ShakeAnimationController();
   @override
-  bool get wantKeepAlive => false;
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
     super.initState();
-    _requestBanner();
-    _requestList();
     _requestBox();
   }
 
@@ -67,14 +66,18 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   void _requestBox() {
     Networktool.request(API.getMyNotOpenBox, success: (data) {
       final temp = HomeBoxReponse.fromJson(data);
-      boxList.clear();
-      temp.data.forEach((element) { 
-        if(element.status == 0) {
-          boxList.add(element);
+      if(temp.data.length > 0) {
+        ///判断抖动动画是否正在执行
+        if (_shakeAnimationController.animationRunging) {
+          ///停止抖动动画
+          _shakeAnimationController.stop();
+        } else {
+          ///开启抖动动画
+          ///参数shakeCount 用来配置抖动次数
+          ///通过 controller start 方法默认为 1
+          _shakeAnimationController.start(shakeCount: 1);
         }
-      });
-      if(mounted) setState(() {
-      });
+      }
     });
   }
 
@@ -85,8 +88,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     _refreshController.requestRefresh();
   }
 
-  void _cellAction() {
-    Navigator.pushNamed(context, "/homedetail");
+  void _cellAction(HomeModel model) {
+    Navigator.pushNamed(context, "/homedetail", arguments: {"model": model});
     // Navigator.push(context, CupertinoPageRoute(builder: (context) => WebPage(),));
   }
 
@@ -94,7 +97,6 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     EasyLoading.show(status: "Loading...");
     Networktool.request(API.openBox, success: (data){
       EasyLoading.dismiss();
-      // print(data);
       final temp = HomeBoxRespose.fromJson(data).data.shovelList;
       setState(() {
         shoveList = temp;
@@ -127,6 +129,41 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     super.dispose();
   }
 
+  ShakeAnimationWidget buildShakeAnimationWidget() {
+    return ShakeAnimationWidget(
+      //抖动控制器
+      shakeAnimationController: _shakeAnimationController,
+      //微旋转的抖动
+      shakeAnimationType: ShakeAnimationType.RoateShake,
+      //设置不开启抖动
+      isForward: true,
+      //默认为 0 无限执行
+      shakeCount: 0,
+      //抖动的幅度 取值范围为[0,1]
+      shakeRange: 0.2,
+      //执行抖动动画的子Widget
+      // child: RaisedButton(
+      //   child: Text(
+      //     '测试',
+      //     style: TextStyle(color: Colors.white),
+      //   ),
+      //   onPressed: () {
+      //     ///判断抖动动画是否正在执行
+      //     if (_shakeAnimationController.animationRunging) {
+      //       ///停止抖动动画
+      //       _shakeAnimationController.stop();
+      //     } else {
+      //       ///开启抖动动画
+      //       ///参数shakeCount 用来配置抖动次数
+      //       ///通过 controller start 方法默认为 1
+      //       _shakeAnimationController.start(shakeCount: 1);
+      //     }
+      //   },
+      // ),
+      child: Image.asset("assets/icon.png"),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -134,7 +171,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
         onTap: () {
           _floatingAction();
         },
-        child: boxList.length == 0 ? SizedBox() : Image.asset("assets/icon.png")
+        child: buildShakeAnimationWidget(),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -248,7 +285,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
                           itemCount: list.length,
                           itemBuilder: (context, index){
                             return InkWell(
-                              onTap: _cellAction,
+                              onTap: () => _cellAction(list[index]),
                               child: HomeCell(index: index, model: list[index],)
                             );
                         }),

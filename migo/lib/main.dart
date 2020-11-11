@@ -85,7 +85,12 @@ class _FreeLocalizations extends State<FreeLocalizations> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String languageStr = prefs.getString('languageCode');
     String country = prefs.getString('countryCode');
-    return Locale(languageStr, country);
+    if(languageStr != null) {
+      return Locale(languageStr, country);
+    } else {
+      return null;
+    }
+    
   }
 
   //监听bus
@@ -106,10 +111,12 @@ class _FreeLocalizations extends State<FreeLocalizations> {
     super.initState();
     Future<Locale> locale = getDeviceLocale();
     locale.then((locales) {
-      changeLocale(locales);
-      // 设置语言
-      I18n.locale = locales;
-      teventBus.fire(locales);
+      if(locale != null) {
+        changeLocale(locales);
+        // 设置语言
+        I18n.locale = locales;
+        teventBus.fire(locales);
+      }
     });
   }
 

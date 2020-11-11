@@ -16,16 +16,22 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-1.banner图.
-2.手机邮箱登录.
-3.修改个人姓名.3532
-4.获取手机验证嘛.
-5.更改绑定.
-6.交易密码设置.
-7.更改绑定手机/邮箱.
-8.忘记密码
-9.挖矿列表/新手挖矿列表
 
 
-更改登录密码.
 上传头像.
+
+挖矿列表详情.
+挖矿详情支付记录
+挖矿收益记录,
+立即挖矿.
+获取支付余额.(USDT, MIGO)
+背包上面四个字段
+铲子使用接口.
+
+Migo
+背包详情.
+使用铲子.
+邀请好友.
+邀请好友列表.
+
+

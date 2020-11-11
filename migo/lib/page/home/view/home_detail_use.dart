@@ -44,7 +44,7 @@ class HomeDetailUserView extends StatelessWidget {
               ),),
               SizedBox(width: 4,),
               HomeGradientText(
-                data: "X1",
+                data: "X0",
                 fontstyle: AppFont.textStyle(
                   12, 
                   fontWeight: FontWeight.bold,

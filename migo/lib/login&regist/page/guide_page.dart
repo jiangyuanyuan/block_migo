@@ -19,6 +19,7 @@ class _GuidePageState extends State<GuidePage> {
   @override
   void initState() {
     super.initState();
+    Future.delayed(const Duration(milliseconds: 100)).then((value) => _jumpToRoot(context));
   }
 
 
@@ -27,7 +28,7 @@ class _GuidePageState extends State<GuidePage> {
     if(share.getString(AppConst.KEY_user_token) != null) {
       Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
     } else {
-      Navigator.of(context).pushNamed('/login');
+      
     }
   }
 
@@ -65,7 +66,9 @@ class _GuidePageState extends State<GuidePage> {
               SizedBox(height: 40,),
               BtnAction(
                 title: I18n.of(context).login,
-                onTap: () => _jumpToRoot(context),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/login');
+                },
               ),
             ],
           ),

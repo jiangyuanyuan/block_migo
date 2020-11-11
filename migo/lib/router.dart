@@ -43,7 +43,7 @@ final routes = {
   '/mod': (context,{arguments}) => MineModPage(),// 第一次登录密码设置
   '/modname': (context,{arguments}) => MineModNamePage(params: arguments,),// 第一次登录密码设置
   '/safe': (context,{arguments}) => SafePage(),// 第一次登录密码设置
-  '/coinsdetail': (context,{arguments}) => CoinsDetailPage(),// 第一次登录密码设置
+  '/coinsdetail': (context,{arguments}) => CoinsDetailPage(params: arguments),// 第一次登录密码设置
   '/teamrecord': (context,{arguments}) => TeamRecordPage(),// 第一次登录密码设置
   '/teamearth': (context,{arguments}) => TeamEarthPage(),// 第一次登录密码设置
   '/mineauth': (context,{arguments}) => MineAuthPage(),// 第一次登录密码设置
@@ -52,7 +52,7 @@ final routes = {
 
 
   /// home
-  '/homedetail': (context,{arguments}) => HomeDetailPage(),// 第一次登录密码设置
+  '/homedetail': (context,{arguments}) => HomeDetailPage(params: arguments,),// 第一次登录密码设置
 
 
   /// exchange

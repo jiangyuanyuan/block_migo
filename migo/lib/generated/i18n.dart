@@ -194,6 +194,8 @@ class I18n implements WidgetsLocalizations {
   String get price => "价格";
   /// "手续费减免"
   String get feereduction => "手续费减免";
+  /// "手续费"
+  String get feereduction2 => "手续费";
   /// "当前${level}级别"
   String currlevel(String level) => "当前${level}级别";
   /// "下一级${level}级别"
@@ -320,8 +322,8 @@ class I18n implements WidgetsLocalizations {
   String get teamnumber => "团队人数";
   /// "团队总业绩"
   String get teamperformance => "团队总业绩";
-  /// "大区动态收益"
-  String get dynamicincome => "大区动态收益";
+  /// "大区挖矿金额"
+  String get dynamicincome => "大区挖矿金额";
   /// "直推奖"
   String get directPushAward => "直推奖";
   /// "达标领导奖励"
@@ -645,6 +647,9 @@ class _I18n_en_US extends I18n {
   /// "Fee reduction"
   @override
   String get feereduction => "Fee reduction";
+  /// "Fee"
+  @override
+  String get feereduction2 => "Fee";
   /// "Current level ${level}"
   @override
   String currlevel(String level) => "Current level ${level}";
@@ -834,9 +839,9 @@ class _I18n_en_US extends I18n {
   /// "Team Grades"
   @override
   String get teamperformance => "Team Grades";
-  /// "Regional dynamic income"
+  /// "Mining amount"
   @override
-  String get dynamicincome => "Regional dynamic income";
+  String get dynamicincome => "Mining amount";
   /// "Direct Push Award"
   @override
   String get directPushAward => "Direct Push Award";

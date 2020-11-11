@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/commview/refresh.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/contract/view/alert_password_view.dart';
+import 'package:migo/page/home/model/home_box_model.dart';
 import 'package:migo/page/home/view/alert_shovelview.dart';
 import 'package:migo/page/mine/model/mine_package_model.dart';
 import 'package:migo/page/mine/view/package_cell.dart';
@@ -20,10 +24,12 @@ class _MinePackagePageState extends State<MinePackagePage> {
 
   List<MineShovelModel> list = [];
   RefreshController _refreshController = RefreshController();
+  MinePackageHeadModel headmodel;
   @override
   void initState() {
     super.initState();
-    _request();
+    // _request();
+    _requestDetail();
   }
 
   @override
@@ -32,10 +38,11 @@ class _MinePackagePageState extends State<MinePackagePage> {
     super.dispose();
   }
 
-  void _request() {
-    Networktool.request(API.getMyNotUseShovel, success: (data){
-      final temp = MinepageageResponse.fromJson(data);
-      list = temp.data;
+  void _requestDetail() {
+    Networktool.request(API.getMyKnapsack, success: (data) {
+      final temp = MinePackageHeadResponse.fromJson(data);
+      headmodel = temp.data;
+      if(temp.data.shovelList != null) list = temp.data.shovelList;
       if(mounted) setState(() {
         
       });
@@ -43,12 +50,30 @@ class _MinePackagePageState extends State<MinePackagePage> {
   }
 
   void _refresh() {
-    _request();
+    _requestDetail();
   }
 
   void _endrefresh() {
     _refreshController.refreshCompleted();
   }
+
+  void _userShovel(MineShovelModel model) {
+    
+    Alert.showBottomViewDialog(context, AlertPasswordView(
+      onSure: (pwd) {
+        EasyLoading.show(status: "Loading...");
+        Networktool.request(API.miningBeltShovel, params: {
+            "mineBaseId": model.id,
+            "shovelId": model.id,
+            "txPwd": Tool.generateMd5(pwd)
+        }, success: (data) {
+          EasyLoading.dismiss();
+          EasyLoading.showToast(I18n.of(context).success);
+        }, fail: (msg) => EasyLoading.showError(msg),);
+      },
+    ));
+    
+  } 
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +84,7 @@ class _MinePackagePageState extends State<MinePackagePage> {
         onPop: () => Navigator.pop(context),
         child: Column(
           children: [
-            PackageHeadView(),
+            PackageHeadView(model: headmodel),
             Expanded(
               child: Container(
                 padding: const EdgeInsets.only(top: 90),
@@ -85,6 +110,8 @@ class _MinePackagePageState extends State<MinePackagePage> {
                           titles: I18n.of(context).usernotice,
                           btntitles: I18n.of(context).sure,
                           showclose: true,
+                          onSure: () => _userShovel(list[index]),
+                          list: [HomeShovelModel(count: 1, name: list[index].toolbox.toolName)],
                         ));
                       },);
                     }

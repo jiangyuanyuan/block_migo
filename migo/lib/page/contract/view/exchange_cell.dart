@@ -1,18 +1,87 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/custom_menu_view.dart';
+import 'package:migo/common/textstyle/textfield_number.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/contract/model/exchange_model.dart';
 
 class ExchangeCell extends StatefulWidget {
   final bool ispre;
-
-  const ExchangeCell({Key key, this.ispre = true}) : super(key: key);
+  final List<String> titles;
+  final Function(String val, int index) onSelected;
+  final List<ExchangeCoinModel> tradings;
+  final Function(String val) onChanged;
+  final String outputAmount;
+  final String currCoinsName;
+  const ExchangeCell({
+    Key key, 
+    this.tradings, 
+    this.ispre = true, 
+    this.onChanged,
+    this.onSelected, 
+    this.outputAmount,
+    this.currCoinsName,
+    this.titles
+  }) : super(key: key);
   @override
   _ExchangeCellState createState() => _ExchangeCellState();
 }
 
 class _ExchangeCellState extends State<ExchangeCell> {
-  String coins = "USDT";
+  String coins = "--";
+  List<String> titles = [];
+  TextEditingController _editingController = TextEditingController();
+  FocusNode focusNode = FocusNode();
+  @override
+  void initState() {
+    super.initState();
+    titles = titles;
+    if(widget.titles != null && widget.titles?.length > 0) {
+      coins = widget.titles.first;
+    }
+  }
+
+  @override
+  void dispose() {
+    _editingController.dispose();
+    super.dispose();
+  }
+
+  String _getTrading() {
+    num res = 0;
+    if(widget.tradings != null && widget.tradings.length > 0) {
+      final e = widget.tradings.firstWhere((element) => element.ntn.startsWith(coins), orElse: () => null,);
+      if(e != null) {
+        if(widget.ispre) {
+          res = e.inputCoinAmount;
+        } else {
+          res = e.outputCoinAmount;
+        }
+      }
+    }
+    return Tool.number(res, 4);
+  }
+
+  @override
+  void didUpdateWidget(ExchangeCell oldWidget) {
+    if(widget.titles != null){
+      if(widget.titles.length > 0) {
+        if(widget.currCoinsName != coins && widget.ispre == false) {
+          titles = widget.titles;
+          coins = widget.titles.first;
+        } else {
+          if(titles.join("") != widget.titles.join("")) {
+            titles = widget.titles;
+            coins = widget.titles.first;
+          }
+        }
+      }
+    }
+    if(widget.ispre == false) _editingController.text = Tool.number(num.parse(widget.outputAmount), 4);
+    super.didUpdateWidget(oldWidget);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +98,7 @@ class _ExchangeCellState extends State<ExchangeCell> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(widget.ispre ? I18n.of(context).output : "${I18n.of(context).output}(${I18n.of(context).estimate})", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-              Text("${I18n.of(context).balance}: 44.848485", style: AppFont.textStyle(12, color: AppColor.back998),)
+              Text("${I18n.of(context).balance}: ${_getTrading()}", style: AppFont.textStyle(12, color: AppColor.back998),)
             ],
           ),
           Row(
@@ -38,9 +107,17 @@ class _ExchangeCellState extends State<ExchangeCell> {
                 child: IgnorePointer(
                   ignoring: !widget.ispre,
                   child: TextField(
+                    controller: _editingController,
+                    focusNode: focusNode,
+                    style: AppFont.textStyle(16, color: AppColor.back998, fontWeight: FontWeight.bold),
+                    onChanged: widget.onChanged,
+                    onSubmitted: widget.onChanged,
+                    keyboardType: TextInputType.numberWithOptions(decimal: true),
+                    inputFormatters: [
+                      NumberFormat(decimalRange: 8)
+                    ],
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      labelStyle: AppFont.textStyle(16, color: AppColor.back998, fontWeight: FontWeight.bold),
                       hintText: "0.0",
                       counterText: "",
                       hintStyle: AppFont.textStyle(16, color: AppColor.back998, fontWeight: FontWeight.bold),
@@ -52,11 +129,14 @@ class _ExchangeCellState extends State<ExchangeCell> {
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: CustiomMenuView(
-                  titles: ["USDT", "MIGO"],
+                  titles: titles?.length == 0 ? ["--"] : titles,
                   onSelected: (index, val) {
                     setState(() {
                       coins = val;
                     });
+                    if(widget.onSelected != null) {
+                      widget.onSelected(coins, index);
+                    }
                   },
                   child: Container(
                     width: 92,

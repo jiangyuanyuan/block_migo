@@ -92,7 +92,7 @@ class MineCoinModel {
   String privateKey;
   num releaseAmount;
   num exchangeAmount;
-  int coinType;
+  String coinType;
 
   MineCoinModel(
       {this.id,

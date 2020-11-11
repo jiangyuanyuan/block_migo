@@ -3,8 +3,10 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/page/contract/view/alert_password_view.dart';
+import 'package:migo/page/home/model/home_list_model.dart';
 import 'package:migo/page/home/view/alert_pay_view.dart';
 import 'package:migo/page/home/view/home_detail_cell.dart';
 import 'package:migo/page/home/view/home_detail_head.dart';
@@ -13,6 +15,9 @@ import 'package:migo/page/home/view/home_detail_use.dart';
 import 'package:migo/page/home/view/home_gradient_text.dart';
 
 class HomeDetailPage extends StatefulWidget {
+  final Map params;
+
+  const HomeDetailPage({Key key, this.params}) : super(key: key);
   @override
   _HomeDetailPageState createState() => _HomeDetailPageState();
 }
@@ -20,7 +25,13 @@ class HomeDetailPage extends StatefulWidget {
 class _HomeDetailPageState extends State<HomeDetailPage> {
 
   int tabindex = 0;
+  HomeModel model;
 
+  @override
+  void initState() {
+    super.initState();
+    model = widget.params["model"];
+  }
   /// 立即挖矿
   void _getAction() {
     Alert.showBottomViewDialog(context, AlertHomePayView(
@@ -35,15 +46,23 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
       EasyLoading.showToast("支付成功");
     }));
   }
+
+  /// 请求挖矿列表详情
+  void _request() {
+    Networktool.request(API.banner, success: (data) {
+
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CommbackView(
-        titles: "乐屋",
+        titles: model.mineTitle,
         onPop: () => Navigator.pop(context),
         child: Column(
           children: [
-            HomeDetailHeadView(),
+            HomeDetailHeadView(model: model),
             SizedBox(height: 20,),
             Expanded(
               child: Stack(

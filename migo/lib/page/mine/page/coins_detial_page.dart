@@ -1,15 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/commview/refresh.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/mine/model/me_model.dart';
+import 'package:migo/page/mine/model/mine_coins_model.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class CoinsDetailPage extends StatelessWidget {
+class CoinsDetailPage extends StatefulWidget {
+  final Map params;
+
+  const CoinsDetailPage({Key key, this.params}) : super(key: key);
+  @override
+  _CoinsDetailPageState createState() => _CoinsDetailPageState();
+}
+
+class _CoinsDetailPageState extends State<CoinsDetailPage> {
+  MineCoinModel model;
+  RefreshController _refreshController = RefreshController();
+  List<MineCoinRecordModel> list = [];
+  @override
+  void initState() {
+    super.initState();
+    model = widget.params["model"];
+    _request();
+  }
+
+  void _request() {
+    Networktool.request(API.getAccountDetailByCoinName + "${model.coinName}", success: (data){
+      final temp = MineCoinRecordResponse.fromJson(data);
+      if(temp.data != null) list = temp.data;
+      list.sort((a, b) => a.createTime.compareTo(b.createTime));
+      if(mounted) setState(() {
+        
+      });
+    }, finaly: _endrefresh);
+  }
+
+  void _refresh() {
+    _request();
+  }
+
+  void _endrefresh() {
+    _refreshController.refreshCompleted();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CommbackView(
-        titles: "USDT",
+        titles: model.coinName,
         onPop: () => Navigator.pop(context),
         child: Column(
           children: [
@@ -24,8 +66,8 @@ class CoinsDetailPage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("17372.40366816 USDT", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
-                          Text("≈17472.40(USD)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),)
+                          Text("${Tool.number(model.amount, 4)} ${model.coinName}", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
+                          Text("≈0.00(USD)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),)
                         ],
                       )
                     ],
@@ -39,7 +81,7 @@ class CoinsDetailPage extends StatelessWidget {
                         children: [
                           Text(I18n.of(context).availablebalance, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),),
                           SizedBox(height: 10,),
-                          Text("17372.40366816", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
+                          Text("${Tool.number(model.amount, 4)}", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
                         ],
                       ),
                       BtnAction(
@@ -74,12 +116,26 @@ class CoinsDetailPage extends StatelessWidget {
                       ],
                     ),
                     Expanded(
-                      child: ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: 10,
-                        itemBuilder: (context, index){
-                          return _Cell(index: index,);
-                        }
+                      child: RefreshWidget(
+                        controller: _refreshController,
+                        onRefresh: _refresh,
+                        child: ListView.builder(
+                          padding: EdgeInsets.zero,
+                          itemCount: list.length,
+                          itemBuilder: (context, index){
+                            MineCoinRecordModel lastmodel;
+                            final model = list[index];
+                            if(index > 0) {
+                              final templast = list[index - 1];
+                              if(Tool.timeFormat("yyyy-MM-dd", templast.createTime) != Tool.timeFormat("yyyy-MM-dd", templast.createTime)) {
+                                lastmodel = templast;
+                              }
+                            } else {
+                              lastmodel = MineCoinRecordModel();
+                            }
+                            return _Cell(index: index, model: model, lasatModell: lastmodel,);
+                          }
+                        ),
                       ),
                     )
                   ],
@@ -95,32 +151,37 @@ class CoinsDetailPage extends StatelessWidget {
 
 class _Cell extends StatelessWidget {
   final int index;
-
-  const _Cell({Key key, this.index}) : super(key: key);
+  final MineCoinRecordModel model;
+  final MineCoinRecordModel lasatModell;
+  const _Cell({Key key, this.index, this.model, this.lasatModell}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: 28,
-          width: double.infinity,
-          alignment: Alignment.centerLeft,
-          padding: const EdgeInsets.only(left: 24),
-          color: const Color(0x33C1CDD8),
-          child: Text("2020/10/24", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+        Visibility(
+          visible: lasatModell != null,
+          child: Container(
+            height: 28,
+            width: double.infinity,
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.only(left: 24),
+            color: const Color(0x33C1CDD8),
+            child: Text(Tool.timeFormat("yyyy/MM/dd", model.createTime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
           child: Row(
             children: [
-              Image.asset("assets/${index == 2 ? "ico_hist_in_def2" : "ico_hist_in_def"}.png"),
+              Image.asset("assets/${model.changeType != 1 ? "ico_hist_in_def2" : "ico_hist_in_def"}.png"),
               SizedBox(width: 10,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("${index == 2 ? I18n.of(context).withdraw:I18n.of(context).recharge}", style: AppFont.textStyle(14, color: Colors.black),),
+                  // Text("${index == 2 ? I18n.of(context).withdraw:I18n.of(context).recharge}", style: AppFont.textStyle(14, color: Colors.black),),
+                  Text("${model.businessRemark}", style: AppFont.textStyle(14, color: Colors.black),),
                   SizedBox(height: 4,),
-                  Text("16:43",style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)))
+                  Text(Tool.timeFormat("HH:mm", model.createTime),style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)))
                 ],
               ),
               Spacer(),
@@ -128,16 +189,16 @@ class _Cell extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   /// 提现为黑色
-                  Text("+0.80355726", style: AppFont.textStyle(14, color: AppColor.green, fontWeight: FontWeight.bold)),
+                  Text("${model.changeType == 1 ? "+" : ""}${model.amount}", style: AppFont.textStyle(14, color: AppColor.green, fontWeight: FontWeight.bold)),
                   SizedBox(height: 4,),
-                  Text("≈0.804", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4))),
+                  Text("≈0.000", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4))),
                 ],
               ),
               SizedBox(width: 4,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text("USDT", style: AppFont.textStyle(14, color: Colors.black)),
+                  Text(model.coinName, style: AppFont.textStyle(14, color: Colors.black)),
                   SizedBox(height: 4,),
                   Text("USD", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4))),
                 ],

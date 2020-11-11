@@ -106,4 +106,16 @@ class Tool {
       }
     }
   }
+
+  static String timeHourAndDay(int createtime, int days) {
+    DateTime now = DateTime.fromMillisecondsSinceEpoch(createtime);
+    DateTime to = now.add(Duration(days: days));
+    Duration duration = to.difference(now);
+    int hour = duration.inHours;
+    if(hour % 24 == 0) {
+      return "${hour / 24}天";
+    } else {
+      return "${hour ~/ 24}天${hour % 24}小时";
+    }
+  }
 }

@@ -106,7 +106,7 @@ class _MineInvitePageState extends State<MineInvitePage> {
                 child: Row(
                   children: [
                     Expanded(flex: 1, child: BtnImageBottomView(img: "home_btn.png", title: I18n.of(context).invitelink, onTap: () {
-                      ScreenTool.copy(code);
+                      ScreenTool.copy(string);
                     },)),
                     SizedBox(width: 20,),
                     Expanded(flex: 1, child: BtnImageBottomView(img: "home_btn_inactive.png", title: I18n.of(context).saveimage, onTap: () {

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 
 class ExchangeSuccessPage extends StatelessWidget {
   final Map params;
-
   const ExchangeSuccessPage({Key key, this.params}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -65,14 +65,14 @@ class ExchangeSuccessPage extends StatelessWidget {
                           padding: const EdgeInsets.all(16),
                           child: Column(
                             children: [
-                              _Row(titles: I18n.of(context).number,val: "1290 MIGO",),
+                              _Row(titles: I18n.of(context).number,val: "${params["count"]} ${params["coinName"]}",),
                               Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 14),
-                                child: _Row(titles: I18n.of(context).date,val: "2020-09-09",),
+                                child: _Row(titles: I18n.of(context).date,val: Tool.timeFormat("yyyy-MM-dd", params["time"]),),
                               ),
-                              _Row(titles: I18n.of(context).time,val: "22:22:11",),
+                              _Row(titles: I18n.of(context).time,val: Tool.timeFormat("HH:mm:ss", params["time"]),),
                               SizedBox(height: 14,),
-                              _Row(titles: I18n.of(context).total,val: "1290 MIGO",),
+                              _Row(titles: I18n.of(context).total,val: "${params["count"]} ${params["coinName"]}",),
                             ],
                           ),
                         ),

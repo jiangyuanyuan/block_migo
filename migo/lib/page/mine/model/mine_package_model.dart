@@ -167,3 +167,71 @@ class Toolbox {
     return data;
   }
 }
+
+
+class MinePackageHeadResponse {
+  int code;
+  String msg;
+  MinePackageHeadModel data;
+
+  MinePackageHeadResponse({this.code, this.msg, this.data});
+
+  MinePackageHeadResponse.fromJson(Map<String, dynamic> json) {
+    code = json['code'];
+    msg = json['msg'];
+    data = json['data'] != null ? new MinePackageHeadModel.fromJson(json['data']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['code'] = this.code;
+    data['msg'] = this.msg;
+    if (this.data != null) {
+      data['data'] = this.data.toJson();
+    }
+    return data;
+  }
+}
+
+class MinePackageHeadModel {
+  num totalProductivity;
+  num todayForecast;
+  num totalCapacity;
+  num usedCapacity;
+  num totalMIGOs;
+  List<MineShovelModel> shovelList;
+
+  MinePackageHeadModel(
+      {this.totalProductivity,
+      this.todayForecast,
+      this.totalCapacity,
+      this.usedCapacity,
+      this.totalMIGOs,
+      this.shovelList});
+
+  MinePackageHeadModel.fromJson(Map<String, dynamic> json) {
+    totalProductivity = json['totalProductivity'];
+    todayForecast = json['todayForecast'];
+    totalCapacity = json['totalCapacity'];
+    usedCapacity = json['usedCapacity'];
+    totalMIGOs = json['totalMIGOs'];
+    if (json['shovelList'] != null) {
+      shovelList = new List<MineShovelModel>();
+      json['shovelList'].forEach((v) {
+        shovelList.add(new MineShovelModel.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['totalProductivity'] = this.totalProductivity;
+    data['todayForecast'] = this.todayForecast;
+    data['totalCapacity'] = this.totalCapacity;
+    data['usedCapacity'] = this.usedCapacity;
+    data['totalMIGOs'] = this.totalMIGOs;
+    data['shovelList'] = this.shovelList;
+    return data;
+  }
+}
+

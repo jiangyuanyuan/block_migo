@@ -5,8 +5,15 @@ import 'package:migo/generated/i18n.dart';
 
 class AlertExhangeView extends StatelessWidget {
   final Function() onSure;
-
-  const AlertExhangeView({Key key, this.onSure}) : super(key: key);
+  final String outputAmount;
+  final String currCoinName;
+  final String outCoinName;
+  final String price;
+  final String fee;
+  final String inputAmout;
+  final String precent;
+  final String level;
+  const AlertExhangeView({Key key, this.level, this.precent, this.onSure, this.outputAmount, this.currCoinName, this.outCoinName, this.price, this.fee, this.inputAmout}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,9 +53,9 @@ class AlertExhangeView extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 3.0),
-                        child: Text("1", style: AppFont.textStyle(14,color: AppColor.back998, fontWeight: FontWeight.bold),),
+                        child: Text("$inputAmout", style: AppFont.textStyle(14,color: AppColor.back998, fontWeight: FontWeight.bold),),
                       ),
-                      Text("USDT", style: AppFont.textStyle(14,color: Colors.black.withOpacity(0.5)),),
+                      Text("$currCoinName", style: AppFont.textStyle(14,color: Colors.black.withOpacity(0.5)),),
                     ],
                   ),
                   Padding(
@@ -60,9 +67,9 @@ class AlertExhangeView extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 3.0),
-                        child: Text("1", style: AppFont.textStyle(14,color: AppColor.back998, fontWeight: FontWeight.bold),),
+                        child: Text("$outputAmount", style: AppFont.textStyle(14,color: AppColor.back998, fontWeight: FontWeight.bold),),
                       ),
-                      Text("MIGO", style: AppFont.textStyle(14,color: Colors.black.withOpacity(0.5)),),
+                      Text("$outCoinName", style: AppFont.textStyle(14,color: Colors.black.withOpacity(0.5)),),
                     ],
                   ),
                   Divider(height: 41,),
@@ -70,7 +77,7 @@ class AlertExhangeView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(I18n.of(context).price, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                      Text("500 USDT / MIGO", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
+                      Text("$precent $currCoinName / $outCoinName", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
                     ],
                   ),
                   Padding(
@@ -79,23 +86,23 @@ class AlertExhangeView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(I18n.of(context).leastget, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5))),
-                        Text("450 HDAOS", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
+                        Text("$outputAmount $outCoinName", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
                       ],
                     ),
                   ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Text(I18n.of(context).priceslippage, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5))),
+                  //     Text("6.26%", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
+                  //   ],
+                  // ),
+                  // SizedBox(height: 14,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(I18n.of(context).priceslippage, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5))),
-                      Text("6.26%", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
-                    ],
-                  ),
-                  SizedBox(height: 14,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("${I18n.of(context).handlingfee}（M1）", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5))),
-                      Text("40%", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
+                      Text("${I18n.of(context).handlingfee}（M$level）", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5))),
+                      Text("${num.parse(precent) * 100}%", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
                     ],
                   ),
                   SizedBox(height: 43,),

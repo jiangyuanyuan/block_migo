@@ -13,6 +13,7 @@ class AlertPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(8))
@@ -97,6 +98,7 @@ class __InputPwdViewState extends State<_InputPwdView> {
         inputFormatter: [WhitelistingTextInputFormatter.digitsOnly],
         textInputAction: TextInputAction.done,
         enabled: true,
+        autoFocus: true,
         keyboardType: TextInputType.number,
         textCapitalization: TextCapitalization.characters,
         onSubmit: (pin) {

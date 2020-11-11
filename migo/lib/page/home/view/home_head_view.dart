@@ -21,7 +21,7 @@ class _HomeHeadViewState extends State<HomeHeadView> {
   }
   @override
   void didUpdateWidget(HomeHeadView oldWidget) {
-    if(banners != null && banners.length > 0) {
+    if(widget.banners != null && widget.banners.length > 0) {
       if(banners.length != widget.banners.length || banners.first.bannerUrl != widget.banners.first.bannerUrl) {
         banners = widget.banners;
       }

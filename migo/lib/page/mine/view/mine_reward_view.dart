@@ -18,11 +18,15 @@ class MineRewardView extends StatelessWidget {
             return _Cell();
           }),
         ),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-          child: BtnImageBottomView(
-            title: I18n.of(context).invite,
+        SafeArea(
+          top: false,
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            child: BtnImageBottomView(
+              title: I18n.of(context).invite,
+              onTap: () => Navigator.pushNamed(context, "/invite"),
+            ),
           ),
         )
       ],

@@ -53,8 +53,8 @@ class _MinePageState extends State<MinePage> {
           itemBuilder: (context, index) {
             if(index == 0) return MainHeadView(model: _meModel,);
             return InkWell(
-              onTap: () => Navigator.pushNamed(context, "/coinsdetail"),
-              child: MineCoinCell(model: list[index - 1],)
+              onTap: () => Navigator.pushNamed(context, "/coinsdetail", arguments: {"model":list[index - 1]}),
+              child: MineCoinCell(model: list[index - 1])
             );
           }
         ),

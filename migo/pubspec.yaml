@@ -58,6 +58,7 @@ dependencies:
   connectivity: ^0.4.9
   flutter_i18n: ^0.20.1
   steel_crypt: ^1.5.3
+  shake_animation_widget: ^2.1.2
   encrypt: ^4.0.0
   flutter_gifimage: ^1.0.1
 
