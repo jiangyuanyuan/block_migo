@@ -82,6 +82,14 @@ class _MinePackagePageState extends State<MinePackagePage> {
       body: CommbackView(
         titles: I18n.of(context).mypackage,
         onPop: () => Navigator.pop(context),
+        actions: [
+          IconButton(
+            icon: Image.asset("assets/ico_incom_hist_def.png"),
+            onPressed: () {
+              Navigator.pushNamed(context, "/mineearn");
+            },
+          )
+        ],
         child: Column(
           children: [
             PackageHeadView(model: headmodel),

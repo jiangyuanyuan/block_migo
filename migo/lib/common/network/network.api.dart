@@ -31,5 +31,6 @@ class API {
   static const String getAccountDetailByCoinName = "user/uUserAccountDetail/getAccountDetailByCoinName/";
   static const String exchangePage = "user/eExchangeRecord/exchangePage";
   static const String exchangePagePost = "user/eExchangeRecord/exchangeCoin";
+  static const String getAccountPageByCoinName = "user/uUserAccountDetail/getAccountPageByCoinName/";
 }
   

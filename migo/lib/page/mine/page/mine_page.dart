@@ -44,20 +44,26 @@ class _MinePageState extends State<MinePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RefreshWidget(
-        controller: _refreshController,
-        onRefresh: _refresh,
-        child: ListView.builder(
-          itemCount: list.length + 1,
-          padding: EdgeInsets.zero,
-          itemBuilder: (context, index) {
-            if(index == 0) return MainHeadView(model: _meModel,);
-            return InkWell(
-              onTap: () => Navigator.pushNamed(context, "/coinsdetail", arguments: {"model":list[index - 1]}),
-              child: MineCoinCell(model: list[index - 1])
-            );
-          }
-        ),
+      body: Column(
+        children: [
+          MainHeadView(model: _meModel,),
+          Expanded(
+            child: RefreshWidget(
+              controller: _refreshController,
+              onRefresh: _refresh,
+              child: ListView.builder(
+                itemCount: list.length,
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () => Navigator.pushNamed(context, "/coinsdetail", arguments: {"model":list[index]}),
+                    child: MineCoinCell(model: list[index])
+                  );
+                }
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

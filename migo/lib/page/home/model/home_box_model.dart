@@ -23,7 +23,7 @@ class HomeBoxRespose {
 }
 
 class Data {
-  int totalCandy;
+  num totalCandy;
   List<HomeShovelModel> shovelList;
 
   Data({this.totalCandy, this.shovelList});

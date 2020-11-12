@@ -7,37 +7,35 @@ import 'package:migo/generated/i18n.dart';
 class TeamShareDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 20, left: 24),
-            child: Text(I18n.of(context).sharerewards, style: AppFont.textStyle(12, color: Colors.black)),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 20, left: 24),
+          child: Text(I18n.of(context).sharerewards, style: AppFont.textStyle(12, color: Colors.black)),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+          child: Column(
+            children: [
+              _Cell(index: 0, showlevel: true,),
+              _Cell(index: 1,),
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                _Cell(index: 0, showlevel: true,),
-                _Cell(index: 1,),
-              ],
+        ),
+        SafeArea(
+          top: false,
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: BtnImageBottomView(
+              title: I18n.of(context).invite,
+              onTap: () => Navigator.pushNamed(context, "/invite"),
             ),
           ),
-          SafeArea(
-            top: false,
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: BtnImageBottomView(
-                title: I18n.of(context).invite,
-                onTap: () => Navigator.pushNamed(context, "/invite"),
-              ),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

@@ -22,7 +22,7 @@ class MineCoinCell extends StatelessWidget {
                 children: [
                   Text(model.coinName, style: AppFont.textStyle(14, color: Colors.black),),
                   SizedBox(height: 4,),
-                  Text("Tether", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+                  Text(model.coinName.toLowerCase(), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
                 ],
               ),
               Spacer(),

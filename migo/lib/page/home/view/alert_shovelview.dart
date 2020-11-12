@@ -10,7 +10,8 @@ class AlertShovelView extends StatelessWidget {
   final String titles;
   final bool showclose;
   final List<HomeShovelModel> list;
-  const AlertShovelView({Key key, this.list, this.btntitles, this.titles, this.showclose = false, this.onSure}) : super(key: key);
+  final num candy;
+  const AlertShovelView({Key key, this.list, this.candy = 0, this.btntitles, this.titles, this.showclose = false, this.onSure}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -56,6 +57,10 @@ class AlertShovelView extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ),
+                  Visibility(
+                    visible: candy != 0,
+                    child: Text("已得$candy Mandy糖果", style: AppFont.textStyle(12, color: Colors.white),),
                   )
                 ],
               )

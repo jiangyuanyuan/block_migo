@@ -10,6 +10,7 @@ import 'package:migo/page/mine/page/coins_detial_page.dart';
 import 'package:migo/page/mine/page/invite_record_page.dart';
 import 'package:migo/page/mine/page/mine_auth_page.dart';
 import 'package:migo/page/mine/page/mine_auth_upload.dart';
+import 'package:migo/page/mine/page/mine_earn_page.dart';
 import 'package:migo/page/mine/page/mine_exchange_bind.dart';
 import 'package:migo/page/mine/page/mine_invite_page.dart';
 import 'package:migo/page/mine/page/mine_mod.dart';
@@ -49,7 +50,7 @@ final routes = {
   '/mineauth': (context,{arguments}) => MineAuthPage(),// 第一次登录密码设置
   '/authupload': (context,{arguments}) => MineAuthUploadPage(),// 第一次登录密码设置
   '/mineexchangebind': (context,{arguments}) => MineExchangeBindPage(),// 第一次登录密码设置
-
+  '/mineearn': (context,{arguments}) => MineEarnPage(),// 第一次登录密码设置
 
   /// home
   '/homedetail': (context,{arguments}) => HomeDetailPage(params: arguments,),// 第一次登录密码设置

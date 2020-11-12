@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   List<HomeBannerModel> banners = [];
   List<HomeModel> list = [];
   List<HomeShovelModel> shoveList = [];
+  num candy = 0;
   final _shakeAnimationController = ShakeAnimationController();
   @override
   bool get wantKeepAlive => true;
@@ -99,14 +100,14 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     EasyLoading.show(status: "Loading...");
     Networktool.request(API.openBox, success: (data){
       EasyLoading.dismiss();
-      final temp = HomeBoxRespose.fromJson(data).data.shovelList;
+      final temp = HomeBoxRespose.fromJson(data).data;
       setState(() {
-        shoveList = temp;
+        shoveList = temp.shovelList;
       });
       Alert.showViewDialog(context, AlertShovelView(onSure: () {
         Navigator.pushNamed(context, "/package");
         _shakeAnimationController.stop();
-      },));
+      }, list: temp.shovelList, candy: temp.totalCandy,));
     }, fail: (msg) => EasyLoading.showToast(msg),);
     
   }
@@ -172,7 +173,10 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     return Scaffold(
       floatingActionButton: InkWell(
         onTap: () {
-          _floatingAction();
+          if(!_shakeAnimationController.animationRunging) {
+            _shakeAnimationController.start(shakeCount: 1);
+          }
+          Future.delayed(const Duration(milliseconds: 500)).then((value) => _floatingAction());
         },
         child: buildShakeAnimationWidget(),
       ),
