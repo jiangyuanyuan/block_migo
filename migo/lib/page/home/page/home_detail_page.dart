@@ -45,13 +45,14 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
   }
   /// 立即挖矿
   void _getAction() {
-    Alert.showBottomViewDialog(context, AlertHomePayView(
-      amount: migoAmount,
-      coinName: model.pledgeCoinName,
-      onSure: (sender) {
-        Future.delayed(const Duration(milliseconds: 100)).then((value) => _inputPwd(sender));    
-      },
-    ));
+    // Alert.showBottomViewDialog(context, AlertHomePayView(
+    //   amount: migoAmount,
+    //   coinName: model.pledgeCoinName,
+    //   onSure: (sender) {
+    //     Future.delayed(const Duration(milliseconds: 100)).then((value) => _inputPwd(sender));    
+    //   },
+    // ));
+    _inputPwd("");
   }
 
   void _inputPwd(String sedner) {
@@ -69,14 +70,14 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
   }
 
   void _requestAmount() {
-    Networktool.request(API.mePage, success: (data){
-      final meModel = MeResponse.fromJson(data).data;
-      meModel.accountList.forEach((element) { 
-        if(element.coinName == model.pledgeCoinName) {
-          migoAmount = element.amount;
-        }
-      });
-    });
+    // Networktool.request(API.mePage, success: (data){
+    //   final meModel = MeResponse.fromJson(data).data;
+    //   meModel.accountList.forEach((element) { 
+    //     if(element.coinName == model.pledgeCoinName) {
+    //       migoAmount = element.amount;
+    //     }
+    //   });
+    // });
   }
 
   /// 请求挖矿列表详情

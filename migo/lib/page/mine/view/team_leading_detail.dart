@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/mine/model/mine_team_model.dart';
 
 class TeamLeadingDetailView extends StatelessWidget {
   final int number;
-
-  const TeamLeadingDetailView({Key key, this.number}) : super(key: key);
+  final List<SubordinateLeaderDTOModel> subordinateLeaderDTOList;
+  const TeamLeadingDetailView({Key key, this.number, this.subordinateLeaderDTOList}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,9 +44,10 @@ class TeamLeadingDetailView extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             padding: const EdgeInsets.all(16),
-            itemCount: 0,
+            itemCount: subordinateLeaderDTOList.length,
             itemBuilder: (context, index){
-              return _Cell(index: index + 1,);
+              final model = subordinateLeaderDTOList[index];
+              return _Cell(index: index + 1, model: model,);
             }
           ),
         )
@@ -56,8 +58,8 @@ class TeamLeadingDetailView extends StatelessWidget {
 
 class _Cell extends StatelessWidget {
   final int index;
-
-  const _Cell({Key key, this.index}) : super(key: key);
+  final SubordinateLeaderDTOModel model;
+  const _Cell({Key key, this.index, this.model}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -78,14 +80,14 @@ class _Cell extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("normanh***gmail.com", style: AppFont.textStyle(12, color: Colors.black),),
+                    Text("${model.userNumber}", style: AppFont.textStyle(12, color: Colors.black),),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(I18n.of(context).teamnumber, style: AppFont.textStyle(12, color: Colors.black),),
-                          Text("23", style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold),),
+                          Text("${model.maxTeamAmount}", style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold),),
                         ],
                       ),
                     ),
@@ -96,7 +98,7 @@ class _Cell extends StatelessWidget {
                         Text.rich(
                           TextSpan(
                             children: [
-                              TextSpan(text: "123479", style: AppFont.textStyle(12, color: AppColor.green, fontWeight: FontWeight.bold),),
+                              TextSpan(text: "${model.maxTeamAmount}", style: AppFont.textStyle(12, color: AppColor.green, fontWeight: FontWeight.bold),),
                               TextSpan(text: " MIGO", style: AppFont.textStyle(12, color: Colors.black),)
                             ]
                           )

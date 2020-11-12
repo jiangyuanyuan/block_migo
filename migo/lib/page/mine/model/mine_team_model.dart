@@ -110,7 +110,7 @@ class AccountDetailModel {
   int businessType;
   int changeType;
   String coinName;
-  String createTime;
+  int createTime;
   int id;
   int userId;
 

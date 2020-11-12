@@ -3,9 +3,17 @@ import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/mine/model/mine_team_model.dart';
 
 class TeamShareDetailView extends StatelessWidget {
-  
+  final ShareDTO shareDTO;
+
+  const TeamShareDetailView({Key key, this.shareDTO}) : super(key: key);
+
+  List<Widget> _create(BuildContext context) {
+    return shareDTO.pseniorityConfigList.map((e) => _Cell(index: e.userLevel, percent: e.proportion, showlevel: e.userLevel == shareDTO.userLevel,)).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,10 +27,7 @@ class TeamShareDetailView extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
           child: Column(
-            children: [
-              _Cell(index: 0, showlevel: true,),
-              _Cell(index: 1,),
-            ],
+            children: _create(context),
           ),
         ),
         SafeArea(
@@ -44,7 +49,8 @@ class TeamShareDetailView extends StatelessWidget {
 class _Cell extends StatelessWidget {
   final bool showlevel;
   final int index;
-  const _Cell({Key key, this.index, this.showlevel = false}) : super(key: key);
+  final num percent;
+  const _Cell({Key key, this.index, this.percent, this.showlevel = false}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -84,7 +90,7 @@ class _Cell extends StatelessWidget {
               ),
 
               Text(
-                index == 1 ? "${I18n.of(context).enjoy}1 ${I18n.of(context).generation} \n20% ${I18n.of(context).reward}" : "暂无奖励", 
+                index == 1 ? "${I18n.of(context).enjoy}1 ${I18n.of(context).generation} \n$percent% ${I18n.of(context).reward}" : "暂无奖励", 
                 textAlign: TextAlign.left, 
                 style: AppFont.textStyle(
                   16, 

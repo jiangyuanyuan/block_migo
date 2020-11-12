@@ -2,20 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/mine/model/mine_team_model.dart';
 
 class MineRewardView extends StatelessWidget {
+  final List<AccountDetailModel> accountDetailList;
+
+  const MineRewardView({Key key, this.accountDetailList}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
           child: ListView.separated(
-            itemCount: 0,
+            itemCount: accountDetailList.length,
             padding: EdgeInsets.zero,
             separatorBuilder: (context, index) => Divider(height: 1,),
             itemBuilder: (context, index) {
-            return _Cell();
+              final model = accountDetailList[index];
+            return _Cell(model: model);
           }),
         ),
         SafeArea(
@@ -35,6 +41,9 @@ class MineRewardView extends StatelessWidget {
 }
 
 class _Cell extends StatelessWidget {
+  final AccountDetailModel model;
+
+  const _Cell({Key key, this.model}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,8 +57,8 @@ class _Cell extends StatelessWidget {
               Text.rich(
                 TextSpan(
                   children: [
-                    TextSpan(text: "+39", style: AppFont.textStyle(14, color: AppColor.green, fontWeight: FontWeight.bold)),
-                    TextSpan(text: " MIGOs", style: AppFont.textStyle(14, color: Colors.black)),
+                    TextSpan(text: "+${model.amount}", style: AppFont.textStyle(14, color: AppColor.green, fontWeight: FontWeight.bold)),
+                    TextSpan(text: " ${model.coinName}", style: AppFont.textStyle(14, color: Colors.black)),
                   ]
                 )
               )
@@ -59,8 +68,8 @@ class _Cell extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("10/15 ${I18n.of(context).aimreward}", style: AppFont.textStyle(14, color: Colors.black.withOpacity(0.5)),),
-              Text("2020/10/28 22:57", style: AppFont.textStyle(14, color: Colors.black.withOpacity(0.5)),)
+              Text("${Tool.timeFormat("MM/dd", model.createTime)} ${I18n.of(context).aimreward}", style: AppFont.textStyle(14, color: Colors.black.withOpacity(0.5)),),
+              Text("${Tool.timeFormat("MM/dd", model.createTime)}", style: AppFont.textStyle(14, color: Colors.black.withOpacity(0.5)),)
             ],
           ),
         ],
