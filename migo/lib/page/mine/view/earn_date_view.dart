@@ -3,6 +3,10 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 
 class EarnDateView extends StatelessWidget {
+  final String datetime;
+  final Function onSelected;
+
+  const EarnDateView({Key key, this.datetime = "--", this.onSelected}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,26 +15,29 @@ class EarnDateView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(I18n.of(context).earnrecord, style: AppFont.textStyle(12, color: Colors.black),),
-          Container(
-            height: 30,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
-              color: const Color(0x1A7BA0B9),
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              children: [
-                Text("2020.10", style: AppFont.textStyle(12, color: AppColor.back998),),
-                Container(
-                  height: 14,
-                  width: 1,
-                  margin: const EdgeInsets.symmetric(horizontal: 9),
-                  decoration: BoxDecoration(
-                    color: AppColor.back998.withOpacity(0.2)
+          InkWell(
+            onTap: onSelected,
+            child: Container(
+              height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                color: const Color(0x1A7BA0B9),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  Text(datetime, style: AppFont.textStyle(12, color: AppColor.back998),),
+                  Container(
+                    height: 14,
+                    width: 1,
+                    margin: const EdgeInsets.symmetric(horizontal: 9),
+                    decoration: BoxDecoration(
+                      color: AppColor.back998.withOpacity(0.2)
+                    ),
                   ),
-                ),
-                Image.asset("assets/earndate.png")
-              ],
+                  Image.asset("assets/earndate.png")
+                ],
+              ),
             ),
           )
         ],

@@ -26,11 +26,15 @@ class API {
   // static const String getMyNotUseShovel = "user/uMineUserShovel/getMyKnapsack";
   static const String invite = "user/uUserReferee/invite";
   static const String myInviteDetail = "user/uUserReferee/myInviteDetail";
-  static const String miningBeltShovel = "user/mMineUser/miningBeltShovel";
+  static const String miningBeltShovel = "user/uMineUserShovel/useMyShovel/";
   static const String getMyKnapsack = "user/uMineUserShovel/getMyKnapsack";
   static const String getAccountDetailByCoinName = "user/uUserAccountDetail/getAccountDetailByCoinName/";
   static const String exchangePage = "user/eExchangeRecord/exchangePage";
   static const String exchangePagePost = "user/eExchangeRecord/exchangeCoin";
   static const String getAccountPageByCoinName = "user/uUserAccountDetail/getAccountPageByCoinName/";
+  static const String myTeamPage = "user/uUserReferee/myTeamPage";
+  static const String getMyMineList = "user/mMineUser/getMyMineList/";
+  static const String homeminingBeltShovel = "user/mMineUser/miningBeltShovel";
+  
 }
   

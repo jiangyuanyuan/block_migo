@@ -40,6 +40,12 @@ class _MineSettingPageState extends State<MineSettingPage> {
       case 2:
         Navigator.pushNamed(context, "/language");
         break;
+      case 3:
+        Navigator.pushNamed(context, "/feedback");
+        break;
+      case 4:
+        Navigator.pushNamed(context, "/about");
+        break;
       default:
     }
   }

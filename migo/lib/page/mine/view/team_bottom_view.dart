@@ -3,14 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/mine/model/mine_team_model.dart';
 import 'package:migo/page/mine/view/mine_reward_view.dart';
 import 'package:migo/page/mine/view/team_leading_detail.dart';
 import 'package:migo/page/mine/view/team_share_detail.dart';
 
 class TeamBottomView extends StatefulWidget {
   final int tabindex;
-
-  const TeamBottomView({Key key, this.tabindex}) : super(key: key);
+  final TeamModel model;
+  const TeamBottomView({Key key, this.tabindex, this.model}) : super(key: key);
 
   @override
   _TeamBottomViewState createState() => _TeamBottomViewState();
@@ -23,22 +24,20 @@ class _TeamBottomViewState extends State<TeamBottomView> {
   @override
   void initState() {
     super.initState();
-    // _pageController.addListener(() {
-    //   _changeOffset(_pageController.page);
-    // });
-    // left = (ScreenUtil.screenWidthDp / 3 / 2) - 15;
   }
-
-  // void _changeOffset(double offset) {
-  //   setState(() {
-  //     left = ScreenUtil.screenWidthDp / 3 * (offset) + ScreenUtil.screenWidthDp / 3 / 2 - 15;
-  //   });
-  // }
 
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(TeamBottomView oldWidget) {
+    if(widget.tabindex != _pageController.page) {
+      _pageController.animateToPage(widget.tabindex, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   String _getLeftTitle(BuildContext context) {
@@ -59,12 +58,22 @@ class _TeamBottomViewState extends State<TeamBottomView> {
     return temp[widget.tabindex];
   }
 
-  @override
-  void didUpdateWidget(TeamBottomView oldWidget) {
-    if(widget.tabindex != _pageController.page) {
-      _pageController.animateToPage(widget.tabindex, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-    }
-    super.didUpdateWidget(oldWidget);
+  String _getLeftValue() {
+    List<String> list = [
+      "${widget.model?.shareDTO?.todayAuthUserCount ?? 0}",
+      "${widget.model?.leaderDTO?.title ?? "0"}",
+      "M${widget.model?.shareDTO?.userLevel ?? "0"}"
+    ];
+    return list[widget.tabindex];
+  }
+
+  String _getRightValue() {
+    List<String> list = [
+      "${widget.model?.shareDTO?.totalAuthUserCount ?? 0}",
+      "${widget.model?.leaderDTO?.minTeamPledgeAmount ?? 0}",
+      "${widget.model?.directDTO?.pdirectConfig?.remark ?? "暂无奖励"}"
+    ];
+    return list[widget.tabindex];
   }
 
   @override
@@ -90,7 +99,7 @@ class _TeamBottomViewState extends State<TeamBottomView> {
                   children: [
                     Text(_getLeftTitle(context), style: AppFont.textStyle(12, color: Color(0xffDBF0FF)),),
                     SizedBox(height: 10,),
-                    Text("0", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
+                    Text(_getLeftValue(), style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
                   ],
                 ),
                 Column(
@@ -99,7 +108,7 @@ class _TeamBottomViewState extends State<TeamBottomView> {
                     Text(_getRightTitle(context), style: AppFont.textStyle(12, color: Color(0xffDBF0FF)),),
                     SizedBox(height: 10,),
                     // Text(widget.tabindex == 2 ? "4-6 ${I18n.of(context).generation} \n ${I18n.of(context).everyactiveuser} 0.8MIGOs" : "0", textAlign: TextAlign.right, style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
-                    Text(widget.tabindex == 2 ? "暂无奖励" : "0", textAlign: TextAlign.right, style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
+                    Text(_getRightValue(), textAlign: TextAlign.right, style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
                   ],
                 ),
               ],
@@ -117,7 +126,7 @@ class _TeamBottomViewState extends State<TeamBottomView> {
             controller: _pageController,
             children: [
               TeamShareDetailView(),
-              TeamLeadingDetailView(),
+              TeamLeadingDetailView(number: widget.model?.leaderDTO?.minTeamUserCount,),
               MineRewardView()
             ],
           )

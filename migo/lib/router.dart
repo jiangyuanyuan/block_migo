@@ -6,7 +6,11 @@ import 'package:migo/page/contract/page/recharge_page.dart';
 import 'package:migo/page/contract/page/reflect_page.dart';
 import 'package:migo/page/contract/page/reflect_success_page.dart';
 import 'package:migo/page/home/page/home_detail_page.dart';
+import 'package:migo/page/mine/page/about_page.dart';
+import 'package:migo/page/mine/page/choose_month_page.dart';
 import 'package:migo/page/mine/page/coins_detial_page.dart';
+import 'package:migo/page/mine/page/feedback_page.dart';
+import 'package:migo/page/mine/page/feedbak_post_page.dart';
 import 'package:migo/page/mine/page/invite_record_page.dart';
 import 'package:migo/page/mine/page/mine_auth_page.dart';
 import 'package:migo/page/mine/page/mine_auth_upload.dart';
@@ -51,6 +55,10 @@ final routes = {
   '/authupload': (context,{arguments}) => MineAuthUploadPage(),// 第一次登录密码设置
   '/mineexchangebind': (context,{arguments}) => MineExchangeBindPage(),// 第一次登录密码设置
   '/mineearn': (context,{arguments}) => MineEarnPage(),// 第一次登录密码设置
+  '/about': (context,{arguments}) => AboutPage(),// 第一次登录密码设置
+  '/feedback': (context,{arguments}) => FeedbackPage(),// 第一次登录密码设置
+  '/feedpost': (context,{arguments}) => FeedbackPosePage(),// 第一次登录密码设置
+  '/choosemonth': (context,{arguments}) => ChooseMonthPage(params: arguments,),// 第一次登录密码设置
 
   /// home
   '/homedetail': (context,{arguments}) => HomeDetailPage(params: arguments,),// 第一次登录密码设置

@@ -23,25 +23,49 @@ class _MineEarnPageState extends State<MineEarnPage> {
   int type = -1;
   int datetime = -1;
   List<EarnModel> list = [];
+  int year = 2020;
+  int month = 1;
   @override
   void initState() {
     super.initState();
     _request();
+    DateTime now = DateTime.now();
+    year = now.year;
+    month = now.month;
+    if(mounted) setState(() {
+      
+    });
   }
 
   void _request() {
-    Networktool.request(API.getAccountDetailByCoinName + "$type/$datetime", success: (data){
+    Networktool.request(API.getAccountPageByCoinName + "$type/$datetime", success: (data){
       final temp = MineEarnResponse.fromJson(data);
       list = temp.data;
       list.sort((a, b) => a.earnTime.compareTo(b.earnTime));
       if(mounted) setState(() {
         
       });
-    });
+    }, finaly: _endrefresh);
   }
 
   void _refresh() {
     _request();
+  }
+
+  void _endrefresh() {
+    _refreshController.refreshCompleted();
+  }
+
+  void _dateAction() async{
+    final params = await Navigator.pushNamed<Map<String, dynamic>>(context, "/choosemonth", arguments: {"year":year, "month":month});
+    if(params != null) {
+      setState(() {
+        year = params["year"];
+        month = params["month"];
+      });
+    }
+    datetime = DateTime.parse("$year${month}00").millisecondsSinceEpoch;
+    _refreshController.requestRefresh();
   }
 
   @override
@@ -56,6 +80,9 @@ class _MineEarnPageState extends State<MineEarnPage> {
               tabindex: tabindex,
               onTap: (sender) {
                 tabindex = sender;
+                type = sender;
+                if(tabindex == 0) type = -1;
+                _refreshController.requestRefresh();
                 setState(() {
                   
                 });
@@ -70,7 +97,7 @@ class _MineEarnPageState extends State<MineEarnPage> {
                 ),
                 child: Column(
                   children: [
-                    EarnDateView(),
+                    EarnDateView(datetime: "$year.$month", onSelected: _dateAction,),
                     Expanded(
                       child: RefreshWidget(
                         controller: _refreshController,

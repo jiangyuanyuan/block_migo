@@ -89,7 +89,9 @@ class Tool {
     String res = "$sender";
     final temp = res.split(".");
     if(temp.length < 2) {
-      return res;
+      String z = "";
+      if(fixed > 0) z = "." + ("0" * fixed);
+      return res + z;
     } else {
       if(temp[1].length > fixed) {
         res = temp[0] + "." + temp[1].substring(0, fixed);
@@ -110,6 +112,18 @@ class Tool {
   static String timeHourAndDay(int createtime, int days) {
     DateTime now = DateTime.fromMillisecondsSinceEpoch(createtime);
     DateTime to = now.add(Duration(days: days));
+    Duration duration = to.difference(now);
+    int hour = duration.inHours;
+    if(hour % 24 == 0) {
+      return "${hour / 24}天";
+    } else {
+      return "${hour ~/ 24}天${hour % 24}小时";
+    }
+  }
+
+  static String timeHourAndDayForNow(int createtime) {
+    DateTime to = DateTime.fromMillisecondsSinceEpoch(createtime);
+    DateTime now = DateTime.now();
     Duration duration = to.difference(now);
     int hour = duration.inHours;
     if(hour % 24 == 0) {

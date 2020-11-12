@@ -5,6 +5,7 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 
 class TeamShareDetailView extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Column(

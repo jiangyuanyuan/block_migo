@@ -2,22 +2,112 @@ import 'package:flutter/material.dart';
 import 'package:migo/common/commview/CustomProgressView.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 
 import 'home_gradient_text.dart';
 
 class HomeDetailUserView extends StatelessWidget {
   final Function() onTap;
-
-  const HomeDetailUserView({Key key, this.onTap}) : super(key: key);
+  final int shovelCount;
+  final num amount;
+  final String coinName;
+  final int endTime;
+  const HomeDetailUserView({Key key, this.endTime, this.onTap, this.coinName, this.amount, this.shovelCount}) : super(key: key);
 
   String _getString(BuildContext context) {
-    List<String> titles = [
-      I18n.of(context).shovel_gold,
-      I18n.of(context).shovel_sliver,
-      I18n.of(context).shovel_iron,
-    ];
-    return I18n.of(context).homeused + " " + titles[0];
+    return I18n.of(context).homeused + " " + I18n.of(context).shovel;
+  }
+
+  Widget _create(BuildContext context) {
+    if(endTime == null || endTime == 0) {
+      return BtnImageBottomView(
+        title: I18n.of(context).minenow,
+        onTap: onTap,
+      );
+    } else {
+      final now = DateTime.now();
+      final to = DateTime.fromMillisecondsSinceEpoch(endTime);
+      final todu = to.difference(DateTime.now());
+      final nowdu = now.difference(DateTime.now());
+      double progress = nowdu.inHours / todu.inHours.toDouble();
+      return CustomProgressView(titles: Tool.timeHourAndDayForNow(endTime), progress: progress,);
+    }
+  }
+
+  Widget _createhead(BuildContext context) {
+    if(endTime == null || endTime == 0) {
+      return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(_getString(context), style: AppFont.textStyle(
+                12, 
+                color: Colors.white,
+                showshadow: true
+              ),),
+              SizedBox(width: 4,),
+              HomeGradientText(
+                data: "X$shovelCount",
+                fontstyle: AppFont.textStyle(
+                  12, 
+                  fontWeight: FontWeight.bold,
+                  showshadow: true
+                ),
+              ),
+            ],
+          );
+    } else {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(I18n.of(context).paid, style: AppFont.textStyle(
+            12, 
+            color: Colors.white,
+            showshadow: true
+          ),),
+          SizedBox(width: 4,),
+          HomeGradientText(
+            data: "$coinName",
+            fontstyle: AppFont.textStyle(
+              12, 
+              fontWeight: FontWeight.bold,
+              showshadow: true
+            ),
+          )
+        ],
+      );
+    }
+  }
+
+  Widget _createBody(BuildContext context) {
+    if(endTime == null || endTime == 0) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(I18n.of(context).pay, style: AppFont.textStyle(
+            24, 
+            color: Colors.white, 
+            fontWeight: FontWeight.bold,
+            showshadow: true
+          )),
+          HomeGradientText(
+            data: " $amount $coinName",
+            fontstyle: AppFont.textStyle(24, 
+            fontWeight: FontWeight.bold,
+            showshadow: true),
+          ),
+        ],
+      );
+    } else {
+      return Center(
+        child: HomeGradientText(
+            data: " $amount $coinName",
+            fontstyle: AppFont.textStyle(24, 
+            fontWeight: FontWeight.bold,
+            showshadow: true),
+          ),
+      );
+    }
   }
 
   @override
@@ -34,47 +124,11 @@ class HomeDetailUserView extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(_getString(context), style: AppFont.textStyle(
-                12, 
-                color: Colors.white,
-                showshadow: true
-              ),),
-              SizedBox(width: 4,),
-              HomeGradientText(
-                data: "X0",
-                fontstyle: AppFont.textStyle(
-                  12, 
-                  fontWeight: FontWeight.bold,
-                  showshadow: true
-                ),
-              ),
-            ],
-          ),
+          _createhead(context),
           SizedBox(height: 12,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(I18n.of(context).obtain, style: AppFont.textStyle(
-                24, 
-                color: Colors.white, 
-                fontWeight: FontWeight.bold,
-                showshadow: true
-              )),
-              HomeGradientText(
-                data: " 60 MIGOs",
-                fontstyle: AppFont.textStyle(24, 
-                fontWeight: FontWeight.bold,
-                showshadow: true),
-              ),
-            ],
-          ),
-          BtnImageBottomView(
-            title: I18n.of(context).minenow,
-            onTap: onTap,
-          ),
+          _createBody(context),
+          SizedBox(height: 12,),
+          _create(context)
           // CustomProgressView(titles: "12 days", progress: 0.3,)
           // CustomProgressView(titles: "12 days", issmall: true, progress: 0.3,)
         ],

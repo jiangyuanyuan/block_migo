@@ -394,6 +394,38 @@ class I18n implements WidgetsLocalizations {
   String get earnrecord => "收益记录";
   /// "1. 提现会扣取部分手续费，以实际到账为主。"
   String get withDrawNotice => "1. 提现会扣取部分手续费，以实际到账为主。";
+  /// "用户协议"
+  String get settinguserprotocol => "用户协议";
+  /// "隐私协议"
+  String get settingprotocol => "隐私协议";
+  /// "APP版本更新内容"
+  String get settingupdate => "APP版本更新内容";
+  /// "APP当前版本"
+  String get appcurrversion => "APP当前版本";
+  /// "好友邀请流程"
+  String get feedinvite => "好友邀请流程";
+  /// "账号管理事宜"
+  String get feedaccount => "账号管理事宜";
+  /// "矿场收益解释"
+  String get feedmines => "矿场收益解释";
+  /// "其他功能使用"
+  String get feeduse => "其他功能使用";
+  /// "我要发送反馈"
+  String get feed => "我要发送反馈";
+  /// "撤资删号流程"
+  String get feeddel => "撤资删号流程";
+  /// "请简要描述您的问题或者意见，以便我们为您提供更好的帮助。"
+  String get feennotice => "请简要描述您的问题或者意见，以便我们为您提供更好的帮助。";
+  /// "选择文件"
+  String get feedchoose => "选择文件";
+  /// "请输入内容"
+  String get pleaseinput => "请输入内容";
+  /// "使用中"
+  String get using => "使用中";
+  /// "铲子"
+  String get shovel => "铲子";
+  /// "已支付"
+  String get paid => "已支付";
   /// "密码不一致"
   String get notsamepwd => "密码不一致";
 }
@@ -951,6 +983,54 @@ class _I18n_en_US extends I18n {
   /// "1. Withdrawal will deduct part of the handling fee, which is based on the actual arrival."
   @override
   String get withDrawNotice => "1. Withdrawal will deduct part of the handling fee, which is based on the actual arrival.";
+  /// "User Agreement"
+  @override
+  String get settinguserprotocol => "User Agreement";
+  /// "Privacy Agreement"
+  @override
+  String get settingprotocol => "Privacy Agreement";
+  /// "APP version update content"
+  @override
+  String get settingupdate => "APP version update content";
+  /// "APP version"
+  @override
+  String get appcurrversion => "APP version";
+  /// "Friend invitation process"
+  @override
+  String get feedinvite => "Friend invitation process";
+  /// "Account management matters"
+  @override
+  String get feedaccount => "Account management matters";
+  /// "Explanation of mine income"
+  @override
+  String get feedmines => "Explanation of mine income";
+  /// "Use of other functions"
+  @override
+  String get feeduse => "Use of other functions";
+  /// "Send feedback"
+  @override
+  String get feed => "Send feedback";
+  /// "Withdrawal of funds and account deletion process"
+  @override
+  String get feeddel => "Withdrawal of funds and account deletion process";
+  /// "Please briefly describe your question or comment so that we can provide you with better help."
+  @override
+  String get feennotice => "Please briefly describe your question or comment so that we can provide you with better help.";
+  /// "Select file"
+  @override
+  String get feedchoose => "Select file";
+  /// "Please input content"
+  @override
+  String get pleaseinput => "Please input content";
+  /// "Using"
+  @override
+  String get using => "Using";
+  /// "shovel"
+  @override
+  String get shovel => "shovel";
+  /// "Paid"
+  @override
+  String get paid => "Paid";
   /// "Passwords are not consistent"
   @override
   String get notsamepwd => "Passwords are not consistent";

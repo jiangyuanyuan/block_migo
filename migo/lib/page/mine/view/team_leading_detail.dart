@@ -3,6 +3,9 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 
 class TeamLeadingDetailView extends StatelessWidget {
+  final int number;
+
+  const TeamLeadingDetailView({Key key, this.number}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,7 +26,7 @@ class TeamLeadingDetailView extends StatelessWidget {
                       style: AppFont.textStyle(12, color: Colors.black)
                     ),
                     TextSpan(
-                      text: "0 ",
+                      text: "$number ",
                       style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold)
                     ),
                     TextSpan(

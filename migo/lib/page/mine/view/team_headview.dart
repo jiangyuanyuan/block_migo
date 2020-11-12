@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/home/view/home_gradient_text.dart';
+import 'package:migo/page/mine/model/mine_team_model.dart';
 import 'package:migo/page/mine/view/team_bottom_view.dart';
 
 import 'mine_team_tab.dart';
@@ -9,7 +11,8 @@ import 'mine_team_tab.dart';
 class TeamHeadView extends StatelessWidget {
   final Function(int sender) onTapIndex;
   final int tabindex;
-  const TeamHeadView({Key key, this.tabindex, this.onTapIndex}) : super(key: key);
+  final TeamModel model;
+  const TeamHeadView({Key key, this.model, this.tabindex, this.onTapIndex}) : super(key: key);
 
   List<String> _tags(BuildContext context) {
     return [
@@ -19,23 +22,23 @@ class TeamHeadView extends StatelessWidget {
     ];
   }
 
-  String _getLeftTitle(BuildContext context) {
-    List<String> temp = [
-      I18n.of(context).numberpeople,
-      I18n.of(context).currtitle,
-      I18n.of(context).compliancelevel
-    ];
-    return temp[tabindex];
-  }
+  // String _getLeftTitle(BuildContext context) {
+  //   List<String> temp = [
+  //     I18n.of(context).numberpeople,
+  //     I18n.of(context).currtitle,
+  //     I18n.of(context).compliancelevel
+  //   ];
+  //   return temp[tabindex];
+  // }
 
-  String _getRightTitle(BuildContext context) {
-    List<String> temp = [
-      I18n.of(context).totalnumberpeople,
-      I18n.of(context).cumulativepledgedmining,
-      I18n.of(context).seePoint
-    ];
-    return temp[tabindex];
-  }
+  // String _getRightTitle(BuildContext context) {
+  //   List<String> temp = [
+  //     I18n.of(context).totalnumberpeople,
+  //     I18n.of(context).cumulativepledgedmining,
+  //     I18n.of(context).seePoint
+  //   ];
+  //   return temp[tabindex];
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,7 @@ class TeamHeadView extends StatelessWidget {
         Text(I18n.of(context).lasetteamvalue + "(MIGO)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
         Padding(
           padding: const EdgeInsets.only(top:10.0, bottom: 20),
-          child: HomeGradientText(data: "+0000.00", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold),),
+          child: HomeGradientText(data: "+${Tool.number(model?.yesterdayTeamAmount, 2)}", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold),),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -56,14 +59,14 @@ class TeamHeadView extends StatelessWidget {
                 children: [
                   Text("${I18n.of(context).totalteamvalue}(MIGO)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                   SizedBox(height: 10,),
-                  HomeGradientText(data: "+0000.00", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                  HomeGradientText(data: "+${Tool.number(model?.totalTeamAmount, 2)}", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                 ],
               ),
               Column(
                 children: [
                   Text("${I18n.of(context).teamstaticvalue}(MIGO)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                   SizedBox(height: 10,),
-                  HomeGradientText(data: "0000.00", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                  HomeGradientText(data: "+${Tool.number(model?.minTeamAmount, 2)}", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                 ],
               )
             ],

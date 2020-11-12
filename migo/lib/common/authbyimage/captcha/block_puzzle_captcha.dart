@@ -82,7 +82,7 @@ class _BlockPuzzleCaptchaPageState extends State<BlockPuzzleCaptchaPage>
           widget.onSuccess("结果回调");
         }
         //关闭验证码
-        print(content);
+        // print(content);
         Navigator.pop(context);
       });
     });
@@ -476,11 +476,11 @@ class _BlockPuzzleCaptchaPageState extends State<BlockPuzzleCaptchaPage>
             GestureDetector(
               onPanStart: (startDetails) {///开始
                 _checkMilliseconds = new DateTime.now().millisecondsSinceEpoch;
-                print(startDetails.localPosition);
+                // print(startDetails.localPosition);
                 sliderStartX = startDetails.localPosition.dx;
               },
               onPanUpdate: (updateDetails) { ///更新
-                print(updateDetails.localPosition);
+                // print(updateDetails.localPosition);
                 double _w1 = _baseImageKey.currentContext.size.width - _slideImageKey.currentContext.size.width;
                 double offset = updateDetails.localPosition.dx - sliderStartX;
                 if(offset < 0){
@@ -489,7 +489,7 @@ class _BlockPuzzleCaptchaPageState extends State<BlockPuzzleCaptchaPage>
                 if(offset > _w1){
                   offset = _w1;
                 }
-                print("offset ------ $offset");
+                // print("offset ------ $offset");
                 setState(() {
                   sliderXMoved = offset;
                 });
@@ -497,7 +497,7 @@ class _BlockPuzzleCaptchaPageState extends State<BlockPuzzleCaptchaPage>
                 updateSliderColorIcon();
               },
               onPanEnd: (endDetails) { //结束
-                print("endDetails");
+                // print("endDetails");
                 checkCaptcha(sliderXMoved, captchaToken);
                 int _nowTime = new DateTime.now().millisecondsSinceEpoch;
                 _checkMilliseconds = _nowTime - _checkMilliseconds;

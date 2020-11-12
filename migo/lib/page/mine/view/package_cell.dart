@@ -35,13 +35,86 @@ class PackageCell extends StatelessWidget {
         onTap: onUserAction,
       );
     } else {
-      String title = Tool.timeHourAndDay(model.useTime, model.canUseTime);
-      return CustomProgressView(
-        issmall: true,
-        titles: title,
+      return BtnImageBottomView(
+        title: I18n.of(context).using,
+        img: "btn_inactive.png",
       );
     }
   }
+
+  double _compute() {
+    final use = DateTime.fromMillisecondsSinceEpoch(model.useTime);
+    return use.day / model.canUseTime.toDouble();
+  }
+
+  Widget _createNormal(BuildContext context) {
+    if(model.useTime == null) {
+      return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20),
+                child: Image.asset("assets/${_getImage()}"),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(model.toolbox.toolName, style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).specification}：${model.toolbox.toolSpecs}", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).production}：${model.toolbox.baseEfficiency}", style: AppFont.textStyle(12, color: Colors.white),)
+                ],
+              ),
+              // SizedBox(width: 45,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(" ", style: AppFont.textStyle(12, color: Colors.white),),
+                  Text("${I18n.of(context).durability}：${model.toolbox.durable}", style: AppFont.textStyle(12, color: Colors.white),),
+                  Center(
+                    child: Text("${I18n.of(context).volume}：${model.toolbox.volume}", style: AppFont.textStyle(12, color: Colors.white),)),
+                ],
+              )
+            ],
+          );
+    } else {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 20),
+            child: Image.asset("assets/${_getImage()}"),
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(model.toolbox.toolName, style: AppFont.textStyle(12, color: Colors.white),),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("${I18n.of(context).specification}：${model.toolbox.toolSpecs}", style: AppFont.textStyle(12, color: Colors.white),),
+                    Text("${I18n.of(context).production}：${model.toolbox.baseEfficiency}", style: AppFont.textStyle(12, color: Colors.white),),
+                  ],
+                ),
+                SizedBox(height: 4,),
+                SizedBox(
+                  height: 20,
+                  child: CustomProgressView(
+                    issmall: true,
+                    progress: _compute(),
+                    titles: Tool.timeHourAndDay(model.useTime, model.canUseTime),
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(width: 20,)
+        ],
+      );
+    }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,32 +129,7 @@ class PackageCell extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20),
-                child: Image.asset("assets/${_getImage()}"),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(model.toolbox.toolName, style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("${I18n.of(context).specification}：${model.toolbox.toolSpecs}", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("${I18n.of(context).production}：${model.toolbox.baseEfficiency}", style: AppFont.textStyle(12, color: Colors.white),),
-                ],
-              ),
-              // SizedBox(width: 45,),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(" ", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("${I18n.of(context).durability}：${model.toolbox.durable}", style: AppFont.textStyle(12, color: Colors.white),),
-                  Text("${I18n.of(context).volume}：${model.toolbox.volume}", style: AppFont.textStyle(12, color: Colors.white),),
-                ],
-              )
-            ],
-          ),
+          _createNormal(context),
           _create(context)
         ],
       ),

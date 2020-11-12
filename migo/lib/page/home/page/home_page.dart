@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
       //     }
       //   },
       // ),
-      child: Image.asset("assets/icon.png"),
+      child: Image.asset("assets/icon.png", width: 70, height: 70, fit: BoxFit.cover,),
     );
   }
 
@@ -203,7 +203,9 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
                       img: "home_package.png",
                       onTap: () => Navigator.pushNamed(context, "/package"),
                     ),
-                    HomeActionView(title: I18n.of(context).myearn, img: "home_earn.png"),
+                    HomeActionView(
+                      onTap: () => Navigator.pushNamed(context, "/mineearn"),
+                      title: I18n.of(context).myearn, img: "home_earn.png"),
                     HomeActionView(
                       title: I18n.of(context).myteam, 
                       img: "home_team.png",

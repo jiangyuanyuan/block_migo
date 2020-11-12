@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/commview/gradient_text.dart';
 import 'package:migo/common/commview/refresh.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/home/view/home_gradient_text.dart';
 import 'package:migo/page/mine/model/me_model.dart';
 import 'package:migo/page/mine/model/mine_coins_model.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -66,28 +68,20 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("${Tool.number(model.amount, 4)} ${model.coinName}", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
+                          HomeGradientText(data: "${Tool.number(model.amount, 4)} ${model.coinName}", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
                           Text("≈0.00(USD)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),)
                         ],
-                      )
+                      ),
+                      Spacer(),
+                      Image.asset(("assets/coinupdate.png"))
                     ],
                   ),
-                  SizedBox(height: 20,),
+                  Divider(height: 40, color: const Color(0x33ffffff),),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(I18n.of(context).availablebalance, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),),
-                          SizedBox(height: 10,),
-                          Text("${Tool.number(model.amount, 4)}", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
-                        ],
-                      ),
-                      BtnAction(
-                        backImg: "btn_team_join_def.png",
-                        title: I18n.of(context).coinupdate,
-                      )
+                      Text(I18n.of(context).availablebalance, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),),
+                      Spacer(),
+                      HomeGradientText(data: "${Tool.number(model.amount, 4)} ${model.coinName}", fontstyle: AppFont.textStyle(12, color: Colors.white, fontWeight: FontWeight.bold),),
                     ],
                   )
                 ],
@@ -109,7 +103,7 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                         Text(I18n.of(context).history, style: AppFont.textStyle(12, color: Colors.black),),
                         Spacer(),
                         IconButton(
-                          icon: Image.asset("assets/ico_hist_filt-def.png"),
+                          icon: Image.asset("assets/fliter.png"),
                           iconSize: 24,
                           onPressed: () {},
                         )

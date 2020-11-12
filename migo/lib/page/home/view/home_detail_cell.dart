@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 
 class HomeDetailCell extends StatelessWidget {
   final int tabindex;
-
-  const HomeDetailCell({Key key, this.tabindex}) : super(key: key);
+  final num amount;
+  final int createtime;
+  final String coinName;
+  const HomeDetailCell({Key key, this.coinName, this.tabindex, this.amount, this.createtime}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,9 +17,9 @@ class HomeDetailCell extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("10 MIGO", style: AppFont.textStyle(14, color: AppColor.back998),),
+              Text("$amount $coinName", style: AppFont.textStyle(14, color: AppColor.back998),),
               SizedBox(height: 4,),
-              Text("2019-10-10", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
+              Text(Tool.timeFormat("yyyy-MM-dd", createtime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
             ],
           ),
           Spacer(), 

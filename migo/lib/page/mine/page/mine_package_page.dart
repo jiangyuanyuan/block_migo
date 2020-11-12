@@ -59,19 +59,11 @@ class _MinePackagePageState extends State<MinePackagePage> {
 
   void _userShovel(MineShovelModel model) {
     
-    Alert.showBottomViewDialog(context, AlertPasswordView(
-      onSure: (pwd) {
-        EasyLoading.show(status: "Loading...");
-        Networktool.request(API.miningBeltShovel, params: {
-            "mineBaseId": model.id,
-            "shovelId": model.id,
-            "txPwd": Tool.generateMd5(pwd)
-        }, success: (data) {
-          EasyLoading.dismiss();
-          EasyLoading.showToast(I18n.of(context).success);
-        }, fail: (msg) => EasyLoading.showError(msg),);
-      },
-    ));
+    EasyLoading.show(status: "Loading...");
+    Networktool.request(API.miningBeltShovel + model.id, success: (data) {
+      EasyLoading.dismiss();
+      EasyLoading.showToast(I18n.of(context).success);
+    }, fail: (msg) => EasyLoading.showError(msg),);
     
   } 
 

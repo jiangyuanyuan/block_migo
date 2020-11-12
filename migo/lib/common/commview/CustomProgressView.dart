@@ -18,7 +18,7 @@ class CustomProgressView extends StatelessWidget {
         Image.asset("assets/${issmall ? "slider_small.png" : "slider_big.png"}", width: double.infinity, fit: BoxFit.fill,),
         Positioned.fill(
           child: Container(
-            padding: issmall ? const EdgeInsets.all(4) : const EdgeInsets.all(6.5),
+            padding: issmall ? const EdgeInsets.only(top: 6, bottom: 6,right: 2, left: 2) : const EdgeInsets.all(6.5),
             child: Stack(
               alignment: Alignment.centerRight,
               children: [
@@ -32,12 +32,12 @@ class CustomProgressView extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned.fill(child: Center(
-                  child: Text(titles, style: AppFont.textStyle(issmall ? 8 : 14, color: Colors.white, showshadow: true, fontWeight: FontWeight.bold)))
-                )
               ],
             ),
           ),
+        ),
+        Positioned.fill(child: Center(
+          child: Text(titles, style: AppFont.textStyle(issmall ? 8 : 14, color: Colors.white, showshadow: true, fontWeight: FontWeight.bold)))
         )
       ],
     );
