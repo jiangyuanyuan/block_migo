@@ -426,6 +426,30 @@ class I18n implements WidgetsLocalizations {
   String get shovel => "铲子";
   /// "已支付"
   String get paid => "已支付";
+  /// "我的新增业绩"
+  String get mineaddgrade => "我的新增业绩";
+  /// "起止日期"
+  String get startdate => "起止日期";
+  /// "分红日期"
+  String get getmoneydate => "分红日期";
+  /// "团队概况"
+  String get teamdetail => "团队概况";
+  /// "我的直推"
+  String get minepush => "我的直推";
+  /// "我的伞下"
+  String get mineumbrella => "我的伞下";
+  /// "我的直推人数"
+  String get minepushanumber => "我的直推人数";
+  /// "我的伞下人数"
+  String get mineumbrellanumber => "我的伞下人数";
+  /// "本周新增质押"
+  String get weakaddMEGO => "本周新增质押";
+  /// "累计质押MEGO"
+  String get allmego => "累计质押MEGO";
+  /// "全球矿池分红"
+  String get earthmoney => "全球矿池分红";
+  /// "有效用户数"
+  String get realuser => "有效用户数";
   /// "密码不一致"
   String get notsamepwd => "密码不一致";
 }
@@ -1031,6 +1055,42 @@ class _I18n_en_US extends I18n {
   /// "Paid"
   @override
   String get paid => "Paid";
+  /// "My new performance"
+  @override
+  String get mineaddgrade => "My new performance";
+  /// "Start and end date"
+  @override
+  String get startdate => "Start and end date";
+  /// "Dividend Date"
+  @override
+  String get getmoneydate => "Dividend Date";
+  /// "Team Overview"
+  @override
+  String get teamdetail => "Team Overview";
+  /// "Direct Push"
+  @override
+  String get minepush => "Direct Push";
+  /// "Under umbrella"
+  @override
+  String get mineumbrella => "Under umbrella";
+  /// "My direct push number"
+  @override
+  String get minepushanumber => "My direct push number";
+  /// "My umbrella number"
+  @override
+  String get mineumbrellanumber => "My umbrella number";
+  /// "Add pledge this week"
+  @override
+  String get weakaddMEGO => "Add pledge this week";
+  /// "Cumulative pledge MEGO"
+  @override
+  String get allmego => "Cumulative pledge MEGO";
+  /// "Global Mining Pool Dividend"
+  @override
+  String get earthmoney => "Global Mining Pool Dividend";
+  /// "Number of effective users"
+  @override
+  String get realuser => "Number of effective users";
   /// "Passwords are not consistent"
   @override
   String get notsamepwd => "Passwords are not consistent";

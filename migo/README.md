@@ -20,14 +20,6 @@ samples, guidance on mobile development, and a full API reference.
 
 上传头像.
 
-挖矿列表详情.
-挖矿详情支付记录
-挖矿收益记录,
-立即挖矿.
-获取支付余额.(USDT, MIGO)
-背包上面四个字段
-铲子使用接口.
-
 Migo
 背包详情.
 使用铲子.
@@ -38,7 +30,12 @@ Migo
 我的收益筛选
 时间选择
 首页挖矿详情
-首页挖矿
+首页挖矿,
+团队接口
+
+Migo
+团队收益记录.
+全球分红.
 
 
 

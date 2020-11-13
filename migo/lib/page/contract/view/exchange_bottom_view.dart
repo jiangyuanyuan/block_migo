@@ -50,7 +50,7 @@ class ExchangeBottomView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("${I18n.of(context).handlingfee}（M$level）", style: AppFont.textStyle(12, color: Colors.white.withOpacity(0.5))),
-              Text("${num.parse(fee ?? 0) * 100}%", style: AppFont.textStyle(12, color: Colors.white.withOpacity(0.5),)),
+              Text("$fee", style: AppFont.textStyle(12, color: Colors.white.withOpacity(0.5),)),
             ],
           ),
         ],

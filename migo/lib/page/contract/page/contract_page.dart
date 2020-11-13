@@ -29,6 +29,10 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   String outcoinname = "";
   String inputAmout = "";
   String outputAmout = "0.0";
+
+  num inputnumber = 1.0;
+  num outputnumber = 1.0;
+  num computeFee = 0.0;
   @override
   void initState() {
     super.initState();
@@ -59,7 +63,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
         outCoinName: outcoinname,
         inputAmout: inputAmout,
         outputAmount: outputAmount,
-        fee: "${(exchangeCoinModel?.levelReduction ?? 0) * 100}",
+        fee: "${Tool.number((exchangeCoinModel?.levelReduction ?? 0) * 100, 2)}%",
         precent: "${exchangeCoinModel?.levelReduction}",
         level: "${exchangeCoinModel?.level}",
         onSure: () {
@@ -128,7 +132,11 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
     final e = exchangeCoinModel.tradings.firstWhere((element) => element.ntn.startsWith(currCoinName), orElse: () => null,);
     inputAmout = val;
     if(e != null) {
-      outputAmount = "${e.oneInToOutAmount * num.parse(val)}";
+      num percent = outputnumber / (inputnumber + double.parse(inputAmout));
+      num res = percent / (1 + exchangeCoinModel.levelReduction);
+      computeFee = res;
+      print(res);
+      outputAmount = Tool.number(res * num.parse(val), 2);
     }
     setState(() {
       
@@ -165,7 +173,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                   child: ExchangeBottomView(
                     getAmount: outputAmount,
                     level: "${exchangeCoinModel?.level ?? 0}",
-                    fee: "${exchangeCoinModel?.levelReduction ?? 0}",
+                    fee: "${Tool.number((exchangeCoinModel?.levelReduction ?? 0) * 100, 2)}%",
                   ),
                 ),
                 Positioned.fill(
@@ -224,28 +232,28 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(I18n.of(context).price, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                                    // Text(I18n.of(context).price, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
                                     Padding(
                                       padding: const EdgeInsets.symmetric(vertical: 14),
-                                      child: Text(I18n.of(context).currlevel("M${exchangeCoinModel?.level}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                                      child: Text(I18n.of(context).currlevel("M${exchangeCoinModel?.level ?? 0}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
                                     ),
-                                    Text(I18n.of(context).nextlevel("M${exchangeCoinModel?.nextLevel}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                                    Text(I18n.of(context).nextlevel("M${exchangeCoinModel?.nextLevel ?? 0}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
                                   ],
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    Row(
-                                      children: [
-                                        Text("$price ", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                                        Image.asset("assets/change_icon.png")
-                                      ],
-                                    ),
+                                    // Row(
+                                    //   children: [
+                                    //     Text("$price ", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                                    //     Image.asset("assets/change_icon.png")
+                                    //   ],
+                                    // ),
                                     Padding(
                                       padding: const EdgeInsets.symmetric(vertical: 14),
-                                      child: Text("${I18n.of(context).feereduction2}${(exchangeCoinModel?.levelReduction ?? 0) * 100}%", style: AppFont.textStyle(12, color: AppColor.back998),),
+                                      child: Text("${I18n.of(context).feereduction2}${Tool.number((exchangeCoinModel?.levelReduction ?? 0) * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.back998),),
                                     ),
-                                    Text("${I18n.of(context).feereduction}${_computeString()}%", style: AppFont.textStyle(12, color: AppColor.red),),
+                                    Text("${I18n.of(context).feereduction}${Tool.number((exchangeCoinModel?.nextLevelReduction ?? 0) * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.red),),
                                   ],
                                 ),
                               ],

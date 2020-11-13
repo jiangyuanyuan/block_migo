@@ -54,7 +54,7 @@ class _ExchangeCellState extends State<ExchangeCell> {
       final e = widget.tradings.firstWhere((element) => element.ntn.startsWith(coins), orElse: () => null,);
       if(e != null) {
         if(widget.ispre) {
-          res = e.inputCoinAmount;
+          res = e.userInputCoinAmount;
         } else {
           res = e.outputCoinAmount;
         }

@@ -73,13 +73,13 @@ class AlertExhangeView extends StatelessWidget {
                     ],
                   ),
                   Divider(height: 41,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(I18n.of(context).price, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                      Text("$precent $currCoinName / $outCoinName", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Text(I18n.of(context).price, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                  //     Text("$precent $currCoinName / $outCoinName", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
+                  //   ],
+                  // ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     child: Row(
@@ -102,7 +102,7 @@ class AlertExhangeView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("${I18n.of(context).handlingfee}（M$level）", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5))),
-                      Text("${num.parse(precent) * 100}%", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
+                      Text("$fee", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5),)),
                     ],
                   ),
                   SizedBox(height: 43,),

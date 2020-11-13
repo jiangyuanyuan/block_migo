@@ -215,5 +215,17 @@
     "using":"使用中",
     "shovel":"铲子",
     "paid":"已支付",
+    "mineaddgrade":"我的新增业绩",
+    "startdate":"起止日期",
+    "getmoneydate":"分红日期",
+    "teamdetail":"团队概况",
+    "minepush":"我的直推",
+    "mineumbrella":"我的伞下",
+    "minepushanumber":"我的直推人数",
+    "mineumbrellanumber":"我的伞下人数",
+    "weakaddMEGO":"本周新增质押",
+    "allmego":"累计质押MEGO",
+    "earthmoney":"全球矿池分红",
+    "realuser":"有效用户数",
     "notsamepwd":"密码不一致"
 }

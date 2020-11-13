@@ -74,6 +74,7 @@ class ExchangeCoinModel {
   num inputCoinAmount;
   num outputCoinAmount;
   num oneInToOutAmount;
+  num userInputCoinAmount;
   String ntn;
 
   ExchangeCoinModel(
@@ -86,6 +87,7 @@ class ExchangeCoinModel {
     inputCoinAmount = json['inputCoinAmount'];
     outputCoinAmount = json['outputCoinAmount'];
     oneInToOutAmount = json['oneInToOutAmount'];
+    userInputCoinAmount = json["userInputCoinAmount"];
     ntn = json['ntn'];
   }
 

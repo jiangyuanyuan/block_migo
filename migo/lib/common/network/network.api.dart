@@ -7,6 +7,7 @@ class API {
   static const String sms = "sms/sms/sendPhone/";
   static const String emailcode = "sms/email/sendEmailCode/";
   static const String login = "user/uUser/loginByPass";
+  static const String identityAuthen = "";
   /// 上传文件
   static const String file = "file/uploadBase64";
 
@@ -35,6 +36,9 @@ class API {
   static const String myTeamPage = "user/uUserReferee/myTeamPage";
   static const String getMyMineList = "user/mMineUser/getMyMineList/";
   static const String homeminingBeltShovel = "user/mMineUser/miningBeltShovel";
-  
+  /// 团队
+  static const String teamProfitPage = "user/uUserReferee/teamProfitPage/";
+  /// 分红
+  static const String poolBonusPage = "user/uUserReferee/poolBonusPage";
 }
   

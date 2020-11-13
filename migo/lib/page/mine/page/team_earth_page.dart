@@ -1,15 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/home/view/home_gradient_text.dart';
+import 'package:migo/page/mine/model/team_earth_model.dart';
 import 'package:migo/page/mine/view/mine_team_tab.dart';
 
-class TeamEarthPage extends StatelessWidget {
+class TeamEarthPage extends StatefulWidget {
+  @override
+  _TeamEarthPageState createState() => _TeamEarthPageState();
+}
+
+class _TeamEarthPageState extends State<TeamEarthPage> {
+
+
+  int tabindex = 0;
+  TeamEarthModel _earthModel;
+  @override
+  void initState() {
+    super.initState();
+    _request();
+  }
+
+  void _request() {
+    Networktool.request(API.poolBonusPage, success: (data) {
+      final temp = TeamEarthResponse.fromJson(data).data;
+      _earthModel = temp;
+      if(mounted) setState(() {
+        
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CommbackView(
-        titles: "全球矿池分红",
+        titles: I18n.of(context).earthmoney,
         onPop: () => Navigator.pop(context),
         actions: [
           IconButton(
@@ -22,10 +50,10 @@ class TeamEarthPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("我的新增业绩(MIGOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
+            Text("${I18n.of(context).mineaddgrade}(MIGOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 20),
-              child: HomeGradientText(data: "0000", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+              child: HomeGradientText(data: "${_earthModel?.newAmount ?? 00}", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -35,17 +63,17 @@ class TeamEarthPage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("起止日期", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
+                      Text(I18n.of(context).startdate, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                       SizedBox(height: 10,),
-                      HomeGradientText(data: "10/15~10/30", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                      HomeGradientText(data: "${_earthModel?.startToEndTime ?? 0}", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text("分红日期", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
+                      Text(I18n.of(context).getmoneydate, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
                       SizedBox(height: 10,),
-                      HomeGradientText(data: "10/20~10/30", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
+                      HomeGradientText(data: "${_earthModel?.bonusStartToEndTime ?? 0}", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),
                     ],
                   )
                 ],
@@ -66,10 +94,17 @@ class TeamEarthPage extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 31.0),
-                            child: Text("团队概况", style: AppFont.textStyle(14, color: Colors.white),),
+                            child: Text(I18n.of(context).teamdetail, style: AppFont.textStyle(14, color: Colors.white),),
                           ),
                           Spacer(),
-                          MineTeamTabarView(titles: ["我的直推", "我的伞下"], isscrolll: true,)
+                          MineTeamTabarView(
+                            onTabIndex: (sender) {
+                              setState(() {
+                                tabindex = sender;
+                              });
+                            },
+                            titles: [I18n.of(context).minepush, I18n.of(context).mineumbrella], isscrolll: true,
+                          )
                         ],
                       ),
                     ),
@@ -82,13 +117,13 @@ class TeamEarthPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
                         child: Column(
                           children: [
-                            _Cell(left: "我的直推人数", right: "0",),
+                            _Cell(left: tabindex == 0 ? I18n.of(context).minepushanumber : I18n.of(context).mineumbrellanumber, right: "${tabindex == 0 ? _earthModel?.myDirectDTO?.userCount : _earthModel?.mySubordinateDTO?.subordinateUserCount}",),
                             SizedBox(height: 16,),
-                            _Cell(left: "有效用户数", right: "2020/10/28 22:57",),
+                            _Cell(left: I18n.of(context).realuser, right: "${tabindex == 0 ? _earthModel?.myDirectDTO?.authUserCount : _earthModel?.mySubordinateDTO?.subordinateAuthUserCount}",),
                             SizedBox(height: 16,),
-                            _Cell(left: "本周新增质押MEGO", right: "0.00",),
+                            _Cell(left: "${I18n.of(context).weakaddMEGO}MEGO", right: "${tabindex == 0 ? _earthModel?.myDirectDTO?.thisWeekAmount : _earthModel?.mySubordinateDTO?.thisWeekSubordinateAmount}",),
                             SizedBox(height: 16,),
-                            _Cell(left: "累计质押MEGO", right: "0.00",),
+                            _Cell(left: "${I18n.of(context).allmego}MEGO", right: "${tabindex == 0 ? _earthModel?.myDirectDTO?.totalAmount : _earthModel?.mySubordinateDTO?.totalSubordinateAmount}",),
                           ],
                         ),
                       ),
@@ -115,7 +150,7 @@ class _Cell extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(left, style: AppFont.textStyle(16, color: Colors.black),),
-        Text(right, style: AppFont.textStyle(16, color: Colors.black.withOpacity(0.5)),),
+        Text(right == "null" ? "0" : right, style: AppFont.textStyle(16, color: Colors.black.withOpacity(0.5)),),
       ],
     );
   }

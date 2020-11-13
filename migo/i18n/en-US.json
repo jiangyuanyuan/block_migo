@@ -196,5 +196,17 @@
     "using": "Using",
     "paid": "Paid",
     "pleaseinput": "Please input content",
+    "mineaddgrade": "My new performance",
+    "startdate": "Start and end date",
+    "getmoneydate": "Dividend Date",
+    "teamdetail": "Team Overview",
+    "minepush": "Direct Push",
+    "mineumbrella": "Under umbrella",
+    "minepushanumber": "My direct push number",
+    "mineumbrellanumber": "My umbrella number",
+    "weakaddMEGO": "Add pledge this week",
+    "allmego": "Cumulative pledge MEGO",
+    "earthmoney": "Global Mining Pool Dividend",
+    "realuser": "Number of effective users",
     "success": "Successed"
 }

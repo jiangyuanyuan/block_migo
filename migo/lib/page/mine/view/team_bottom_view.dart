@@ -19,11 +19,13 @@ class TeamBottomView extends StatefulWidget {
 
 class _TeamBottomViewState extends State<TeamBottomView> {
   
-  PageController _pageController = PageController();
+  PageController _pageController;
   double left = 0;
+  int currPage = 0;
   @override
   void initState() {
     super.initState();
+    _pageController = PageController(initialPage: 1);
   }
 
   @override
@@ -34,8 +36,10 @@ class _TeamBottomViewState extends State<TeamBottomView> {
 
   @override
   void didUpdateWidget(TeamBottomView oldWidget) {
-    if(widget.tabindex != _pageController.page) {
-      _pageController.animateToPage(widget.tabindex, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+    if(_pageController.hasClients) {
+      if(widget.tabindex != _pageController.page) {
+        _pageController.animateToPage(widget.tabindex, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+      }
     }
     super.didUpdateWidget(oldWidget);
   }
@@ -125,7 +129,7 @@ class _TeamBottomViewState extends State<TeamBottomView> {
           child: PageView(
             controller: _pageController,
             children: [
-              TeamShareDetailView(shareDTO: widget.model.shareDTO,),
+              TeamShareDetailView(shareDTO: widget.model?.shareDTO,),
               TeamLeadingDetailView(number: widget.model?.leaderDTO?.minTeamUserCount, subordinateLeaderDTOList: widget.model?.leaderDTO?.subordinateLeaderDTOList ?? [],),
               MineRewardView(accountDetailList: widget.model?.directDTO?.accountDetailList ?? [],)
             ],

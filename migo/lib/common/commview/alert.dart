@@ -30,7 +30,10 @@ class Alert {
       //             );
       final wid = BtnImageBottomView(
         title: titles[i],
-        onTap: () => onTapIndex(i),
+        onTap: () {
+          Navigator.pop(context);
+          onTapIndex(i);
+        },
       );
       list.add(wid);
       if(i != titles.length - 1)list.add(Divider(height: 0.5,endIndent: 42, indent: 42,));
