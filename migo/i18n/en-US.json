@@ -216,6 +216,8 @@
     "auth2": "Approved by",
     "auth3":"Audit rejected",
     "curruser":"Chinese domestic users",
+    "rechargerecord":"Recharge Record",
+    "relfectrecord":"Withdrawal Record",
     "otheruser":"Overseas users",
     "success": "Successed"
 }

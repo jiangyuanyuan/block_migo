@@ -42,8 +42,24 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
     }, finaly: _endrefresh);
   }
 
+  void _request2() {
+    Networktool.request(API.mePage, success: (data){
+      final _meModel = MeResponse.fromJson(data).data;
+      if(_meModel.accountList.length > 0) {
+        final e = _meModel.accountList.firstWhere((element) => element.coinName == model.coinName, orElse: () => null);
+        if(e != null) {
+          model = e;
+        }
+      }
+      if(mounted) setState(() {
+        
+      });
+    }, finaly: _endrefresh);
+  }
+
   void _refresh() {
     _request();
+    _request2();
   }
 
   void _endrefresh() {
@@ -73,7 +89,10 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                         ],
                       ),
                       Spacer(),
-                      Image.asset(("assets/coinupdate.png"))
+                      InkWell(
+                        onTap: () => _refreshController.requestRefresh(),
+                        child: Image.asset(("assets/coinupdate.png"))
+                      )
                     ],
                   ),
                   Divider(height: 40, color: const Color(0x33ffffff),),

@@ -11,9 +11,8 @@ class AlertExhangeView extends StatelessWidget {
   final String price;
   final String fee;
   final String inputAmout;
-  final String precent;
   final String level;
-  const AlertExhangeView({Key key, this.level, this.precent, this.onSure, this.outputAmount, this.currCoinName, this.outCoinName, this.price, this.fee, this.inputAmout}) : super(key: key);
+  const AlertExhangeView({Key key, this.level, this.onSure, this.outputAmount, this.currCoinName, this.outCoinName, this.price, this.fee, this.inputAmout}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(

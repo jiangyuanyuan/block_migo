@@ -59,12 +59,9 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
     EasyLoading.show(status: "Loading...");
     Networktool.request(API.authUserByBank, params: {
       	"bankNumber": _bankcontroller.text,
-        "cardBackUrl": "",
-        "cardFrontUrl": "",
         "cardNo": _numcontroller.text,
-        "cardType": 1,
         "userName": _controller.text,
-        "userPhone": _phonecontroller.text
+        "userPhone": _phonecontroller.text,
     }, success: (data) {
       EasyLoading.showToast(I18n.of(context).success);
       Navigator.pop(context);

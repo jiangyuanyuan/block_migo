@@ -26,8 +26,6 @@ class ExhangeModel {
   List<ExchangeCoinModel> tradings;
   int level;
   int nextLevel;
-  num levelReduction;
-  num nextLevelReduction;
   List<String> canUseInputCoinNames;
   List<String> canUseOutputCoinNames;
 
@@ -35,8 +33,6 @@ class ExhangeModel {
       {this.tradings,
       this.level,
       this.nextLevel,
-      this.levelReduction,
-      this.nextLevelReduction,
       this.canUseInputCoinNames,
       this.canUseOutputCoinNames});
 
@@ -49,8 +45,7 @@ class ExhangeModel {
     }
     level = json['level'];
     nextLevel = json['nextLevel'];
-    levelReduction = json['levelReduction'];
-    nextLevelReduction = json['nextLevelReduction'];
+    
     canUseInputCoinNames = json['canUseInputCoinNames'].cast<String>();
     canUseOutputCoinNames = json['canUseOutputCoinNames'].cast<String>();
   }
@@ -62,8 +57,6 @@ class ExhangeModel {
     }
     data['level'] = this.level;
     data['nextLevel'] = this.nextLevel;
-    data['levelReduction'] = this.levelReduction;
-    data['nextLevelReduction'] = this.nextLevelReduction;
     data['canUseInputCoinNames'] = this.canUseInputCoinNames;
     data['canUseOutputCoinNames'] = this.canUseOutputCoinNames;
     return data;
@@ -75,6 +68,8 @@ class ExchangeCoinModel {
   num outputCoinAmount;
   num oneInToOutAmount;
   num userInputCoinAmount;
+  num levelReduction;
+  num nextLevelReduction;
   String ntn;
 
   ExchangeCoinModel(
@@ -87,6 +82,8 @@ class ExchangeCoinModel {
     inputCoinAmount = json['inputCoinAmount'];
     outputCoinAmount = json['outputCoinAmount'];
     oneInToOutAmount = json['oneInToOutAmount'];
+    levelReduction = json['levelReduction'];
+    nextLevelReduction = json['nextLevelReduction'];
     userInputCoinAmount = json["userInputCoinAmount"];
     ntn = json['ntn'];
   }

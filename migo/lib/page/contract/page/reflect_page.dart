@@ -119,7 +119,7 @@ class _ReflectPageState extends State<ReflectPage> {
             IconButton(
               icon: Image.asset("assets/coins_record.png"),
               onPressed: () {
-
+                Navigator.pushNamed(context, "/coinsrecord", arguments: {"isrecharge" : false});
               },
             )
           ],

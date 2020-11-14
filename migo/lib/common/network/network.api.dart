@@ -51,5 +51,10 @@ class API {
 
   // 充币地址
   static const String  rechargeCoinList = "user/wRecordRecharge/rechargeCoinList";
+
+  // 充值记录
+  static const String  rechargeDetailList = "user/wRecordRecharge/rechargeDetailList";
+
+  static const String getTransferOut = "user/wRecordTransferOut/getTransferOut/";
 }
   

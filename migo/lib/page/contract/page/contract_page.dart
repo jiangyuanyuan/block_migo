@@ -33,6 +33,10 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   num inputnumber = 1.0;
   num outputnumber = 1.0;
   num computeFee = 0.0;
+  /// 当前手续费
+  num currfee = 0;
+  /// 下一级别手续费
+  num nextfee = 0;
   @override
   void initState() {
     super.initState();
@@ -63,8 +67,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
         outCoinName: outcoinname,
         inputAmout: inputAmout,
         outputAmount: outputAmount,
-        fee: "${Tool.number((exchangeCoinModel?.levelReduction ?? 0) * 100, 2)}%",
-        precent: "${exchangeCoinModel?.levelReduction}",
+        fee: "${Tool.number(currfee * 100, 2)}%",
         level: "${exchangeCoinModel?.level}",
         onSure: () {
         Future.delayed(const Duration(milliseconds: 100)).then((value) => _jump());
@@ -100,6 +103,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
             "txPwd": Tool.generateMd5(sender)
         }, success: (data) {
           EasyLoading.showSuccess(I18n.of(context).success);
+          _request();
           Navigator.pushNamed(context, "/exchangesuccess", arguments: {"time":DateTime.now().millisecondsSinceEpoch, "count":outputAmount, "coinName":outcoinname});
         },fail: (msg) => EasyLoading.showError(msg),);
     }));
@@ -123,6 +127,8 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
     outcoinname = val;
     final e = exchangeCoinModel.tradings.firstWhere((element) => element.ntn == "$currCoinName/$val");
     price = e.oneInToOutAmount.toString();
+    currfee = e.levelReduction;
+    nextfee = e.nextLevelReduction;
     inputnumber = e.inputCoinAmount;
     outputnumber = e.outputCoinAmount;
     setState(() {
@@ -135,7 +141,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
     inputAmout = val;
     if(e != null) {
       num percent = outputnumber / (inputnumber + double.parse(inputAmout));
-      num res = percent / (1 + exchangeCoinModel.levelReduction);
+      num res = percent / (1 + currfee);
       computeFee = res;
       outputAmount = Tool.number(res * num.parse(val), 2);
     }
@@ -145,7 +151,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   }
 
   String _computeString() {
-    num res = (exchangeCoinModel?.levelReduction ?? 0) - (exchangeCoinModel?.nextLevelReduction ?? 0);
+    num res = currfee - nextfee;
     return Tool.number(res * 100, 4);
   }
 
@@ -174,7 +180,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                   child: ExchangeBottomView(
                     getAmount: outputAmount,
                     level: "${exchangeCoinModel?.level ?? 0}",
-                    fee: "${Tool.number((exchangeCoinModel?.levelReduction ?? 0) * 100, 2)}%",
+                    fee: "${Tool.number(currfee * 100, 2)}%",
                   ),
                 ),
                 Positioned.fill(
@@ -252,9 +258,9 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                                     // ),
                                     Padding(
                                       padding: const EdgeInsets.symmetric(vertical: 14),
-                                      child: Text("${I18n.of(context).feereduction2}${Tool.number((exchangeCoinModel?.levelReduction ?? 0) * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.back998),),
+                                      child: Text("${I18n.of(context).feereduction2}${Tool.number(currfee * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.back998),),
                                     ),
-                                    Text("${I18n.of(context).feereduction}${Tool.number((exchangeCoinModel?.nextLevelReduction ?? 0) * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.red),),
+                                    Text("${I18n.of(context).feereduction}${Tool.number(nextfee * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.red),),
                                   ],
                                 ),
                               ],

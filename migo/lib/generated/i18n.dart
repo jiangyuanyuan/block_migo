@@ -466,6 +466,10 @@ class I18n implements WidgetsLocalizations {
   String get curruser => "中国国内用户";
   /// "海外地区用户"
   String get otheruser => "海外地区用户";
+  /// "充币记录"
+  String get rechargerecord => "充币记录";
+  /// "提币记录"
+  String get relfectrecord => "提币记录";
   /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
   String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
   /// "密码不一致"
