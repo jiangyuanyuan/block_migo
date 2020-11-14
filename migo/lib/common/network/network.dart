@@ -47,14 +47,17 @@ class Networktool {
     
     Response response;
     String temp = baseURL;
-    if(url.contains("lend")) temp = temp.replaceFirst("8070", "8073");
+    // if(url.contains("lend")) temp = temp.replaceFirst("8070", "8073");
     // if(url.contains("lend")) temp = "http://10.168.1.36:8073/";
     url = temp + url;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String languageStr = prefs.getString('languageCode') ?? "cn";
+    if(languageStr == "zh") languageStr = "cn";
     print("api = $url, param = ${json.encode(params)}, method:$method");
     SharedPreferences share = await SharedPreferences.getInstance();
     String token = share.getString(AppConst.KEY_user_token);
 
-    Options options = Options(contentType: "application/json", headers: {"lang": "zh"});
+    Options options = Options(contentType: "application/json", headers: {"lang": languageStr});
     if(token != null){
       print("token = $token");
       options = Options(

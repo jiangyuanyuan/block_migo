@@ -227,5 +227,14 @@
     "allmego":"累计质押MEGO",
     "earthmoney":"全球矿池分红",
     "realuser":"有效用户数",
+    "bankNo":"银行卡号",
+    "pleasebankNo":"请输入正确的银行卡号",
+    "auth0":"待认证",
+    "auth1":"审核中",
+    "auth2":"审核通过",
+    "auth3":"审核拒绝",
+    "curruser":"中国国内用户",
+    "otheruser":"海外地区用户",
+    "threeauthNotice":"姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。",
     "notsamepwd":"密码不一致"
 }

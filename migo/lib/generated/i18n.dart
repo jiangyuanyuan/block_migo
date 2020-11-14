@@ -450,6 +450,24 @@ class I18n implements WidgetsLocalizations {
   String get earthmoney => "全球矿池分红";
   /// "有效用户数"
   String get realuser => "有效用户数";
+  /// "银行卡号"
+  String get bankNo => "银行卡号";
+  /// "请输入正确的银行卡号"
+  String get pleasebankNo => "请输入正确的银行卡号";
+  /// "待认证"
+  String get auth0 => "待认证";
+  /// "审核中"
+  String get auth1 => "审核中";
+  /// "审核通过"
+  String get auth2 => "审核通过";
+  /// "审核拒绝"
+  String get auth3 => "审核拒绝";
+  /// "中国国内用户"
+  String get curruser => "中国国内用户";
+  /// "海外地区用户"
+  String get otheruser => "海外地区用户";
+  /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
+  String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
   /// "密码不一致"
   String get notsamepwd => "密码不一致";
 }
@@ -1091,6 +1109,33 @@ class _I18n_en_US extends I18n {
   /// "Number of effective users"
   @override
   String get realuser => "Number of effective users";
+  /// "Bank Card Number"
+  @override
+  String get bankNo => "Bank Card Number";
+  /// "Please enter the correct bank card number"
+  @override
+  String get pleasebankNo => "Please enter the correct bank card number";
+  /// "Pending Authentication"
+  @override
+  String get auth0 => "Pending Authentication";
+  /// "Under review"
+  @override
+  String get auth1 => "Under review";
+  /// "Approved by"
+  @override
+  String get auth2 => "Approved by";
+  /// "Audit rejected"
+  @override
+  String get auth3 => "Audit rejected";
+  /// "Chinese domestic users"
+  @override
+  String get curruser => "Chinese domestic users";
+  /// "Overseas users"
+  @override
+  String get otheruser => "Overseas users";
+  /// "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully."
+  @override
+  String get threeauthNotice => "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.";
   /// "Passwords are not consistent"
   @override
   String get notsamepwd => "Passwords are not consistent";

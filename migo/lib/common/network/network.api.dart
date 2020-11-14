@@ -8,6 +8,7 @@ class API {
   static const String emailcode = "sms/email/sendEmailCode/";
   static const String login = "user/uUser/loginByPass";
   static const String identityAuthen = "";
+  static const String version = "user/bAppVersion/getNewVersion/";
   /// 上传文件
   static const String file = "file/uploadBase64";
 
@@ -40,5 +41,8 @@ class API {
   static const String teamProfitPage = "user/uUserReferee/teamProfitPage/";
   /// 分红
   static const String poolBonusPage = "user/uUserReferee/poolBonusPage";
+  // 查询
+  static const String securityCenter = "user/uUser/securityCenter";
+  static const String authUserByBank = "user/uUser/authUserByBank";
 }
   

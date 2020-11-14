@@ -1,3 +1,4 @@
+import 'package:country_calling_code_picker/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:migo/common/commview/bottom_buttom.dart';
@@ -25,6 +26,7 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
   FocusNode _pwdNode = FocusNode();
   bool ispwd = true;
   String phone = "";
+  String contryCode = "+86";
   bool showerror = false;
 
   @override
@@ -35,10 +37,33 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
     super.dispose();
   }
 
+  @override
+  void initState() {
+    super.initState();
+
+    _initCode();
+  }
+
   void _clear() {
     _phoneNode.unfocus();
     _pwdNode.unfocus();
     _codefocusNode.unfocus();
+  }
+
+  void _initCode() async {
+    final country = await getDefaultCountry(context);
+    setState(() {
+      contryCode = country.callingCode;
+    });
+  }
+
+  void _createBuild() async {
+    final country = await showCountryPickerSheet(context,);
+    if (country != null) {
+      setState(() {
+        contryCode = country.callingCode;
+      });
+    }
   }
 
   @override
@@ -72,28 +97,49 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      NormalTextfield(
-                          controller: _phoneController,
-                          focusNode: _phoneNode,
-                          backgroundColor: Colors.transparent,
-                          hintText: I18n.of(context).pleaseinputphone,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [
-                            WhitelistingTextInputFormatter.digitsOnly
-                          ],
-                          onSubmited: (val) {
-                            setState(() {
-                              phone = val;
-                            });
-                            print(val);
-                          },
-                          onChanged: (val) {
-                            setState(() {
-                              phone = val;
-                            });
-                            print(val);
-                          },
-                        ),
+                      Stack(
+                        children: [
+                          NormalTextfield(
+                              controller: _phoneController,
+                              focusNode: _phoneNode,
+                              backgroundColor: Colors.transparent,
+                              hintText: I18n.of(context).pleaseinputphone,
+                              keyboardType: TextInputType.number,
+                              padding: const EdgeInsets.only(left: 50),
+                              inputFormatters: [
+                                WhitelistingTextInputFormatter.digitsOnly
+                              ],
+                              onSubmited: (val) {
+                                setState(() {
+                                  phone = val;
+                                });
+                                print(val);
+                              },
+                              onChanged: (val) {
+                                setState(() {
+                                  phone = val;
+                                });
+                                print(val);
+                              },
+                            ),
+                          Positioned(
+                            left: 10,
+                            top: 0,
+                            bottom: 0,
+                            width: 50,
+                            child: InkWell(
+                              onTap: _createBuild,
+                              child: Row(
+                                children: [
+                                  Text(contryCode, style: AppFont.textStyle(12, color: Colors.black),),
+                                  SizedBox(width: 4,),
+                                  Image.asset("assets/sign_choos_arrow_down.png")
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                       Visibility(
                         visible: showerror,
                         child: Positioned.fill(

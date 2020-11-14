@@ -61,6 +61,7 @@ dependencies:
   shake_animation_widget: ^2.1.2
   encrypt: ^4.0.0
   flutter_gifimage: ^1.0.1
+  country_calling_code_picker: ^1.0.8+1
 
 dev_dependencies:
   flutter_test:

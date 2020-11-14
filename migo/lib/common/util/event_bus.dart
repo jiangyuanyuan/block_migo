@@ -2,6 +2,7 @@ typedef void EventCallback(arg);
 class EventKeys {
   static const String JumtoTeam = "JumtoTeam"; // 添加成功之后刷新API
   static const String Login = "JUMP_TO_LOGIN"; // 跳到登录
+  static const String RefreshAuth = "RefreshAuth"; // 跳到登录
 }
 
 class EventBus {

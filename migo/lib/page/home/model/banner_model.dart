@@ -32,7 +32,7 @@ class HomeBannerModel {
   int createTime;
   String bannerUrl;
   String bannerPage;
-  Null param;
+  dynamic param;
   String title;
   String type;
   String url;

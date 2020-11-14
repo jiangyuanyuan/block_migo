@@ -11,6 +11,7 @@ import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/provider/user.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -120,6 +121,7 @@ class _MineAuthUploadPageState extends State<MineAuthUploadPage> {
         Provider.of<UserModel>(context, listen: false).setModel(temp);
         Navigator.pop(context);
         Navigator.pop(context);
+        EventBus.instance.commit(EventKeys.RefreshAuth, null);
       }, fail: (msg) => EasyLoading.showError(msg),);
     }
   }

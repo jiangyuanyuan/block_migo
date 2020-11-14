@@ -6,7 +6,10 @@ import 'package:migo/page/contract/page/recharge_page.dart';
 import 'package:migo/page/contract/page/reflect_page.dart';
 import 'package:migo/page/contract/page/reflect_success_page.dart';
 import 'package:migo/page/home/page/home_detail_page.dart';
+import 'package:migo/page/home/page/notice_page.dart';
+import 'package:migo/page/home/page/web_page.dart';
 import 'package:migo/page/mine/page/about_page.dart';
+import 'package:migo/page/mine/page/auth_manage_page.dart';
 import 'package:migo/page/mine/page/choose_month_page.dart';
 import 'package:migo/page/mine/page/coins_detial_page.dart';
 import 'package:migo/page/mine/page/feedback_page.dart';
@@ -25,6 +28,7 @@ import 'package:migo/page/mine/page/mine_team_page.dart';
 import 'package:migo/page/mine/page/safe_page.dart';
 import 'package:migo/page/mine/page/team_earth_page.dart';
 import 'package:migo/page/mine/page/team_record_page.dart';
+import 'package:migo/page/mine/page/threeauth_page.dart';
 import 'package:migo/root/root.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +63,9 @@ final routes = {
   '/feedback': (context,{arguments}) => FeedbackPage(),// 第一次登录密码设置
   '/feedpost': (context,{arguments}) => FeedbackPosePage(),// 第一次登录密码设置
   '/choosemonth': (context,{arguments}) => ChooseMonthPage(params: arguments,),// 第一次登录密码设置
+  '/notice': (context,{arguments}) => NoticePage(param: arguments,),// 第一次登录密码设置
+  '/threeauth': (context,{arguments}) => ThreeAuthPage(),// 第一次登录密码设置
+  '/authmanage': (context,{arguments}) => AuthManagePage(),// 第一次登录密码设置
 
   /// home
   '/homedetail': (context,{arguments}) => HomeDetailPage(params: arguments,),// 第一次登录密码设置
@@ -70,7 +77,8 @@ final routes = {
   '/reflect': (context,{arguments}) => ReflectPage(),// 第一次登录密码设置
   '/reflectsuccess': (context,{arguments}) => ReflectSuccessPage(),// 第一次登录密码设置
   '/mineteam': (context,{arguments}) => MineTeamPage(),// 第一次登录密码设置
-  
+
+  '/web': (context,{arguments}) => WebPage(params: arguments,),// 第一次登录密码设置
 };
 
 var onGenerateRoute = (RouteSettings settings) {

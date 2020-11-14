@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/btn_action.dart';
@@ -134,12 +135,16 @@ class _LoginSetPwdState extends State<LoginSetPwd> {
                       controller: _pwdController,
                       hintText: I18n.of(context).pleaseinputnewpwd,
                       obscureText: true,
+                      maxLength: istxpwd ? 6 : null,
+                      inputFormatters: istxpwd ? [WhitelistingTextInputFormatter.digitsOnly] : null,
                     ),
                     SizedBox(height: 10,),
                     NormalTextfield(
                       focusNode: _pwd1Node,
                       controller: _pwd1Controller,
                       hintText: I18n.of(context).confirminputnewpwd,
+                      maxLength: istxpwd ? 6 : null,
+                      inputFormatters: istxpwd ? [WhitelistingTextInputFormatter.digitsOnly] : null,
                       obscureText: true,
                     ),
                     SizedBox(height: 22,),

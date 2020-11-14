@@ -208,5 +208,14 @@
     "allmego": "Cumulative pledge MEGO",
     "earthmoney": "Global Mining Pool Dividend",
     "realuser": "Number of effective users",
+    "bankNo":"Bank Card Number",
+    "pleasebankNo":"Please enter the correct bank card number",
+    "threeauthNotice": "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.",
+    "auth0":"Pending Authentication",
+    "auth1":"Under review",
+    "auth2": "Approved by",
+    "auth3":"Audit rejected",
+    "curruser":"Chinese domestic users",
+    "otheruser":"Overseas users",
     "success": "Successed"
 }

@@ -2,9 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/appbar.dart';
+import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/page/home/model/banner_model.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebPage extends StatefulWidget {
+  final Map params;
+
+  const WebPage({Key key, this.params}) : super(key: key);
   @override
   _WebPageState createState() => _WebPageState();
 }
@@ -27,20 +32,21 @@ class _WebPageState extends State<WebPage> {
 
   @override
   Widget build(BuildContext context) {
+    HomeBannerModel model = widget.params["model"];
     return Scaffold(
-      appBar: NormalAppbar.normal(
-        title: Text("web"),
-        onPress: () => Navigator.pop(context)
-      ),
-      body: SafeArea(
-        child: WebView(
-          javascriptMode: JavascriptMode.unrestricted,
-          javascriptChannels: <JavascriptChannel>[
-            _alertJavascriptChannel(context),
-          ].toSet(),
-          initialUrl: "http://127.0.0.1:8090/",
+      body: CommbackView(
+        titles: model.title,
+        onPop: () => Navigator.pop(context),
+        child: SafeArea(
+          child: WebView(
+            javascriptMode: JavascriptMode.unrestricted,
+            javascriptChannels: <JavascriptChannel>[
+              _alertJavascriptChannel(context),
+            ].toSet(),
+            initialUrl: model.url,
+          ),
         ),
-      ),
+      )
     );
   }
 }

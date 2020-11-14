@@ -1,12 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/network/network.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/mine/model/safe_model.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
 import 'package:migo/provider/user.dart';
 import 'package:provider/provider.dart';
 
-class SafePage extends StatelessWidget {
+class SafePage extends StatefulWidget {
+
+  @override
+  _SafePageState createState() => _SafePageState();
+}
+
+class _SafePageState extends State<SafePage> {
+
+  SafeModel model;
+  @override
+  void initState() {
+    super.initState();
+    _request();
+
+    EventBus.instance.addListener(EventKeys.RefreshAuth, (arg) { 
+      _request();
+    });
+  }
+
+  void _request() {
+    Networktool.request(API.securityCenter, success: (data){
+      model = SafeResponse.fromJson(data).data;
+      if(mounted) setState(() {
+        
+      });
+    });
+  }
 
   List<Widget> _create(BuildContext context) {
     List<String> titles = [
@@ -15,20 +44,51 @@ class SafePage extends StatelessWidget {
       I18n.of(context).loginpwd,
       I18n.of(context).txpassword,
     ];
-    final data = Provider.of<UserModel>(context, listen: false).data;
-    String account = data.mobile;
-    if(data.registerType == 1) {
-      account = data.mobile;
+    
+    return titles.map((e) => SettingCell(
+      title: e, 
+      detail: _getString(titles.indexOf(e)),
+      onTap: () {
+        _jump(context, titles.indexOf(e));
+      },
+    )).toList();
+  }
+
+  String _getString(int sender) {
+    switch (sender) {
+      case 0:
+      {
+        List<String> titles = [
+          I18n.of(context).auth0,
+          I18n.of(context).auth1,
+          I18n.of(context).auth2,
+          I18n.of(context).auth3,
+        ];
+        return titles[model?.isAuth ?? 0];
+      }
+        break;
+      case 1:
+      {
+        final data = Provider.of<UserModel>(context, listen: false).data;
+        String account = data.mobile;
+        if(data.registerType == 1) {
+          account = data.mobile;
+        }
+        return account;
+      }
+        break;
+      default:
+        return "";
     }
-    return titles.map((e) => SettingCell(title: e, detail: titles.indexOf(e) == 1 ? account : "", onTap: () {
-      _jump(context, titles.indexOf(e));
-    },)).toList();
   }
 
   void _jump(BuildContext context, int index) {
     switch (index) {
       case 0:
-        Navigator.pushNamed(context, "/mineauth");
+        Navigator.pushNamed(context, "/authmanage");
+        if(model.isAuth == 0 || model.isAuth == 3) {
+          Navigator.pushNamed(context, "/authmanage");
+        }
         break;
       case 1:
         Navigator.pushNamed(context, "/mineexchangebind");

@@ -42,6 +42,13 @@ class _HomeHeadViewState extends State<HomeHeadView> {
             setState(() {
               bannerIndex = sender;
             });
+          }, onTap: (sender) {
+            HomeBannerModel model =  banners[sender];
+            if(model.type == "1") {
+              Navigator.pushNamed(context, "/web", arguments: {"model": model});
+            } else {
+              Navigator.pushNamed(context, "/notice", arguments: {"model": model});
+            }
           },),
         ),
         Row(
@@ -59,7 +66,8 @@ class _HomeHeadViewState extends State<HomeHeadView> {
 class HomeBannerView extends StatelessWidget {
   final List<String> banners;
   final Function(int index) onChanged;
-  HomeBannerView({Key key, this.banners, this.onChanged}) : super(key: key);
+  final Function(int index) onTap;
+  HomeBannerView({Key key, this.banners, this.onTap, this.onChanged}) : super(key: key);
 
   final dot = DotSwiperPaginationBuilder(
     activeColor: AppColor.blue,
@@ -101,6 +109,7 @@ class HomeBannerView extends StatelessWidget {
       loop: true,
       // itemCount: images.length,
       itemCount: banners.length,
+      onTap: onTap,
       // viewportFraction: 0.8,
       // scale: 0.85,
       // pagination: SwiperPagination(builder: rect),
