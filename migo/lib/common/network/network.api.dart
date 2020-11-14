@@ -44,5 +44,12 @@ class API {
   // 查询
   static const String securityCenter = "user/uUser/securityCenter";
   static const String authUserByBank = "user/uUser/authUserByBank";
+  // 提现币种列表
+  static const String  withDrawCoins = "user/wRecordTransferOut/withDrawCoins";
+  // 提现
+  static const String  withDrawOut = "user/wRecordTransferOut/withDrawOut";
+
+  // 充币地址
+  static const String  rechargeCoinList = "user/wRecordRecharge/rechargeCoinList";
 }
   

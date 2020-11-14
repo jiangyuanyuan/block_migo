@@ -79,7 +79,7 @@ class FreeLocalizations extends StatefulWidget {
 }
 
 class _FreeLocalizations extends State<FreeLocalizations> {
-  Locale _locale = const Locale('en', '');
+  Locale _locale = const Locale('zh', '');
 
   Future<Locale> getDeviceLocale() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

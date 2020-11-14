@@ -98,7 +98,10 @@ class _ExchangeCellState extends State<ExchangeCell> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(widget.ispre ? I18n.of(context).output : "${I18n.of(context).output}(${I18n.of(context).estimate})", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-              Text("${I18n.of(context).balance}: ${_getTrading()}", style: AppFont.textStyle(12, color: AppColor.back998),)
+              Visibility(
+                visible: widget.ispre,
+                child: Text("${I18n.of(context).balance}: ${_getTrading()}", style: AppFont.textStyle(12, color: AppColor.back998),)
+              )
             ],
           ),
           Row(

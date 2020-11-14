@@ -75,7 +75,7 @@ final routes = {
   '/exchangesuccess': (context,{arguments}) => ExchangeSuccessPage(params: arguments,),// 第一次登录密码设置
   '/recharge': (context,{arguments}) => RechagePage(),// 第一次登录密码设置
   '/reflect': (context,{arguments}) => ReflectPage(),// 第一次登录密码设置
-  '/reflectsuccess': (context,{arguments}) => ReflectSuccessPage(),// 第一次登录密码设置
+  '/reflectsuccess': (context,{arguments}) => ReflectSuccessPage(params: arguments,),// 第一次登录密码设置
   '/mineteam': (context,{arguments}) => MineTeamPage(),// 第一次登录密码设置
 
   '/web': (context,{arguments}) => WebPage(params: arguments,),// 第一次登录密码设置

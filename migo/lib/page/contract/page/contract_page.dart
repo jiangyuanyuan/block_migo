@@ -95,7 +95,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
         Networktool.request(API.exchangePagePost, params: {
           	"inputCoinAmount": inputAmout,
             "ntn": "$currCoinName/$outcoinname",
-            "oneInToOutAmount": price,
+            "oneInToOutAmount": Tool.number(computeFee, 4),
             "outputCoinAmount": outputAmount,
             "txPwd": Tool.generateMd5(sender)
         }, success: (data) {
@@ -123,6 +123,8 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
     outcoinname = val;
     final e = exchangeCoinModel.tradings.firstWhere((element) => element.ntn == "$currCoinName/$val");
     price = e.oneInToOutAmount.toString();
+    inputnumber = e.inputCoinAmount;
+    outputnumber = e.outputCoinAmount;
     setState(() {
       
     });
@@ -135,7 +137,6 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
       num percent = outputnumber / (inputnumber + double.parse(inputAmout));
       num res = percent / (1 + exchangeCoinModel.levelReduction);
       computeFee = res;
-      print(res);
       outputAmount = Tool.number(res * num.parse(val), 2);
     }
     setState(() {
@@ -169,7 +170,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                 Positioned(
                   left: 0,
                   right: 0,
-                  top: 390 + _animation.value * 200,
+                  top: 390 + _animation.value * 180,
                   child: ExchangeBottomView(
                     getAmount: outputAmount,
                     level: "${exchangeCoinModel?.level ?? 0}",

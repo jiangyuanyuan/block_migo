@@ -38,9 +38,9 @@ class ChooseCoinView extends StatelessWidget {
                     SizedBox(width: 10,),
                     Column(
                       children: [
-                        Text("USDT", style: AppFont.textStyle(14, color: Colors.black),),
+                        Text(value, style: AppFont.textStyle(14, color: Colors.black),),
                         SizedBox(height: 4,),
-                        Text("Tether", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
+                        Text(value.toLowerCase(), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
                       ],
                     )
                   ],

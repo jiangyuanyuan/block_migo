@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 
 class ReflectSuccessPage extends StatelessWidget {
+  final Map params;
+
+  const ReflectSuccessPage({Key key, this.params}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    int now = DateTime.now().millisecondsSinceEpoch;
     return Scaffold(
       body: CommbackView(
         titles: I18n.of(context).withdrawsuccess,
@@ -46,15 +51,15 @@ class ReflectSuccessPage extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     child: Column(
                       children: [
-                        _Row(titles: I18n.of(context).arrivalquantity, val: "500 MIGO",),
+                        _Row(titles: I18n.of(context).arrivalquantity, val: "${params["realnum"]} ${params["coinName"]}",),
                         SizedBox(height: 14,),
-                        _Row(titles: I18n.of(context).withdrawnum, val: "500 MIGO",),
+                        _Row(titles: I18n.of(context).withdrawnum, val: "${params["num"]} ${params["coinName"]}",),
                         SizedBox(height: 14,),
-                        _Row(titles: I18n.of(context).handlingfee, val: "500 MIGO",),
+                        _Row(titles: I18n.of(context).handlingfee, val: "${params["fee"]} ${params["coinName"]}",),
                         SizedBox(height: 14,),
-                        _Row(titles: I18n.of(context).date, val: "2020-19-20",),
+                        _Row(titles: I18n.of(context).date, val: Tool.timeFormat("yyyy-MM-dd", now),),
                         SizedBox(height: 14,),
-                        _Row(titles: I18n.of(context).time, val: "19:54:00",),
+                        _Row(titles: I18n.of(context).time, val: Tool.timeFormat("HH:mm:ss", now),),
                       ],
                     ),
                   ),

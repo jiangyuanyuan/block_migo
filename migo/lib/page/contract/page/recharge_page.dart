@@ -1,13 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/screen_tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/contract/model/recharge_model.dart';
+import 'package:migo/page/contract/view/choose_coin_view.dart';
 import 'package:migo/page/contract/view/recharge_head_view.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-class RechagePage extends StatelessWidget {
+class RechagePage extends StatefulWidget {
+  @override
+  _RechagePageState createState() => _RechagePageState();
+}
+
+class _RechagePageState extends State<RechagePage> {
+
+  int type = 0;
+  List<RechargeModel> list = [];
+  String coinName = "--";
+  String address = "";
+  @override
+  void initState() {
+    super.initState();
+    _request();
+  }
+
+  void _request() {
+    Networktool.request(API.rechargeCoinList, success: (data) {
+      final temp = RechargeResponse.fromJson(data);
+      list = temp.data;
+      if(list.length > 0) {
+        coinName = list.first.coinName;
+        address = list.first.baseAddress;
+      }
+      if(mounted) setState(() {
+        
+      });
+    });
+  }
+
+  void _updateAmount(RechargeModel model) {
+    setState(() {
+      coinName = model.coinName;
+      address = type == 0 ? model.baseAddress : model.trcAddress;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,27 +65,34 @@ class RechagePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: double.infinity,
-                height: 42,
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 18),
-                child: Stack(
-                  children: [
-                    Image.asset("assets/input_back.png", fit: BoxFit.fill, width: double.infinity,),
-                    Positioned(
-                      left: 10,
-                      height: 42,
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text("--", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
-                      ),
+                child: ChooseCoinView(
+                  onSelected: (selectindex, sender) {
+                    _updateAmount(list[selectindex]);
+                  },
+                  child: Container(
+                    height: 42,
+                    child: Stack(
+                      children: [
+                        Image.asset("assets/input_back.png", fit: BoxFit.fill, width: double.infinity,),
+                        Positioned(
+                          left: 10,
+                          height: 42,
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: Text(coinName, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
+                          ),
+                        ),
+                        Positioned(
+                          right: 10,
+                          height: 42,
+                          child: Image.asset("assets/coin_select.png"),
+                        )
+                      ],
                     ),
-                    Positioned(
-                      right: 10,
-                      height: 42,
-                      child: Image.asset("assets/coin_select.png"),
-                    )
-                  ],
+                  ),
+                  titles: list.map((e) => e.coinName).toList(),
                 ),
               ),
               Container(
@@ -57,7 +103,16 @@ class RechagePage extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    RechargeHeadView(),
+                    RechargeHeadView(
+                      onSelected: (tabindex) {
+                        setState(() {
+                          type = tabindex;
+                          final e = list.firstWhere((element) => element.coinName == coinName);
+                          address = type == 0 ? e.baseAddress : e.trcAddress;
+                        });
+
+                      },
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 40.0, bottom: 20),
                       child: Text(I18n.of(context).scanqrtorecharge, style: AppFont.textStyle(14, color: AppColor.back998, fontWeight: FontWeight.bold),),
@@ -66,7 +121,7 @@ class RechagePage extends StatelessWidget {
                       width: 180,
                       height: 180,
                       color: Colors.white,
-                      child: QrImage(data: "www.baidu",),
+                      child: QrImage(data: address,),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
@@ -81,11 +136,11 @@ class RechagePage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("xxxxxxxxxxxxx", style: AppFont.textStyle(12, color: AppColor.back998),),
+                          Text(address, style: AppFont.textStyle(12, color: AppColor.back998),),
                           IconButton(
                             icon: Image.asset("assets/coin_copy.png"),
                             onPressed: () {
-                              ScreenTool.copy("xxxxxxxxxxxxx");
+                              ScreenTool.copy(address);
                             },
                           )
                         ],

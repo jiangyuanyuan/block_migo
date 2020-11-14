@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 
 class RechargeHeadView extends StatefulWidget {
+  final Function(int tabindex) onSelected;
+
+  const RechargeHeadView({Key key, this.onSelected}) : super(key: key);
   @override
   _RechargeHeadViewState createState() => _RechargeHeadViewState();
 }
@@ -44,9 +47,10 @@ class _RechargeHeadViewState extends State<RechargeHeadView> with SingleTickerPr
               indicatorPadding: const EdgeInsets.symmetric(horizontal: 30),
               labelStyle: AppFont.textStyle(12, color: AppColor.back998),
               unselectedLabelStyle: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),
+              onTap: widget.onSelected,
               tabs: [
-                Text("usdt_erc20"),
-                Text("usdt_trc20"),
+                Text("ERC20"),
+                Text("TRC20"),
               ],
             )
           ),
