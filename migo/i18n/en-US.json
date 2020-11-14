@@ -219,5 +219,13 @@
     "rechargerecord":"Recharge Record",
     "relfectrecord":"Withdrawal Record",
     "otheruser":"Overseas users",
+    "coinStatus0":"Pending review",
+    "coinStatus1":"Transferring",
+    "coinStatus2":"Confirming",
+    "coinStatus3":"Transfer Successful",
+    "coinStatus4":"Approval denied",
+    "coinStatus5":"Transfer failed",
+    "coinStatus6":"Sending transaction",
+    "coinStatus7":"Packaging",
     "success": "Successed"
 }

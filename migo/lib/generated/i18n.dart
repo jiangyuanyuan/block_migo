@@ -470,6 +470,22 @@ class I18n implements WidgetsLocalizations {
   String get rechargerecord => "充币记录";
   /// "提币记录"
   String get relfectrecord => "提币记录";
+  /// "待审核"
+  String get coinStatus0 => "待审核";
+  /// "转账中"
+  String get coinStatus1 => "转账中";
+  /// "确认中"
+  String get coinStatus2 => "确认中";
+  /// "转账成功"
+  String get coinStatus3 => "转账成功";
+  /// "审批拒绝"
+  String get coinStatus4 => "审批拒绝";
+  /// "转账失败"
+  String get coinStatus5 => "转账失败";
+  /// "发送交易中"
+  String get coinStatus6 => "发送交易中";
+  /// "打包中"
+  String get coinStatus7 => "打包中";
   /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
   String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
   /// "密码不一致"
@@ -1137,6 +1153,36 @@ class _I18n_en_US extends I18n {
   /// "Overseas users"
   @override
   String get otheruser => "Overseas users";
+  /// "Recharge Record"
+  @override
+  String get rechargerecord => "Recharge Record";
+  /// "Withdrawal Record"
+  @override
+  String get relfectrecord => "Withdrawal Record";
+  /// "Pending review"
+  @override
+  String get coinStatus0 => "Pending review";
+  /// "Transferring"
+  @override
+  String get coinStatus1 => "Transferring";
+  /// "Confirming"
+  @override
+  String get coinStatus2 => "Confirming";
+  /// "Transfer Successful"
+  @override
+  String get coinStatus3 => "Transfer Successful";
+  /// "Approval denied"
+  @override
+  String get coinStatus4 => "Approval denied";
+  /// "Transfer failed"
+  @override
+  String get coinStatus5 => "Transfer failed";
+  /// "Sending transaction"
+  @override
+  String get coinStatus6 => "Sending transaction";
+  /// "Packaging"
+  @override
+  String get coinStatus7 => "Packaging";
   /// "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully."
   @override
   String get threeauthNotice => "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.";

@@ -67,6 +67,21 @@ class _CoinsRecordPageState extends State<CoinsRecordPage> {
   void _endrefresh() {
     _refreshController.refreshCompleted();
   }
+
+  String _getRemark(int status) {
+    List<String> list = [
+      I18n.of(context).coinStatus0,
+      I18n.of(context).coinStatus1,
+      I18n.of(context).coinStatus2,
+      I18n.of(context).coinStatus3,
+      I18n.of(context).coinStatus4,
+      I18n.of(context).coinStatus5,
+      I18n.of(context).coinStatus6,
+      I18n.of(context).coinStatus7,
+    ];
+    return list[status];
+  }
+
   @override
   Widget build(BuildContext context) {
      
@@ -83,10 +98,16 @@ class _CoinsRecordPageState extends State<CoinsRecordPage> {
             controller: _refreshController,
             onRefresh: _refresh,
             child: ListView.builder(
-              padding: EdgeInsets.zero,
+              padding: EdgeInsets.all(20),
               itemCount: isrecharge ? rechargeList.length : reflectList.length,
               itemBuilder: (context, index){
-                return _Cell();
+                if(isrecharge) {
+                  final m = rechargeList[index];
+                  return _Cell(coinName: m.coinName, createtie: m.createTime, amount: m.amount, remark: "",);
+                } else {
+                  final m = reflectList[index];
+                  return _Cell(coinName: m.coinName, createtie: m.createTime, amount: m.amount, remark: _getRemark(m.status),);
+                }
               }
             ),
           ),
@@ -98,10 +119,34 @@ class _CoinsRecordPageState extends State<CoinsRecordPage> {
 
 
 class _Cell extends StatelessWidget {
-  @override
+  final String coinName;
+  final num amount;
+  final int createtie;
+  final String remark;
+  
+  const _Cell({Key key, this.coinName, this.amount, this.createtie, this.remark}) : super(key: key);@override
   Widget build(BuildContext context) {
     return Container(
-      
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(coinName, style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold),),
+              Text(Tool.number(amount, 2), style: AppFont.textStyle(12, color: Colors.black),),
+            ],
+          ),
+          SizedBox(height: 4,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(Tool.timeFormat("yyyy-MM-dd HH:mm", createtie), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+              Text(remark, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+            ],
+          ),
+          Divider(height: 20,)
+        ],
+      ),
     );
   }
 }
