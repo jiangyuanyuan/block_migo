@@ -38,7 +38,7 @@ class _MineEarnPageState extends State<MineEarnPage> {
   }
 
   void _request() {
-    Networktool.request(API.getAccountPageByCoinName + "$type/$datetime", success: (data){
+    Networktool.request(API.getMyPayList + "$type/$datetime", success: (data){
       final temp = MineEarnResponse.fromJson(data);
       list = temp.data;
       list.sort((a, b) => a.earnTime.compareTo(b.earnTime));

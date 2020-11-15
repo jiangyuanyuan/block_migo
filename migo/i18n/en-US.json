@@ -104,7 +104,7 @@
     "scanqrtorecharge": "Scan the QR code to recharge",
     "copyaddress": "Recharge address (copy address)",
     "notice1": "1. The contract address of this currency is migo.token",
-    "notice2": "2. This address only accepts EOS, sending other currencies to this address will not be able to retrieve it.",
+    "notice2": "2. This address only accepts {e}, sending other currencies to this address will not be able to retrieve it.",
     "notice3": "3. Recharge to the wallet balance by default.",
     "notice4": "4. Your recharge address will not change frequently, you can recharge; if there is any change, we will try our best to notify you via website announcement or email.",
     "pleaseinputorcopy": "Please enter or long press to paste",

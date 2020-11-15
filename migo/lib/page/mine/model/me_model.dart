@@ -92,6 +92,7 @@ class MineCoinModel {
   String privateKey;
   num releaseAmount;
   num exchangeAmount;
+  num cnyAmount;
   String coinType;
 
   MineCoinModel(
@@ -106,6 +107,7 @@ class MineCoinModel {
       this.coinName,
       this.address,
       this.omniAddress,
+      this.cnyAmount,
       this.isShow,
       this.gameAmount,
       this.trcAddress,
@@ -126,6 +128,7 @@ class MineCoinModel {
     coinName = json['coinName'];
     address = json['address'];
     omniAddress = json['omniAddress'];
+    cnyAmount = json["cnyAmount"] ?? 0;
     isShow = json['isShow'];
     gameAmount = json['gameAmount'];
     trcAddress = json['trcAddress'];

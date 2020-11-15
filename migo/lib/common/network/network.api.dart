@@ -7,10 +7,10 @@ class API {
   static const String sms = "sms/sms/sendPhone/";
   static const String emailcode = "sms/email/sendEmailCode/";
   static const String login = "user/uUser/loginByPass";
-  static const String identityAuthen = "";
+  static const String identityAuthen = "user/uUser/authUserByPhoto";
   static const String version = "user/bAppVersion/getNewVersion/";
   /// 上传文件
-  static const String file = "file/uploadBase64";
+  static const String file = "user/uploadFile/upload";
 
   /// 修改用户资料
   static const String mod = "user/uUser/changeInformation";
@@ -33,7 +33,8 @@ class API {
   static const String getAccountDetailByCoinName = "user/uUserAccountDetail/getAccountDetailByCoinName/";
   static const String exchangePage = "user/eExchangeRecord/exchangePage";
   static const String exchangePagePost = "user/eExchangeRecord/exchangeCoin";
-  static const String getAccountPageByCoinName = "user/uUserAccountDetail/getAccountPageByCoinName/";
+  static const String getMyPayList = "user/mMineUser/getMyPayList/";
+  // static const String getAccountPageByCoinName = "user/uUserAccountDetail/getAccountPageByCoinName/";
   static const String myTeamPage = "user/uUserReferee/myTeamPage";
   static const String getMyMineList = "user/mMineUser/getMyMineList/";
   static const String homeminingBeltShovel = "user/mMineUser/miningBeltShovel";

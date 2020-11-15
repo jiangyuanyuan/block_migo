@@ -75,7 +75,7 @@ class _TeamBottomViewState extends State<TeamBottomView> {
     List<String> list = [
       "${widget.model?.shareDTO?.totalAuthUserCount ?? 0}",
       "${widget.model?.leaderDTO?.minTeamPledgeAmount ?? 0}",
-      "${widget.model?.directDTO?.pdirectConfig?.remark ?? "暂无奖励"}"
+      "${widget.model?.directDTO?.pdirectConfig?.remark ?? I18n.of(context).nomoney}"
     ];
     return list[widget.tabindex];
   }

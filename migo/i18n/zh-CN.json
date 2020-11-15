@@ -114,7 +114,7 @@
     "scanqrtorecharge":"扫描二维码进行充值",
     "copyaddress":"充值地址（复制地址如下)",
     "notice1":"1. 该币种合约地址为migo.token",
-    "notice2":"2. 此地址只接受EOS，发送其他币种到此地址将不可找回。",
+    "notice2":"2. 此地址只接受{e}，发送其他币种到此地址将不可找回。",
     "notice3":"3. 默认充值至钱包余额。",
     "notice4":"4. 您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。",
     "pleaseinputorcopy":"请输入或长按粘贴",
@@ -252,6 +252,7 @@
     "realnum":"到账数量",
     "remark":"备注",
     "rechagerecordorder":"充值提现订单",
+    "nomoney":"暂无奖励",
     "threeauthNotice":"姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。",
     "notsamepwd":"密码不一致"
 }

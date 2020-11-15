@@ -1,6 +1,3 @@
-
-import 'dart:js';
-
 import 'package:migo/common/qrcode/qr_page.dart';
 import 'package:migo/login&regist/page/lanuage_page.dart';
 import 'package:migo/login&regist/page/login_set_pwd.dart';

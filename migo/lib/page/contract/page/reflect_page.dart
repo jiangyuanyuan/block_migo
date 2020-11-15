@@ -8,6 +8,7 @@ import 'package:migo/common/network/network.dart';
 import 'package:migo/common/qrcode/qr_page.dart';
 import 'package:migo/common/textstyle/textfield_number.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
@@ -39,6 +40,10 @@ class _ReflectPageState extends State<ReflectPage> {
   void initState() {
     super.initState();
     _requestCoinList();
+
+    EventBus.instance.addListener(EventKeys.RefreshQrCode, (arg) { 
+      _editingController.text = arg;
+    });
   }
 
   @override
@@ -109,16 +114,8 @@ class _ReflectPageState extends State<ReflectPage> {
     }, fail: (e) => EasyLoading.showError(e));
   }
 
-  void _scanAction() async {
-    // Navigator.push(context, CupertinoPageRoute(builder: (context) => QrCodePage(
-    //   onFinish: (sender) {
-    //     _editingController.text = sender;
-    //   },
-    // ),));
-    final params = await Navigator.pushNamed<Map<String, dynamic>>(context, "/qrcode");
-    if(params != null) {
-      _editingController.text = params["content"];
-    }
+  void _scanAction() {
+    Navigator.pushNamed(context, "/qrcode");
   }
   @override
   Widget build(BuildContext context) {

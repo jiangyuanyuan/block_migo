@@ -90,7 +90,7 @@ class _Cell extends StatelessWidget {
               ),
 
               Text(
-                index == 1 ? "${I18n.of(context).enjoy}1 ${I18n.of(context).generation} \n$percent% ${I18n.of(context).reward}" : "暂无奖励", 
+                index == 1 ? "${I18n.of(context).enjoy}1 ${I18n.of(context).generation} \n$percent% ${I18n.of(context).reward}" : I18n.of(context).nomoney, 
                 textAlign: TextAlign.left, 
                 style: AppFont.textStyle(
                   16, 

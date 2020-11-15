@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
@@ -28,7 +29,9 @@ class _RechagePageState extends State<RechagePage> {
   }
 
   void _request() {
+    EasyLoading.show(status: "Loading...");
     Networktool.request(API.rechargeCoinList, success: (data) {
+      EasyLoading.dismiss();
       final temp = RechargeResponse.fromJson(data);
       list = temp.data;
       if(list.length > 0) {
@@ -38,7 +41,7 @@ class _RechagePageState extends State<RechagePage> {
       if(mounted) setState(() {
         
       });
-    });
+    }, fail: (msg) => EasyLoading.showError(msg),);
   }
 
   void _updateAmount(RechargeModel model) {
@@ -159,7 +162,7 @@ class _RechagePageState extends State<RechagePage> {
                     SizedBox(height: 20,),
                     Text(I18n.of(context).notice1, style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
                     SizedBox(height: 10,),
-                    Text(I18n.of(context).notice2, style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
+                    Text(I18n.of(context).notice2(coinName), style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
                     SizedBox(height: 10,),
                     Text(I18n.of(context).notice3, style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
                     SizedBox(height: 10,),

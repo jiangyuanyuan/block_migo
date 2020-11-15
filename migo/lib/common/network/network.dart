@@ -172,9 +172,9 @@ class Networktool {
       );
     }
 
-    // final fil = await MultipartFile.fromFile(file.path);
-    final base64data = await Tool.image2Base64(file);
-    params["base64Data"] = base64data;
+    final fil = await MultipartFile.fromFile(file.path);
+    // final base64data = await Tool.image2Base64(file);
+    params["files"] = fil;
     FormData formData = FormData.fromMap(params);
     
     try{

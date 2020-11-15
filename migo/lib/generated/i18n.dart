@@ -236,8 +236,8 @@ class I18n implements WidgetsLocalizations {
   String get copyaddress => "充值地址（复制地址如下)";
   /// "1. 该币种合约地址为migo.token"
   String get notice1 => "1. 该币种合约地址为migo.token";
-  /// "2. 此地址只接受EOS，发送其他币种到此地址将不可找回。"
-  String get notice2 => "2. 此地址只接受EOS，发送其他币种到此地址将不可找回。";
+  /// "2. 此地址只接受${e}，发送其他币种到此地址将不可找回。"
+  String notice2(String e) => "2. 此地址只接受${e}，发送其他币种到此地址将不可找回。";
   /// "3. 默认充值至钱包余额。"
   String get notice3 => "3. 默认充值至钱包余额。";
   /// "4. 您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。"
@@ -498,6 +498,8 @@ class I18n implements WidgetsLocalizations {
   String get remark => "备注";
   /// "充值提现订单"
   String get rechagerecordorder => "充值提现订单";
+  /// "暂无奖励"
+  String get nomoney => "暂无奖励";
   /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
   String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
   /// "密码不一致"
@@ -820,9 +822,9 @@ class _I18n_en_US extends I18n {
   /// "1. The contract address of this currency is migo.token"
   @override
   String get notice1 => "1. The contract address of this currency is migo.token";
-  /// "2. This address only accepts EOS, sending other currencies to this address will not be able to retrieve it."
+  /// "2. This address only accepts ${e}, sending other currencies to this address will not be able to retrieve it."
   @override
-  String get notice2 => "2. This address only accepts EOS, sending other currencies to this address will not be able to retrieve it.";
+  String notice2(String e) => "2. This address only accepts ${e}, sending other currencies to this address will not be able to retrieve it.";
   /// "3. Recharge to the wallet balance by default."
   @override
   String get notice3 => "3. Recharge to the wallet balance by default.";

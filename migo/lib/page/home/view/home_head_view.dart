@@ -46,7 +46,7 @@ class _HomeHeadViewState extends State<HomeHeadView> {
             HomeBannerModel model =  banners[sender];
             if(model.type == "1") {
               Navigator.pushNamed(context, "/web", arguments: {"model": model});
-            } else {
+            } else if(model.type == "2") {
               Navigator.pushNamed(context, "/notice", arguments: {"model": model});
             }
           },),

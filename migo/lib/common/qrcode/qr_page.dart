@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QrCodePage extends StatefulWidget {
@@ -19,15 +20,6 @@ class _QrCodePageState extends State<QrCodePage> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          SafeArea(
-            child: IconButton(
-              padding: const EdgeInsets.only(left: 20),
-              icon: Image.asset("assets/icon_zuo.png", color: Colors.white,),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
           Expanded(
             child: QRView(
               key: qrKey,
@@ -49,8 +41,9 @@ class _QrCodePageState extends State<QrCodePage> {
   void _onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
-      print("========" + scanData);
-      Navigator.pop(context, {"content", scanData});
+      this.controller.pauseCamera();
+      EventBus.instance.commit(EventKeys.RefreshQrCode, scanData);
+      Navigator.pop(context);
     });
   }
 

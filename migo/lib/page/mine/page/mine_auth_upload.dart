@@ -87,7 +87,8 @@ class _MineAuthUploadPageState extends State<MineAuthUploadPage> {
   }
 
   void _submit() {
-    print("abc");
+    EasyLoading.show(status: "Loading...");
+    _upload();
   }
 
   void _upload() {

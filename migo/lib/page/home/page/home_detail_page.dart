@@ -108,6 +108,14 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
       body: CommbackView(
         titles: model.mineTitle,
         onPop: () => Navigator.pop(context),
+        actions: [
+          IconButton(
+              icon: Image.asset("assets/coins_record.png"),
+              onPressed: () {
+                Navigator.pushNamed(context, "/mineearn");
+              },
+            )
+        ],
         child: Column(
           children: [
             HomeDetailHeadView(model: model),
@@ -125,43 +133,50 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
                     top: 0,
                     child: HomeDetailUserView(onTap: _getAction, title: model.mineTitle, endTime: detailModel?.endTime, coinName: model.pledgeCoinName, amount: model.pledgeAmount, shovelCount: detailModel?.useCount ?? 0,),
                   ),
-                  Positioned.fill(
+                  Positioned(
                     top: 215,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xffFDFEFF),
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(8))
-                      ),
-                      child: Column(
-                        children: [
-                          HomeDetailBarView(onTabIndex: (sender) {
-                            setState(() {
-                              tabindex = sender;
-                            });
-                          },),
-                          Expanded(
-                            child: RefreshWidget(
-                              controller: _refreshController,
-                              onRefresh: _refresh,
-                              child: ListView.separated(
-                                padding: const EdgeInsets.symmetric(horizontal: 24),
-                                itemBuilder: (context, index) {
-                                  if(tabindex == 0) {
-                                    final model = minePayRecordList[index];
-                                    return HomeDetailCell(tabindex: tabindex, coinName: model.coinName, amount: model.payAmount, createtime: model.payTime,);
-                                  } else {
-                                    final model = mineEarnRecordList[index];
-                                    return HomeDetailCell(tabindex: tabindex, coinName: model.coinName, amount: model.earnAmount, createtime: model.earnTime,);
-                                  }
-                                }, 
-                                separatorBuilder: (context, index) => Divider(height: 1,), 
-                                itemCount: tabindex == 0 ? minePayRecordList.length : mineEarnRecordList.length
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    )
+                    left: 0,
+                    right: 0,
+                    child: Visibility(
+                      visible: detailModel?.endTime != null,
+                      child: HomeDetailUserView(onTap: _getAction, title: model.mineTitle, endTime: null, coinName: model.pledgeCoinName, amount: model.pledgeAmount, shovelCount: detailModel?.useCount ?? 0,)
+                    ),
+                    // child: Container(
+                    //   decoration: BoxDecoration(
+                    //     color: const Color(0xffFDFEFF),
+                    //     borderRadius: BorderRadius.vertical(top: Radius.circular(8))
+                    //   ),
+                      // child: Column(
+                      //   children: [
+                          
+                          // HomeDetailBarView(onTabIndex: (sender) {
+                          //   setState(() {
+                          //     tabindex = sender;
+                          //   });
+                          // },),
+                          // Expanded(
+                          //   child: RefreshWidget(
+                          //     controller: _refreshController,
+                          //     onRefresh: _refresh,
+                          //     child: ListView.separated(
+                          //       padding: const EdgeInsets.symmetric(horizontal: 24),
+                          //       itemBuilder: (context, index) {
+                          //         if(tabindex == 0) {
+                          //           final model = minePayRecordList[index];
+                          //           return HomeDetailCell(tabindex: tabindex, coinName: model.coinName, amount: model.payAmount, createtime: model.payTime,);
+                          //         } else {
+                          //           final model = mineEarnRecordList[index];
+                          //           return HomeDetailCell(tabindex: tabindex, coinName: model.coinName, amount: model.earnAmount, createtime: model.earnTime,);
+                          //         }
+                          //       }, 
+                          //       separatorBuilder: (context, index) => Divider(height: 1,), 
+                          //       itemCount: tabindex == 0 ? minePayRecordList.length : mineEarnRecordList.length
+                          //     ),
+                          //   ),
+                          // )
+                        // ],
+                      // ),
+                    // )
                   )
                 ],
               ),

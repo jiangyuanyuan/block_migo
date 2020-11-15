@@ -60,6 +60,7 @@ class _RootPageState extends State<RootPage> {
     });
     print(Provider.of<UserModel>(context, listen: false).data?.id);
     if(Platform.isAndroid) _requestVersion();
+    EasyLoading.instance..userInteractions = false;
   }
 
   @override

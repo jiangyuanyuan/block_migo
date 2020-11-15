@@ -12,7 +12,7 @@ class NoticePage extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeBannerModel model = param['model'];
     String html = "--";
-    if(model.param != null) html = model.param["content"];
+    if(model.param != null) html = model.param;
     return Scaffold(
       body: CommbackView(
         titles: model.title,

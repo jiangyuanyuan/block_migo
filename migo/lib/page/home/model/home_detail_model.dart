@@ -141,7 +141,7 @@ class MineEarnRecordModel {
 }
 
 class MinePayRecordModel {
-  int coinId;
+  String coinId;
   String coinName;
   int createTime;
   int id;
