@@ -32,7 +32,7 @@ class _ReflectPageState extends State<ReflectPage> {
   TextEditingController _numController = TextEditingController();
   FocusNode _numFocusNode = FocusNode();
   // 1ERC20提币 2TRC20提币
-  int type = 1;
+  int type = 2;
   @override
   void initState() {
     super.initState();
@@ -68,6 +68,10 @@ class _ReflectPageState extends State<ReflectPage> {
   }
 
   void _submit() {
+    if(type == 2) {
+      EasyLoading.showToast(I18n.of(context).rechargeNotsupport);
+      return;
+    }
     if(_editingController.text.isEmpty) {
       EasyLoading.showToast(I18n.of(context).pleaseinput);
       return;
@@ -90,7 +94,7 @@ class _ReflectPageState extends State<ReflectPage> {
         "fee": fee,
         "outType": type,
         "toAddress": _editingController.text,
-        "txPassword": pwd
+        "txPassword": Tool.generateMd5(pwd)
     }, success: (data) {
       EasyLoading.showToast(I18n.of(context).success);
       // Navigator.pop(context);
@@ -170,7 +174,7 @@ class _ReflectPageState extends State<ReflectPage> {
                     children: [
                       RechargeHeadView(
                         onSelected: (tabindex) {
-                          type = tabindex == 0 ? 1 : 2;
+                          type = tabindex == 0 ? 2 : 1;
                         },
                       ),
                       Padding(

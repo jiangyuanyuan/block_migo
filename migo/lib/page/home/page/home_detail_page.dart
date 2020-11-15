@@ -123,7 +123,7 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
                     left: 0,
                     right: 0,
                     top: 0,
-                    child: HomeDetailUserView(onTap: _getAction, endTime: detailModel?.endTime, coinName: model.pledgeCoinName, amount: model.pledgeAmount, shovelCount: detailModel?.useCount ?? 0,),
+                    child: HomeDetailUserView(onTap: _getAction, title: model.mineTitle, endTime: detailModel?.endTime, coinName: model.pledgeCoinName, amount: model.pledgeAmount, shovelCount: detailModel?.useCount ?? 0,),
                   ),
                   Positioned.fill(
                     top: 215,

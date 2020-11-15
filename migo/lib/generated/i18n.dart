@@ -200,6 +200,8 @@ class I18n implements WidgetsLocalizations {
   String currlevel(String level) => "当前${level}级别";
   /// "下一级${level}级别"
   String nextlevel(String level) => "下一级${level}级别";
+  /// "目前购买配套"
+  String get currbuy => "目前购买配套";
   /// "立即兑换"
   String get redeemnow => "立即兑换";
   /// "确认兑换"
@@ -212,6 +214,8 @@ class I18n implements WidgetsLocalizations {
   String get priceslippage => "价格滑点";
   /// "手续费"
   String get handlingfee => "手续费";
+  /// "购买 ${e} 配套"
+  String buy(String e) => "购买 ${e} 配套";
   /// "用户名或密码错误"
   String get erroraccount => "用户名或密码错误";
   /// "忘记密码?"
@@ -466,8 +470,8 @@ class I18n implements WidgetsLocalizations {
   String get curruser => "中国国内用户";
   /// "海外地区用户"
   String get otheruser => "海外地区用户";
-  /// "充币记录"
-  String get rechargerecord => "充币记录";
+  /// "充提历史记录"
+  String get rechargerecord => "充提历史记录";
   /// "提币记录"
   String get relfectrecord => "提币记录";
   /// "待审核"
@@ -486,6 +490,14 @@ class I18n implements WidgetsLocalizations {
   String get coinStatus6 => "发送交易中";
   /// "打包中"
   String get coinStatus7 => "打包中";
+  /// "暂不支持ERC20"
+  String get rechargeNotsupport => "暂不支持ERC20";
+  /// "到账数量"
+  String get realnum => "到账数量";
+  /// "备注"
+  String get remark => "备注";
+  /// "充值提现订单"
+  String get rechagerecordorder => "充值提现订单";
   /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
   String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
   /// "密码不一致"
@@ -754,6 +766,9 @@ class _I18n_en_US extends I18n {
   /// "Next level ${level}"
   @override
   String nextlevel(String level) => "Next level ${level}";
+  /// "Currently purchasing package"
+  @override
+  String get currbuy => "Currently purchasing package";
   /// "Redeem now"
   @override
   String get redeemnow => "Redeem now";
@@ -772,6 +787,9 @@ class _I18n_en_US extends I18n {
   /// "Handling fee"
   @override
   String get handlingfee => "Handling fee";
+  /// "Buy ${e} package"
+  @override
+  String buy(String e) => "Buy ${e} package";
   /// "Error account or password"
   @override
   String get erroraccount => "Error account or password";
@@ -1153,9 +1171,9 @@ class _I18n_en_US extends I18n {
   /// "Overseas users"
   @override
   String get otheruser => "Overseas users";
-  /// "Recharge Record"
+  /// "Deposit and withdrawal history"
   @override
-  String get rechargerecord => "Recharge Record";
+  String get rechargerecord => "Deposit and withdrawal history";
   /// "Withdrawal Record"
   @override
   String get relfectrecord => "Withdrawal Record";
@@ -1183,6 +1201,18 @@ class _I18n_en_US extends I18n {
   /// "Packaging"
   @override
   String get coinStatus7 => "Packaging";
+  /// " ERC20 is not currently supported"
+  @override
+  String get rechargeNotsupport => " ERC20 is not currently supported";
+  /// "Arrival amount"
+  @override
+  String get realnum => "Arrival amount";
+  /// "Remarks"
+  @override
+  String get remark => "Remarks";
+  /// "Deposit and withdrawal order"
+  @override
+  String get rechagerecordorder => "Deposit and withdrawal order";
   /// "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully."
   @override
   String get threeauthNotice => "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.";

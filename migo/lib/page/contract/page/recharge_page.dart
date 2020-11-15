@@ -44,7 +44,7 @@ class _RechagePageState extends State<RechagePage> {
   void _updateAmount(RechargeModel model) {
     setState(() {
       coinName = model.coinName;
-      address = type == 0 ? model.baseAddress : model.trcAddress;
+      address = type == 0 ? model.trcAddress : model.baseAddress;
     });
   }
   @override
@@ -108,7 +108,7 @@ class _RechagePageState extends State<RechagePage> {
                         setState(() {
                           type = tabindex;
                           final e = list.firstWhere((element) => element.coinName == coinName);
-                          address = type == 0 ? e.baseAddress : e.trcAddress;
+                          address = type == 0 ? e.trcAddress : e.baseAddress;
                         });
 
                       },

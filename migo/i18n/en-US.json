@@ -216,7 +216,7 @@
     "auth2": "Approved by",
     "auth3":"Audit rejected",
     "curruser":"Chinese domestic users",
-    "rechargerecord":"Recharge Record",
+    "rechargerecord":"Deposit and withdrawal history",
     "relfectrecord":"Withdrawal Record",
     "otheruser":"Overseas users",
     "coinStatus0":"Pending review",
@@ -227,5 +227,12 @@
     "coinStatus5":"Transfer failed",
     "coinStatus6":"Sending transaction",
     "coinStatus7":"Packaging",
+    "rechagerecordorder":"Deposit and withdrawal order",
+    "rechargeNotsupport":" ERC20 is not currently supported",
+    "realnum":"Arrival amount",
+    "currbuy":"Currently purchasing package",
+
+    "buy":"Buy {e} package",
+    "remark":"Remarks",
     "success": "Successed"
 }

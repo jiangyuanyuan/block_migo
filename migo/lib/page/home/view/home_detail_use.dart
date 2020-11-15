@@ -13,11 +13,8 @@ class HomeDetailUserView extends StatelessWidget {
   final num amount;
   final String coinName;
   final int endTime;
-  const HomeDetailUserView({Key key, this.endTime, this.onTap, this.coinName, this.amount, this.shovelCount}) : super(key: key);
-
-  String _getString(BuildContext context) {
-    return I18n.of(context).homeused + " " + I18n.of(context).shovel;
-  }
+  final String title;
+  const HomeDetailUserView({Key key, this.title, this.endTime, this.onTap, this.coinName, this.amount, this.shovelCount}) : super(key: key);
 
   Widget _create(BuildContext context) {
     if(endTime == null || endTime == 0) {
@@ -40,20 +37,11 @@ class HomeDetailUserView extends StatelessWidget {
       return Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(_getString(context), style: AppFont.textStyle(
+              Text(I18n.of(context).buy(title), style: AppFont.textStyle(
                 12, 
                 color: Colors.white,
                 showshadow: true
               ),),
-              SizedBox(width: 4,),
-              HomeGradientText(
-                data: "X$shovelCount",
-                fontstyle: AppFont.textStyle(
-                  12, 
-                  fontWeight: FontWeight.bold,
-                  showshadow: true
-                ),
-              ),
             ],
           );
     } else {

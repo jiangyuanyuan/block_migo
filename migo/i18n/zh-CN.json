@@ -93,6 +93,7 @@
     "feereduction2":"手续费",
     "currlevel":"当前{level}级别",
     "nextlevel":"下一级{level}级别",
+    "currbuy":"目前购买配套",
     "redeemnow":"立即兑换",
     "confirmexchange":"确认兑换",
 
@@ -100,6 +101,8 @@
     "leastget":"最少获得",
     "priceslippage":"价格滑点",
     "handlingfee":"手续费",
+    
+    "buy":"购买 {e} 配套",
 
     "erroraccount":"用户名或密码错误",
     "forgetpwd":"忘记密码?",
@@ -235,7 +238,7 @@
     "auth3":"审核拒绝",
     "curruser":"中国国内用户",
     "otheruser":"海外地区用户",
-    "rechargerecord":"充币记录",
+    "rechargerecord":"充提历史记录",
     "relfectrecord":"提币记录",
     "coinStatus0":"待审核",
     "coinStatus1":"转账中",
@@ -245,7 +248,10 @@
     "coinStatus5":"转账失败",
     "coinStatus6":"发送交易中",
     "coinStatus7":"打包中",
-          
+    "rechargeNotsupport":"暂不支持ERC20",
+    "realnum":"到账数量",
+    "remark":"备注",
+    "rechagerecordorder":"充值提现订单",
     "threeauthNotice":"姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。",
     "notsamepwd":"密码不一致"
 }

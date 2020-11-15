@@ -211,7 +211,7 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
                           right: 12,
                           top: 0,
                           bottom: 0,
-                          child: Center(child: SmsCounterView(phone: contryCode + phone,)),
+                          child: Center(child: SmsCounterView(phone: contryCode.replaceFirst("+", "") + "_" + phone,)),
                         )
                       ],
                     ),

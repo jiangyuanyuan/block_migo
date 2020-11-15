@@ -21,14 +21,14 @@ class HomeDetailHeadView extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(I18n.of(context).shovelinuse, style: AppFont.textStyle(
+              Text(I18n.of(context).currbuy, style: AppFont.textStyle(
                 12, 
                 color: const Color(0xffDBF0FF),
                 showshadow: true
               ),),
               SizedBox(height: 8,),
               HomeGradientText(
-                data: "0",
+                data: "${model.count ?? 0}",
                 fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20,),
