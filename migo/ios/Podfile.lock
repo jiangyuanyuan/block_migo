@@ -35,12 +35,16 @@ PODS:
     - ZLPhotoBrowser (~> 3.1.2)
   - install_plugin (0.0.1):
     - Flutter
+  - MTBBarcodeScanner (5.0.11)
   - package_info (0.0.1):
     - Flutter
   - path_provider (0.0.1):
     - Flutter
   - "permission_handler (5.0.1+1)":
     - Flutter
+  - qr_code_scanner (0.0.2):
+    - Flutter
+    - MTBBarcodeScanner
   - Reachability (3.2)
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
@@ -73,6 +77,7 @@ DEPENDENCIES:
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
+  - qr_code_scanner (from `.symlinks/plugins/qr_code_scanner/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
@@ -84,6 +89,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - FMDB
+    - MTBBarcodeScanner
     - Reachability
     - SDWebImage
     - ZLPhotoBrowser
@@ -111,6 +117,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
   permission_handler:
     :path: ".symlinks/plugins/permission_handler/ios"
+  qr_code_scanner:
+    :path: ".symlinks/plugins/qr_code_scanner/ios"
   shared_preferences:
     :path: ".symlinks/plugins/shared_preferences/ios"
   sqflite:
@@ -135,9 +143,11 @@ SPEC CHECKSUMS:
   image_gallery_saver: 259eab68fb271cfd57d599904f7acdc7832e7ef2
   image_pickers: 42e1a69c6ef9ea90e3d8dc5e0d7665e8d799f6fa
   install_plugin: a13e7ddd2bab0c701b48cd359c26d0394125b6fb
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   permission_handler: eac8e15b4a1a3fba55b761d19f3f4e6b005d15b6
+  qr_code_scanner: 16107718bdad7d708cdf6a5eacdca24b56cdf471
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d

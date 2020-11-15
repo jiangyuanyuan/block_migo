@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
+import 'package:migo/common/qrcode/qr_page.dart';
 import 'package:migo/common/textstyle/textfield_number.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
@@ -106,6 +108,14 @@ class _ReflectPageState extends State<ReflectPage> {
       });
     }, fail: (e) => EasyLoading.showError(e));
   }
+
+  void _scanAction() {
+    Navigator.push(context, CupertinoPageRoute(builder: (context) => QrCodePage(
+      onFinish: (sender) {
+        _editingController.text = sender;
+      },
+    ),));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -196,6 +206,7 @@ class _ReflectPageState extends State<ReflectPage> {
                                   child: IconButton(
                                     icon: Image.asset("assets/scan_icon.png"),
                                     onPressed: () {
+                                      _scanAction();
                                     },
                                   ),
                                 )

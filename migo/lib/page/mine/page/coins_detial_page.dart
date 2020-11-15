@@ -179,7 +179,7 @@ class _Cell extends StatelessWidget {
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.only(left: 24),
             color: const Color(0x33C1CDD8),
-            child: Text(Tool.timeFormat("yyyy/MM/dd", model.createTime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+            child: Text(Tool.timeFormat("yyyy/MM/dd ", model.createTime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
           ),
         ),
         Padding(
@@ -202,7 +202,7 @@ class _Cell extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   /// 提现为黑色
-                  Text("${model.changeType == 1 ? "+" : ""}${model.amount}", style: AppFont.textStyle(14, color: AppColor.green, fontWeight: FontWeight.bold)),
+                  Text("${model.changeType == 1 ? "+" : "-"}${model.amount}", style: AppFont.textStyle(14, color: model.changeType == 1 ? AppColor.green : AppColor.red, fontWeight: FontWeight.bold)),
                   SizedBox(height: 4,),
                   Text("≈0.000", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4))),
                 ],

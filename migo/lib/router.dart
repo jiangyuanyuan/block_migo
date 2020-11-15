@@ -79,6 +79,7 @@ final routes = {
   '/reflectsuccess': (context,{arguments}) => ReflectSuccessPage(params: arguments,),// 第一次登录密码设置
   '/mineteam': (context,{arguments}) => MineTeamPage(),// 第一次登录密码设置
   '/coinsrecord': (context,{arguments}) => CoinsRecordPage(params: arguments,),// 第一次登录密码设置
+  
 
   '/web': (context,{arguments}) => WebPage(params: arguments,),// 第一次登录密码设置
 };
