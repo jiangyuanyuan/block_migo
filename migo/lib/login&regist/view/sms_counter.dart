@@ -68,9 +68,12 @@ class _SmsCounterViewState extends State<SmsCounterView> {
       EasyLoading.showError(I18n.of(context).pleaseinputphone);
       return;
     }
-    if(!widget.isemail && phone.isEmpty) {
-      EasyLoading.showError(I18n.of(context).pleaseinputphone);
-      return;
+    if(!widget.isemail) {
+      final e = widget.phone.split("_");
+      if(e.last == ""){
+        EasyLoading.showError(I18n.of(context).pleaseinputphone);
+        return;
+      }
     }
     EasyLoading.show(status: "Loading...");
     String url = API.sms + "$phone/1";

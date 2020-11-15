@@ -31,7 +31,7 @@ class RefreshWidget extends StatelessWidget {
         
         // header: MaterialClassicHeader(),
         header: GifHeader1(),
-        footer: GifFooter1(),
+        footer: GifFooter1(minPage),
         // footer: CustomFooter(
         //   height: 50,
         //   builder: (BuildContext context,LoadStatus mode){

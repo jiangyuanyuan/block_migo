@@ -75,7 +75,8 @@ class GifHeader1State extends RefreshIndicatorState<GifHeader1>
 }
 
 class GifFooter1 extends StatefulWidget {
-  GifFooter1() : super();
+  final int page;
+  GifFooter1(this.page) : super();
 
   @override
   State<StatefulWidget> createState() {
@@ -105,6 +106,7 @@ class _GifFooter1State extends State<GifFooter1>
     return CustomFooter(
       height: 40,
       builder: (context, mode) {
+        if(widget.page < 2) return Container();
         return GifImage(
           image: AssetImage("assets/refresh.gif"),
           controller: _gifController,

@@ -59,7 +59,7 @@ class _RootPageState extends State<RootPage> {
       _pageController.jumpToPage(2);
     });
     print(Provider.of<UserModel>(context, listen: false).data?.id);
-    if(Platform.isAndroid) _requestVersion();
+    _requestVersion();
     EasyLoading.instance..userInteractions = false;
   }
 
@@ -142,7 +142,7 @@ class _RootPageState extends State<RootPage> {
       _pageController.jumpToPage(index);
     });
     if(index == 0) {
-      if(Platform.isAndroid) _requestVersion();
+      _requestVersion();
     }
   } 
 

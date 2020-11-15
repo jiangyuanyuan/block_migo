@@ -34,6 +34,7 @@ class API {
   static const String exchangePage = "user/eExchangeRecord/exchangePage";
   static const String exchangePagePost = "user/eExchangeRecord/exchangeCoin";
   static const String getMyPayList = "user/mMineUser/getMyPayList/";
+  static const String getMyProfitList = "user/mMineUser/getMyProfitList/";
   // static const String getAccountPageByCoinName = "user/uUserAccountDetail/getAccountPageByCoinName/";
   static const String myTeamPage = "user/uUserReferee/myTeamPage";
   static const String getMyMineList = "user/mMineUser/getMyMineList/";
@@ -58,6 +59,6 @@ class API {
 
   static const String getTransferOut = "user/wRecordTransferOut/getTransferOut/";
 
-  static const String getMyProfitOrPayListPage = "/user/mMineUser/getMyProfitOrPayListPage";
+  static const String getMyProfitOrPayListPage = "user/mMineUser/getMyProfitOrPayListPage";
 }
   

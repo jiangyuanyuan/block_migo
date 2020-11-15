@@ -5,16 +5,31 @@ import 'package:migo/generated/i18n.dart';
 class EarnDateView extends StatelessWidget {
   final String datetime;
   final Function onSelected;
-
-  const EarnDateView({Key key, this.datetime = "--", this.onSelected}) : super(key: key);
+  final Function(bool ispay) onChoosed;
+  final bool ispay;
+  const EarnDateView({Key key, this.onChoosed, this.ispay, this.datetime = "--", this.onSelected}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(I18n.of(context).earnrecord, style: AppFont.textStyle(12, color: Colors.black),),
+          _Button(
+            title: I18n.of(context).miningpaymentrecord, 
+            isselected: ispay,
+            onTap: () {
+              onChoosed(true);
+            },
+          ),
+          _Button(
+            title: I18n.of(context).miningrevenuerecord, 
+            isright: true, 
+            isselected: !ispay,
+            onTap: () {
+              onChoosed(false);
+            },
+          ),
+          Spacer(),
           InkWell(
             onTap: onSelected,
             child: Container(
@@ -41,6 +56,30 @@ class EarnDateView extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class _Button extends StatelessWidget {
+  final String title;
+  final bool isselected;
+  final bool isright;
+  final Function() onTap;
+  const _Button({Key key, this.onTap, this.isright = false, this.title, this.isselected = false}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: 30,
+        width: 60,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: isselected ? AppColor.back998 : const Color(0xff7BA0B9).withOpacity(0.1),
+          borderRadius: isright ? BorderRadius.horizontal(right: Radius.circular(4)) : BorderRadius.horizontal(left: Radius.circular(4))
+        ),
+        child: Text(title, style: AppFont.textStyle(12, color: isselected ?  Colors.white : AppColor.back998),),
       ),
     );
   }

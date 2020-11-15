@@ -53,7 +53,7 @@ class VersionModel {
     url = json['downloadUrl'];
     createTime = json['createTime'];
     status = json['status'];
-    version = json['version'];
+    version = json['versionNo'];
   }
 
   Map<String, dynamic> toJson() {

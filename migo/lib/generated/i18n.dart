@@ -270,10 +270,10 @@ class I18n implements WidgetsLocalizations {
   String get minenow => "立即挖矿";
   /// "已使用"
   String get homeused => "已使用";
-  /// "挖矿支付记录"
-  String get miningpaymentrecord => "挖矿支付记录";
-  /// "挖矿收益记录"
-  String get miningrevenuerecord => "挖矿收益记录";
+  /// "支付记录"
+  String get miningpaymentrecord => "支付记录";
+  /// "收益记录"
+  String get miningrevenuerecord => "收益记录";
   /// "团队收益记录"
   String get teamearnrecord => "团队收益记录";
   /// "支付"
@@ -873,12 +873,12 @@ class _I18n_en_US extends I18n {
   /// "Used"
   @override
   String get homeused => "Used";
-  /// "Mining payment record"
+  /// "Payment record"
   @override
-  String get miningpaymentrecord => "Mining payment record";
-  /// "Mining revenue record"
+  String get miningpaymentrecord => "Payment record";
+  /// "Revenue record"
   @override
-  String get miningrevenuerecord => "Mining revenue record";
+  String get miningrevenuerecord => "Revenue record";
   /// "Team revenue record"
   @override
   String get teamearnrecord => "Team revenue record";

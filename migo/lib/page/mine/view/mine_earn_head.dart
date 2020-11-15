@@ -10,7 +10,7 @@ class MineEarnHeadView extends StatelessWidget {
 
   List<Widget> _create(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final width = (size.width - 40 - 40) / titles.length;
+    final width = (size.width - 40 - 40) / 4;
     return titles.map((e) => _Button(
       isselect: tabindex == titles.indexOf(e),
       width: width,
@@ -20,9 +20,12 @@ class MineEarnHeadView extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
+      width: double.infinity,
+      height: 40,
       child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: _create(context),
@@ -45,6 +48,7 @@ class _Button extends StatelessWidget {
       child: Container(
         width: width,
         height: 30,
+        margin: const EdgeInsets.only(right: 10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: isselect ? Colors.white : Colors.transparent,
