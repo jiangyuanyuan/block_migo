@@ -1,4 +1,7 @@
 
+import 'dart:js';
+
+import 'package:migo/common/qrcode/qr_page.dart';
 import 'package:migo/login&regist/page/lanuage_page.dart';
 import 'package:migo/login&regist/page/login_set_pwd.dart';
 import 'package:migo/page/contract/page/coins_record_page.dart';
@@ -79,8 +82,7 @@ final routes = {
   '/reflectsuccess': (context,{arguments}) => ReflectSuccessPage(params: arguments,),// 第一次登录密码设置
   '/mineteam': (context,{arguments}) => MineTeamPage(),// 第一次登录密码设置
   '/coinsrecord': (context,{arguments}) => CoinsRecordPage(params: arguments,),// 第一次登录密码设置
-  
-
+  '/qrcode': (context,{arguments}) => QrCodePage(),// 第一次登录密码设置
   '/web': (context,{arguments}) => WebPage(params: arguments,),// 第一次登录密码设置
 };
 

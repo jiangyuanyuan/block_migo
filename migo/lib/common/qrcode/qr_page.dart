@@ -19,15 +19,15 @@ class _QrCodePageState extends State<QrCodePage> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          // SafeArea(
-          //   child: IconButton(
-          //     padding: const EdgeInsets.only(left: 20),
-          //     icon: Image.asset("assets/icon_zuo.png", color: Colors.white,),
-          //     onPressed: () {
-          //       Navigator.pop(context);
-          //     },
-          //   ),
-          // ),
+          SafeArea(
+            child: IconButton(
+              padding: const EdgeInsets.only(left: 20),
+              icon: Image.asset("assets/icon_zuo.png", color: Colors.white,),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
           Expanded(
             child: QRView(
               key: qrKey,
@@ -50,10 +50,7 @@ class _QrCodePageState extends State<QrCodePage> {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
       print("========" + scanData);
-      if(widget.onFinish != null) {
-        widget.onFinish(scanData);
-        Navigator.pop(context);
-      }
+      Navigator.pop(context, {"content", scanData});
     });
   }
 

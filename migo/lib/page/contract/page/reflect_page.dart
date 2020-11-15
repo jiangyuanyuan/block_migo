@@ -109,12 +109,16 @@ class _ReflectPageState extends State<ReflectPage> {
     }, fail: (e) => EasyLoading.showError(e));
   }
 
-  void _scanAction() {
-    Navigator.push(context, CupertinoPageRoute(builder: (context) => QrCodePage(
-      onFinish: (sender) {
-        _editingController.text = sender;
-      },
-    ),));
+  void _scanAction() async {
+    // Navigator.push(context, CupertinoPageRoute(builder: (context) => QrCodePage(
+    //   onFinish: (sender) {
+    //     _editingController.text = sender;
+    //   },
+    // ),));
+    final params = await Navigator.pushNamed<Map<String, dynamic>>(context, "/qrcode");
+    if(params != null) {
+      _editingController.text = params["content"];
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -137,133 +141,135 @@ class _ReflectPageState extends State<ReflectPage> {
               },
             )
           ],
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
-                child: ChooseCoinView(
-                  onSelected: (selectindex, sender) {
-                    _updateAmount(list[selectindex]);
-                  },
-                  child: Container(
-                    height: 42,
-                    child: Stack(
-                      children: [
-                        Image.asset("assets/input_back.png", fit: BoxFit.fill, width: double.infinity,),
-                        Positioned(
-                          left: 10,
-                          height: 42,
-                          child: Container(
-                            alignment: Alignment.center,
-                            child: Text(coinName, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
+                  child: ChooseCoinView(
+                    onSelected: (selectindex, sender) {
+                      _updateAmount(list[selectindex]);
+                    },
+                    child: Container(
+                      height: 42,
+                      child: Stack(
+                        children: [
+                          Image.asset("assets/input_back.png", fit: BoxFit.fill, width: double.infinity,),
+                          Positioned(
+                            left: 10,
+                            height: 42,
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: Text(coinName, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
+                            ),
                           ),
-                        ),
-                        Positioned(
-                          right: 10,
-                          height: 42,
-                          child: Image.asset("assets/coin_select.png"),
-                        )
-                      ],
-                    ),
-                  ),
-                  titles: list.map((e) => e.wCoin.coinName).toList(),
-                ),
-              ),
-              
-              Container(
-                  margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-                  // padding: const EdgeInsets.symmetric(),
-                  // padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RechargeHeadView(
-                        onSelected: (tabindex) {
-                          type = tabindex == 0 ? 2 : 1;
-                        },
+                          Positioned(
+                            right: 10,
+                            height: 42,
+                            child: Image.asset("assets/coin_select.png"),
+                          )
+                        ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(24),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(I18n.of(context).withdrawaddress, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                            SizedBox(height: 12,),
-                            Stack(
-                              children: [
-                                NormalTextfield(
-                                  controller: _editingController,
-                                  focusNode: _focusNode,
-                                  hintText: I18n.of(context).pleaseinputorcopy,
-                                ),
-                                Positioned(
-                                  right: 0,
-                                  child: IconButton(
-                                    icon: Image.asset("assets/scan_icon.png"),
-                                    onPressed: () {
-                                      _scanAction();
-                                    },
-                                  ),
-                                )
-                              ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 20, bottom: 10),
-                              child: Text(I18n.of(context).withdrawnum, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                            ),
-                            NormalTextfield(
-                              controller: _numController,
-                              focusNode: _numFocusNode,
-                              keyboardType: TextInputType.numberWithOptions(decimal: true),
-                              inputFormatters: [
-                                NumberFormat(decimalRange: 4)
-                              ],
-                              onChanged: (val) {
-                                outnumber = num.parse(val);
-                                setState(() {
-                                });
-                              },
-                              hintText: I18n.of(context).pleaseinputonumber,
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(16),
-                              margin: const EdgeInsets.only(top: 20),
-                              decoration: BoxDecoration(
-                                color: const Color(0xffE5F0FA),
-                                borderRadius: BorderRadius.circular(4)
-                              ),
-                              child: Column(
+                    ),
+                    titles: list.map((e) => e.wCoin.coinName).toList(),
+                  ),
+                ),
+                
+                Container(
+                    margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+                    // padding: const EdgeInsets.symmetric(),
+                    // padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        RechargeHeadView(
+                          onSelected: (tabindex) {
+                            type = tabindex == 0 ? 2 : 1;
+                          },
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(24),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(I18n.of(context).withdrawaddress, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                              SizedBox(height: 12,),
+                              Stack(
                                 children: [
-                                  _Row(titles: I18n.of(context).availableamount, val: "${Tool.number(banlance, 2)} $coinName",),
-                                  SizedBox(height: 10,),
-                                  _Row(titles: I18n.of(context).handlingfee, val: "${Tool.number(fee * 100, 2)}%",),
-                                  SizedBox(height: 10,),
-                                  _Row(titles: I18n.of(context).actualarrival, val: "${Tool.number(outnumber * (1 - fee), 4)} $coinName",)
+                                  NormalTextfield(
+                                    controller: _editingController,
+                                    focusNode: _focusNode,
+                                    hintText: I18n.of(context).pleaseinputorcopy,
+                                  ),
+                                  Positioned(
+                                    right: 0,
+                                    child: IconButton(
+                                      icon: Image.asset("assets/scan_icon.png"),
+                                      onPressed: () {
+                                        _scanAction();
+                                      },
+                                    ),
+                                  )
                                 ],
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 20.0, bottom: 10),
-                              child: Text(I18n.of(context).withdrawrule, style: AppFont.textStyle(12, color: Colors.black),),
-                            ),
-                            Text(I18n.of(context).withDrawNotice, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                            SizedBox(height: 32,),
-                            BtnAction(
-                              title: I18n.of(context).sure,
-                              onTap: _submit,
-                            )
-                          ],
-                        ),
-                      )
-                    ]
-                  )
-              )
-            ],
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20, bottom: 10),
+                                child: Text(I18n.of(context).withdrawnum, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                              ),
+                              NormalTextfield(
+                                controller: _numController,
+                                focusNode: _numFocusNode,
+                                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                inputFormatters: [
+                                  NumberFormat(decimalRange: 4)
+                                ],
+                                onChanged: (val) {
+                                  outnumber = num.parse(val);
+                                  setState(() {
+                                  });
+                                },
+                                hintText: I18n.of(context).pleaseinputonumber,
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(16),
+                                margin: const EdgeInsets.only(top: 20),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xffE5F0FA),
+                                  borderRadius: BorderRadius.circular(4)
+                                ),
+                                child: Column(
+                                  children: [
+                                    _Row(titles: I18n.of(context).availableamount, val: "${Tool.number(banlance, 2)} $coinName",),
+                                    SizedBox(height: 10,),
+                                    _Row(titles: I18n.of(context).handlingfee, val: "${Tool.number(fee * 100, 2)}%",),
+                                    SizedBox(height: 10,),
+                                    _Row(titles: I18n.of(context).actualarrival, val: "${Tool.number(outnumber * (1 - fee), 4)} $coinName",)
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20.0, bottom: 10),
+                                child: Text(I18n.of(context).withdrawrule, style: AppFont.textStyle(12, color: Colors.black),),
+                              ),
+                              Text(I18n.of(context).withDrawNotice, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                              SizedBox(height: 32,),
+                              BtnAction(
+                                title: I18n.of(context).sure,
+                                onTap: _submit,
+                              )
+                            ],
+                          ),
+                        )
+                      ]
+                    )
+                )
+              ],
+            ),
           ),
         ),
       ),
