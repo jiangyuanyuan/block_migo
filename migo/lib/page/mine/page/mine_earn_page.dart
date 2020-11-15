@@ -6,6 +6,7 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/model/mine_earn_model.dart';
+import 'package:migo/page/mine/model/mines_type_model.dart';
 import 'package:migo/page/mine/view/earn_date_view.dart';
 import 'package:migo/page/mine/view/mine_earn_head.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -25,10 +26,13 @@ class _MineEarnPageState extends State<MineEarnPage> {
   List<EarnModel> list = [];
   int year = 2020;
   int month = 1;
+  int page = 1;
+  List<MinesTypeModel> typelist = [];
   @override
   void initState() {
     super.initState();
     _request();
+    _requestType();
     DateTime now = DateTime.now();
     year = now.year;
     month = now.month;
@@ -37,11 +41,23 @@ class _MineEarnPageState extends State<MineEarnPage> {
     });
   }
 
-  void _request() {
-    Networktool.request(API.getMyPayList + "$type/$datetime", success: (data){
+  void _requestType() {
+    Networktool.request(API.getMyProfitOrPayListPage, method: HTTPMETHOD.GET, success: (data) {
+      final temp = MinesTypeResponse.fromJson(data).data;
+      if(temp != null) typelist = temp;
+      if(mounted) setState(() {
+        
+      });
+    });
+  }
+
+  void _request([bool isclear = false]) {
+    Networktool.request(API.getMyPayList + "$type/$datetime/$page/10", method: HTTPMETHOD.GET, success: (data){
       final temp = MineEarnResponse.fromJson(data);
       list = temp.data;
       list.sort((a, b) => a.earnTime.compareTo(b.earnTime));
+      if(isclear) list.clear();
+      if(temp.data.length < 10) _refreshController.loadNoData();
       if(mounted) setState(() {
         
       });
@@ -49,6 +65,13 @@ class _MineEarnPageState extends State<MineEarnPage> {
   }
 
   void _refresh() {
+    page = 1;
+    _request(true);
+    _requestType();
+  }
+
+  void _loading() {
+    page += 1;
     _request();
   }
 
@@ -78,10 +101,12 @@ class _MineEarnPageState extends State<MineEarnPage> {
           children: [
             MineEarnHeadView(
               tabindex: tabindex,
+              titles: typelist.map((e) => e.name).toList(),
               onTap: (sender) {
                 tabindex = sender;
-                type = sender;
+                type = typelist[sender].id;
                 if(tabindex == 0) type = -1;
+
                 _refreshController.requestRefresh();
                 setState(() {
                   
@@ -99,26 +124,30 @@ class _MineEarnPageState extends State<MineEarnPage> {
                   children: [
                     EarnDateView(datetime: "$year.$month", onSelected: _dateAction,),
                     Expanded(
-                      child: RefreshWidget(
-                        controller: _refreshController,
-                        onRefresh: _refresh,
-                        child: ListView.separated(
-                          padding: EdgeInsets.zero,
-                          itemBuilder: (context, index) {
-                            EarnModel lastmodel;
-                            final model = list[index];
-                            if(index > 0) {
-                              final templast = list[index - 1];
-                              if(Tool.timeFormat("yyyy-MM-dd", templast.createTime) != Tool.timeFormat("yyyy-MM-dd", templast.createTime)) {
-                                lastmodel = templast;
+                      child: SafeArea(
+                        top: false,
+                        child: RefreshWidget(
+                          controller: _refreshController,
+                          onRefresh: _refresh,
+                          onLoading: _loading,
+                          child: ListView.separated(
+                            padding: EdgeInsets.zero,
+                            itemBuilder: (context, index) {
+                              EarnModel lastmodel;
+                              final model = list[index];
+                              if(index > 0) {
+                                final templast = list[index - 1];
+                                if(Tool.timeFormat("yyyy-MM-dd", templast.createTime) != Tool.timeFormat("yyyy-MM-dd", templast.createTime)) {
+                                  lastmodel = templast;
+                                }
+                              } else {
+                                lastmodel = EarnModel();
                               }
-                            } else {
-                              lastmodel = EarnModel();
-                            }
-                            return _Cell(last: lastmodel, model: model,);
-                          }, 
-                          separatorBuilder: (context, index) => Divider(height: 1,), 
-                          itemCount: list.length
+                              return _Cell(last: lastmodel, model: model,);
+                            }, 
+                            separatorBuilder: (context, index) => Divider(height: 1,), 
+                            itemCount: list.length
+                          ),
                         ),
                       ),
                     )

@@ -10,7 +10,6 @@ class ExchangeCell extends StatefulWidget {
   final bool ispre;
   final List<String> titles;
   final Function(String val, int index) onSelected;
-  final Function(String sender) onMaxed;
   final List<ExchangeCoinModel> tradings;
   final Function(String val) onChanged;
   final String outputAmount;
@@ -21,7 +20,6 @@ class ExchangeCell extends StatefulWidget {
     this.ispre = true, 
     this.onChanged,
     this.onSelected, 
-    this.onMaxed,
     this.outputAmount,
     this.currCoinsName,
     this.titles
@@ -130,13 +128,15 @@ class _ExchangeCellState extends State<ExchangeCell> {
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  if(widget.onMaxed != null) {
-                    widget.onMaxed(_getTrading());
-                  }
-                },
-                child: Text("MAX", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),)
+              Visibility(
+                visible: widget.ispre == true,
+                child: InkWell(
+                  onTap: () {
+                    _editingController.text = _getTrading();
+                    widget.onChanged(_editingController.text);
+                  },
+                  child: Text("MAX", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),)
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),

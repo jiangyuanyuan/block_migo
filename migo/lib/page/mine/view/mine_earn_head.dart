@@ -4,15 +4,9 @@ import 'package:migo/common/textstyle/textstyle.dart';
 class MineEarnHeadView extends StatelessWidget {
   final int tabindex;
   final Function(int sender) onTap;
-  static const List<String> titles = [
-    "全部",
-    "乐屋",
-    "乐巷",
-    "乐堂",
-    "乐都",
-  ];
+  final List<String> titles;
 
-  const MineEarnHeadView({Key key, this.onTap, this.tabindex = 0}) : super(key: key);
+  const MineEarnHeadView({Key key, this.titles, this.onTap, this.tabindex = 0}) : super(key: key);
 
   List<Widget> _create(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -28,9 +22,11 @@ class MineEarnHeadView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: _create(context),
+      child: SingleChildScrollView(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: _create(context),
+        ),
       ),
     );
   }

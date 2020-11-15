@@ -57,5 +57,7 @@ class API {
   static const String  rechargeDetailList = "user/wRecordRecharge/rechargeDetailList";
 
   static const String getTransferOut = "user/wRecordTransferOut/getTransferOut/";
+
+  static const String getMyProfitOrPayListPage = "/user/mMineUser/getMyProfitOrPayListPage";
 }
   
