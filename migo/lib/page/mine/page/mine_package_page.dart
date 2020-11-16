@@ -63,6 +63,7 @@ class _MinePackagePageState extends State<MinePackagePage> {
     Networktool.request(API.miningBeltShovel + model.id, success: (data) {
       EasyLoading.dismiss();
       EasyLoading.showToast(I18n.of(context).success);
+      _refreshController.requestRefresh();
     }, fail: (msg) => EasyLoading.showError(msg),);
     
   } 

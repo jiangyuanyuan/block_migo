@@ -254,6 +254,8 @@ class I18n implements WidgetsLocalizations {
   String get homeearn => "赚取";
   /// "抵押"
   String get mortgage => "抵押";
+  /// "需支付"
+  String get homepay => "需支付";
   /// "日产量"
   String get dailyoutput => "日产量";
   /// "挖矿周期"
@@ -448,8 +450,8 @@ class I18n implements WidgetsLocalizations {
   String get mineumbrellanumber => "我的伞下人数";
   /// "本周新增质押"
   String get weakaddMEGO => "本周新增质押";
-  /// "累计质押MEGO"
-  String get allmego => "累计质押MEGO";
+  /// "累计质押"
+  String get allmego => "累计质押";
   /// "全球矿池分红"
   String get earthmoney => "全球矿池分红";
   /// "有效用户数"
@@ -849,6 +851,9 @@ class _I18n_en_US extends I18n {
   /// "Mortgage"
   @override
   String get mortgage => "Mortgage";
+  /// "Payment required"
+  @override
+  String get homepay => "Payment required";
   /// "Daily output"
   @override
   String get dailyoutput => "Daily output";
@@ -1140,9 +1145,9 @@ class _I18n_en_US extends I18n {
   /// "Add pledge this week"
   @override
   String get weakaddMEGO => "Add pledge this week";
-  /// "Cumulative pledge MEGO"
+  /// "Cumulative pledge"
   @override
-  String get allmego => "Cumulative pledge MEGO";
+  String get allmego => "Cumulative pledge";
   /// "Global Mining Pool Dividend"
   @override
   String get earthmoney => "Global Mining Pool Dividend";

@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       EasyLoading.showToast(isemail ? I18n.of(context).pleaseinputemail : I18n.of(context).pleaseinputphone);
       return;
     }
-    if(modtype == 3) { // 忘记密码
+    if(modtype == 3 || modtype == 1) { // 忘记密码
       if(code.isEmpty) {
         EasyLoading.showToast(I18n.of(context).verificationcode);
         return;

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/generated/i18n.dart';
 
 class RechargeHeadView extends StatefulWidget {
   final Function(int tabindex) onSelected;
-  const RechargeHeadView({Key key, this.onSelected}) : super(key: key);
+  final bool isreflect;
+  const RechargeHeadView({Key key, this.onSelected, this.isreflect = false}) : super(key: key);
   @override
   _RechargeHeadViewState createState() => _RechargeHeadViewState();
 }
@@ -46,7 +49,16 @@ class _RechargeHeadViewState extends State<RechargeHeadView> with SingleTickerPr
               indicatorPadding: const EdgeInsets.symmetric(horizontal: 30),
               labelStyle: AppFont.textStyle(12, color: AppColor.back998),
               unselectedLabelStyle: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),
-              onTap: widget.onSelected,
+              onTap: (sender) {
+                if(sender == 1 && widget.isreflect) {
+                  EasyLoading.showToast(I18n.of(context).rechargeNotsupport);
+                  _tabController.index = 0;
+                } else {
+                  if(widget.onSelected != null) {
+                    widget.onSelected(sender);
+                  }
+                }
+              } ,
               tabs: [
                 Text("TRC20"),
                 Text("ERC20"),

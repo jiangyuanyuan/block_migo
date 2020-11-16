@@ -124,6 +124,7 @@
     "homeearn":"赚取",
 
     "mortgage":"抵押",
+    "homepay":"需支付",
     "dailyoutput":"日产量",
     "miningcycle":"挖矿周期",
     "miningamount":"挖矿量",
@@ -227,7 +228,7 @@
     "minepushanumber":"我的直推人数",
     "mineumbrellanumber":"我的伞下人数",
     "weakaddMEGO":"本周新增质押",
-    "allmego":"累计质押MEGO",
+    "allmego":"累计质押",
     "earthmoney":"全球矿池分红",
     "realuser":"有效用户数",
     "bankNo":"银行卡号",

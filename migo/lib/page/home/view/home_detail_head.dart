@@ -9,8 +9,8 @@ import 'home_gradient_text.dart';
 
 class HomeDetailHeadView extends StatelessWidget {
   final HomeModel model;
-
-  const HomeDetailHeadView({Key key, this.model}) : super(key: key);
+  final num userCount;
+  const HomeDetailHeadView({Key key, this.model, this.userCount}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,7 +28,7 @@ class HomeDetailHeadView extends StatelessWidget {
               ),),
               SizedBox(height: 8,),
               HomeGradientText(
-                data: "${model.count ?? 0}",
+                data: "${userCount ?? 0}",
                 fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20,),

@@ -55,7 +55,7 @@ class MainHeadView extends StatelessWidget {
                 ),
               ),
             ),
-            Text("ID：${value.data.id.toString().substring(11)}", style: AppFont.textStyle(
+            Text("${value.data.mobile != null ? value.data.mobile : value.data.email}", style: AppFont.textStyle(
               14, 
               color: Colors.white, 
               fontWeight: FontWeight.bold,
@@ -73,8 +73,8 @@ class MainHeadView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _DetailView(title: "${I18n.of(context).teamperformance}(MIGO)", detail: Tool.number(model?.totalTeamUserAmount, 2),),
-                  _DetailView(title: "${I18n.of(context).dailyoutput}(MIGO)", detail: Tool.number(0.0, 2),),
-                  _DetailView(title: "${I18n.of(context).dayincome}(MIGO)", detail: Tool.number(model?.todayProfit, 2),),
+                  _DetailView(title: "${I18n.of(context).dailyoutput}(MIGO)", detail: Tool.number(model?.todayProfit, 2),),
+                  _DetailView(title: "${I18n.of(context).denomination}(MIGO)", detail: Tool.number(model?.faceValue, 2),),
                 ],
               ),
             ),

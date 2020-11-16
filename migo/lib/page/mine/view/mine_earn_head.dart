@@ -5,8 +5,12 @@ class MineEarnHeadView extends StatelessWidget {
   final int tabindex;
   final Function(int sender) onTap;
   final List<String> titles;
-
-  const MineEarnHeadView({Key key, this.titles, this.onTap, this.tabindex = 0}) : super(key: key);
+  const MineEarnHeadView({
+    Key key, 
+    this.titles, 
+    this.onTap, 
+    this.tabindex = 0,
+  }) : super(key: key);
 
   List<Widget> _create(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -21,19 +25,28 @@ class MineEarnHeadView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.only(left: 20, right: 10),
       width: double.infinity,
       height: 40,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: _create(context),
-        ),
+      child: Row(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: _create(context),
+              ),
+            ),
+          ),
+          SizedBox(width: 5,),
+          Image.asset("assets/sign_tip_arrow_right.png", width: 15, height: 15,)
+        ],
       ),
     );
   }
 }
+
 
 class _Button extends StatelessWidget {
   final String titles;

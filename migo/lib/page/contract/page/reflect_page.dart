@@ -185,6 +185,7 @@ class _ReflectPageState extends State<ReflectPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         RechargeHeadView(
+                          isreflect: true,
                           onSelected: (tabindex) {
                             type = tabindex == 0 ? 2 : 1;
                           },

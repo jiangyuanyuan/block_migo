@@ -38,6 +38,7 @@ class API {
   // static const String getAccountPageByCoinName = "user/uUserAccountDetail/getAccountPageByCoinName/";
   static const String myTeamPage = "user/uUserReferee/myTeamPage";
   static const String getMyMineList = "user/mMineUser/getMyMineList/";
+  static const String getMineBaseById = "user/mMineBase/getMineBaseById/";
   static const String homeminingBeltShovel = "user/mMineUser/miningBeltShovel";
   /// 团队
   static const String teamProfitPage = "user/uUserReferee/teamProfitPage/";

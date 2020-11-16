@@ -44,10 +44,6 @@ class _AboutPageState extends State<AboutPage> {
           EasyLoading.dismiss();
       final temp = VersionResponse.fromJson(data).data;
       if (temp == null) return;
-
-      if (temp.version == version) {
-        return;
-      }
       Alert.showMsgDialog(context,
           barrierDismissible: temp.type == 0,
           title: I18n.of(context).settingupdate,

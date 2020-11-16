@@ -120,7 +120,7 @@ class _TeamBottomViewState extends State<TeamBottomView> {
           ), 
         ),
         Positioned.fill(
-          top: widget.tabindex == 2 ? 107 : 88,
+          top: 88,
           child: Container(
           decoration: BoxDecoration(
             color: const Color(0xffF3F3F3),

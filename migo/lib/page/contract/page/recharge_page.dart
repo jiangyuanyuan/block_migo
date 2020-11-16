@@ -25,7 +25,7 @@ class _RechagePageState extends State<RechagePage> {
   @override
   void initState() {
     super.initState();
-    _request();
+    Future.delayed(const Duration(milliseconds: 100)).then((value) => _request());
   }
 
   void _request() {
@@ -36,7 +36,7 @@ class _RechagePageState extends State<RechagePage> {
       list = temp.data;
       if(list.length > 0) {
         coinName = list.first.coinName;
-        address = list.first.baseAddress;
+        _updateAmount(list.first);
       }
       if(mounted) setState(() {
         
@@ -45,10 +45,12 @@ class _RechagePageState extends State<RechagePage> {
   }
 
   void _updateAmount(RechargeModel model) {
-    setState(() {
-      coinName = model.coinName;
-      address = type == 0 ? model.trcAddress : model.baseAddress;
-    });
+    if(mounted) {
+      setState(() {
+        coinName = model.coinName;
+        address = type == 0 ? model.trcAddress : model.baseAddress;
+      });
+    }
   }
   @override
   Widget build(BuildContext context) {

@@ -44,13 +44,16 @@ class PackageCell extends StatelessWidget {
 
   double _compute() {
     final use = DateTime.fromMillisecondsSinceEpoch(model.useTime);
-    return use.day / model.canUseTime.toDouble();
+    final duration = DateTime.now().difference(use);
+    int hour = duration.inHours;
+    if(hour < 0) return 0;
+    return hour / (model.canUseTime * 24.0);
   }
 
   Widget _createNormal(BuildContext context) {
     if(model.useTime == null) {
       return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20),
@@ -65,6 +68,7 @@ class PackageCell extends StatelessWidget {
                 ],
               ),
               // SizedBox(width: 45,),
+              Spacer(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -73,7 +77,8 @@ class PackageCell extends StatelessWidget {
                   Center(
                     child: Text("${I18n.of(context).volume}：${model.toolbox.volume}", style: AppFont.textStyle(12, color: Colors.white),)),
                 ],
-              )
+              ),
+              SizedBox(width: 20,)
             ],
           );
     } else {

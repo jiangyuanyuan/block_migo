@@ -144,12 +144,12 @@ class MinePayRecordModel {
   String coinId;
   String coinName;
   int createTime;
-  int id;
-  int mineBaseId;
-  int mineUserId;
+  String id;
+  String mineBaseId;
+  String mineUserId;
   num payAmount;
   int payTime;
-  int userId;
+  String userId;
 
   MinePayRecordModel(
       {this.coinId,

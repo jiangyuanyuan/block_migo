@@ -21,7 +21,7 @@ import 'package:provider/provider.dart';
 class MineModPage extends StatelessWidget {
 
   void _alert(BuildContext context) {
-    Alert.showBottomDialog(context, ["拍照", "从手机相册选择",], onTapIndex: (index) async{
+    Alert.showBottomDialog(context, [I18n.of(context).takephoto, I18n.of(context).album,], onTapIndex: (index) async{
       var status = await Permission.photos.status;
       if (status.isUndetermined) {
         Map<Permission, PermissionStatus> _ = await [

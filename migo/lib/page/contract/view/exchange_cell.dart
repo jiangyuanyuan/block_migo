@@ -14,10 +14,14 @@ class ExchangeCell extends StatefulWidget {
   final Function(String val) onChanged;
   final String outputAmount;
   final String currCoinsName;
+  final TextEditingController controller;
+  final FocusNode focusNode;
   const ExchangeCell({
     Key key, 
     this.tradings, 
     this.ispre = true, 
+    this.controller,
+    this.focusNode,
     this.onChanged,
     this.onSelected, 
     this.outputAmount,
@@ -31,8 +35,6 @@ class ExchangeCell extends StatefulWidget {
 class _ExchangeCellState extends State<ExchangeCell> {
   String coins = "--";
   List<String> titles = [];
-  TextEditingController _editingController = TextEditingController();
-  FocusNode focusNode = FocusNode();
   @override
   void initState() {
     super.initState();
@@ -40,12 +42,6 @@ class _ExchangeCellState extends State<ExchangeCell> {
     if(widget.titles != null && widget.titles?.length > 0) {
       coins = widget.titles.first;
     }
-  }
-
-  @override
-  void dispose() {
-    _editingController.dispose();
-    super.dispose();
   }
 
   String _getTrading() {
@@ -78,7 +74,7 @@ class _ExchangeCellState extends State<ExchangeCell> {
         }
       }
     }
-    if(widget.ispre == false) _editingController.text = Tool.number(num.parse(widget.outputAmount), 4);
+    if(widget.ispre == false) widget.controller.text = Tool.number(num.parse(widget.outputAmount), 4);
     super.didUpdateWidget(oldWidget);
   }
 
@@ -110,8 +106,8 @@ class _ExchangeCellState extends State<ExchangeCell> {
                 child: IgnorePointer(
                   ignoring: !widget.ispre,
                   child: TextField(
-                    controller: _editingController,
-                    focusNode: focusNode,
+                    controller: widget.controller,
+                    focusNode: widget.focusNode,
                     style: AppFont.textStyle(16, color: AppColor.back998, fontWeight: FontWeight.bold),
                     onChanged: widget.onChanged,
                     onSubmitted: widget.onChanged,
@@ -132,8 +128,8 @@ class _ExchangeCellState extends State<ExchangeCell> {
                 visible: widget.ispre == true,
                 child: InkWell(
                   onTap: () {
-                    _editingController.text = _getTrading();
-                    widget.onChanged(_editingController.text);
+                    widget.controller.text = _getTrading();
+                    widget.onChanged(widget.controller.text);
                   },
                   child: Text("MAX", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),)
                 ),

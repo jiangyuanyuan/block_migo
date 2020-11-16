@@ -41,7 +41,7 @@ class HomeCell extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("${I18n.of(context).mortgage}：${model.pledgeAmount} ${model.pledgeCoinName}-${model.mineCoinName}", style: AppFont.textStyle(12, color: Colors.white),),
+                      Text("${I18n.of(context).homepay}：${model.pledgeAmount} ${model.pledgeCoinName}", style: AppFont.textStyle(12, color: Colors.white),),
                       Text("${I18n.of(context).dailyoutput}：${model.totalMine / model.mineTimes}", style: AppFont.textStyle(12, color: Colors.white),),
                       Text("${I18n.of(context).miningcycle}：${model.mineTimes} ${I18n.of(context).day}", style: AppFont.textStyle(12, color: Colors.white),),
                       Text("${I18n.of(context).miningamount}：${model.totalMine}", style: AppFont.textStyle(12, color: Colors.white),),

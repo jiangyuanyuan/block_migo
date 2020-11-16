@@ -64,7 +64,8 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
 	        "txPwd": Tool.generateMd5(pwd)
       }, success: (data) {
         EasyLoading.showToast(I18n.of(context).success);
-        _refreshController.requestRefresh();
+        // _refreshController.requestRefresh();
+        _request();
       }, fail: (e) => EasyLoading.showError(e));
     }));
   }
@@ -118,7 +119,7 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
         ],
         child: Column(
           children: [
-            HomeDetailHeadView(model: model),
+            HomeDetailHeadView(model: model, userCount: detailModel?.useCount,),
             SizedBox(height: 20,),
             Expanded(
               child: Stack(

@@ -77,11 +77,20 @@ class _SmsCounterViewState extends State<SmsCounterView> {
     }
     EasyLoading.show(status: "Loading...");
     String url = API.sms + "$phone/1";
-    if(widget.isemail) url = API.emailcode + "$phone";
-    Networktool.request(url, method: HTTPMETHOD.GET, success: (data){
-      // 回传新发的验证码
-      _beginTimer();
-    },finaly: () => EasyLoading.dismiss());
+    if(widget.isemail) {
+      url = API.emailcode;
+      Networktool.request(url, method: HTTPMETHOD.POST, params: {
+        "email":phone,
+      }, success: (data){
+        // 回传新发的验证码
+        _beginTimer();
+      },finaly: () => EasyLoading.dismiss());
+    } else {
+       Networktool.request(url, method: HTTPMETHOD.GET, success: (data){
+        // 回传新发的验证码
+        _beginTimer();
+      },finaly: () => EasyLoading.dismiss());
+    }
   }
 
   @override

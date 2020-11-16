@@ -1,3 +1,4 @@
+import 'package:country_calling_code_picker/functions.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
@@ -28,6 +29,8 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
   String phone = "";
   /// 手机号
   int type = 1;
+
+  String contryCode = "--";
   
   @override
   void dispose() {
@@ -44,6 +47,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
         type = Provider.of<UserModel>(context, listen: false).data.registerType;
       });
     });
+    _initCode();
   }
 
   void _submit() {
@@ -75,6 +79,22 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
         Navigator.pop(context);
       }, fail: (msg) => EasyLoading.showToast(msg),);
     },));
+  }
+
+  void _initCode() async {
+    final country = await getDefaultCountry(context);
+    setState(() {
+      contryCode = country.callingCode;
+    });
+  }
+
+  void _createBuild() async {
+    final country = await showCountryPickerSheet(context,);
+    if (country != null) {
+      setState(() {
+        contryCode = country.callingCode;
+      });
+    }
   }
 
   @override
@@ -136,12 +156,15 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                       padding: const EdgeInsets.only(left: 12),
                       color: Colors.white,
                       alignment: Alignment.centerLeft,
-                      child: Row(
-                        children: [
-                          Text(type == 1  ? I18n.of(context).phone : I18n.of(context).email, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
-                          SizedBox(width: 6,),
-                          Image.asset("assets/sign_choos_arrow_down.png"),
-                        ],
+                      child: InkWell(
+                        onTap: type == 1 ? _createBuild : null,
+                        child: Row(
+                          children: [
+                            Text(type == 1  ? (I18n.of(context).phone + contryCode) : I18n.of(context).email, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                            SizedBox(width: 6,),
+                            Image.asset("assets/sign_choos_arrow_down.png"),
+                          ],
+                        ),
                       ),
                     ),
                   )
@@ -165,7 +188,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                     right: 12,
                     top: 0,
                     bottom: 0,
-                    child: Center(child: SmsCounterView(phone: phone, isemail: type != 1,)),
+                    child: Center(child: SmsCounterView(phone: type == 1 ? (contryCode.replaceFirst("+", "") + "_" + phone) : phone, isemail: type != 1,)),
                   )
                 ],
               ),
