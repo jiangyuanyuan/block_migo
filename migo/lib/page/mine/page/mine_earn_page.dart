@@ -24,7 +24,7 @@ class _MineEarnPageState extends State<MineEarnPage> {
   RefreshController _refreshController = RefreshController();
   // 矿池名字 传‘-1’返回全部
   int type = -1;
-  int datetime = -1;
+  String datetime = "-1";
   List<MinesPayEarnModel> list = [];
   List<MinesEarnsModel> list2 = [];
   int year = 2020;
@@ -100,9 +100,9 @@ class _MineEarnPageState extends State<MineEarnPage> {
         year = params["year"];
         month = params["month"];
       });
+      datetime = "${year}_${month.toString().length < 2 ? "0" : ""}$month";
+      _refreshController.requestRefresh();
     }
-    datetime = DateTime.parse("$year${month}00").millisecondsSinceEpoch;
-    _refreshController.requestRefresh();
   }
 
   @override

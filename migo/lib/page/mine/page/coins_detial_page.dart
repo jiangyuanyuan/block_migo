@@ -24,6 +24,7 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
   MineCoinModel model;
   RefreshController _refreshController = RefreshController();
   List<MineCoinRecordModel> list = [];
+  bool sorted = true;
   @override
   void initState() {
     super.initState();
@@ -35,7 +36,11 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
     Networktool.request(API.getAccountDetailByCoinName + "${model.coinName}", success: (data){
       final temp = MineCoinRecordResponse.fromJson(data);
       if(temp.data != null) list = temp.data;
-      list.sort((a, b) => b.createTime.compareTo(a.createTime));
+      if(sorted) {
+        list.sort((a, b) => b.createTime.compareTo(a.createTime));
+      } else {
+        list.sort((a, b) => a.createTime.compareTo(b.createTime));
+      }
       if(mounted) setState(() {
         
       });
@@ -125,7 +130,10 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                         IconButton(
                           icon: Image.asset("assets/fliter.png"),
                           iconSize: 24,
-                          onPressed: () {},
+                          onPressed: () {
+                            sorted = !sorted;
+                            _refreshController.requestRefresh();
+                          },
                         )
                       ],
                     ),

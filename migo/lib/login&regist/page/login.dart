@@ -31,6 +31,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
   PageController _pageController = PageController();
   // 1: 修改密码 2: 修改交易密码 3 忘记密码
   int modtype = 0;
+  bool showerror = false;
   @override
   void dispose() {
     _controller.dispose();
@@ -106,7 +107,12 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
         // 更新用户信息
         Provider.of<UserModel>(context, listen: false).setModel(model);
         Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
-      },fail: (e) => EasyLoading.showError(e));
+      },fail: (e) {
+        setState(() {
+          showerror = true;
+        });
+         EasyLoading.showError(e);
+      });
     });
   }
 
@@ -200,7 +206,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                 child: PageView(
                   controller: _pageController,
                   children: [
-                    LoginPhoneView(modetype: modtype, onLogin: (sender, pwd, code) => _login(sender, pwd, code, false),),
+                    LoginPhoneView(modetype: modtype, showerror: showerror, onLogin: (sender, pwd, code) => _login(sender, pwd, code, false),),
                     LoginEmailView(modtype: modtype, onLogin: (sender, pwd, code) => _login(sender, pwd, code, true))
                   ],
                   onPageChanged: (value) {

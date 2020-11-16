@@ -11,7 +11,8 @@ import 'package:migo/login&regist/view/sms_counter.dart';
 class LoginPhoneView extends StatefulWidget {
   final Function(String phone, String pwd, String phoneCode) onLogin;
   final int modetype;
-  const LoginPhoneView({Key key, this.modetype, this.onLogin}) : super(key: key);
+  bool showerror;
+  LoginPhoneView({Key key, this.showerror = false, this.modetype, this.onLogin}) : super(key: key);
   @override
   _LoginPhoneViewState createState() => _LoginPhoneViewState();
 }
@@ -27,7 +28,6 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
   bool ispwd = true;
   String phone = "";
   String contryCode = "+86";
-  bool showerror = false;
 
   @override
   void dispose() {
@@ -141,12 +141,12 @@ class _LoginPhoneViewState extends State<LoginPhoneView> {
                         ],
                       ),
                       Visibility(
-                        visible: showerror,
+                        visible: widget.showerror,
                         child: Positioned.fill(
                           child: InkWell(
                             onTap: () {
                               setState(() {
-                                showerror = false;
+                                widget.showerror = false;
                                 _phoneNode.requestFocus();
                               });
                             },
