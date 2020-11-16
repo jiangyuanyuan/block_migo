@@ -137,7 +137,7 @@ class _MineEarnPageState extends State<MineEarnPage> {
                 child: Column(
                   children: [
                     EarnDateView(
-                      datetime: "$year.$month", 
+                      datetime: datetime == "-1" ? "--" : "$year.$month", 
                       onSelected: _dateAction,
                       ispay: ispay,
                       onChoosed: (sender) {

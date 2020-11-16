@@ -67,7 +67,7 @@ class Data {
 }
 
 class MinesEarnsModel {
-  int coinId;
+  String coinId;
   String coinName;
   int createTime;
   num earnAmount;
@@ -75,11 +75,11 @@ class MinesEarnsModel {
   String earnName;
   int earnTime;
   String enEarnName;
-  int id;
-  int mineBaseId;
-  int mineUserId;
+  String id;
+  String mineBaseId;
+  String mineUserId;
   int status;
-  int userId;
+  String userId;
 
   MinesEarnsModel(
       {this.coinId,
@@ -103,7 +103,10 @@ class MinesEarnsModel {
     earnAmount = json['earnAmount'];
     earnDay = json['earnDay'];
     earnName = json['earnName'];
-    earnTime = json['earnTime'];
+    final String time = json['earnTime'];
+    if(time != null) {
+      earnTime = DateTime.parse(time).millisecondsSinceEpoch;
+    }
     enEarnName = json['enEarnName'];
     id = json['id'];
     mineBaseId = json['mineBaseId'];
