@@ -21,15 +21,14 @@ class CoinsRecordPage extends StatefulWidget {
 class _CoinsRecordPageState extends State<CoinsRecordPage> {
   bool isrecharge = true;
   String coinName = "USDT";
-  RefreshController _refreshController = RefreshController();
+  RefreshController _refreshController = RefreshController(initialRefresh: true);
   List<RechargeRecordModel> rechargeList = [];
   List<ReflectRecordModel> reflectList = [];
   @override
   void initState() {
     super.initState();
-    // isrecharge = widget.params["isrecharge"];
+    isrecharge = widget.params["isrecharge"];
     if(widget.params["coinName"] != null) coinName = widget.params["coinName"];
-    _request();
   }
 
   @override

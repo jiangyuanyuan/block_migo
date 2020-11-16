@@ -35,7 +35,7 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
     Networktool.request(API.getAccountDetailByCoinName + "${model.coinName}", success: (data){
       final temp = MineCoinRecordResponse.fromJson(data);
       if(temp.data != null) list = temp.data;
-      list.sort((a, b) => a.createTime.compareTo(b.createTime));
+      list.sort((a, b) => b.createTime.compareTo(a.createTime));
       if(mounted) setState(() {
         
       });
@@ -141,7 +141,7 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                             final model = list[index];
                             if(index > 0) {
                               final templast = list[index - 1];
-                              if(Tool.timeFormat("yyyy-MM-dd", templast.createTime) != Tool.timeFormat("yyyy-MM-dd", templast.createTime)) {
+                              if(Tool.timeFormat("yyyy-MM-dd", model.createTime) != Tool.timeFormat("yyyy-MM-dd", templast.createTime)) {
                                 lastmodel = templast;
                               }
                             } else {

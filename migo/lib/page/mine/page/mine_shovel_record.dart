@@ -14,7 +14,7 @@ class MineShovelRecordPage extends StatefulWidget {
 
 class _MineShovelRecordPageState extends State<MineShovelRecordPage> {
 
-  RefreshController _refreshController = RefreshController();
+  RefreshController _refreshController = RefreshController(initialRefresh: true);
   int page = 1;
   List<MyShovelRecordModel> list = [];
   
@@ -26,6 +26,11 @@ class _MineShovelRecordPageState extends State<MineShovelRecordPage> {
         
       });
     }, finaly: _endrefresh);
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   void _refresh() {
