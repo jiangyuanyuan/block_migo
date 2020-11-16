@@ -128,9 +128,10 @@ class _TeamBottomViewState extends State<TeamBottomView> {
           ),
           child: PageView(
             controller: _pageController,
+            physics: NeverScrollableScrollPhysics(),
             children: [
               TeamShareDetailView(shareDTO: widget.model?.shareDTO,),
-              TeamLeadingDetailView(number: widget.model?.leaderDTO?.minTeamUserCount, subordinateLeaderDTOList: widget.model?.leaderDTO?.subordinateLeaderDTOList ?? [],),
+              TeamLeadingDetailView(number: widget.model?.leaderDTO?.minTeamUserCount ?? 0, subordinateLeaderDTOList: widget.model?.leaderDTO?.subordinateLeaderDTOList ?? [],),
               MineRewardView(accountDetailList: widget.model?.directDTO?.accountDetailList ?? [],)
             ],
           )

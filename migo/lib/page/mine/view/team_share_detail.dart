@@ -11,37 +11,47 @@ class TeamShareDetailView extends StatelessWidget {
   const TeamShareDetailView({Key key, this.shareDTO}) : super(key: key);
 
   List<Widget> _create(BuildContext context) {
-    return shareDTO.pseniorityConfigList.map((e) => _Cell(index: e.userLevel, percent: e.proportion, showlevel: e.userLevel == shareDTO.userLevel,)).toList();
+    if(shareDTO == null || shareDTO.pseniorityConfigList == null) return [];
+    return shareDTO.pseniorityConfigList.map((e) => _Cell(
+      index: e.userLevel, 
+      percent: e.proportion, 
+      showlevel: e.userLevel == shareDTO.userLevel,
+      authNum: shareDTO.totalAuthUserCount,
+      needNum: e.userCount,
+      seemark: e.seeRemark,
+    )).toList();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 20, left: 24),
-          child: Text(I18n.of(context).sharerewards, style: AppFont.textStyle(12, color: Colors.black)),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-          child: Column(
-            children: _create(context),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 24,),
+            child: Text(I18n.of(context).sharerewards, style: AppFont.textStyle(12, color: Colors.black)),
           ),
-        ),
-        SafeArea(
-          top: false,
-          child: Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: BtnImageBottomView(
-              title: I18n.of(context).invite,
-              onTap: () => Navigator.pushNamed(context, "/invite"),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+            child: Column(
+              children: _create(context),
             ),
           ),
-        )
-      ],
+          SafeArea(
+            top: false,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: BtnImageBottomView(
+                title: I18n.of(context).invite,
+                onTap: () => Navigator.pushNamed(context, "/invite"),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -50,7 +60,10 @@ class _Cell extends StatelessWidget {
   final bool showlevel;
   final int index;
   final num percent;
-  const _Cell({Key key, this.index, this.percent, this.showlevel = false}) : super(key: key);
+  final num authNum;
+  final num needNum;
+  final String seemark;
+  const _Cell({Key key, this.seemark, this.authNum, this.needNum, this.index, this.percent, this.showlevel = false}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -85,18 +98,32 @@ class _Cell extends StatelessWidget {
                     border: Border.all(width: 4, color: const Color(0xff654248))
                   ),
                   alignment: Alignment.center,
-                  child: Text("M$index", style: AppFont.textStyle(24, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                  child: Text("M${index ?? 0}", style: AppFont.textStyle(24, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
                 ),
               ),
 
               Text(
-                index == 1 ? "${I18n.of(context).enjoy}1 ${I18n.of(context).generation} \n$percent% ${I18n.of(context).reward}" : I18n.of(context).nomoney, 
+                index != 0 ? "${I18n.of(context).enjoy}$seemark \n$percent% ${I18n.of(context).reward}" : I18n.of(context).nomoney, 
                 textAlign: TextAlign.left, 
                 style: AppFont.textStyle(
                   16, 
                   color: const Color(0xff654248), 
                   fontWeight: FontWeight.bold
-                ),)
+                ),),
+                Spacer(),
+                Text.rich(
+                  TextSpan(children: [
+                    TextSpan(
+                      text: "${authNum ?? 0}",
+                      style: AppFont.textStyle(24, color: AppColor.green, fontWeight: FontWeight.bold)
+                    ),
+                    TextSpan(
+                      text: "/${needNum ?? 0}",
+                      style: AppFont.textStyle(14, color: const Color(0xff654248))
+                    ),
+                  ])
+                ),
+                SizedBox(width: 6,)
             ],
           ),
         ),

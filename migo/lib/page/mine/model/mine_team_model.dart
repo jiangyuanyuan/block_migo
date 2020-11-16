@@ -156,9 +156,9 @@ class AccountDetailModel {
 }
 
 class PdirectConfig {
-  String createTime;
-  int id;
-  int proportion;
+  int createTime;
+  String id;
+  num proportion;
   String remark;
   String seeRemark;
   int userLevel;
@@ -290,12 +290,13 @@ class ShareDTO {
 }
 
 class PseniorityConfigModel {
-  String createTime;
-  int id;
-  int proportion;
+  int createTime;
+  String id;
+  num proportion;
   String remark;
   int userCount;
   int userLevel;
+  String seeRemark;
 
   PseniorityConfigModel(
       {this.createTime,
@@ -308,6 +309,7 @@ class PseniorityConfigModel {
   PseniorityConfigModel.fromJson(Map<String, dynamic> json) {
     createTime = json['createTime'];
     id = json['id'];
+    seeRemark = json["seeRemark"];
     proportion = json['proportion'];
     remark = json['remark'];
     userCount = json['userCount'];

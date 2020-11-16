@@ -138,6 +138,7 @@ class _RechagePageState extends State<RechagePage> {
                         color: const Color(0xffE5F0FA),
                         borderRadius: BorderRadius.vertical(bottom: Radius.circular(10))
                       ),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

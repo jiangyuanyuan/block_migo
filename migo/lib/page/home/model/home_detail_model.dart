@@ -80,18 +80,18 @@ class HomeDetialModel {
 }
 
 class MineEarnRecordModel {
-  int coinId;
+  String coinId;
   String coinName;
   int createTime;
   num earnAmount;
-  String earnDay;
+  int earnDay;
   String earnName;
-  int earnTime;
-  int id;
-  int mineBaseId;
-  int mineUserId;
+  String earnTime;
+  String id;
+  String mineBaseId;
+  String mineUserId;
   int status;
-  int userId;
+  String userId;
 
   MineEarnRecordModel(
       {this.coinId,

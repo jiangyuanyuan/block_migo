@@ -32,7 +32,7 @@ class MyShovelRecordModel {
   String coinName;
   int createTime;
   String enRemark;
-  int id;
+  String id;
   int mineRecordId;
   String remark;
   int userId;
