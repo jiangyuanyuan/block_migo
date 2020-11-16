@@ -502,6 +502,10 @@ class I18n implements WidgetsLocalizations {
   String get rechagerecordorder => "充值提现订单";
   /// "暂无奖励"
   String get nomoney => "暂无奖励";
+  /// "请输入6位密码"
+  String get pleasesixpwd => "请输入6位密码";
+  /// "请输入6-12位数字字母组合密码"
+  String get pleasesixto12pwd => "请输入6-12位数字字母组合密码";
   /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
   String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
   /// "密码不一致"
@@ -1220,6 +1224,12 @@ class _I18n_en_US extends I18n {
   /// "Deposit and withdrawal order"
   @override
   String get rechagerecordorder => "Deposit and withdrawal order";
+  /// "Please enter a 6-digit password"
+  @override
+  String get pleasesixpwd => "Please enter a 6-digit password";
+  /// "Please enter a 6-12 digit letter combination password"
+  @override
+  String get pleasesixto12pwd => "Please enter a 6-12 digit letter combination password";
   /// "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully."
   @override
   String get threeauthNotice => "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.";

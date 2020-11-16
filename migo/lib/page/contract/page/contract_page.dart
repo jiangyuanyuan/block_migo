@@ -125,7 +125,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   }
 
   void _onselectedCoin(String val, int index) {
-    if(val == currCoinName) return;
+    if(currCoinName == val && outcoinname != "") return;
     outputTitles.clear();
     currCoinName = val;
     outputAmount = "0";

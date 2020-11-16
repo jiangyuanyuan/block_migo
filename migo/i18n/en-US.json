@@ -232,7 +232,8 @@
     "rechargeNotsupport":" ERC20 is not currently supported",
     "realnum":"Arrival amount",
     "currbuy":"Currently purchasing package",
-
+    "pleasesixpwd":"Please enter a 6-digit password",
+    "pleasesixto12pwd":"Please enter a 6-12 digit letter combination password",
     "buy":"Buy {e} package",
     "remark":"Remarks",
     "success": "Successed"

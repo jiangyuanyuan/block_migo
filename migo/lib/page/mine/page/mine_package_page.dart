@@ -79,7 +79,7 @@ class _MinePackagePageState extends State<MinePackagePage> {
           IconButton(
             icon: Image.asset("assets/ico_incom_hist_def.png"),
             onPressed: () {
-              Navigator.pushNamed(context, "/mineearn");
+              Navigator.pushNamed(context, "/mineshovelrecord");
             },
           )
         ],

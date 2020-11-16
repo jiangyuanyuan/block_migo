@@ -33,10 +33,22 @@ class _LoginSetPwdState extends State<LoginSetPwd> {
       EasyLoading.showToast(I18n.of(context).pleaseinputpwd);
       return;
     }
+    if(istxpwd) {
+      if(_pwd1Controller.text.length < 6) {
+        EasyLoading.showToast(I18n.of(context).pleasesixpwd);
+        return;
+      }
+    } else {
+      if(!Tool.isLoginPassword(_pwd1Controller.text)) {
+        EasyLoading.showToast(I18n.of(context).pleasesixto12pwd);
+        return;
+      }
+    }
     if(_pwd1Controller.text != _pwdController.text) {
       EasyLoading.showError(I18n.of(context).notsamepwd);
       return;
     }
+    
     if(istxpwd) {
       ///设置交易密码
       EasyLoading.show(status: "Loading...");

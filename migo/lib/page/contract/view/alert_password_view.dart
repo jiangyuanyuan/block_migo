@@ -45,8 +45,12 @@ class AlertPasswordView extends StatelessWidget {
               child: BtnAction(
                 title: I18n.of(context).sure,
                 onTap: () {
-                  Navigator.pop(context);
-                  if(onSure != null) onSure(pwd);
+                  if(pwd.length < 6) {
+                    return;
+                  } else {
+                    Navigator.pop(context);
+                    if(onSure != null) onSure(pwd);
+                  }
                 },
               ),
             )

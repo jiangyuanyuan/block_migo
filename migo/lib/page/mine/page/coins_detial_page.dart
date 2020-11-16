@@ -85,7 +85,8 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           HomeGradientText(data: "${Tool.number(model.amount, 4)} ${model.coinName}", fontstyle: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),),
-                          Text("≈0.00(USD)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),)
+                          // Text("≈¥${Tool.number(model.cnyAmount * model.amount, 2)}", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),)
+                          Text(model.cnyAmount == 0 ? "" : "≈¥${Tool.number(model.cnyAmount * model.amount, 2)}", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),),
                         ],
                       ),
                       Spacer(),
@@ -146,7 +147,7 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                             } else {
                               lastmodel = MineCoinRecordModel();
                             }
-                            return _Cell(index: index, model: model, lasatModell: lastmodel,);
+                            return _Cell(index: index, cnyAmount: this.model.cnyAmount, model: model, lasatModell: lastmodel,);
                           }
                         ),
                       ),
@@ -164,9 +165,10 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
 
 class _Cell extends StatelessWidget {
   final int index;
+  final num cnyAmount;
   final MineCoinRecordModel model;
   final MineCoinRecordModel lasatModell;
-  const _Cell({Key key, this.index, this.model, this.lasatModell}) : super(key: key);
+  const _Cell({Key key, this.index, this.cnyAmount, this.model, this.lasatModell}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -202,20 +204,27 @@ class _Cell extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   /// 提现为黑色
-                  Text("${model.changeType == 1 ? "+" : "-"}${model.amount}", style: AppFont.textStyle(14, color: model.changeType == 1 ? AppColor.green : AppColor.red, fontWeight: FontWeight.bold)),
+                  Row(
+                    children: [
+                      Text("${model.changeType == 1 ? "+" : "-"}${model.amount}", style: AppFont.textStyle(14, color: model.changeType == 1 ? AppColor.green : AppColor.red, fontWeight: FontWeight.bold)),
+                      SizedBox(width: 4,),
+                      Text(model.coinName, style: AppFont.textStyle(14, color: Colors.black)),
+                    ],
+                  ),
                   SizedBox(height: 4,),
-                  Text("≈0.000", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4))),
+                  // Text("≈0.000", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4))),
+                  Text(cnyAmount == 0 ? "" : "≈¥${Tool.number(cnyAmount * model.amount, 2)}", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
                 ],
               ),
               SizedBox(width: 4,),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(model.coinName, style: AppFont.textStyle(14, color: Colors.black)),
-                  SizedBox(height: 4,),
-                  Text("USD", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4))),
-                ],
-              ),
+              // Column(
+              //   crossAxisAlignment: CrossAxisAlignment.end,
+              //   children: [
+              //     Text(model.coinName, style: AppFont.textStyle(14, color: Colors.black)),
+              //     SizedBox(height: 4,),
+              //     Text("USD", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4))),
+              //   ],
+              // ),
             ],
           ),
         )

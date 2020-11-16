@@ -31,7 +31,7 @@ class MineCoinCell extends StatelessWidget {
                 children: [
                   Text(Tool.number(model.amount, 4), style: AppFont.textStyle(14, color: Colors.black),),
                   SizedBox(height: 4,),
-                  Text(model.cnyAmount == 0 ? "" : "¥${Tool.number(model.cnyAmount * model.amount, 2)}", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+                  Text(model.cnyAmount == 0 ? "" : "≈¥${Tool.number(model.cnyAmount * model.amount, 2)}", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
                 ],
               ),
             ],

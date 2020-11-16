@@ -9,6 +9,7 @@ class API {
   static const String login = "user/uUser/loginByPass";
   static const String identityAuthen = "user/uUser/authUserByPhoto";
   static const String version = "user/bAppVersion/getNewVersion/";
+  static const String getMyProfitListByShovel = "user/uMineUserShovel/getMyProfitListByShovel";
   /// 上传文件
   static const String file = "user/uploadFile/upload";
 

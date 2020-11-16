@@ -75,7 +75,7 @@ class _ReflectPageState extends State<ReflectPage> {
   }
 
   void _submit() {
-    if(type == 2) {
+    if(type == 1) {
       EasyLoading.showToast(I18n.of(context).rechargeNotsupport);
       return;
     }
