@@ -63,13 +63,13 @@ class _MineEarnPageState extends State<MineEarnPage> {
         final temp = MinePayEarnResponse.fromJson(data).data.records;
         if(isclear) list.clear();
         list.addAll(temp);
-        list.sort((a, b) => a.createTime.compareTo(b.createTime));
+        list.sort((a, b) => b.createTime.compareTo(a.createTime));
         if(temp.length < 10) _refreshController.loadNoData();
       } else {
         final temp = MinesEarnsResponse.fromJson(data).data.records;
         if(isclear) list2.clear();
         list2.addAll(temp);
-        list2.sort((a, b) => a.earnTime.compareTo(b.earnTime));
+        list2.sort((a, b) => b.earnTime.compareTo(a.earnTime));
         if(temp.length < 10) _refreshController.loadNoData();
       }
       if(mounted) setState(() {
