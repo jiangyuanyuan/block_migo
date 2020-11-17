@@ -23,6 +23,7 @@ class _LoginSetPwdState extends State<LoginSetPwd> {
   FocusNode _pwd1Node = FocusNode();
   FocusNode _pwdNode = FocusNode();
   bool istxpwd = false;
+  int count = 0;
 
   void _submit() {
     if(_pwdController.text.isEmpty) {
@@ -46,6 +47,12 @@ class _LoginSetPwdState extends State<LoginSetPwd> {
     }
     if(_pwd1Controller.text != _pwdController.text) {
       EasyLoading.showError(I18n.of(context).notsamepwd);
+      count += 1;
+      if(count >= 5) {
+        _pwd1Controller.clear();
+        _pwdController.clear();
+        count = 0;
+      }
       return;
     }
     

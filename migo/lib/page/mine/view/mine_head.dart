@@ -46,12 +46,11 @@ class MainHeadView extends StatelessWidget {
               onTap: () => Navigator.pushNamed(context, "/mod"),
               child: Container(
                 padding: const EdgeInsets.only(top: 17, bottom: 10),
-                height: 86, width: 86,
                 child: PhysicalModel(
                   color: Colors.transparent,
                   shape: BoxShape.circle,
                   clipBehavior: Clip.antiAlias,
-                  child: value.data.logo == null ? Image.asset("assets/default.png") : Image.network(value.data.logo),
+                  child: value.data.logo == null ? Image.asset("assets/default.png") : Image.network(value.data.logo, height: 76, width: 76, fit: BoxFit.fill,),
                 ),
               ),
             ),

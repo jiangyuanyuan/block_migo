@@ -193,7 +193,7 @@ class PdirectConfig {
 }
 
 class LeaderDTO {
-  int minTeamPledgeAmount;
+  num minTeamPledgeAmount;
   int minTeamUserCount;
   List<SubordinateLeaderDTOModel> subordinateLeaderDTOList;
   String title;

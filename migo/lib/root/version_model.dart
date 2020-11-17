@@ -50,7 +50,7 @@ class VersionModel {
     content = json['content'] ?? "";
     isForce = json['isForce'];
     versionNumber = json['versionNumber'];
-    url = json['downloadUrl'];
+    url = json['url'];
     createTime = json['createTime'];
     status = json['status'];
     version = json['versionNo'];

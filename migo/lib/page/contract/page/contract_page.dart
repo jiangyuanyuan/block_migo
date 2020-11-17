@@ -113,14 +113,15 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
             "outputCoinAmount": outputAmount,
             "txPwd": Tool.generateMd5(sender)
         }, success: (data) {
-          outputAmount = "0";
           EasyLoading.showSuccess(I18n.of(context).success);
-          _request();
+          
           Navigator.pushNamed(context, "/exchangesuccess", arguments: {"time":DateTime.now().millisecondsSinceEpoch, "count":outputAmount, "coinName":outcoinname});
-          Future.delayed(const Duration(milliseconds: 200)).then((value) {
+          Future.delayed(const Duration(milliseconds: 500)).then((value) {
             _precontroller.clear();
             _sufcontroller.clear();
+            outputAmount = "0";
             _clear();
+            _request();
           });
         },fail: (msg) => EasyLoading.showError(msg),);
     }));

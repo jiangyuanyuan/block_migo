@@ -7,7 +7,7 @@ import 'package:crypto/crypto.dart';
 
 class Tool {
   static bool isLoginPassword(String input) {
-    RegExp mobile = new RegExp(r"(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$");
+    RegExp mobile = new RegExp(r"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$");
     return mobile.hasMatch(input);
   }
 

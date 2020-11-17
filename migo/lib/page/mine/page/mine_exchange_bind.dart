@@ -7,6 +7,7 @@ import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/commview/custom_menu_view.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/login&regist/view/sms_counter.dart';
@@ -63,7 +64,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
     Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (pwd) {
       EasyLoading.show(status: "Loading...");
       Networktool.request(API.changeBinding, params: {
-        	"txPwd": pwd,
+        	"txPwd": Tool.generateMd5(pwd),
           "userCode": _codeController.text,
           "userNumber": _editingController.text
       }, success: (data) {
