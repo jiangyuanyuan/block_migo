@@ -152,9 +152,10 @@ class _CoinsRecordPageState extends State<CoinsRecordPage> {
                         return _Cell(
                           coinName: m.coinName, 
                           status: m.status, 
-                          chanFee: m.chainFee,
+                          chanFee: m.amount,
                           createtie: m.createTime, 
-                          amount: m.amount, 
+                          amount: m.withdrawAmount, 
+                          fee: m.fee,
                           remark: _getRemark(m.status)
                         );
                       }
@@ -257,7 +258,7 @@ class _Cell extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(Tool.number(fee, 2), style: AppFont.textStyle(12, color: AppColor.back998),),
+                    Text(Tool.number(fee, 4), style: AppFont.textStyle(12, color: AppColor.back998),),
                     Text(remark, style: AppFont.textStyle(12, color: AppColor.back998),),
                   ],
                 ),
