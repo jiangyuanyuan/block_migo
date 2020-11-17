@@ -20,6 +20,8 @@ PODS:
   - Flutter (1.0.0)
   - flutter_des (0.0.1):
     - Flutter
+  - flutter_filereader (0.0.1):
+    - Flutter
   - flutter_sim_country_code (0.0.1):
     - Flutter
   - flutter_statusbarcolor (0.0.1):
@@ -69,6 +71,7 @@ DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - Flutter (from `Flutter`)
   - flutter_des (from `.symlinks/plugins/flutter_des/ios`)
+  - flutter_filereader (from `.symlinks/plugins/flutter_filereader/ios`)
   - flutter_sim_country_code (from `.symlinks/plugins/flutter_sim_country_code/ios`)
   - flutter_statusbarcolor (from `.symlinks/plugins/flutter_statusbarcolor/ios`)
   - image_gallery_saver (from `.symlinks/plugins/image_gallery_saver/ios`)
@@ -101,6 +104,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_des:
     :path: ".symlinks/plugins/flutter_des/ios"
+  flutter_filereader:
+    :path: ".symlinks/plugins/flutter_filereader/ios"
   flutter_sim_country_code:
     :path: ".symlinks/plugins/flutter_sim_country_code/ios"
   flutter_statusbarcolor:
@@ -137,6 +142,7 @@ SPEC CHECKSUMS:
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_des: af0bb83f27f1468ad652d907958b1d42d5644544
+  flutter_filereader: 0caefb23b8c96deca7c3679d3e61bfd8111a7d11
   flutter_sim_country_code: 364e91e71f067cdec1dd1228eb4d1f13ab1a54e5
   flutter_statusbarcolor: 8afb1071ed8c58be929f1e32b36c629771fd2259
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a

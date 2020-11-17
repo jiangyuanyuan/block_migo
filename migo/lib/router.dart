@@ -15,6 +15,7 @@ import 'package:migo/page/mine/page/choose_month_page.dart';
 import 'package:migo/page/mine/page/coins_detial_page.dart';
 import 'package:migo/page/mine/page/feedback_page.dart';
 import 'package:migo/page/mine/page/feedbak_post_page.dart';
+import 'package:migo/page/mine/page/file_page.dart';
 import 'package:migo/page/mine/page/invite_record_page.dart';
 import 'package:migo/page/mine/page/mine_auth_page.dart';
 import 'package:migo/page/mine/page/mine_auth_upload.dart';
@@ -69,6 +70,7 @@ final routes = {
   '/threeauth': (context,{arguments}) => ThreeAuthPage(),// 第一次登录密码设置
   '/authmanage': (context,{arguments}) => AuthManagePage(),// 第一次登录密码设置
   '/mineshovelrecord': (context,{arguments}) => MineShovelRecordPage(),// 第一次登录密码设置
+  '/file': (context,{arguments}) => FilePage(params: arguments,),// 第一次登录密码设置
 
   /// home
   '/homedetail': (context,{arguments}) => HomeDetailPage(params: arguments,),// 第一次登录密码设置

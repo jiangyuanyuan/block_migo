@@ -25,18 +25,21 @@ class MineExchangeBindPage extends StatefulWidget {
 class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
   TextEditingController _editingController = TextEditingController();
   TextEditingController _codeController = TextEditingController();
+  TextEditingController _oldcodeController = TextEditingController();
+  FocusNode _oldFocunode = FocusNode();
   FocusNode _focusNode = FocusNode();
   FocusNode _codefocusNode = FocusNode();
   String phone = "";
   /// 手机号
   int type = 1;
-
+  String oldphone = "";
   String contryCode = "--";
-  
+  String oldContryCode = "";
   @override
   void dispose() {
     _editingController.dispose();
     _codeController.dispose();
+    _oldcodeController.dispose();
     super.dispose();
   }
 
@@ -45,13 +48,25 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
     super.initState();
     Future.delayed(const Duration(milliseconds: 100)).then((value){
       if(mounted) setState(() {
-        type = Provider.of<UserModel>(context, listen: false).data.registerType;
+        final data = Provider.of<UserModel>(context, listen: false).data;
+        type = data.registerType;
+        if(data.registerType == 1) {
+          oldphone = data.internationalCode + "_" + data.mobile;
+        } else {
+          oldphone = data.email;
+        }
       });
     });
     _initCode();
   }
 
   void _submit() {
+
+    if(_oldcodeController.text.isEmpty) {
+      EasyLoading.showToast(I18n.of(context).pleaseinput);
+      return;
+    }
+
     if(_editingController.text.isEmpty) {
       EasyLoading.showToast(type == 1 ? I18n.of(context).pleaseinputphone : I18n.of(context).pleaseinputemail);
       return;
@@ -61,12 +76,14 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
       return;
     }
 
-    Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (pwd) {
-      EasyLoading.show(status: "Loading...");
-      Networktool.request(API.changeBinding, params: {
-        	"txPwd": Tool.generateMd5(pwd),
+    EasyLoading.show(status: "Loading...");
+    final temp = Provider.of<UserModel>(context, listen: false);
+      Networktool.request(API.changeBinding2, params: {
           "userCode": _codeController.text,
-          "userNumber": _editingController.text
+          "userNumber": _editingController.text,
+          "userOldCode": _oldcodeController.text,
+          "userOldNumber": temp.data.registerType == 1 ? temp.data.mobile : temp.data.email,
+          "internationalCode":contryCode.replaceFirst("+", "")
       }, success: (data) {
         EasyLoading.showToast(I18n.of(context).success);
         final temp = Provider.of<UserModel>(context, listen: false);
@@ -79,7 +96,6 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
         temp.setModel(curr);
         Navigator.pop(context);
       }, fail: (msg) => EasyLoading.showToast(msg),);
-    },));
   }
 
   void _initCode() async {
@@ -96,6 +112,16 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
         contryCode = country.callingCode;
       });
     }
+  }
+
+  String _getuserAccount() {
+    final temp = Provider.of<UserModel>(context, listen: false);
+    if(temp.data.registerType == 1) {
+      return "+"+temp.data.internationalCode + temp.data.mobile;
+    } else {
+      return temp.data.email;
+    }
+    
   }
 
   @override
@@ -124,10 +150,32 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                   )
                 ),
                 alignment: Alignment.centerLeft,
-                child: Consumer<UserModel>(builder: (context, value, child) => Text(value.data.mobile ?? value.data.email, style: AppFont.textStyle(14, color: Colors.white, showshadow: true),),)
+                child: Consumer<UserModel>(builder: (context, value, child) => Text(_getuserAccount(), style: AppFont.textStyle(14, color: Colors.white, showshadow: true),),)
+              ),
+              SizedBox(height: 16,),
+              Stack(
+                children: [
+                  NormalTextfield(
+                    hintText: I18n.of(context).verificationcode,
+                    backgroundColor: Colors.white,
+                    maxLength: 6,
+                    inputFormatters: [
+                      WhitelistingTextInputFormatter.digitsOnly
+                    ],
+                    keyboardType: TextInputType.number,
+                    focusNode: _oldFocunode,
+                    controller: _oldcodeController,
+                  ),
+                  Positioned(
+                    right: 12,
+                    top: 0,
+                    bottom: 0,
+                    child: Center(child: SmsCounterView(phone: oldphone, isemail: type != 1,)),
+                  )
+                ],
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 16.0, bottom: 14, top: 24),
+                padding: const EdgeInsets.only(left: 16.0, bottom: 14, top: 16),
                 child: Text(I18n.of(context).changebind, style: AppFont.textStyle(16, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),),
               ),
               Stack(

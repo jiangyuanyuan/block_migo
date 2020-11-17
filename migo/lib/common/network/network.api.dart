@@ -20,6 +20,7 @@ class API {
   static const String isregister = "uUser/beforeRegister";
 
   static const String changeBinding = "user/uUser/changeBinding";
+  static const String changeBinding2 = "user/uUser/changeBinding2";
   static const String changeTXPwd = "user/uUser/changeTXPwd";
   static const String updatePwd = "user/uUser/updatePwd";
   static const String getMineBaseList = "user/mMineBase/getMineBaseList/";

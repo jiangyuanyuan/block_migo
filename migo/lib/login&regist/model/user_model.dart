@@ -21,6 +21,7 @@ class UserInfoModel {
   String cardForntUrl;
   String cardBackUrl;
   String cardHandUrl;
+  String internationalCode;
   int userLevel;
   int authStatus;
   int status;
@@ -41,6 +42,7 @@ class UserInfoModel {
       this.inviteCode,
       this.txPassword,
       this.email,
+      this.internationalCode,
       this.realName,
       this.cardNo,
       this.cardType,
@@ -79,6 +81,7 @@ class UserInfoModel {
     email = json['email'];
     realName = json['realName'];
     cardNo = json['cardNo'];
+    internationalCode = json["internationalCode"];
     cardType = json['cardType'];
     cardForntUrl = json['cardForntUrl'];
     cardBackUrl = json['cardBackUrl'];

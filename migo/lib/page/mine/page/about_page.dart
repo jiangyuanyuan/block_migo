@@ -6,6 +6,7 @@ import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/local_file.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
 import 'package:migo/root/version_model.dart';
@@ -31,6 +32,11 @@ class _AboutPageState extends State<AboutPage> {
     setState(() {
       version = info.version;
     });
+  }
+
+  void _pushname(BuildContext context, String name, String title) async {
+    String path = await LocalFile.filepath("docx", "assets/file/$name.docx");
+    Navigator.pushNamed(context, "/file", arguments: {"title":title, "path":path});
   }
 
    // 自动更新
@@ -64,8 +70,12 @@ class _AboutPageState extends State<AboutPage> {
               SizedBox(height: 50,),
               Image.asset("assets/logo.png"),
               SizedBox(height: 50,),
-              SettingCell(title: I18n.of(context).settinguserprotocol,),
-              SettingCell(title: I18n.of(context).settingprotocol,),
+              SettingCell(title: I18n.of(context).settinguserprotocol, onTap: () {
+                _pushname(context, "proto", I18n.of(context).settinguserprotocol);
+              },),
+              SettingCell(title: I18n.of(context).settingprotocol, onTap: () {
+                _pushname(context, "mine", I18n.of(context).settingprotocol);
+              },),
               SettingCell(title: I18n.of(context).settingupdate, onTap: () => _requestVersion(),),
               Spacer(),
               SafeArea(

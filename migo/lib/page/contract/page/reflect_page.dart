@@ -202,6 +202,7 @@ class _ReflectPageState extends State<ReflectPage> {
                                   NormalTextfield(
                                     controller: _editingController,
                                     focusNode: _focusNode,
+                                    padding: const EdgeInsets.only(right: 30),
                                     hintText: I18n.of(context).pleaseinputorcopy,
                                   ),
                                   Positioned(

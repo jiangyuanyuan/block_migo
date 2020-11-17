@@ -506,6 +506,8 @@ class I18n implements WidgetsLocalizations {
   String get pleasesixpwd => "请输入6位密码";
   /// "请输入6-12位数字字母组合密码"
   String get pleasesixto12pwd => "请输入6-12位数字字母组合密码";
+  /// "您已输入密码错误5次,请更换新密码"
+  String get pleasereinputnew => "您已输入密码错误5次,请更换新密码";
   /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
   String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
   /// "密码不一致"
@@ -1230,6 +1232,9 @@ class _I18n_en_US extends I18n {
   /// "Please enter a 6-12 digit letter combination password"
   @override
   String get pleasesixto12pwd => "Please enter a 6-12 digit letter combination password";
+  /// "You have entered the wrong password 5 times, please change the new password"
+  @override
+  String get pleasereinputnew => "You have entered the wrong password 5 times, please change the new password";
   /// "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully."
   @override
   String get threeauthNotice => "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.";

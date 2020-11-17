@@ -63,6 +63,7 @@ dependencies:
   flutter_gifimage: ^1.0.1
   qr_code_scanner: ^0.0.13
   country_calling_code_picker: ^1.0.8+1
+  flutter_filereader: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -75,4 +76,5 @@ flutter:
     - assets/
     - assets/2.0x/
     - assets/3.0x/
+    - assets/file/
 

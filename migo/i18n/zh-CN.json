@@ -256,6 +256,7 @@
     "nomoney":"暂无奖励",
     "pleasesixpwd":"请输入6位密码",
     "pleasesixto12pwd":"请输入6-12位数字字母组合密码",
+    "pleasereinputnew":"您已输入密码错误5次,请更换新密码",
     "threeauthNotice":"姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。",
     "notsamepwd":"密码不一致"
 }

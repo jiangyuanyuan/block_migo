@@ -72,7 +72,7 @@ class _RootPageState extends State<RootPage> {
    // 自动更新
   void _requestVersion() async {
     final info = await PackageInfo.fromPlatform();
-    String version = info.version;
+    String version = Platform.isAndroid ? info.version : info.buildNumber;
     Networktool.request(API.version + "${Platform.isAndroid ? 1 : 2}/1",
         method: HTTPMETHOD.GET,
         success: (data) {

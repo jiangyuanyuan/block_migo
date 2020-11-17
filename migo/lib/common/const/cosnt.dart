@@ -48,4 +48,6 @@ class AppColor {
   /// f3f3f3
   static const Color divigrey = Color(0xfff3f3f3);
   static const Color back998 = Color(0xff4C7998);
+
+  
 }
