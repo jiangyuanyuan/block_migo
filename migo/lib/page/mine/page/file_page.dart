@@ -12,7 +12,7 @@ class FilePage extends StatelessWidget {
     
     return Scaffold(
       body: CommbackView(
-        titles: "abc",
+        titles: params["title"],
         onPop: () => Navigator.pop(context),
         child: FileReaderView(
           filePath: params["path"],

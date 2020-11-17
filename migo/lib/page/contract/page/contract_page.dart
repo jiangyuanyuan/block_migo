@@ -156,7 +156,7 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
     final e = exchangeCoinModel.tradings.firstWhere((element) => element.ntn == "$currCoinName/$val");
     price = e.oneInToOutAmount.toString();
     currfee = e.levelReduction;
-    nextfee = e.nextLevelReduction;
+    nextfee = e.levelReduction - e.nextLevelReduction;
     inputnumber = e.inputCoinAmount;
     outputnumber = e.outputCoinAmount;
     setState(() {

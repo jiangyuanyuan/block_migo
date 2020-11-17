@@ -11,6 +11,7 @@ import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
 import 'package:migo/root/version_model.dart';
 import 'package:package_info/package_info.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AboutPage extends StatefulWidget {
   @override
@@ -35,7 +36,11 @@ class _AboutPageState extends State<AboutPage> {
   }
 
   void _pushname(BuildContext context, String name, String title) async {
-    String path = await LocalFile.filepath("docx", "assets/file/$name.docx");
+    String sufix = "";
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String languageStr = prefs.getString('languageCode');
+    if(languageStr == "en") sufix= "_en";
+    String path = await LocalFile.filepath("docx", "assets/file/$name$sufix.docx");
     Navigator.pushNamed(context, "/file", arguments: {"title":title, "path":path});
   }
 

@@ -3,13 +3,19 @@ import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/util/local_file.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FeedbackPage extends StatelessWidget {
 
   void _pushname(BuildContext context, String name, String title) async {
-    String path = await LocalFile.filepath("docx", "assets/file/$name.docx");
+    String sufix = "";
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String languageStr = prefs.getString('languageCode');
+    if(languageStr == "en") sufix= "_en";
+    String path = await LocalFile.filepath("docx", "assets/file/$name$sufix.docx");
     Navigator.pushNamed(context, "/file", arguments: {"title":title, "path":path});
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +36,9 @@ class FeedbackPage extends StatelessWidget {
               SettingCell(title: I18n.of(context).feedmines, onTap: () {
                 _pushname(context, "minesexpla", I18n.of(context).feedmines);
               },),
-              // SettingCell(title: I18n.of(context).feeduse,),
+              SettingCell(title: I18n.of(context).feeduse, onTap: () {
+                _pushname(context, "desc", I18n.of(context).feedmines);
+              },),
               SettingCell(
                 title: I18n.of(context).feed,
                 onTap: () => Navigator.pushNamed(context, "/feedpost"),

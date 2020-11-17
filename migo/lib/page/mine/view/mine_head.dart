@@ -77,8 +77,8 @@ class MainHeadView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _DetailView(title: "${I18n.of(context).teamperformance}(MIGO)", detail: Tool.number(model?.totalTeamUserAmount, 2),),
-                  _DetailView(title: "${I18n.of(context).dailyoutput}(MIGO)", detail: Tool.number(model?.todayProfit, 2),),
-                  _DetailView(title: "${I18n.of(context).denomination}", detail: Tool.number(model?.faceValue, 2),),
+                  _DetailView(title: "${I18n.of(context).yearterdayoutput}(MIGO)", detail: Tool.number(model?.todayProfit, 2),),
+                  _DetailView(title: "${I18n.of(context).yearterdayoutput}(MIGOs)", detail: Tool.number(model?.faceValue, 2),),
                 ],
               ),
             ),

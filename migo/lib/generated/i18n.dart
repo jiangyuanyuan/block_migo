@@ -502,6 +502,8 @@ class I18n implements WidgetsLocalizations {
   String get rechagerecordorder => "充值提现订单";
   /// "暂无奖励"
   String get nomoney => "暂无奖励";
+  /// "昨日收益"
+  String get yearterdayoutput => "昨日收益";
   /// "请输入6位密码"
   String get pleasesixpwd => "请输入6位密码";
   /// "请输入6-12位数字字母组合密码"
@@ -1226,6 +1228,9 @@ class _I18n_en_US extends I18n {
   /// "Deposit and withdrawal order"
   @override
   String get rechagerecordorder => "Deposit and withdrawal order";
+  /// "Daily income"
+  @override
+  String get yearterdayoutput => "Daily income";
   /// "Please enter a 6-digit password"
   @override
   String get pleasesixpwd => "Please enter a 6-digit password";
