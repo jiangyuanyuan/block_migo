@@ -220,7 +220,15 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                         NormalAppbar.normal(
                           color: Colors.transparent,
                           title: Text(I18n.of(context).exchange,style: AppFont.textStyle(14, color: Colors.white),),
-                          leading: SizedBox()
+                          leading: SizedBox(),
+                          actions: [
+                            IconButton(
+                              icon: Image.asset("assets/coins_record.png"),
+                              onPressed: () {
+                                Navigator.pushNamed(context, "/contractrecord");
+                              },
+                            )
+                          ],
                         ),
                         SizedBox(height: 18,),
                         Container(

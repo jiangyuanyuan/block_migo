@@ -42,6 +42,7 @@ class API {
   static const String getMyMineList = "user/mMineUser/getMyMineList/";
   static const String getMineBaseById = "user/mMineBase/getMineBaseById/";
   static const String homeminingBeltShovel = "user/mMineUser/miningBeltShovel";
+  static const String myExchangeRecordPage = "user/eExchangeRecord/myExchangeRecordPage";
   /// 团队
   static const String teamProfitPage = "user/uUserReferee/teamProfitPage/";
   /// 分红
@@ -63,5 +64,7 @@ class API {
   static const String getTransferOut = "user/wRecordTransferOut/getTransferOut/";
 
   static const String getMyProfitOrPayListPage = "user/mMineUser/getMyProfitOrPayListPage";
+
+  static const String myExchangeRecord = "user/eExchangeRecord/myExchangeRecord/";
 }
   

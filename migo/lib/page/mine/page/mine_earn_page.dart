@@ -171,10 +171,10 @@ class _MineEarnPageState extends State<MineEarnPage> {
                               // return _Cell(last: lastmodel, model: model,);
                               if(ispay) {
                                 final model = list[index];
-                                return HomeDetailCell(tabindex: 0, coinName: model.coinName, amount: model.payAmount, createtime: model.payTime,);
+                                return _HomeDetailCell(tabindex: 0, minesName: model.earnName, coinName: model.coinName, amount: model.payAmount, createtime: model.createTime,);
                               } else {
                                 final model = list2[index];
-                                return HomeDetailCell(tabindex: 1, coinName: model.coinName, amount: model.earnAmount, createtime: model.earnTime,);
+                                return _HomeDetailCell(tabindex: 1,minesName: model.earnName, coinName: model.coinName, amount: model.earnAmount, createtime: model.createTime,);
                               }
                             }, 
                             separatorBuilder: (context, index) => Divider(height: 1,), 
@@ -194,49 +194,37 @@ class _MineEarnPageState extends State<MineEarnPage> {
   }
 }
 
-// class _Cell extends StatelessWidget {
-//   final EarnModel model;
-//   final EarnModel last;
-//   const _Cell({Key key, this.model, this.last}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         Visibility(
-//           visible: last != null,
-//           child: Container(
-//             color: AppColor.back998.withOpacity(0.05),
-//             height: 40,
-//             width: double.infinity,
-//             alignment: Alignment.centerLeft,
-//             padding: const EdgeInsets.only(left: 24),
-//             child: Text(Tool.timeFormat("yyyy/MM/dd", model.earnTime), style: AppFont.textStyle(12, color: AppColor.back998),),
-//           ),
-//         ),
-//         Padding(
-//           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-//           child: Column(
-//             children: [
-//               Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   Text(model.earnName, style: AppFont.textStyle(12, color: AppColor.back998),),
-//                   Text("+${model.earnAmount} ${model.coinName}", style: AppFont.textStyle(12, color: const Color(0xff21C826)),)
-//                 ],
-//               ),
-//               SizedBox(height: 4,),
-//               Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   Text("日收益", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
-//                   Text(Tool.timeFormat("yyyy/MM/dd HH:mm", model.earnTime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
-//                 ],
-//               ),
-//             ],
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// 
+class _HomeDetailCell extends StatelessWidget {
+  final int tabindex;
+  final num amount;
+  final String minesName;
+  final int createtime;
+  final String coinName;
+  const _HomeDetailCell({Key key, this.minesName, this.coinName, this.tabindex, this.amount, this.createtime}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(minesName, style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold),),
+              Text("${tabindex == 0 ? "-" : "+"}$amount $coinName", style: AppFont.textStyle(14, color: AppColor.back998),),
+            ],
+          ),
+          SizedBox(height: 4,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(tabindex == 0 ? "" : I18n.of(context).dayincome, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+              Text(Tool.timeFormat("yyyy-MM-dd HH:mm", createtime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}

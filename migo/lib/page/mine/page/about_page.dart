@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/const/const_html.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/local_file.dart';
@@ -25,7 +26,6 @@ class _AboutPageState extends State<AboutPage> {
   void initState() {
     super.initState();
     _initVersion();
-    _requestVersion();
   }
 
   void _initVersion() async {
@@ -35,19 +35,16 @@ class _AboutPageState extends State<AboutPage> {
     });
   }
 
-  void _pushname(BuildContext context, String name, String title) async {
-    String sufix = "";
+  void _pushname(BuildContext context, String content, String encontent, String title) async {
+    String sufix = content;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String languageStr = prefs.getString('languageCode');
-    if(languageStr == "en") sufix= "_en";
-    String path = await LocalFile.filepath("docx", "assets/file/$name$sufix.docx");
-    Navigator.pushNamed(context, "/file", arguments: {"title":title, "path":path});
+    if(languageStr == "en" || languageStr == null) sufix = encontent;
+    Navigator.pushNamed(context, "/file", arguments: {"title":title, "content":sufix});
   }
 
    // 自动更新
   void _requestVersion() async {
-    final info = await PackageInfo.fromPlatform();
-    String version = info.version;
     EasyLoading.show(status: "Loading...");
     Networktool.request(API.version + "${Platform.isAndroid ? 1 : 2}/1",
         method: HTTPMETHOD.GET,
@@ -76,10 +73,10 @@ class _AboutPageState extends State<AboutPage> {
               Image.asset("assets/logo.png"),
               SizedBox(height: 50,),
               SettingCell(title: I18n.of(context).settinguserprotocol, onTap: () {
-                _pushname(context, "proto", I18n.of(context).settinguserprotocol);
+                _pushname(context, ConstHTML.proto, ConstHTML.proto_en, I18n.of(context).settinguserprotocol);
               },),
               SettingCell(title: I18n.of(context).settingprotocol, onTap: () {
-                _pushname(context, "mine", I18n.of(context).settingprotocol);
+                _pushname(context, ConstHTML.mine, ConstHTML.mine_en, I18n.of(context).settingprotocol);
               },),
               SettingCell(title: I18n.of(context).settingupdate, onTap: () => _requestVersion(),),
               Spacer(),

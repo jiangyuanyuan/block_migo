@@ -492,6 +492,8 @@ class I18n implements WidgetsLocalizations {
   String get coinStatus6 => "发送交易中";
   /// "打包中"
   String get coinStatus7 => "打包中";
+  /// "已完成"
+  String get alfinish => "已完成";
   /// "暂不支持ERC20"
   String get rechargeNotsupport => "暂不支持ERC20";
   /// "到账数量"
@@ -1216,6 +1218,9 @@ class _I18n_en_US extends I18n {
   /// "Packaging"
   @override
   String get coinStatus7 => "Packaging";
+  /// "Finished"
+  @override
+  String get alfinish => "Finished";
   /// " ERC20 is not currently supported"
   @override
   String get rechargeNotsupport => " ERC20 is not currently supported";

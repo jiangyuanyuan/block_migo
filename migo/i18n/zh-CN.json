@@ -249,6 +249,7 @@
     "coinStatus5":"转账失败",
     "coinStatus6":"发送交易中",
     "coinStatus7":"打包中",
+    "alfinish":"已完成",
     "rechargeNotsupport":"暂不支持ERC20",
     "realnum":"到账数量",
     "remark":"备注",

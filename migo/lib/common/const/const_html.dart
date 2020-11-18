@@ -4,7 +4,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -14,7 +14,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -24,7 +24,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -34,7 +34,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -44,7 +44,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -53,7 +53,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -62,7 +62,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -71,7 +71,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -80,7 +80,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -89,7 +89,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -98,7 +98,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';
@@ -107,7 +107,7 @@ class ConstHTML {
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            <a target="_blank" href="http://www.docpe.com">档铺网——在线文档免费处理</a>
+            
             </div>
             </body></html>
   ''';

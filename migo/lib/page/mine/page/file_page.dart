@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_filereader/flutter_filereader.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:migo/common/commview/commback_view.dart';
 
 class FilePage extends StatelessWidget {
@@ -14,8 +14,15 @@ class FilePage extends StatelessWidget {
       body: CommbackView(
         titles: params["title"],
         onPop: () => Navigator.pop(context),
-        child: FileReaderView(
-          filePath: params["path"],
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          color: Colors.white,
+          height: MediaQuery.of(context).size.height,
+          child: SingleChildScrollView(
+            child: HtmlWidget(
+              params["content"],
+            ),
+          ),
         ),
       ),
     );
