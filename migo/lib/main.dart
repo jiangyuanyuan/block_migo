@@ -110,12 +110,16 @@ class _FreeLocalizations extends State<FreeLocalizations> {
   void initState() {
     super.initState();
     Future<Locale> locale = getDeviceLocale();
-    locale.then((locales) {
+    locale.then((locales) async {
       if(locale != null) {
         changeLocale(locales);
         // 设置语言
         I18n.locale = locales;
         teventBus.fire(locales);
+      } else {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('languageCode', "zh");
+        prefs.setString('countryCode', "");
       }
     });
   }

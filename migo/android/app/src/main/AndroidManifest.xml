@@ -13,8 +13,6 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="MIGO"
-        android:networkSecurityConfig="@xml/android_q_net_security_config"
-        tools:replace="android:networkSecurityConfig"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

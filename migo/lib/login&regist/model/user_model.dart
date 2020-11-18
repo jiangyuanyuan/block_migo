@@ -120,6 +120,7 @@ class UserInfoModel {
     data['createTime'] = this.createTime;
     data['userType'] = this.userType;
     data['registerType'] = this.registerType;
+    data['internationalCode'] = this.internationalCode;
     return data;
   }
 }

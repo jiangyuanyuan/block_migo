@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/const/cosnt.dart';
@@ -28,6 +29,7 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
 
   int currentIndex = 0;
+  DateTime lastPopTime;
   PageController _pageController = PageController(initialPage: 0);
   List<Widget> pages = <Widget>[
           HomePage(),
@@ -149,10 +151,22 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        children: pages,
-        physics: NeverScrollableScrollPhysics(),
-        controller: _pageController,
+      body: WillPopScope(
+        onWillPop: () async {
+          if(lastPopTime == null || DateTime.now().difference(lastPopTime) > Duration(seconds: 2)){
+            lastPopTime = DateTime.now();
+            EasyLoading.showToast('再按一次退出');
+          }else {
+            lastPopTime = DateTime.now();
+            // 退出app
+            await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+          }
+        },
+        child: PageView(
+          children: pages,
+          physics: NeverScrollableScrollPhysics(),
+          controller: _pageController,
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

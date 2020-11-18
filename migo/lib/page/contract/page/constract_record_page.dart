@@ -20,6 +20,7 @@ class _ConstractRecordPageState extends State<ConstractRecordPage> {
   RefreshController _refreshController = RefreshController(initialRefresh: true);
   List<ExchangeRecordModel> list = [];
   String type = "-1";
+  int selectIndex = 0;
   @override
   void initState() {
     super.initState();
@@ -62,12 +63,15 @@ class _ConstractRecordPageState extends State<ConstractRecordPage> {
       if(e.contains("_")) {
         temp = e.replaceFirst("_", "-");
       }
-      return _Button(titles: temp, isselect: false, width: width, onTap: () {
+      return _Button(titles: temp, isselect: selectIndex == headers.indexOf(e), width: width, onTap: () {
         if(headers.indexOf(e) == 0) {
           type = "-1";
         } else {
           type = e;
         }
+        setState(() {
+          selectIndex = headers.indexOf(e);
+        });
         _refreshController.requestRefresh();
       },);
     }).toList();
