@@ -46,12 +46,15 @@ class _AboutPageState extends State<AboutPage> {
    // 自动更新
   void _requestVersion() async {
     EasyLoading.show(status: "Loading...");
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final isen = prefs.getString('languageCode') == "en";
     Networktool.request(API.version + "${Platform.isAndroid ? 1 : 2}/1",
         method: HTTPMETHOD.GET,
         success: (data) {
           EasyLoading.dismiss();
       final temp = VersionResponse.fromJson(data).data;
       if (temp == null) return;
+      if(isen) temp.content = temp.enContent;
       Alert.showMsgDialog(context,
           barrierDismissible: temp.type == 0,
           title: I18n.of(context).settingupdate,

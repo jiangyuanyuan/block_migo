@@ -32,7 +32,7 @@ class HomeCell extends StatelessWidget {
                           alignment: Alignment.center,
                           child: Text("${I18n.of(context).homeearn} ${model.mineCoinName}", style: AppFont.textStyle(12, color: AppColor.yellowMain),)
                         ),
-                        Text(model.mineTitle, style: AppFont.textStyle(12, color: Colors.white, fontWeight: FontWeight.bold),)
+                        Text(model.mineTitle, style: AppFont.textStyle(11, color: Colors.white, fontWeight: FontWeight.bold),)
                       ],
                     ),
                   ),

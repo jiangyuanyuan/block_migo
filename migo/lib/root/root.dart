@@ -19,6 +19,7 @@ import 'package:package_info/package_info.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RootPage extends StatefulWidget {
@@ -75,6 +76,8 @@ class _RootPageState extends State<RootPage> {
   void _requestVersion() async {
     final info = await PackageInfo.fromPlatform();
     String version = Platform.isAndroid ? info.version : info.buildNumber;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final isen = prefs.getString('languageCode') == "en";
     Networktool.request(API.version + "${Platform.isAndroid ? 1 : 2}/1",
         method: HTTPMETHOD.GET,
         success: (data) {
@@ -84,9 +87,10 @@ class _RootPageState extends State<RootPage> {
       if (temp.version == version) {
         return;
       }
+      if(isen) temp.content = temp.enContent;
       Alert.showMsgDialog(context,
           barrierDismissible: temp.type == 0,
-          title: "APP升级提示",
+          title: I18n.of(context).upnotice,
           msg: temp.content.replaceAll(";", "\n"), callback: () async {
         if (Platform.isIOS) {
           launch(temp.url);
@@ -145,6 +149,7 @@ class _RootPageState extends State<RootPage> {
     });
     if(index == 0) {
       _requestVersion();
+      EventBus.instance.commit(EventKeys.RereshHome, null);
     }
   } 
 
@@ -155,7 +160,7 @@ class _RootPageState extends State<RootPage> {
         onWillPop: () async {
           if(lastPopTime == null || DateTime.now().difference(lastPopTime) > Duration(seconds: 2)){
             lastPopTime = DateTime.now();
-            EasyLoading.showToast('再按一次退出');
+            EasyLoading.showToast(I18n.of(context).againexit);
           }else {
             lastPopTime = DateTime.now();
             // 退出app

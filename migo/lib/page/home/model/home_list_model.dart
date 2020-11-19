@@ -73,6 +73,7 @@ class HomeModel {
     mineCoinName = json['mineCoinName'];
     mineTimes = json['mineTimes'];
     count = json["count"];
+    enMineTitle = json["enMineTitle"];
     totalMine = json['totalMine'];
     createTime = json['createTime'];
     mineType = json['mineType'];

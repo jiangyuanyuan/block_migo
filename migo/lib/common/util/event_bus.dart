@@ -4,6 +4,7 @@ class EventKeys {
   static const String Login = "JUMP_TO_LOGIN"; // 跳到登录
   static const String RefreshAuth = "RefreshAuth"; // 跳到登录
   static const String RefreshQrCode = "RefreshQrCode"; // 跳到登录
+  static const String RereshHome = "RereshHome"; // 跳到登录
 }
 
 class EventBus {

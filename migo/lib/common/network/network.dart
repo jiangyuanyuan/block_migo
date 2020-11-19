@@ -57,12 +57,12 @@ class Networktool {
     SharedPreferences share = await SharedPreferences.getInstance();
     String token = share.getString(AppConst.KEY_user_token);
 
-    Options options = Options(contentType: "application/json", headers: {"lang": languageStr});
+    Options options = Options(contentType: "application/json");
     if(token != null){
       print("token = $token");
       options = Options(
         contentType: "application/json",
-        headers: {"token": token, "lang": "zh"}
+        headers: {"token": token, "lang": languageStr}
       );
     }
 

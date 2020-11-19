@@ -13,11 +13,9 @@ class MineEarnHeadView extends StatelessWidget {
   }) : super(key: key);
 
   List<Widget> _create(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final width = (size.width - 40 - 40) / 4;
     return titles.map((e) => _Button(
       isselect: tabindex == titles.indexOf(e),
-      width: width,
+      width: 100,
       onTap: () => onTap(titles.indexOf(e)),
       titles: e,
     )).toList();

@@ -3,6 +3,7 @@ import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/generated/i18n.dart';
 
 class Alert {
   /// 简单提示
@@ -208,7 +209,7 @@ class Alert {
                     width: MediaQuery.of(context).size.width,
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(vertical: 15),
-                    child: Text("确定", style: AppFont.textStyle(15, color: AppColor.blue)),
+                    child: Text(I18n.of(context).sure, style: AppFont.textStyle(15, color: AppColor.blue)),
                   ),
                 )
               ],

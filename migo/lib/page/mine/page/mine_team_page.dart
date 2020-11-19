@@ -10,6 +10,7 @@ import 'package:migo/page/mine/view/mine_team_tab.dart';
 import 'package:migo/page/mine/view/team_bottom_view.dart';
 import 'package:migo/page/mine/view/team_headview.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MineTeamPage extends StatefulWidget {
   @override
@@ -27,9 +28,18 @@ class _MineTeamPageState extends State<MineTeamPage> {
   }
 
   void _request() {
-    Networktool.request(API.myTeamPage, success: (data) {
+    Networktool.request(API.myTeamPage, success: (data) async {
       final temp = MineTeamResponse.fromJson(data);
       teamModel = temp.data;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      final isen = prefs.getString('languageCode') == "en";
+      if(isen) {
+        teamModel.shareDTO.pseniorityConfigList.forEach((e) { 
+          if(e.enSeeRemark != null)e.seeRemark = e.enSeeRemark;
+        });
+        teamModel.leaderDTO.title = teamModel.leaderDTO.enTitle;
+        teamModel.directDTO.pdirectConfig.remark = teamModel.directDTO.pdirectConfig.enRemark;
+      }
       if(mounted) setState(() {
         
       });

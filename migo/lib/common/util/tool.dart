@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:convert';
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
+import 'package:migo/generated/i18n.dart';
 
 class Tool {
   static bool isLoginPassword(String input) {
@@ -112,27 +114,27 @@ class Tool {
     }
   }
 
-  static String timeHourAndDay(int createtime, int days) {
+  static String timeHourAndDay(BuildContext context,int createtime, int days) {
     DateTime now = DateTime.fromMillisecondsSinceEpoch(createtime);
     DateTime to = now.add(Duration(days: days));
     Duration duration = to.difference(now);
     int hour = duration.inHours;
     if(hour % 24 == 0) {
-      return "${hour / 24}天";
+      return "${hour / 24}${I18n.of(context).day}";
     } else {
-      return "${hour ~/ 24}天${hour % 24}小时";
+      return "${hour ~/ 24}${I18n.of(context).day}${hour % 24}${I18n.of(context).hour}";
     }
   }
 
-  static String timeHourAndDayForNow(int createtime) {
+  static String timeHourAndDayForNow(BuildContext context,int createtime) {
     DateTime to = DateTime.fromMillisecondsSinceEpoch(createtime);
     DateTime now = DateTime.now();
     Duration duration = to.difference(now);
     int hour = duration.inHours;
     if(hour % 24 == 0) {
-      return "${hour / 24}天";
+      return "${hour / 24}${I18n.of(context).day}";
     } else {
-      return "${hour ~/ 24}天${hour % 24}小时";
+      return "${hour ~/ 24}${I18n.of(context).day}${hour % 24}${I18n.of(context).hour}";
     }
   }
 }

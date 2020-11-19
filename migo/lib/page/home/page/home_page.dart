@@ -43,6 +43,9 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   void initState() {
     super.initState();
     _onRefresh();
+    EventBus.instance.addListener(EventKeys.RereshHome, (arg) {
+      _onRefresh();
+    });
   }
 
   void _requestBanner() async {
@@ -112,13 +115,18 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     // Navigator.push(context, CupertinoPageRoute(builder: (context) => WebPage(),));
   }
 
+  /// 打开盲盒
   void _floatingAction() {
     EasyLoading.show(status: "Loading...");
+    
     Networktool.request(API.openBox, success: (data){
       EasyLoading.dismiss();
       final temp = HomeBoxRespose.fromJson(data).data;
       setState(() {
         shoveList = temp.shovelList;
+      });
+      setState(() {
+        showbox = false;
       });
       Alert.showViewDialog(context, AlertShovelView(onSure: () {
         Navigator.pushNamed(context, "/package");

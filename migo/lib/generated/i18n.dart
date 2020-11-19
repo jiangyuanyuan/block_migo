@@ -234,6 +234,12 @@ class I18n implements WidgetsLocalizations {
   String get scanqrtorecharge => "扫描二维码进行充值";
   /// "充值地址（复制地址如下)"
   String get copyaddress => "充值地址（复制地址如下)";
+  /// "小时"
+  String get hour => "小时";
+  /// "APP升级提示"
+  String get upnotice => "APP升级提示";
+  /// "再按一次退出"
+  String get againexit => "再按一次退出";
   /// "1. 最小充值金额: ${e} USDT，小于这个金额将不会上账且无法退回。"
   String notice1(String e) => "1. 最小充值金额: ${e} USDT，小于这个金额将不会上账且无法退回。";
   /// "2. 此地址只接受${e}资产，发送其他币种到此地址将不可找回。"
@@ -847,6 +853,12 @@ class _I18n_en_US extends I18n {
   /// "Recharge address (copy address)"
   @override
   String get copyaddress => "Recharge address (copy address)";
+  /// "Hour"
+  @override
+  String get hour => "Hour";
+  /// "APP upgrade notice"
+  @override
+  String get upnotice => "APP upgrade notice";
   /// "1. The minimum recharge amount: ${e} USDT, less than this amount will not be credited to the account and cannot be returned."
   @override
   String notice1(String e) => "1. The minimum recharge amount: ${e} USDT, less than this amount will not be credited to the account and cannot be returned.";

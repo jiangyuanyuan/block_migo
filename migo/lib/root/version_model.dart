@@ -26,6 +26,7 @@ class VersionModel {
   String id;
   int type;
   String content;
+  String enContent;
   int isForce;
   int versionNumber;
   String url;
@@ -40,6 +41,7 @@ class VersionModel {
       this.isForce,
       this.versionNumber,
       this.url,
+      this.enContent,
       this.createTime,
       this.status,
       this.version});
@@ -48,6 +50,7 @@ class VersionModel {
     id = json['id'];
     type = json['type'];
     content = json['content'] ?? "";
+    enContent = json["enContent"];
     isForce = json['isForce'];
     versionNumber = json['versionNumber'];
     url = json['url'];

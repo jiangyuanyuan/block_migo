@@ -107,7 +107,7 @@ class PackageCell extends StatelessWidget {
                   child: CustomProgressView(
                     issmall: true,
                     progress: _compute(),
-                    titles: Tool.timeHourAndDay(model.useTime, model.canUseTime),
+                    titles: Tool.timeHourAndDay(context,model.useTime, model.canUseTime),
                   ),
                 )
               ],

@@ -28,7 +28,7 @@ class HomeDetailUserView extends StatelessWidget {
       final todu = to.difference(DateTime.now());
       final nowdu = now.difference(DateTime.now());
       double progress = nowdu.inHours / todu.inHours.toDouble();
-      return CustomProgressView(titles: Tool.timeHourAndDayForNow(endTime), progress: progress,);
+      return CustomProgressView(titles: Tool.timeHourAndDayForNow(context,endTime), progress: progress,);
     }
   }
 

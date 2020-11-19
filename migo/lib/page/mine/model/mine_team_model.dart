@@ -160,6 +160,7 @@ class PdirectConfig {
   String id;
   num proportion;
   String remark;
+  String enRemark;
   String seeRemark;
   int userLevel;
 
@@ -174,6 +175,7 @@ class PdirectConfig {
   PdirectConfig.fromJson(Map<String, dynamic> json) {
     createTime = json['createTime'];
     id = json['id'];
+    enRemark = json["enRemark"];
     proportion = json['proportion'];
     remark = json['remark'];
     seeRemark = json['seeRemark'];
@@ -197,16 +199,19 @@ class LeaderDTO {
   int minTeamUserCount;
   List<SubordinateLeaderDTOModel> subordinateLeaderDTOList;
   String title;
+  String enTitle;
 
   LeaderDTO(
       {this.minTeamPledgeAmount,
       this.minTeamUserCount,
+      this.enTitle,
       this.subordinateLeaderDTOList,
       this.title});
 
   LeaderDTO.fromJson(Map<String, dynamic> json) {
     minTeamPledgeAmount = json['minTeamPledgeAmount'];
     minTeamUserCount = json['minTeamUserCount'];
+    enTitle = json["enTitle"];
     if (json['subordinateLeaderDTOList'] != null) {
       subordinateLeaderDTOList = new List<SubordinateLeaderDTOModel>();
       json['subordinateLeaderDTOList'].forEach((v) {
@@ -297,12 +302,14 @@ class PseniorityConfigModel {
   int userCount;
   int userLevel;
   String seeRemark;
+  String enSeeRemark;
 
   PseniorityConfigModel(
       {this.createTime,
       this.id,
       this.proportion,
       this.remark,
+      this.enSeeRemark,
       this.userCount,
       this.userLevel});
 
@@ -312,6 +319,7 @@ class PseniorityConfigModel {
     seeRemark = json["seeRemark"];
     proportion = json['proportion'];
     remark = json['remark'];
+    enSeeRemark = json["enSeeRemark"];
     userCount = json['userCount'];
     userLevel = json['userLevel'];
   }

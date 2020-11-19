@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/commview/btn_action.dart';
+import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 
@@ -105,7 +106,7 @@ class AlertExhangeView extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 43,),
-                  BtnAction(
+                  BtnImageBottomView(
                     title: I18n.of(context).sure,
                     onTap: () {
                       if(onSure != null) onSure();
