@@ -217,7 +217,9 @@ class _ReflectPageState extends State<ReflectPage> {
                                     child: IconButton(
                                       icon: Image.asset("assets/scan_icon.png"),
                                       onPressed: () {
-                                        _scanAction();
+                                        _focusNode.unfocus();
+                                        _numFocusNode.unfocus();
+                                        Future.delayed(const Duration(milliseconds: 100)).then((value) => _scanAction());
                                       },
                                     ),
                                   )

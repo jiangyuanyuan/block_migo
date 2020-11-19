@@ -38,6 +38,7 @@ class HomeModel {
   String pledgeCoinId;
   String pledgeCoinName;
   String mineCoinName;
+  num oneDayAmount;
   int mineTimes;
   num totalMine;
   int createTime;
@@ -57,6 +58,7 @@ class HomeModel {
       this.mineTimes,
       this.enMineTitle,
       this.totalMine,
+      this.oneDayAmount,
       this.count,
       this.createTime,
       this.mineType,
@@ -70,6 +72,7 @@ class HomeModel {
     pledgeAmount = json['pledgeAmount'];
     pledgeCoinId = json['pledgeCoinId'];
     pledgeCoinName = json['pledgeCoinName'];
+    oneDayAmount = json['oneDayAmount'];
     mineCoinName = json['mineCoinName'];
     mineTimes = json['mineTimes'];
     count = json["count"];
