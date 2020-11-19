@@ -66,5 +66,7 @@ class API {
   static const String getMyProfitOrPayListPage = "user/mMineUser/getMyProfitOrPayListPage";
 
   static const String myExchangeRecord = "user/eExchangeRecord/myExchangeRecord/";
+
+  static const String uUserFeedback = "user/uUserFeedback/submit";
 }
   

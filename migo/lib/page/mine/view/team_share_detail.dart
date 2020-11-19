@@ -114,7 +114,7 @@ class _Cell extends StatelessWidget {
                 Text.rich(
                   TextSpan(children: [
                     TextSpan(
-                      text: "${authNum ?? 0}",
+                      text: "${authNum >= needNum ? needNum : authNum}",
                       style: AppFont.textStyle(24, color: AppColor.green, fontWeight: FontWeight.bold)
                     ),
                     TextSpan(

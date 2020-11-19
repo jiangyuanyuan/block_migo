@@ -6,6 +6,7 @@ import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/home/view/home_detail_cell.dart';
 import 'package:migo/page/mine/model/my_shovel_record_model.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MineShovelRecordPage extends StatefulWidget {
   @override
@@ -19,9 +20,16 @@ class _MineShovelRecordPageState extends State<MineShovelRecordPage> {
   List<MyShovelRecordModel> list = [];
   
   void _request() {
-    Networktool.request(API.getMyProfitListByShovel, success: (data) {
+    Networktool.request(API.getMyProfitListByShovel, success: (data) async {
       final temp = MyShovelRecordResponse.fromJson(data).data;
       if(temp != null) list = temp;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      final isen = prefs.getString('languageCode') == "en";
+      if(isen) list.forEach((e) { 
+        if(e.enRemark != null) {
+          e.remark = e.enRemark;
+        }
+      });
       if(mounted) setState(() {
         
       });

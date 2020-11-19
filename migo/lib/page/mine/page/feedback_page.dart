@@ -12,7 +12,7 @@ class FeedbackPage extends StatelessWidget {
     String sufix = content;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String languageStr = prefs.getString('languageCode');
-    if(languageStr == "en" || languageStr == null) sufix = encontent;
+    if(languageStr == "en") sufix = encontent;
     Navigator.pushNamed(context, "/file", arguments: {"title":title, "content":sufix});
   }
 

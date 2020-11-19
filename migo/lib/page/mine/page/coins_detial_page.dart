@@ -11,6 +11,7 @@ import 'package:migo/page/home/view/home_gradient_text.dart';
 import 'package:migo/page/mine/model/me_model.dart';
 import 'package:migo/page/mine/model/mine_coins_model.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CoinsDetailPage extends StatefulWidget {
   final Map params;
@@ -33,14 +34,23 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
   }
 
   void _request() {
-    Networktool.request(API.getAccountDetailByCoinName + "${model.coinName}", success: (data){
+    Networktool.request(API.getAccountDetailByCoinName + "${model.coinName}", success: (data) async {
       final temp = MineCoinRecordResponse.fromJson(data);
       if(temp.data != null) list = temp.data;
-      if(sorted) {
-        list.sort((a, b) => b.createTime.compareTo(a.createTime));
-      } else {
-        list.sort((a, b) => a.createTime.compareTo(b.createTime));
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String languageStr = prefs.getString('languageCode');
+      if(languageStr == "en") {
+        list.forEach((element) { 
+          if(element.enBusinessRemark != null) {
+            element.businessRemark = element.enBusinessRemark;
+          }
+        });
       }
+      // if(sorted) {
+      //   list.sort((a, b) => b.createTime.compareTo(a.createTime));
+      // } else {
+      //   list.sort((a, b) => a.createTime.compareTo(b.createTime));
+      // }
       if(mounted) setState(() {
         
       });
@@ -95,10 +105,10 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                         ],
                       ),
                       Spacer(),
-                      InkWell(
-                        onTap: () => _refreshController.requestRefresh(),
-                        child: Image.asset(("assets/coinupdate.png"))
-                      )
+                      // InkWell(
+                      //   onTap: () => _refreshController.requestRefresh(),
+                      //   child: Image.asset(("assets/coinupdate.png"))
+                      // )
                     ],
                   ),
                   Divider(height: 40, color: const Color(0x33ffffff),),
@@ -124,17 +134,17 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SizedBox(width: 24,),
+                        SizedBox(width: 24, height: 45,),
                         Text(I18n.of(context).history, style: AppFont.textStyle(12, color: Colors.black),),
                         Spacer(),
-                        IconButton(
-                          icon: Image.asset("assets/fliter.png"),
-                          iconSize: 24,
-                          onPressed: () {
-                            sorted = !sorted;
-                            _refreshController.requestRefresh();
-                          },
-                        )
+                        // IconButton(
+                        //   icon: Image.asset("assets/fliter.png"),
+                        //   iconSize: 24,
+                        //   onPressed: () {
+                        //     sorted = !sorted;
+                        //     _refreshController.requestRefresh();
+                        //   },
+                        // )
                       ],
                     ),
                     Expanded(

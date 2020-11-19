@@ -12,6 +12,8 @@ import 'package:migo/page/contract/view/alert_exchange_view.dart';
 import 'package:migo/page/contract/view/alert_password_view.dart';
 import 'package:migo/page/contract/view/exchange_bottom_view.dart';
 import 'package:migo/page/contract/view/exchange_cell.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 
 class ContractPage extends StatefulWidget {
   @override
@@ -63,13 +65,16 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   }
 
   void _submit() {
+    final user = Provider.of<UserModel>(context, listen: false).data;
+    if(user.txPassword == null || user.txPassword == "") {
+      Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).nottxpwd, callback: () {
+        Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});
+      });
+      return;
+    }
     if(_animation.value == 1) {
-      if(outcoinname == "") {
-        EasyLoading.showToast("请选择兑换币种");
-        return;
-      }
       if(inputAmout == "") {
-        EasyLoading.showToast("请输入数量");
+        EasyLoading.showToast(I18n.of(context).pleaseinputonumber);
         return;
       }
       Alert.showBottomViewDialog(context, AlertExhangeView(

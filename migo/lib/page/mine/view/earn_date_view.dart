@@ -73,7 +73,7 @@ class _Button extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 30,
-        width: 60,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: isselected ? AppColor.back998 : const Color(0xff7BA0B9).withOpacity(0.1),

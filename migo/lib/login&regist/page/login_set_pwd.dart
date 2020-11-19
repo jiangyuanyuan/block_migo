@@ -8,6 +8,8 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 
 class LoginSetPwd extends StatefulWidget {
   final Map param;
@@ -70,6 +72,10 @@ class _LoginSetPwdState extends State<LoginSetPwd> {
           "userNumber": widget.param["account"],
       }, success: (data) {
         EasyLoading.showToast(I18n.of(context).success);
+        final user = Provider.of<UserModel>(context, listen: false);
+        final temp = user.data;
+        temp.txPassword = "abc";
+        user.setModel(temp);
         Navigator.pop(context);
         Navigator.pop(context);
       }, fail: (msg) => EasyLoading.showError(msg),);

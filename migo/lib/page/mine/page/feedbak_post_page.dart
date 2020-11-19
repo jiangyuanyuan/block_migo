@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:image_pickers/image_pickers.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -23,6 +25,7 @@ class _FeedbackPosePageState extends State<FeedbackPosePage> {
   final focusnode = FocusNode();
   final _controller = TextEditingController();
   String _string = "";
+  File file;
   @override
   void dispose() {
     _controller.dispose();
@@ -58,8 +61,11 @@ class _FeedbackPosePageState extends State<FeedbackPosePage> {
     );
     if(_listImagePaths != null) {
       // _uploadImage(context,File(_listImagePaths.first.path));
+      // setState(() {
+      //   _string = "(1)";
+      // });
       setState(() {
-        _string = "(1)";
+        file = File(_listImagePaths.first.path);  
       });
     }
   }
@@ -75,10 +81,34 @@ class _FeedbackPosePageState extends State<FeedbackPosePage> {
 
     if(_listImagePaths != null) {
       // _uploadImage(context,File(_listImagePaths.first.path));
+      // setState(() {
+      //   _string = "(1)";
+      // });
       setState(() {
-        _string = "(1)";
+        file = File(_listImagePaths.first.path);
       });
     }
+  }
+
+  void _uploadImage(BuildContext context,File image) {
+    EasyLoading.show(status: "Loading...");
+    Networktool.uploadImage(API.file, image, success: (data){
+      if(data != null) {
+        String url =  data["data"] ?? "";
+        _reqeust(_controller.text, url);
+      }
+    }, fail: (msg) => EasyLoading.showError(msg)
+    ,finaly: () => EasyLoading.dismiss());
+  }
+
+  void _reqeust(String content, String url) {
+    Networktool.request(API.uUserFeedback, params: {
+      	"content": content,
+        "url": url
+    },success: (data) {
+      EasyLoading.showToast(I18n.of(context).success);
+      Navigator.pop(context);
+    }, fail: (e) => EasyLoading.showError(e));
   }
 
   void _onSubmit() {
@@ -86,13 +116,12 @@ class _FeedbackPosePageState extends State<FeedbackPosePage> {
       EasyLoading.showError(I18n.of(context).pleaseinput);
       return;
     }
-    EasyLoading.show(status: "Loading...");
-    final rand = Random();
-    int r = rand.nextInt(1000);
-    Future.delayed(Duration(milliseconds: r)).then((value) {
-      EasyLoading.showSuccess(I18n.of(context).success);
-      Navigator.pop(context);
-    });
+    if(file != null) {
+      _uploadImage(context, file);
+    } else {
+      _reqeust(_controller.text, "");
+    }
+    
   }
 
   @override
@@ -128,6 +157,8 @@ class _FeedbackPosePageState extends State<FeedbackPosePage> {
                 ),
                 SizedBox(height: 10,),
                 Text(I18n.of(context).feennotice, style: AppFont.textStyle(12, color: Colors.white.withOpacity(0.5)),),
+                SizedBox(height: 10,),
+                file != null ? Image.file(file, width:double.infinity, height: 150, fit: BoxFit.fill,) : SizedBox(),
                 Spacer(),
                 SafeArea(
                   child: Row(

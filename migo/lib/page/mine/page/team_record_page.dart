@@ -8,6 +8,7 @@ import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/model/team_record_model.dart';
 import 'package:migo/page/mine/view/mine_team_tab.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TeamRecordPage extends StatefulWidget {
   @override
@@ -34,9 +35,12 @@ class _TeamRecordPageState extends State<TeamRecordPage> {
   }
 
   void _request() {
-    Networktool.request(API.teamProfitPage + type.toString(), success: (data){
+    Networktool.request(API.teamProfitPage + type.toString(), success: (data) async{
       final temp = TeamRecordResponse.fromJson(data).data;
       list = temp;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      final isen = prefs.getString('languageCode') == "en";
+      if(isen) temp.forEach((e) { if(e.enBusinessRemark != null)e.businessRemark = e.enBusinessRemark;});
       if(mounted) setState(() {
         
       });
@@ -161,7 +165,7 @@ class _Cell extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("${Tool.timeFormat("MM/dd", model.createTime)}达标${model.businessRemark}", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+              Text("${Tool.timeFormat("MM/dd", model.createTime)} ${I18n.of(context).arriveAim} ${model.businessRemark}", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
               Text(Tool.timeFormat("yyyy-MM-dd HH:mm", model.createTime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
             ],
           )

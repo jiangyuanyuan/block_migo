@@ -86,6 +86,7 @@ class MineShovelModel {
 class Toolbox {
   String id;
   String toolName;
+  String enToolName;
   num toolValue;
   num toolSpecs;
   num toolSpecsMin;
@@ -112,6 +113,7 @@ class Toolbox {
       this.toolSpecsMax,
       this.achieveChannel,
       this.status,
+      this.enToolName,
       this.createTime,
       this.migosAmount,
       this.toolboxProportion,
@@ -128,6 +130,7 @@ class Toolbox {
     toolName = json['toolName'];
     toolValue = json['toolValue'];
     toolSpecs = json['toolSpecs'];
+    enToolName = json['enToolName'];
     toolSpecsMin = json['toolSpecsMin'];
     toolSpecsMax = json['toolSpecsMax'];
     achieveChannel = json['achieveChannel'];

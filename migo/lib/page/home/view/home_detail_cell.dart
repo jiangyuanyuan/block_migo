@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
+import 'package:migo/generated/i18n.dart';
 
 class HomeDetailCell extends StatelessWidget {
   final int tabindex;
@@ -19,11 +20,11 @@ class HomeDetailCell extends StatelessWidget {
             children: [
               Text("$amount $coinName", style: AppFont.textStyle(14, color: AppColor.back998),),
               SizedBox(height: 4,),
-              Text(Tool.timeFormat("yyyy-MM-dd", createtime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
+              Text(Tool.timeFormat("yyyy-MM-dd HH:mm", createtime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
             ],
           ),
           Spacer(), 
-          Text(tabindex == 0 ? "已支付" : "已获得", style: AppFont.textStyle(12, color: AppColor.back998),)
+          Text(tabindex == 0 ? I18n.of(context).paid : I18n.of(context).geted, style: AppFont.textStyle(12, color: AppColor.back998),)
         ],
       ),
     );

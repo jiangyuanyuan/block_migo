@@ -492,6 +492,10 @@ class I18n implements WidgetsLocalizations {
   String get coinStatus6 => "发送交易中";
   /// "打包中"
   String get coinStatus7 => "打包中";
+  /// "兑换历史"
+  String get exchangehistory => "兑换历史";
+  /// "充足"
+  String get enough => "充足";
   /// "已完成"
   String get alfinish => "已完成";
   /// "暂不支持ERC20"
@@ -500,6 +504,10 @@ class I18n implements WidgetsLocalizations {
   String get realnum => "到账数量";
   /// "备注"
   String get remark => "备注";
+  /// "达标"
+  String get arriveAim => "达标";
+  /// "已获得"
+  String get geted => "已获得";
   /// "充值提现订单"
   String get rechagerecordorder => "充值提现订单";
   /// "暂无奖励"
@@ -512,6 +520,8 @@ class I18n implements WidgetsLocalizations {
   String get pleasesixto12pwd => "请输入6-12位数字字母组合密码";
   /// "您已输入密码错误5次,请更换新密码"
   String get pleasereinputnew => "您已输入密码错误5次,请更换新密码";
+  /// "检测到您还没设置自己的交易密码，请马上前往设置"
+  String get nottxpwd => "检测到您还没设置自己的交易密码，请马上前往设置";
   /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
   String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
   /// "密码不一致"
@@ -1218,6 +1228,12 @@ class _I18n_en_US extends I18n {
   /// "Packaging"
   @override
   String get coinStatus7 => "Packaging";
+  /// "Exchange History"
+  @override
+  String get exchangehistory => "Exchange History";
+  /// "Enough"
+  @override
+  String get enough => "Enough";
   /// "Finished"
   @override
   String get alfinish => "Finished";
@@ -1230,6 +1246,12 @@ class _I18n_en_US extends I18n {
   /// "Remarks"
   @override
   String get remark => "Remarks";
+  /// "Aim"
+  @override
+  String get arriveAim => "Aim";
+  /// "Getted"
+  @override
+  String get geted => "Getted";
   /// "Deposit and withdrawal order"
   @override
   String get rechagerecordorder => "Deposit and withdrawal order";
@@ -1245,6 +1267,9 @@ class _I18n_en_US extends I18n {
   /// "You have entered the wrong password 5 times, please change the new password"
   @override
   String get pleasereinputnew => "You have entered the wrong password 5 times, please change the new password";
+  /// "It is detected that you have not set your own trading password, please go to the setting immediately"
+  @override
+  String get nottxpwd => "It is detected that you have not set your own trading password, please go to the setting immediately";
   /// "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully."
   @override
   String get threeauthNotice => "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.";

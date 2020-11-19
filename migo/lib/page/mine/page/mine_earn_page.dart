@@ -12,6 +12,7 @@ import 'package:migo/page/mine/model/mines_type_model.dart';
 import 'package:migo/page/mine/view/earn_date_view.dart';
 import 'package:migo/page/mine/view/mine_earn_head.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MineEarnPage extends StatefulWidget {
   @override
@@ -46,8 +47,11 @@ class _MineEarnPageState extends State<MineEarnPage> {
   }
 
   void _requestType() {
-    Networktool.request(API.getMyProfitOrPayListPage, method: HTTPMETHOD.GET, success: (data) {
+    Networktool.request(API.getMyProfitOrPayListPage, method: HTTPMETHOD.GET, success: (data) async {
       final temp = MinesTypeResponse.fromJson(data).data;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      final isen = prefs.getString('languageCode') == "en";
+      if(isen) temp.forEach((e) { if(e.enName != null)e.name = e.enName;});
       if(temp != null) typelist = temp;
       if(mounted) setState(() {
         
@@ -58,18 +62,20 @@ class _MineEarnPageState extends State<MineEarnPage> {
   void _request([bool isclear = false]) {
     String url = API.getMyPayList;
     if(ispay == false) url = API.getMyProfitList;
-    Networktool.request(url + "$type/$datetime/$page/10", method: HTTPMETHOD.GET, success: (data){
+    Networktool.request(url + "$type/$datetime/$page/10", method: HTTPMETHOD.GET, success: (data) async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      final isen = prefs.getString('languageCode') == "en";
       if(ispay) {
         final temp = MinePayEarnResponse.fromJson(data).data.records;
         if(isclear) list.clear();
+        if(isen) temp.forEach((e) { if(e.enEarnName != null) e.earnName = e.enEarnName ;});
         list.addAll(temp);
-        list.sort((a, b) => b.createTime.compareTo(a.createTime));
         if(temp.length < 10) _refreshController.loadNoData();
       } else {
         final temp = MinesEarnsResponse.fromJson(data).data.records;
+        if(isen) temp.forEach((e) { if(e.enEarnName != null) e.earnName = e.enEarnName ;});
         if(isclear) list2.clear();
         list2.addAll(temp);
-        list2.sort((a, b) => b.earnTime.compareTo(a.earnTime));
         if(temp.length < 10) _refreshController.loadNoData();
       }
       if(mounted) setState(() {

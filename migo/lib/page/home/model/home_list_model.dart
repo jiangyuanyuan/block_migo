@@ -1,3 +1,5 @@
+import 'package:migo/generated/i18n.dart';
+
 class HomeListReponse {
   int code;
   String msg;
@@ -30,6 +32,7 @@ class HomeListReponse {
 class HomeModel {
   String id;
   String mineTitle;
+  String enMineTitle;
   String mineDesc;
   num pledgeAmount;
   String pledgeCoinId;
@@ -52,6 +55,7 @@ class HomeModel {
       this.pledgeCoinName,
       this.mineCoinName,
       this.mineTimes,
+      this.enMineTitle,
       this.totalMine,
       this.count,
       this.createTime,

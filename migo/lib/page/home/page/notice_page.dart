@@ -17,8 +17,12 @@ class NoticePage extends StatelessWidget {
       body: CommbackView(
         titles: model.title,
         onPop: () => Navigator.pop(context),
-        child: HtmlWidget(
-          html
+        child: Container(
+          color: Colors.white,
+          padding: const EdgeInsets.all(16),
+          child: HtmlWidget(
+            html
+          ),
         ),
       ),
     );

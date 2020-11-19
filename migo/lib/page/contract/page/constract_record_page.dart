@@ -83,7 +83,7 @@ class _ConstractRecordPageState extends State<ConstractRecordPage> {
     double width = (size.width - 48) / 3.0;
     return Scaffold(
       body: CommbackView(
-        titles: "兑换历史",
+        titles: I18n.of(context).exchangehistory,
         onPop: () => Navigator.pop(context),
         child: Container(
           width: double.infinity,

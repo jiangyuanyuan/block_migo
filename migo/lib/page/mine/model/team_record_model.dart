@@ -35,6 +35,7 @@ class TeamRecordModel {
   int changeType;
   int businessType;
   String businessRemark;
+  String enBusinessRemark;
   int createTime;
   int accountType;
   String coinName;
@@ -56,6 +57,7 @@ class TeamRecordModel {
     userId = json['userId'];
     accountId = json['accountId'];
     amount = json['amount'];
+    enBusinessRemark = json["enBusinessRemark"];
     changeType = json['changeType'];
     businessType = json['businessType'];
     businessRemark = json['businessRemark'];

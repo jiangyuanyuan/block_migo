@@ -87,6 +87,9 @@ class Tool {
     if(sender == null) return "0.00";
     if(fixed == null) fixed = 2;
     String res = "$sender";
+    if(res.split(".").last.length > 10) {
+      res = sender.toStringAsFixed(10);
+    }
     final temp = res.split(".");
     if(temp.length < 2) {
       String z = "";

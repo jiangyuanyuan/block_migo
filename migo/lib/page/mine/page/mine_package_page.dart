@@ -14,6 +14,7 @@ import 'package:migo/page/mine/model/mine_package_model.dart';
 import 'package:migo/page/mine/view/package_cell.dart';
 import 'package:migo/page/mine/view/package_head_view.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MinePackagePage extends StatefulWidget {
   @override
@@ -39,10 +40,15 @@ class _MinePackagePageState extends State<MinePackagePage> {
   }
 
   void _requestDetail() {
-    Networktool.request(API.getMyKnapsack, success: (data) {
+    Networktool.request(API.getMyKnapsack, success: (data) async {
       final temp = MinePackageHeadResponse.fromJson(data);
       headmodel = temp.data;
       if(temp.data.shovelList != null) list = temp.data.shovelList;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      final isen = prefs.getString('languageCode') == "en";
+      if(isen) list.forEach((e) { 
+        if(e.toolbox.enToolName != null) e.toolbox.toolName = e.toolbox.enToolName;
+      });
       if(mounted) setState(() {
         
       });

@@ -25,7 +25,7 @@ class ExchangeBottomView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(I18n.of(context).supply, style: AppFont.textStyle(12, color: Colors.white.withOpacity(0.5)),),
-              Text("充足", style: AppFont.textStyle(12, color: Colors.white,)),
+              Text(I18n.of(context).enough, style: AppFont.textStyle(12, color: Colors.white,)),
             ],
           ),
           Padding(

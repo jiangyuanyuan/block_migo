@@ -22,10 +22,10 @@ class PackageHeadView extends StatelessWidget {
               Text(I18n.of(context).currtotalproduce, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
               SizedBox(height: 8,),
               // Text(, style: AppFont.textStyle(12, color: Colors.white),),
-              HomeGradientText(data: Tool.number(model?.totalProductivity, 2), fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),),
+              HomeGradientText(data: Tool.number(model?.totalProductivity, 4), fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),),
               SizedBox(height: 20,),
               Text(I18n.of(context).todaypreget, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
-              HomeGradientText(data: Tool.number(model?.todayForecast, 2), fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),),
+              HomeGradientText(data: Tool.number(model?.todayForecast, 4), fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),),
             ],
           ),
           Column(
@@ -36,7 +36,7 @@ class PackageHeadView extends StatelessWidget {
               HomeGradientText(data: "${model?.usedCapacity ?? 0} / ${model?.totalCapacity ?? 0}", fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),),
               SizedBox(height: 20,),
               Text("${I18n.of(context).totalgetmigos} MIGOs", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
-              HomeGradientText(data: Tool.number(model?.totalMIGOs, 2), fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),),
+              HomeGradientText(data: Tool.number(model?.totalMIGOs, 4), fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),),
             ],
           )
         ],
