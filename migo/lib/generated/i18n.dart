@@ -859,6 +859,9 @@ class _I18n_en_US extends I18n {
   /// "APP upgrade notice"
   @override
   String get upnotice => "APP upgrade notice";
+  /// "press again to exit"
+  @override
+  String get againexit => "press again to exit";
   /// "1. The minimum recharge amount: ${e} USDT, less than this amount will not be credited to the account and cannot be returned."
   @override
   String notice1(String e) => "1. The minimum recharge amount: ${e} USDT, less than this amount will not be credited to the account and cannot be returned.";
