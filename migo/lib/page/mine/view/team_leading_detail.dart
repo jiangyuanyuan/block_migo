@@ -87,7 +87,7 @@ class _Cell extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(I18n.of(context).teamnumber, style: AppFont.textStyle(12, color: Colors.black),),
-                          Text("${model.maxTeamAmount}", style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold),),
+                          Text("${model.subordinateUserCount}", style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold),),
                         ],
                       ),
                     ),

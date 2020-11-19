@@ -42,11 +42,13 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   @override
   void initState() {
     super.initState();
-    _requestBox();
+    _onRefresh();
   }
 
-  void _requestBanner() {
-    Networktool.request(API.banner+"1", method: HTTPMETHOD.GET, success: (data){
+  void _requestBanner() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final isen = prefs.getString('languageCode') == "en";
+    Networktool.request(API.banner+"1/${isen ? 2 : 1}", method: HTTPMETHOD.GET, success: (data){
       final temp = HomeBannerResponse.fromJson(data);
       banners = temp.data;
       if(mounted) setState(() {

@@ -30,6 +30,7 @@ class _ReflectPageState extends State<ReflectPage> {
   num banlance = 0;
   num fee = 0;
   num outnumber = 0;
+  num minCoinNumber = 20;
   TextEditingController _editingController = TextEditingController();
   FocusNode _focusNode = FocusNode();
   TextEditingController _numController = TextEditingController();
@@ -70,6 +71,7 @@ class _ReflectPageState extends State<ReflectPage> {
     coinName = model.wCoin.coinName;
     banlance = model.account.amount;
     fee = model.wCoin.outWithdrawFee ?? 0;
+    minCoinNumber = model.wCoin.minOutQty;
     setState(() {
     });
   }
@@ -86,6 +88,11 @@ class _ReflectPageState extends State<ReflectPage> {
 
     if(_numController.text.isEmpty) {
       EasyLoading.showToast(I18n.of(context).pleaseinputonumber);
+      return;
+    }
+
+    if(num.parse(_numController.text) < minCoinNumber) {
+      EasyLoading.showToast(I18n.of(context).pleasemincoinnumber("$minCoinNumber"));
       return;
     }
     Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (pwd) {
@@ -232,7 +239,14 @@ class _ReflectPageState extends State<ReflectPage> {
                                   setState(() {
                                   });
                                 },
-                                hintText: I18n.of(context).pleaseinputonumber,
+                                hintText: I18n.of(context).pleasemincoinnumber("$minCoinNumber"),
+                              ),
+                              Visibility(
+                                visible: outnumber < minCoinNumber,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top:8.0),
+                                  child: Text(I18n.of(context).noticemincoimnumber("$minCoinNumber"), style: AppFont.textStyle(12, color: AppColor.red),),
+                                ),
                               ),
                               Container(
                                 padding: const EdgeInsets.all(16),
@@ -255,7 +269,7 @@ class _ReflectPageState extends State<ReflectPage> {
                                 padding: const EdgeInsets.only(top: 20.0, bottom: 10),
                                 child: Text(I18n.of(context).withdrawrule, style: AppFont.textStyle(12, color: Colors.black),),
                               ),
-                              Text(I18n.of(context).withDrawNotice, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                              Text(I18n.of(context).withdrawnoticerule("$minCoinNumber"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
                               SizedBox(height: 32,),
                               BtnAction(
                                 title: I18n.of(context).sure,

@@ -22,6 +22,7 @@ class _RechagePageState extends State<RechagePage> {
   List<RechargeModel> list = [];
   String coinName = "--";
   String address = "";
+  num minadd = 1;
   @override
   void initState() {
     super.initState();
@@ -48,6 +49,7 @@ class _RechagePageState extends State<RechagePage> {
     if(mounted) {
       setState(() {
         coinName = model.coinName;
+        minadd = model.minRechargeQty;
         address = type == 0 ? model.trcAddress : model.baseAddress;
       });
     }
@@ -163,9 +165,9 @@ class _RechagePageState extends State<RechagePage> {
                   children: [
                     Text(I18n.of(context).notice, style: AppFont.textStyle(14, color: Colors.white),),
                     SizedBox(height: 20,),
-                    Text(I18n.of(context).notice1, style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
+                    Text(I18n.of(context).notice1("$minadd"), style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
                     SizedBox(height: 10,),
-                    Text(I18n.of(context).notice2(coinName), style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
+                    Text(I18n.of(context).notice2("${type == 0 ? "TRC20_": "ERC20_"}$coinName"), style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
                     SizedBox(height: 10,),
                     Text(I18n.of(context).notice3, style: AppFont.textStyle(14, color: Colors.white.withOpacity(0.5)),),
                     SizedBox(height: 10,),

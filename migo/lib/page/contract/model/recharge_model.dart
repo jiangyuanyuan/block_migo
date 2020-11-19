@@ -32,14 +32,16 @@ class RechargeModel {
   String baseAddress;
   String trcAddress;
   String omniAddress;
+  num minRechargeQty;
 
-  RechargeModel({this.coinName, this.baseAddress, this.trcAddress, this.omniAddress});
+  RechargeModel({this.coinName, this.minRechargeQty, this.baseAddress, this.trcAddress, this.omniAddress});
 
   RechargeModel.fromJson(Map<String, dynamic> json) {
     coinName = json['coinName'];
     baseAddress = json['baseAddress'] ?? '';
     trcAddress = json['trcAddress'] ?? '';
     omniAddress = json['omniAddress'] ?? '';
+    minRechargeQty = json["minRechargeQty"];
   }
 
   Map<String, dynamic> toJson() {

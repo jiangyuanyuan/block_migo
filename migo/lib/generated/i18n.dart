@@ -60,8 +60,8 @@ class I18n implements WidgetsLocalizations {
   String get withdrawaddress => "提现地址：";
   /// "提现数量："
   String get withdrawnum => "提现数量：";
-  /// "提现规则："
-  String get withdrawrule => "提现规则：";
+  /// "提现需知："
+  String get withdrawrule => "提现需知：";
   /// "提现成功"
   String get withdrawsuccess => "提现成功";
   /// "到账数量："
@@ -234,10 +234,10 @@ class I18n implements WidgetsLocalizations {
   String get scanqrtorecharge => "扫描二维码进行充值";
   /// "充值地址（复制地址如下)"
   String get copyaddress => "充值地址（复制地址如下)";
-  /// "1. 该币种合约地址为migo.token"
-  String get notice1 => "1. 该币种合约地址为migo.token";
-  /// "2. 此地址只接受${e}，发送其他币种到此地址将不可找回。"
-  String notice2(String e) => "2. 此地址只接受${e}，发送其他币种到此地址将不可找回。";
+  /// "1. 最小充值金额: ${e} USDT，小于这个金额将不会上账且无法退回。"
+  String notice1(String e) => "1. 最小充值金额: ${e} USDT，小于这个金额将不会上账且无法退回。";
+  /// "2. 此地址只接受${e}资产，发送其他币种到此地址将不可找回。"
+  String notice2(String e) => "2. 此地址只接受${e}资产，发送其他币种到此地址将不可找回。";
   /// "3. 默认充值至钱包余额。"
   String get notice3 => "3. 默认充值至钱包余额。";
   /// "4. 您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。"
@@ -340,8 +340,8 @@ class I18n implements WidgetsLocalizations {
   String get coinupdate => "更新资产";
   /// "历史记录"
   String get history => "历史记录";
-  /// "提示"
-  String get notice => "提示";
+  /// "温馨提示"
+  String get notice => "温馨提示";
   /// "上传证件照"
   String get uploadid => "上传证件照";
   /// "证件照正面"
@@ -516,6 +516,10 @@ class I18n implements WidgetsLocalizations {
   String get yearterdayoutput => "昨日收益";
   /// "请输入6位密码"
   String get pleasesixpwd => "请输入6位密码";
+  /// "最小提币${e}"
+  String pleasemincoinnumber(String e) => "最小提币${e}";
+  /// "请输入数量大于${e}"
+  String noticemincoimnumber(String e) => "请输入数量大于${e}";
   /// "请输入6-12位数字字母组合密码"
   String get pleasesixto12pwd => "请输入6-12位数字字母组合密码";
   /// "您已输入密码错误5次,请更换新密码"
@@ -524,6 +528,8 @@ class I18n implements WidgetsLocalizations {
   String get nottxpwd => "检测到您还没设置自己的交易密码，请马上前往设置";
   /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
   String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
+  /// "1. 最小提币量为${e}.\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审"
+  String withdrawnoticerule(String e) => "1. 最小提币量为${e}.\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审";
   /// "密码不一致"
   String get notsamepwd => "密码不一致";
 }
@@ -580,9 +586,9 @@ class _I18n_en_US extends I18n {
   /// "Withdraw quantity:"
   @override
   String get withdrawnum => "Withdraw quantity:";
-  /// "Withdrawal rules:"
+  /// "Withdrawal notes:"
   @override
-  String get withdrawrule => "Withdrawal rules:";
+  String get withdrawrule => "Withdrawal notes:";
   /// "Withdraw success"
   @override
   String get withdrawsuccess => "Withdraw success";
@@ -841,12 +847,12 @@ class _I18n_en_US extends I18n {
   /// "Recharge address (copy address)"
   @override
   String get copyaddress => "Recharge address (copy address)";
-  /// "1. The contract address of this currency is migo.token"
+  /// "1. The minimum recharge amount: ${e} USDT, less than this amount will not be credited to the account and cannot be returned."
   @override
-  String get notice1 => "1. The contract address of this currency is migo.token";
-  /// "2. This address only accepts ${e}, sending other currencies to this address will not be able to retrieve it."
+  String notice1(String e) => "1. The minimum recharge amount: ${e} USDT, less than this amount will not be credited to the account and cannot be returned.";
+  /// "2. This address only accepts ${e} assets, sending other currencies to this address will not be able to retrieve them."
   @override
-  String notice2(String e) => "2. This address only accepts ${e}, sending other currencies to this address will not be able to retrieve it.";
+  String notice2(String e) => "2. This address only accepts ${e} assets, sending other currencies to this address will not be able to retrieve them.";
   /// "3. Recharge to the wallet balance by default."
   @override
   String get notice3 => "3. Recharge to the wallet balance by default.";
@@ -1000,9 +1006,9 @@ class _I18n_en_US extends I18n {
   /// "History record"
   @override
   String get history => "History record";
-  /// "Notice"
+  /// "Warm Reminder"
   @override
-  String get notice => "Notice";
+  String get notice => "Warm Reminder";
   /// "Upload ID photo"
   @override
   String get uploadid => "Upload ID photo";
@@ -1261,6 +1267,12 @@ class _I18n_en_US extends I18n {
   /// "Please enter a 6-digit password"
   @override
   String get pleasesixpwd => "Please enter a 6-digit password";
+  /// "Minimum withdrawal${e}"
+  @override
+  String pleasemincoinnumber(String e) => "Minimum withdrawal${e}";
+  /// "Please enter the number greater than ${e}"
+  @override
+  String noticemincoimnumber(String e) => "Please enter the number greater than ${e}";
   /// "Please enter a 6-12 digit letter combination password"
   @override
   String get pleasesixto12pwd => "Please enter a 6-12 digit letter combination password";
@@ -1273,6 +1285,9 @@ class _I18n_en_US extends I18n {
   /// "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully."
   @override
   String get threeauthNotice => "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.";
+  /// "1. The minimum withdrawal amount is ${e}.\n2. A portion of the handling fee will be deducted for withdrawals, which are based on the actual receipt.\n3. The actual receipt amount will be subject to a certain review and judgment. The withdrawal limit is the benchmark.\n4. To ensure the safety of your funds, when you change your password or other security-related personal information, we will conduct a manual review of the withdrawal."
+  @override
+  String withdrawnoticerule(String e) => "1. The minimum withdrawal amount is ${e}.\n2. A portion of the handling fee will be deducted for withdrawals, which are based on the actual receipt.\n3. The actual receipt amount will be subject to a certain review and judgment. The withdrawal limit is the benchmark.\n4. To ensure the safety of your funds, when you change your password or other security-related personal information, we will conduct a manual review of the withdrawal.";
   /// "Passwords are not consistent"
   @override
   String get notsamepwd => "Passwords are not consistent";
