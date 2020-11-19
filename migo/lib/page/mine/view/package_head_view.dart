@@ -24,7 +24,7 @@ class PackageHeadView extends StatelessWidget {
               // Text(, style: AppFont.textStyle(12, color: Colors.white),),
               HomeGradientText(data: Tool.number(model?.totalProductivity, 4), fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),),
               SizedBox(height: 20,),
-              Text(I18n.of(context).todaypreget, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
+              Text(I18n.of(context).yearterdayoutput, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
               HomeGradientText(data: Tool.number(model?.todayForecast, 4), fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),),
             ],
           ),
