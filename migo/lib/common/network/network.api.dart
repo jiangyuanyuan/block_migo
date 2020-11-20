@@ -68,5 +68,7 @@ class API {
   static const String myExchangeRecord = "user/eExchangeRecord/myExchangeRecord/";
 
   static const String uUserFeedback = "user/uUserFeedback/submit";
+
+  static const String checkAddress = "transfer/withdraw/checkAddress";
 }
   

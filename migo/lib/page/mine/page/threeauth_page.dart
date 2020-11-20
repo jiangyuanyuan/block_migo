@@ -160,7 +160,7 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
             Stack(
               children: [
                 NormalTextfield(
-                  hintText: I18n.of(context).pleaseinputphone,
+                  hintText: I18n.of(context).pleaseinputbanknumber,
                   align: TextAlign.right,
                   controller: _phonecontroller,
                   focusNode: _phonefocusNode,

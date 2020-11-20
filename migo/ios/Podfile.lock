@@ -17,6 +17,8 @@ PODS:
   - connectivity (0.0.1):
     - Flutter
     - Reachability
+  - devicelocale (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - flutter_des (0.0.1):
     - Flutter
@@ -67,6 +69,7 @@ PODS:
 
 DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
+  - devicelocale (from `.symlinks/plugins/devicelocale/ios`)
   - Flutter (from `Flutter`)
   - flutter_des (from `.symlinks/plugins/flutter_des/ios`)
   - flutter_sim_country_code (from `.symlinks/plugins/flutter_sim_country_code/ios`)
@@ -97,6 +100,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   connectivity:
     :path: ".symlinks/plugins/connectivity/ios"
+  devicelocale:
+    :path: ".symlinks/plugins/devicelocale/ios"
   Flutter:
     :path: Flutter
   flutter_des:
@@ -135,6 +140,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
+  devicelocale: feebbe5e7a30adb8c4f83185de1b50ff19b44f00
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_des: af0bb83f27f1468ad652d907958b1d42d5644544
   flutter_sim_country_code: 364e91e71f067cdec1dd1228eb4d1f13ab1a54e5

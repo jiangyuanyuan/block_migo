@@ -191,7 +191,7 @@ class _MineAuthPageState extends State<MineAuthPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: Text(
-                  I18n.of(context).authnotice,
+                  I18n.of(context).threeauthNotice2,
                   style: AppFont.textStyle(12, color: const Color(0xffDBF0FF)),
                 ),
               ),

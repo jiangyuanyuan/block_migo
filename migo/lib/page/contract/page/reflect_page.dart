@@ -37,6 +37,8 @@ class _ReflectPageState extends State<ReflectPage> {
   FocusNode _numFocusNode = FocusNode();
   // 1ERC20提币 2TRC20提币
   int type = 2;
+  // int 提现地址是否合法 0: 未输入, 1:不合法 2:合法
+  int addressType = 0;
   @override
   void initState() {
     super.initState();
@@ -45,6 +47,12 @@ class _ReflectPageState extends State<ReflectPage> {
     EventBus.instance.addListener(EventKeys.RefreshQrCode, (arg) { 
       _editingController.text = arg;
     });
+
+    _focusNode.addListener(() {
+      if(!_focusNode.hasFocus) {
+        _checkAddress();
+      }
+    });
   }
 
   @override
@@ -52,6 +60,24 @@ class _ReflectPageState extends State<ReflectPage> {
     _editingController.dispose();
     _numController.dispose();
     super.dispose();
+  }
+
+  void _checkAddress() {
+    EasyLoading.show(status: "Loading...");
+    Networktool.request(API.checkAddress, params: {
+      "coin":"usdt_trc20",
+      "address":_editingController.text
+    }, success: (data) {
+      EasyLoading.dismiss();
+      setState(() {
+        addressType = 2;
+      });
+    }, fail: (m) {
+      EasyLoading.dismiss();
+      setState(() {
+        addressType = 1;
+      });
+    });
   }
 
   void _requestCoinList() {
@@ -83,6 +109,11 @@ class _ReflectPageState extends State<ReflectPage> {
     }
     if(_editingController.text.isEmpty) {
       EasyLoading.showToast(I18n.of(context).pleaseinput);
+      return;
+    }
+
+    if(addressType != 2) {
+      EasyLoading.showToast(I18n.of(context).noticenotaddress);
       return;
     }
 
@@ -191,11 +222,24 @@ class _ReflectPageState extends State<ReflectPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        RechargeHeadView(
-                          isreflect: true,
-                          onSelected: (tabindex) {
-                            type = tabindex == 0 ? 2 : 1;
-                          },
+                        // RechargeHeadView(
+                        //   isreflect: true,
+                        //   onSelected: (tabindex) {
+                        //     type = tabindex == 0 ? 2 : 1;
+                        //   },
+                        // ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 20),
+                                child: Text("TRC20", style: AppFont.textStyle(12, color: AppColor.back998),),
+                              )
+                            ),
+                            Container(width: 100, height: 1, color: AppColor.back998,),
+                            Divider(height: 1,)
+                          ],
                         ),
                         Padding(
                           padding: const EdgeInsets.all(24),
@@ -224,6 +268,13 @@ class _ReflectPageState extends State<ReflectPage> {
                                     ),
                                   )
                                 ],
+                              ),
+                              Visibility(
+                                visible: addressType == 1,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top:8.0),
+                                  child: Text(I18n.of(context).noticenotaddress, style: AppFont.textStyle(12, color: AppColor.red),),
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 20, bottom: 10),

@@ -88,7 +88,9 @@ class _FreeLocalizations extends State<FreeLocalizations> {
     if(languageStr != null) {
       return Locale(languageStr, country);
     } else {
-      return null;
+      prefs.setString('languageCode', "zh");
+      prefs.setString('countryCode', "");
+      return _locale;
     }
     
   }
@@ -116,11 +118,7 @@ class _FreeLocalizations extends State<FreeLocalizations> {
         // 设置语言
         I18n.locale = locales;
         teventBus.fire(locales);
-      } else {
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-        prefs.setString('languageCode', "zh");
-        prefs.setString('countryCode', "");
-      }
+      } 
     });
   }
 

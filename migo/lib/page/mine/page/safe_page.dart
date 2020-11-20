@@ -85,6 +85,7 @@ class _SafePageState extends State<SafePage> {
   void _jump(BuildContext context, int index) {
     switch (index) {
       case 0:
+        Navigator.pushNamed(context, "/authmanage");
         if(model.isAuth == 0 || model.isAuth == 3) {
           Navigator.pushNamed(context, "/authmanage");
         }

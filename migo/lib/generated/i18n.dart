@@ -78,10 +78,12 @@ class I18n implements WidgetsLocalizations {
   String get invite => "邀请好友";
   /// "密码"
   String get password => "密码";
-  /// "请填写身份证上的姓名"
-  String get pleaseinputname => "请填写身份证上的姓名";
+  /// "请填写证件上的真实姓名"
+  String get pleaseinputname => "请填写证件上的真实姓名";
   /// "请填写证件号"
   String get pleaseinputid => "请填写证件号";
+  /// "请输入您绑定银行卡的手机号码"
+  String get pleaseinputbanknumber => "请输入您绑定银行卡的手机号码";
   /// "姓名"
   String get name => "姓名";
   /// "证件类型"
@@ -242,12 +244,12 @@ class I18n implements WidgetsLocalizations {
   String get againexit => "再按一次退出";
   /// "1. 最小充值金额: ${e} USDT，小于这个金额将不会上账且无法退回。"
   String notice1(String e) => "1. 最小充值金额: ${e} USDT，小于这个金额将不会上账且无法退回。";
-  /// "2. 此地址只接受${e}资产，发送其他币种到此地址将不可找回。"
-  String notice2(String e) => "2. 此地址只接受${e}资产，发送其他币种到此地址将不可找回。";
-  /// "3. 默认充值至钱包余额。"
-  String get notice3 => "3. 默认充值至钱包余额。";
-  /// "4. 您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。"
-  String get notice4 => "4. 您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。";
+  /// "1. 此地址只接受${e}资产，发送其他币种到此地址将不可找回。"
+  String notice2(String e) => "1. 此地址只接受${e}资产，发送其他币种到此地址将不可找回。";
+  /// "2. 默认充值至钱包余额。"
+  String get notice3 => "2. 默认充值至钱包余额。";
+  /// "3. 您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。"
+  String get notice4 => "3. 您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。";
   /// "请输入或长按粘贴"
   String get pleaseinputorcopy => "请输入或长按粘贴";
   /// "请输入数量"
@@ -350,10 +352,12 @@ class I18n implements WidgetsLocalizations {
   String get notice => "温馨提示";
   /// "上传证件照"
   String get uploadid => "上传证件照";
-  /// "证件照正面"
-  String get idfront => "证件照正面";
-  /// "证件照反面"
-  String get idback => "证件照反面";
+  /// "手持证件照的正面"
+  String get idfront => "手持证件照的正面";
+  /// "手持证件照的反面"
+  String get idback => "手持证件照的反面";
+  /// "提现地址不合法，请重新输入"
+  String get noticenotaddress => "提现地址不合法，请重新输入";
   /// "拍摄"
   String get takephoto => "拍摄";
   /// "从相册选择"
@@ -532,8 +536,10 @@ class I18n implements WidgetsLocalizations {
   String get pleasereinputnew => "您已输入密码错误5次,请更换新密码";
   /// "检测到您还没设置自己的交易密码，请马上前往设置"
   String get nottxpwd => "检测到您还没设置自己的交易密码，请马上前往设置";
-  /// "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。"
-  String get threeauthNotice => "姓名、身份证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。";
+  /// "1）姓名、身份证件号在认证后将无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。\n2）请填写您的绑定该银行卡的手机号。\n3）请您耐心等候，因为审核认证过程需要时间处理。"
+  String get threeauthNotice => "1）姓名、身份证件号在认证后将无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。\n2）请填写您的绑定该银行卡的手机号。\n3）请您耐心等候，因为审核认证过程需要时间处理。";
+  /// "1）姓名、身份证件号在认证后将无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。\n2）请您在按下一步后手持该证件照拍照，需要清晰地看到您的人脸，证件前后的资料信息。除此之外，你需要另备一小小字条，清晰地写上你自己MIGO里的邀请码，如不符合，客服有权拒绝审核认证。\n3）请您耐心等候，因为审核认证过程需要时间处理。（海外用户会需时更久）"
+  String get threeauthNotice2 => "1）姓名、身份证件号在认证后将无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。\n2）请您在按下一步后手持该证件照拍照，需要清晰地看到您的人脸，证件前后的资料信息。除此之外，你需要另备一小小字条，清晰地写上你自己MIGO里的邀请码，如不符合，客服有权拒绝审核认证。\n3）请您耐心等候，因为审核认证过程需要时间处理。（海外用户会需时更久）";
   /// "1. 最小提币量为${e}.\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审"
   String withdrawnoticerule(String e) => "1. 最小提币量为${e}.\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审";
   /// "密码不一致"
@@ -625,6 +631,9 @@ class _I18n_en_US extends I18n {
   /// "Please fill in the ID number"
   @override
   String get pleaseinputid => "Please fill in the ID number";
+  /// "Please enter your mobile phone number bound to your bank card"
+  @override
+  String get pleaseinputbanknumber => "Please enter your mobile phone number bound to your bank card";
   /// "Name"
   @override
   String get name => "Name";
@@ -865,15 +874,15 @@ class _I18n_en_US extends I18n {
   /// "1. The minimum recharge amount: ${e} USDT, less than this amount will not be credited to the account and cannot be returned."
   @override
   String notice1(String e) => "1. The minimum recharge amount: ${e} USDT, less than this amount will not be credited to the account and cannot be returned.";
-  /// "2. This address only accepts ${e} assets, sending other currencies to this address will not be able to retrieve them."
+  /// "1. This address only accepts ${e} assets, sending other currencies to this address will not be able to retrieve them."
   @override
-  String notice2(String e) => "2. This address only accepts ${e} assets, sending other currencies to this address will not be able to retrieve them.";
-  /// "3. Recharge to the wallet balance by default."
+  String notice2(String e) => "1. This address only accepts ${e} assets, sending other currencies to this address will not be able to retrieve them.";
+  /// "2. Recharge to the wallet balance by default."
   @override
-  String get notice3 => "3. Recharge to the wallet balance by default.";
-  /// "4. Your recharge address will not change frequently, you can recharge; if there is any change, we will try our best to notify you via website announcement or email."
+  String get notice3 => "2. Recharge to the wallet balance by default.";
+  /// "3. Your recharge address will not change frequently, you can recharge; if there is any change, we will try our best to notify you via website announcement or email."
   @override
-  String get notice4 => "4. Your recharge address will not change frequently, you can recharge; if there is any change, we will try our best to notify you via website announcement or email.";
+  String get notice4 => "3. Your recharge address will not change frequently, you can recharge; if there is any change, we will try our best to notify you via website announcement or email.";
   /// "Please enter or long press to paste"
   @override
   String get pleaseinputorcopy => "Please enter or long press to paste";
@@ -1027,12 +1036,15 @@ class _I18n_en_US extends I18n {
   /// "Upload ID photo"
   @override
   String get uploadid => "Upload ID photo";
-  /// "Front of ID photo"
+  /// "Hold the front of the ID photo"
   @override
-  String get idfront => "Front of ID photo";
-  /// "Reverse side of ID"
+  String get idfront => "Hold the front of the ID photo";
+  /// "Hold the back of the ID photo"
   @override
-  String get idback => "Reverse side of ID";
+  String get idback => "Hold the back of the ID photo";
+  /// "The withdrawal address is illegal, please re-enter"
+  @override
+  String get noticenotaddress => "The withdrawal address is illegal, please re-enter";
   /// "Take photo"
   @override
   String get takephoto => "Take photo";
@@ -1297,9 +1309,12 @@ class _I18n_en_US extends I18n {
   /// "It is detected that you have not set your own trading password, please go to the setting immediately"
   @override
   String get nottxpwd => "It is detected that you have not set your own trading password, please go to the setting immediately";
-  /// "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully."
+  /// "1) Your name and ID number cannot be changed after authentication. In order to avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.\n2) Please fill in your binding information The mobile phone number of the bank card.\n3) Please wait patiently, because the verification process takes time."
   @override
-  String get threeauthNotice => "Your name and ID number cannot be changed after the first submission. To avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.";
+  String get threeauthNotice => "1) Your name and ID number cannot be changed after authentication. In order to avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.\n2) Please fill in your binding information The mobile phone number of the bank card.\n3) Please wait patiently, because the verification process takes time.";
+  /// "1) Your name and ID number cannot be changed after authentication. In order to avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.\n2) Please click Next Hold the ID photo and take a photo, you need to clearly see your face, the information before and after the ID. In addition, you need to prepare a small note, clearly write your own MIGO invitation code, if not Yes, the customer service has the right to refuse the audit and certification.\n3) Please be patient, because the audit and certification process takes time to process. (Overseas users will take longer)"
+  @override
+  String get threeauthNotice2 => "1) Your name and ID number cannot be changed after authentication. In order to avoid filling in false information and failing to approve the recharge and withdrawal, please fill in your real information carefully.\n2) Please click Next Hold the ID photo and take a photo, you need to clearly see your face, the information before and after the ID. In addition, you need to prepare a small note, clearly write your own MIGO invitation code, if not Yes, the customer service has the right to refuse the audit and certification.\n3) Please be patient, because the audit and certification process takes time to process. (Overseas users will take longer)";
   /// "1. The minimum withdrawal amount is ${e}.\n2. A portion of the handling fee will be deducted for withdrawals, which are based on the actual receipt.\n3. The actual receipt amount will be subject to a certain review and judgment. The withdrawal limit is the benchmark.\n4. To ensure the safety of your funds, when you change your password or other security-related personal information, we will conduct a manual review of the withdrawal."
   @override
   String withdrawnoticerule(String e) => "1. The minimum withdrawal amount is ${e}.\n2. A portion of the handling fee will be deducted for withdrawals, which are based on the actual receipt.\n3. The actual receipt amount will be subject to a certain review and judgment. The withdrawal limit is the benchmark.\n4. To ensure the safety of your funds, when you change your password or other security-related personal information, we will conduct a manual review of the withdrawal.";
