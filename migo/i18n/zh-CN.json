@@ -192,6 +192,7 @@
     "coupontouser":"转增于用户：",
     "coupontousercount" :"转增数量：",
     "reelverified":"验证用户",
+    "pleasereelverified":"请先验证用户",
     "reelmaxcount":"最大{e}",
     "addone":"再加一个",
     "reelerror" : "抱歉，你输入的用户ID还没注册，无法转赠",
@@ -292,6 +293,17 @@
     "reealnotice5":"4. 点击左上角的图标可以查看您的认证卷转增记录。",
     "reelrecord":"转卷记录",
     "reelrecordhead":"实名认证卷转增记录",
+    "reelusename":"实名认证卷",
+    "reelusecontent":"你目前有{e}张可用认证卷，确认使用吗？",
+    "reeluserd":"已消耗一张认证卷！请耐心等待认证结果",
+    "reelnouse":"您目前没有任何可用认证卷，\n请跟您的邀请人或者上级领导获取！",
+    "pleaseinputuserid":"请输入手机号或者邮箱",
+    "pleaseinputreelnumber":"请输入数量: 最低为1",
+    "reelnumbertomax":"转赠用户数达到上限",
+    "reelrequestSuccess":"已转卷成功",
+    "reelrequestcurrnumber":"当前认证卷数量：",
+    "reelnumbertonotenough":"认证券数量不足, 请修改数量",
     "reeledfinish":"已转增"
+    
 
 }

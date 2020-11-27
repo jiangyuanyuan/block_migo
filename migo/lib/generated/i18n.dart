@@ -380,6 +380,8 @@ class I18n implements WidgetsLocalizations {
   String get coupontousercount => "转增数量：";
   /// "验证用户"
   String get reelverified => "验证用户";
+  /// "请先验证用户"
+  String get pleasereelverified => "请先验证用户";
   /// "最大${e}"
   String reelmaxcount(String e) => "最大${e}";
   /// "再加一个"
@@ -578,6 +580,26 @@ class I18n implements WidgetsLocalizations {
   String get reelrecord => "转卷记录";
   /// "实名认证卷转增记录"
   String get reelrecordhead => "实名认证卷转增记录";
+  /// "实名认证卷"
+  String get reelusename => "实名认证卷";
+  /// "你目前有${e}张可用认证卷，确认使用吗？"
+  String reelusecontent(String e) => "你目前有${e}张可用认证卷，确认使用吗？";
+  /// "已消耗一张认证卷！请耐心等待认证结果"
+  String get reeluserd => "已消耗一张认证卷！请耐心等待认证结果";
+  /// "您目前没有任何可用认证卷，\n请跟您的邀请人或者上级领导获取！"
+  String get reelnouse => "您目前没有任何可用认证卷，\n请跟您的邀请人或者上级领导获取！";
+  /// "请输入手机号或者邮箱"
+  String get pleaseinputuserid => "请输入手机号或者邮箱";
+  /// "请输入数量: 最低为1"
+  String get pleaseinputreelnumber => "请输入数量: 最低为1";
+  /// "转赠用户数达到上限"
+  String get reelnumbertomax => "转赠用户数达到上限";
+  /// "已转卷成功"
+  String get reelrequestSuccess => "已转卷成功";
+  /// "当前认证卷数量："
+  String get reelrequestcurrnumber => "当前认证卷数量：";
+  /// "认证券数量不足, 请修改数量"
+  String get reelnumbertonotenough => "认证券数量不足, 请修改数量";
   /// "已转增"
   String get reeledfinish => "已转增";
 }
@@ -1114,6 +1136,9 @@ class _I18n_en_US extends I18n {
   /// "Verify User"
   @override
   String get reelverified => "Verify User";
+  /// "Please verify the user first"
+  @override
+  String get pleasereelverified => "Please verify the user first";
   /// "Max${e}"
   @override
   String reelmaxcount(String e) => "Max${e}";
@@ -1408,6 +1433,36 @@ class _I18n_en_US extends I18n {
   /// "Real-name authentication volume transfer to increase record"
   @override
   String get reelrecordhead => "Real-name authentication volume transfer to increase record";
+  /// "Real-name authentication volume"
+  @override
+  String get reelusename => "Real-name authentication volume";
+  /// "You currently have ${e} certificates available, are you sure to use it?"
+  @override
+  String reelusecontent(String e) => "You currently have ${e} certificates available, are you sure to use it?";
+  /// "An authentication volume has been consumed! Please wait patiently for the authentication result"
+  @override
+  String get reeluserd => "An authentication volume has been consumed! Please wait patiently for the authentication result";
+  /// "You currently do not have any available certification volume,\nplease ask your inviter or superior to get it!"
+  @override
+  String get reelnouse => "You currently do not have any available certification volume,\nplease ask your inviter or superior to get it!";
+  /// "Please enter your phone number or email"
+  @override
+  String get pleaseinputuserid => "Please enter your phone number or email";
+  /// "Please enter the number: the minimum is 1"
+  @override
+  String get pleaseinputreelnumber => "Please enter the number: the minimum is 1";
+  /// "The number of transfer users reaches the upper limit"
+  @override
+  String get reelnumbertomax => "The number of transfer users reaches the upper limit";
+  /// "Reel has been successfully transferred"
+  @override
+  String get reelrequestSuccess => "Reel has been successfully transferred";
+  /// "Current certification volume number:"
+  @override
+  String get reelrequestcurrnumber => "Current certification volume number:";
+  /// "The number of certification coupons is insufficient, please modify the number"
+  @override
+  String get reelnumbertonotenough => "The number of certification coupons is insufficient, please modify the number";
   /// "Reposted"
   @override
   String get reeledfinish => "Reposted";

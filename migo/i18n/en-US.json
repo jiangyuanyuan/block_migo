@@ -271,5 +271,16 @@
     "reelrecord":"Reel Record",
     "reelrecordhead": "Real-name authentication volume transfer to increase record",
     "reeledfinish":"Reposted",
+    "reelusename":"Real-name authentication volume",
+    "reelusecontent":"You currently have {e} certificates available, are you sure to use it?",
+    "reeluserd":"An authentication volume has been consumed! Please wait patiently for the authentication result",
+    "reelnouse":"You currently do not have any available certification volume,\nplease ask your inviter or superior to get it!",
+    "pleaseinputuserid":"Please enter your phone number or email",
+    "pleaseinputreelnumber":"Please enter the number: the minimum is 1",
+    "pleasereelverified":"Please verify the user first",
+    "reelnumbertonotenough":"The number of certification coupons is insufficient, please modify the number",
+    "reelnumbertomax":"The number of transfer users reaches the upper limit",
+    "reelrequestSuccess":"Reel has been successfully transferred",
+    "reelrequestcurrnumber":"Current certification volume number:",
     "reealnotice5":"4. Click the icon in the upper left corner to view your certification volume transfer record."
 }

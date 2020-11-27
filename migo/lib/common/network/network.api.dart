@@ -70,5 +70,10 @@ class API {
   static const String uUserFeedback = "user/uUserFeedback/submit";
 
   static const String checkAddress = "transfer/withdraw/checkAddress";
+  
+  static const String getUserTicket = "user/uUserTicket/getUserTicket";
+  static const String checkUser = "user/uUserTicket/checkUser";
+  static const String sendUserTicket = "user/uUserTicket/sendUserTicket";
+  static const String uUserTicketRecord = "user/uUserTicketRecord/record/";
 }
   

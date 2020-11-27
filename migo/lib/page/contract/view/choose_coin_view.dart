@@ -31,7 +31,7 @@ class ChooseCoinView extends StatelessWidget {
           if(iscoupon) {
             return Container(
               color: Colors.white,
-              padding: const EdgeInsets.only(left: 16, top: 16),
+              padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

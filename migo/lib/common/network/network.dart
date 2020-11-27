@@ -19,7 +19,7 @@ enum HTTPMETHOD {
 
 const String _Host = "http://47.242.81.154:8070/";
 const String _Host_test = "http://120.78.65.149:8079/";
-// const String _Host_test = "http://192.168.0.104:8079/";
+// const String _Host_test = "http://192.168.0.111:8070/";
 
 class Networktool {
   

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
@@ -8,6 +9,8 @@ import 'package:migo/page/mine/model/safe_model.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
 import 'package:migo/provider/user.dart';
 import 'package:provider/provider.dart';
+
+import 'alert_auth_view.dart';
 
 class SafePage extends StatefulWidget {
 
@@ -85,9 +88,12 @@ class _SafePageState extends State<SafePage> {
   void _jump(BuildContext context, int index) {
     switch (index) {
       case 0:
-      
         if(model.isAuth == 0 || model.isAuth == 3) {
           Navigator.pushNamed(context, "/authmanage");
+        } else if(model.isAuth == 1){
+          Alert.showViewDialog(context, AlertAuthView(status: 1, onSure: () {
+            
+          },));
         }
         break;
       case 1:

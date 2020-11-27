@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
@@ -8,6 +9,7 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
+import 'package:migo/page/mine/page/alert_auth_view.dart';
 
 class ThreeAuthPage extends StatefulWidget {
   @override
@@ -25,9 +27,13 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
   TextEditingController _phonecontroller = TextEditingController();
   FocusNode _phonefocusNode = FocusNode();
 
+  int number = 0;
+  String tick = "--";
+
   @override
   void initState() {
     super.initState();
+    _getUser();
   }
 
   @override
@@ -36,6 +42,19 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
     _numcontroller.dispose();
     _bankcontroller.dispose();
     super.dispose();
+  }
+
+  void _getUser() {
+    Networktool.request(API.getUserTicket, method: HTTPMETHOD.GET, success: (data) {
+      final tmep = data["data"];
+      if(tmep != null) {
+        tick = tmep["ticketTitle"];
+        number = tmep["ticketNumber"];
+      }
+      if(mounted) setState(() {
+        
+      });
+    });
   }
 
   void _submit() {
@@ -56,17 +75,19 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
       return;
     }
 
-    EasyLoading.show(status: "Loading...");
-    Networktool.request(API.authUserByBank, params: {
-      	"bankNumber": _bankcontroller.text,
-        "cardNo": _numcontroller.text,
-        "userName": _controller.text,
-        "userPhone": _phonecontroller.text,
-    }, success: (data) {
-      EasyLoading.showToast(I18n.of(context).success);
-      Navigator.pop(context);
-      EventBus.instance.commit(EventKeys.RefreshAuth, null);
-    }, fail: (msg) => EasyLoading.showToast(msg),);
+    Alert.showViewDialog(context, AlertAuthView(status: number == 0 ? 3 : 0,onSure: () {
+      EasyLoading.show(status: "Loading...");
+      Networktool.request(API.authUserByBank, params: {
+          "bankNumber": _bankcontroller.text,
+          "cardNo": _numcontroller.text,
+          "userName": _controller.text,
+          "userPhone": _phonecontroller.text,
+      }, success: (data) {
+        EasyLoading.showToast(I18n.of(context).success);
+        Navigator.pop(context);
+        EventBus.instance.commit(EventKeys.RefreshAuth, null);
+      }, fail: (msg) => EasyLoading.showToast(msg),);
+    },));
   }
 
   @override

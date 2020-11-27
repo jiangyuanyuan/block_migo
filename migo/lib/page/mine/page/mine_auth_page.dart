@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/commview/custom_menu_view.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
+
+import 'alert_auth_view.dart';
 class MineAuthPage extends StatefulWidget {
   @override
   _MineAuthPageState createState() => _MineAuthPageState();
@@ -19,9 +23,13 @@ class _MineAuthPageState extends State<MineAuthPage> {
   // 证件类型1身份证 2护照 3其他	
   int type = 1;
   String typename;
+  int number = 0;
+  String tick = "--";
+
   @override
   void initState() {
     super.initState();
+    _getUser();
   }
   @override
   void dispose() {
@@ -38,6 +46,19 @@ class _MineAuthPageState extends State<MineAuthPage> {
     ];
   }
 
+  void _getUser() {
+    Networktool.request(API.getUserTicket, method: HTTPMETHOD.GET, success: (data) {
+      final tmep = data["data"];
+      if(tmep != null) {
+        tick = tmep["ticketTitle"];
+        number = tmep["ticketNumber"];
+      }
+      if(mounted) setState(() {
+        
+      });
+    });
+  }
+
   void _submit() {
     if(_controller.text.isEmpty) {
       EasyLoading.showToast(I18n.of(context).pleaseinputname);
@@ -47,7 +68,11 @@ class _MineAuthPageState extends State<MineAuthPage> {
       EasyLoading.showToast(I18n.of(context).pleaseinputid);
       return;
     }
-    Navigator.pushNamed(context, "/authupload", arguments: {"name":_controller.text, "number": _numcontroller.text, "type":type});
+    Alert.showViewDialog(context, AlertAuthView(status: number == 0 ? 3 : 0,onSure: () {
+      Future.delayed(const Duration(milliseconds: 100)).then((value) {
+        Navigator.pushNamed(context, "/authupload", arguments: {"name":_controller.text, "number": _numcontroller.text, "type":type});
+      });
+    },));
   }
 
   void _changetype(String val, int sender) {
