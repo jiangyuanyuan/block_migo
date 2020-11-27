@@ -1,4 +1,5 @@
 import 'package:migo/common/authbyimage/auth_manager.dart';
+import 'package:migo/common/authbyimage/wangyi_verfied.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/const/cosnt.dart';
@@ -90,29 +91,31 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       return;
     }
     print(Tool.generateMd5(pwd));
-    
-    AuthManager.loadingBlockPuzzle(context, success: () {
-      EasyLoading.showToast("Loading...");
-      // 登录类型 1手机号 2邮箱
-      Networktool.request(API.login, params: {
-        	"loginType": isemail ? 2 : 1,
-          "passWord": Tool.generateMd5(pwd),
-          "userNumber": account,
-      }, success: (data) {
-        EasyLoading.dismiss();
-        final temp = data["data"];
-        UserInfoModel model = UserInfoModel.fromJson(temp["user"]);
-        // 保存token
-        SharedPreferences.getInstance().then((value) => value.setString(AppConst.KEY_user_token, temp["token"]));
-        // 更新用户信息
-        Provider.of<UserModel>(context, listen: false).setModel(model);
-        Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
-      },fail: (e) {
-        setState(() {
-          showerror = true;
+
+    WangyVerfied.showCaptcha((issuccess) {
+      if(issuccess) {
+        EasyLoading.showToast("Loading...");
+        // 登录类型 1手机号 2邮箱
+        Networktool.request(API.login, params: {
+            "loginType": isemail ? 2 : 1,
+            "passWord": Tool.generateMd5(pwd),
+            "userNumber": account,
+        }, success: (data) {
+          EasyLoading.dismiss();
+          final temp = data["data"];
+          UserInfoModel model = UserInfoModel.fromJson(temp["user"]);
+          // 保存token
+          SharedPreferences.getInstance().then((value) => value.setString(AppConst.KEY_user_token, temp["token"]));
+          // 更新用户信息
+          Provider.of<UserModel>(context, listen: false).setModel(model);
+          Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
+        },fail: (e) {
+          setState(() {
+            showerror = true;
+          });
+          EasyLoading.showError(e);
         });
-         EasyLoading.showError(e);
-      });
+      }
     });
   }
 

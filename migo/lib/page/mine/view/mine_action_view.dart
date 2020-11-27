@@ -13,7 +13,7 @@ class MineActionView extends StatelessWidget {
     "home_package.png",
     "mine_recharge.png",
     "home_reflect.png",
-    "home_mine.png"
+    "icon_reel.png"
   ];
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MineActionView extends StatelessWidget {
       I18n.of(context).mypackage,
       I18n.of(context).recharge,
       I18n.of(context).withdraw,
-      I18n.of(context).invite,
+      I18n.of(context).reelaction,
     ];
     return Container(
       padding: const EdgeInsets.all(20.0),
@@ -51,7 +51,9 @@ class MineActionView extends StatelessWidget {
         Navigator.pushNamed(context, '/reflect');
         break;
       default:
-        Navigator.pushNamed(context, "/invite");
+        // Navigator.pushNamed(context, "/invite");
+        Navigator.pushNamed(context, "/reel");
+
     }
   }
 }

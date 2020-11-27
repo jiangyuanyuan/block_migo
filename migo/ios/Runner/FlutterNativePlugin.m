@@ -72,7 +72,7 @@
         // captchaid的值是每个产品从后台生成的,比如 @"a05f036b70ab447b87cc788af9a60974"
         
         // 传统验证码
-        NSString *captchaid = @"deecf3951a614b71b4b1502c072be1c1";
+        NSString *captchaid = @"befac31f220e46deaf6f43185646b784";
         self.manager.mode = NTESVerifyCodeNormal;
         
         // 无感知验证码

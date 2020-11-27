@@ -5,9 +5,10 @@ import 'package:migo/common/textstyle/textstyle.dart';
 class ChooseCoinView extends StatelessWidget {
   final Widget child;
   final List<String> titles;
+  final bool iscoupon;
   final Function(int selectindex, String sender) onSelected;
 
-  const ChooseCoinView({Key key, this.titles, this.onSelected, this.child}) : super(key: key);
+  const ChooseCoinView({Key key, this.titles, this.iscoupon = false, this.onSelected, this.child}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MenuButton(
@@ -27,6 +28,17 @@ class ChooseCoinView extends StatelessWidget {
             ),
           );
         } else {
+          if(iscoupon) {
+            return Container(
+              color: Colors.white,
+              padding: const EdgeInsets.only(left: 16, top: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                Text(value)
+              ],)
+            );
+          }
          return Container(
             color: Colors.white,
             padding: const EdgeInsets.only(left: 16, top: 16),

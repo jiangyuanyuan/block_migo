@@ -26,6 +26,8 @@ import 'package:migo/page/mine/page/mine_invite_page.dart';
 import 'package:migo/page/mine/page/mine_mod.dart';
 import 'package:migo/page/mine/page/mine_mod_name.dart';
 import 'package:migo/page/mine/page/mine_package_page.dart';
+import 'package:migo/page/mine/page/mine_reel.dart';
+import 'package:migo/page/mine/page/mine_reel_record.dart';
 import 'package:migo/page/mine/page/mine_setting.dart';
 import 'package:migo/page/mine/page/mine_shovel_record.dart';
 import 'package:migo/page/mine/page/mine_team_page.dart';
@@ -72,6 +74,8 @@ final routes = {
   '/authmanage': (context,{arguments}) => AuthManagePage(),// 第一次登录密码设置
   '/mineshovelrecord': (context,{arguments}) => MineShovelRecordPage(),// 第一次登录密码设置
   '/file': (context,{arguments}) => FilePage(params: arguments,),// 第一次登录密码设置
+  '/reel': (context,{arguments}) => MineReelPage(),// 第一次登录密码设置
+  '/reelcord': (context,{arguments}) => MineReelRecordPage(),// 第一次登录密码设置
 
   /// home
   '/homedetail': (context,{arguments}) => HomeDetailPage(params: arguments,),// 第一次登录密码设置

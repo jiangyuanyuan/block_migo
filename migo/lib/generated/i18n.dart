@@ -370,6 +370,24 @@ class I18n implements WidgetsLocalizations {
   String get currbind => "当前绑定";
   /// "绑定规则：手机号及邮箱选择一个绑定即可"
   String get bindrule => "绑定规则：手机号及邮箱选择一个绑定即可";
+  /// "转券"
+  String get reeltitle => "转券";
+  /// "转券"
+  String get reelaction => "转券";
+  /// "转增于用户："
+  String get coupontouser => "转增于用户：";
+  /// "转增数量："
+  String get coupontousercount => "转增数量：";
+  /// "验证用户"
+  String get reelverified => "验证用户";
+  /// "最大${e}"
+  String reelmaxcount(String e) => "最大${e}";
+  /// "再加一个"
+  String get addone => "再加一个";
+  /// "抱歉，你输入的用户ID还没注册，无法转赠"
+  String get reelerror => "抱歉，你输入的用户ID还没注册，无法转赠";
+  /// "恭喜,该ID为已注册ID"
+  String get reelsuccess => "恭喜,该ID为已注册ID";
   /// "当前总生产率"
   String get currtotalproduce => "当前总生产率";
   /// "背包容量"
@@ -544,6 +562,24 @@ class I18n implements WidgetsLocalizations {
   String withdrawnoticerule(String e) => "1. 最小提币量为${e}.\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审";
   /// "密码不一致"
   String get notsamepwd => "密码不一致";
+  /// "转增认证卷需知："
+  String get reealnotice => "转增认证卷需知：";
+  /// "1. 最低转增单位为1。"
+  String get reealnotice1 => "1. 最低转增单位为1。";
+  /// "2. 你可以一次性转增最多五个用户。"
+  String get reealnotice2 => "2. 你可以一次性转增最多五个用户。";
+  /// "3. 请先验证您输入的用户ID，确认为已注册用户方能转增。"
+  String get reealnotice3 => "3. 请先验证您输入的用户ID，确认为已注册用户方能转增。";
+  /// "转增认证卷需知："
+  String get reealnotice4 => "转增认证卷需知：";
+  /// "4. 点击左上角的图标可以查看您的认证卷转增记录。"
+  String get reealnotice5 => "4. 点击左上角的图标可以查看您的认证卷转增记录。";
+  /// "转卷记录"
+  String get reelrecord => "转卷记录";
+  /// "实名认证卷转增记录"
+  String get reelrecordhead => "实名认证卷转增记录";
+  /// "已转增"
+  String get reeledfinish => "已转增";
 }
 
 class _I18n_zh_CN extends I18n {
@@ -1063,6 +1099,33 @@ class _I18n_en_US extends I18n {
   /// "Binding rule: select one of mobile phone number and email to bind"
   @override
   String get bindrule => "Binding rule: select one of mobile phone number and email to bind";
+  /// "Transfer Coupons"
+  @override
+  String get reeltitle => "Transfer Coupons";
+  /// "Coupons"
+  @override
+  String get reelaction => "Coupons";
+  /// "Transfer to user:"
+  @override
+  String get coupontouser => "Transfer to user:";
+  /// "Transfer amount:"
+  @override
+  String get coupontousercount => "Transfer amount:";
+  /// "Verify User"
+  @override
+  String get reelverified => "Verify User";
+  /// "Max${e}"
+  @override
+  String reelmaxcount(String e) => "Max${e}";
+  /// "Add one more"
+  @override
+  String get addone => "Add one more";
+  /// "Sorry, the user ID you entered has not been registered and cannot be added"
+  @override
+  String get reelerror => "Sorry, the user ID you entered has not been registered and cannot be added";
+  /// "Congratulations, this ID is a registered ID"
+  @override
+  String get reelsuccess => "Congratulations, this ID is a registered ID";
   /// "Current Total Productivity"
   @override
   String get currtotalproduce => "Current Total Productivity";
@@ -1321,6 +1384,33 @@ class _I18n_en_US extends I18n {
   /// "Passwords are not consistent"
   @override
   String get notsamepwd => "Passwords are not consistent";
+  /// "Need to know when transferring certification volume:"
+  @override
+  String get reealnotice => "Need to know when transferring certification volume:";
+  /// "1. The minimum increase unit is 1."
+  @override
+  String get reealnotice1 => "1. The minimum increase unit is 1.";
+  /// "2. You can add up to five users at once."
+  @override
+  String get reealnotice2 => "2. You can add up to five users at once.";
+  /// "3. Please verify the user ID you entered first, and confirm that it is a registered user before adding it."
+  @override
+  String get reealnotice3 => "3. Please verify the user ID you entered first, and confirm that it is a registered user before adding it.";
+  /// "Need to know when transferring certification volume:"
+  @override
+  String get reealnotice4 => "Need to know when transferring certification volume:";
+  /// "4. Click the icon in the upper left corner to view your certification volume transfer record."
+  @override
+  String get reealnotice5 => "4. Click the icon in the upper left corner to view your certification volume transfer record.";
+  /// "Reel Record"
+  @override
+  String get reelrecord => "Reel Record";
+  /// "Real-name authentication volume transfer to increase record"
+  @override
+  String get reelrecordhead => "Real-name authentication volume transfer to increase record";
+  /// "Reposted"
+  @override
+  String get reeledfinish => "Reposted";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

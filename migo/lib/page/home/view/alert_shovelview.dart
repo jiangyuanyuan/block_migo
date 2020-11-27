@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/home/model/home_box_model.dart';
 import 'package:migo/page/home/view/get_shovel_view.dart';
@@ -60,7 +61,7 @@ class AlertShovelView extends StatelessWidget {
                   ),
                   Visibility(
                     visible: candy != 0,
-                    child: Text("已得$candy Mandy糖果", style: AppFont.textStyle(12, color: Colors.white),),
+                    child: Text("已得${Tool.number(candy, 2)} Mandy糖果", style: AppFont.textStyle(12, color: Colors.white),),
                   )
                 ],
               )

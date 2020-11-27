@@ -19,7 +19,7 @@ object CaptchaHelper : CoroutineScope by MainScope() {
 
     fun showCaptcha(activity: Activity) {
         var config = CaptchaConfiguration.Builder()
-                .captchaId("deecf3951a614b71b4b1502c072be1c1")
+                .captchaId("befac31f220e46deaf6f43185646b784")
                 .listener(captchaListener)
                 .debug(true)
                 .build(activity);

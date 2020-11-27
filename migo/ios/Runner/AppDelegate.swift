@@ -8,6 +8,7 @@ import Flutter
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
+    FlutterNativePlugin.sharedInstance().register(with: self.registrar(forPlugin: "FlutterNativePlugin")!)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }
