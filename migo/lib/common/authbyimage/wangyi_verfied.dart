@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/services.dart';
+import 'package:migo/common/commview/alert.dart';
 
 class WangyVerfied {
   var channel = const MethodChannel("yd_captcha_flutter_method_channel");
@@ -32,11 +35,18 @@ class WangyVerfied {
   /// msg: 验证成功}
   void _onData(response) {
     if(response is Map) {
-      if(response["result"]) {
-        onSuccess(true);
+      if(Platform.isAndroid) {
+        if(response["result"] == "true") {
+          onSuccess(true);
+        } else {
+          Alert.showToast(response['msg']);
+        }
       } else {
-        onSuccess(false);
-        print(response["msg"]);
+        if(response["result"]) {
+          onSuccess(true);
+        } else {
+          Alert.showToast(response['msg']);
+        }
       }
     }
   }

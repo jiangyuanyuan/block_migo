@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/bottom_buttom.dart';
@@ -6,6 +7,7 @@ import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
@@ -15,6 +17,7 @@ import 'package:migo/page/mine/page/alert_auth_view.dart';
 import 'package:migo/page/mine/view/mine_auth_success.dart';
 import 'package:migo/provider/user.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MineReelPage extends StatefulWidget {
   @override
@@ -44,7 +47,7 @@ class _MineReelPageState extends State<MineReelPage> {
       EasyLoading.showToast(I18n.of(context).reelnumbertomax);
       return;
     }
-    children.add(_Item(onVerfied: _onChange, onAccount: _addAccount, status: 0, index: listVerfied.length,));
+    children.add(_Item(onUpdateAccount: _updateNumber,amount: number,onVerfied: _onChange, onAccount: _addAccount, status: 0, index: listVerfied.length,));
     listVerfied.add(0);
     listCount.add(0);
     listAccount.add("");
@@ -53,10 +56,22 @@ class _MineReelPageState extends State<MineReelPage> {
         
       });
     }
+    Future.delayed(const Duration(milliseconds: 100)).then((value) => _updateNumber());
   }
 
   void _addAccount(int index,String val) {
     listAccount[index] = val;
+  }
+
+  void _updateNumber() {
+    int alllcount = 0;
+    for(int i = 0; i<listCount.length; i++) {
+      alllcount += listCount[i];
+    }
+    int minenumber = number - alllcount;
+    children.forEach((element) { 
+      element.updateAmount(minenumber < 0 ? 0 : minenumber);
+    });
   }
 
   void _sure() {
@@ -103,12 +118,17 @@ class _MineReelPageState extends State<MineReelPage> {
   }
 
    void _getUser() {
-    Networktool.request(API.getUserTicket, method: HTTPMETHOD.GET, success: (data) {
+    Networktool.request(API.getUserTicket, method: HTTPMETHOD.GET, success: (data) async {
       final tmep = data["data"];
       if(tmep != null) {
         tick = tmep["ticketTitle"];
         number = tmep["ticketNumber"];
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        if(prefs.getString('languageCode') == "en") {
+          tick = tmep["ticketTitleEn"];
+        }
         list = [tick];
+        _updateNumber();
       }
       if(mounted) setState(() {
         
@@ -129,7 +149,8 @@ class _MineReelPageState extends State<MineReelPage> {
             createtime: createtime,
             currNum: currnum,
             onTap: () {
-            Navigator.pop(context);
+              EventBus.instance.commit(EventKeys.RefreshMine, null);
+              Navigator.pop(context);
           },));
         }, fail: (e) => EasyLoading.showToast(e));
       },));
@@ -139,6 +160,7 @@ class _MineReelPageState extends State<MineReelPage> {
     children.forEach((element) { 
       element.clear();
     });
+    _updateNumber();
   }
 
   @override
@@ -179,7 +201,7 @@ class _MineReelPageState extends State<MineReelPage> {
                             height: 42,
                             child: Container(
                               alignment: Alignment.center,
-                              child: Text(tick, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
+                              child: Text(tick, style: AppFont.textStyle(12, color: Colors.black), textAlign: TextAlign.center,)
                             ),
                           ),
                           Positioned(
@@ -273,17 +295,23 @@ class _MineReelPageState extends State<MineReelPage> {
 class _Item extends StatefulWidget {
   final Function(int status, int count, int index) onVerfied;
   final Function(int index, String account) onAccount;
+  final Function() onUpdateAccount;
   int index;
   int status;
+  final int amount;
   __ItemState _state = __ItemState();
   void update() {
     _state._update();
   }
 
+  void updateAmount(int sender) {
+    _state._updateAmount(sender);
+  }
+
   void clear() {
     _state._clear();
   }
-  _Item({Key key, this.onVerfied, this.onAccount, this.index, this.status}) : super(key: key);
+  _Item({Key key, this.amount, this.onUpdateAccount, this.onVerfied, this.onAccount, this.index, this.status}) : super(key: key);
 
   @override
   __ItemState createState() => _state;
@@ -295,6 +323,18 @@ class __ItemState extends State<_Item> {
   FocusNode focusNode = FocusNode();
   TextEditingController controller1 = TextEditingController();
   FocusNode focusNode1 = FocusNode();
+  int amount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    amount = widget.amount;
+    focusNode1.addListener(() {
+      if(widget.onUpdateAccount != null) {
+        widget.onUpdateAccount();
+      }
+    });
+  }
 
   @override
   void dispose() {
@@ -347,6 +387,12 @@ class __ItemState extends State<_Item> {
 
   void _update() {
     setState(() {
+    });
+  }
+
+  void _updateAmount(int sender) {
+    amount = sender;
+    if(mounted) setState(() {
       
     });
   }
@@ -413,6 +459,8 @@ class __ItemState extends State<_Item> {
               NormalTextfield(
                 controller: controller1,
                 focusNode: focusNode1,
+                inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                keyboardType: TextInputType.number,
                 onChanged: (val) {
                   setState(() {
                     
@@ -435,7 +483,7 @@ class __ItemState extends State<_Item> {
                     borderRadius: BorderRadius.circular(4)
                   ),
                   alignment: Alignment.center,
-                  child: Text(I18n.of(context).reelmaxcount("505"), style: AppFont.textStyle(12, color: AppColor.back998)),
+                  child: Text(I18n.of(context).reelmaxcount("$amount"), style: AppFont.textStyle(12, color: AppColor.back998)),
                 ),
               )
             ],

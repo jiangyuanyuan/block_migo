@@ -282,5 +282,9 @@
     "reelnumbertomax":"The number of transfer users reaches the upper limit",
     "reelrequestSuccess":"Reel has been successfully transferred",
     "reelrequestcurrnumber":"Current certification volume number:",
+    "reelstatus1":"Transferred",
+    "reelstatus2":"Reloaded",
+    "reelstatus3":"Used",
+    "reelstatus4":"Returned",
     "reealnotice5":"4. Click the icon in the upper left corner to view your certification volume transfer record."
 }

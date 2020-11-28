@@ -374,10 +374,10 @@ class I18n implements WidgetsLocalizations {
   String get reeltitle => "转券";
   /// "转券"
   String get reelaction => "转券";
-  /// "转增于用户："
-  String get coupontouser => "转增于用户：";
-  /// "转增数量："
-  String get coupontousercount => "转增数量：";
+  /// "转赠于用户："
+  String get coupontouser => "转赠于用户：";
+  /// "转赠数量："
+  String get coupontousercount => "转赠数量：";
   /// "验证用户"
   String get reelverified => "验证用户";
   /// "请先验证用户"
@@ -564,22 +564,22 @@ class I18n implements WidgetsLocalizations {
   String withdrawnoticerule(String e) => "1. 最小提币量为${e}.\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审";
   /// "密码不一致"
   String get notsamepwd => "密码不一致";
-  /// "转增认证卷需知："
-  String get reealnotice => "转增认证卷需知：";
-  /// "1. 最低转增单位为1。"
-  String get reealnotice1 => "1. 最低转增单位为1。";
-  /// "2. 你可以一次性转增最多五个用户。"
-  String get reealnotice2 => "2. 你可以一次性转增最多五个用户。";
-  /// "3. 请先验证您输入的用户ID，确认为已注册用户方能转增。"
-  String get reealnotice3 => "3. 请先验证您输入的用户ID，确认为已注册用户方能转增。";
-  /// "转增认证卷需知："
-  String get reealnotice4 => "转增认证卷需知：";
-  /// "4. 点击左上角的图标可以查看您的认证卷转增记录。"
-  String get reealnotice5 => "4. 点击左上角的图标可以查看您的认证卷转增记录。";
+  /// "转赠认证卷需知："
+  String get reealnotice => "转赠认证卷需知：";
+  /// "1. 最低转赠单位为1。"
+  String get reealnotice1 => "1. 最低转赠单位为1。";
+  /// "2. 你可以一次性转赠最多五个用户。"
+  String get reealnotice2 => "2. 你可以一次性转赠最多五个用户。";
+  /// "3. 请先验证您输入的用户ID，确认为已注册用户方能转赠。"
+  String get reealnotice3 => "3. 请先验证您输入的用户ID，确认为已注册用户方能转赠。";
+  /// "转赠认证卷需知："
+  String get reealnotice4 => "转赠认证卷需知：";
+  /// "4. 点击左上角的图标可以查看您的认证卷转赠记录。"
+  String get reealnotice5 => "4. 点击左上角的图标可以查看您的认证卷转赠记录。";
   /// "转卷记录"
   String get reelrecord => "转卷记录";
-  /// "实名认证卷转增记录"
-  String get reelrecordhead => "实名认证卷转增记录";
+  /// "实名认证卷转赠记录"
+  String get reelrecordhead => "实名认证卷转赠记录";
   /// "实名认证卷"
   String get reelusename => "实名认证卷";
   /// "你目前有${e}张可用认证卷，确认使用吗？"
@@ -600,8 +600,16 @@ class I18n implements WidgetsLocalizations {
   String get reelrequestcurrnumber => "当前认证卷数量：";
   /// "认证券数量不足, 请修改数量"
   String get reelnumbertonotenough => "认证券数量不足, 请修改数量";
-  /// "已转增"
-  String get reeledfinish => "已转增";
+  /// "已转赠"
+  String get reelstatus1 => "已转赠";
+  /// "已加额"
+  String get reelstatus2 => "已加额";
+  /// "已使用"
+  String get reelstatus3 => "已使用";
+  /// "已返还"
+  String get reelstatus4 => "已返还";
+  /// "已转赠"
+  String get reeledfinish => "已转赠";
 }
 
 class _I18n_zh_CN extends I18n {
@@ -1463,6 +1471,18 @@ class _I18n_en_US extends I18n {
   /// "The number of certification coupons is insufficient, please modify the number"
   @override
   String get reelnumbertonotenough => "The number of certification coupons is insufficient, please modify the number";
+  /// "Transferred"
+  @override
+  String get reelstatus1 => "Transferred";
+  /// "Reloaded"
+  @override
+  String get reelstatus2 => "Reloaded";
+  /// "Used"
+  @override
+  String get reelstatus3 => "Used";
+  /// "Returned"
+  @override
+  String get reelstatus4 => "Returned";
   /// "Reposted"
   @override
   String get reeledfinish => "Reposted";

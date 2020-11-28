@@ -28,6 +28,7 @@ class _SafePageState extends State<SafePage> {
 
     EventBus.instance.addListener(EventKeys.RefreshAuth, (arg) { 
       _request();
+      EventBus.instance.commit(EventKeys.RefreshMine, null);
     });
   }
 

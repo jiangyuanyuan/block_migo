@@ -53,8 +53,8 @@ class ReelModel {
 
   ReelModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    fromUser = json['fromUser'];
-    toUser = json['toUser'];
+    fromUser = json['fromUser'] ?? "系统";
+    toUser = json['toUser'] ?? "系统";
     ticketTitle = json['ticketTitle'];
     ticketTitleEn = json['ticketTitleEn'];
     ticketType = json['ticketType'];

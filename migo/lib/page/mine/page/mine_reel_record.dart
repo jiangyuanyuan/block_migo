@@ -6,6 +6,8 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/model/reel_model.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -45,11 +47,11 @@ class _MineReelRecordPageState extends State<MineReelRecordPage> {
       final tmep = ReelReponse.fromJson(data);
       if(isclear) list.clear();
       SharedPreferences prefs = await SharedPreferences.getInstance();
-        if(prefs.getString('languageCode') == "en") {
-          tmep.data.forEach((element) {
-            if(element.ticketTitleEn != null) element.ticketTitle = element.ticketTitleEn;
-          });
-        }
+      if(prefs.getString('languageCode') == "en") {
+        tmep.data.forEach((element) {
+          if(element.ticketTitleEn != null) element.ticketTitle = element.ticketTitleEn;
+        });
+      }
       list.addAll(tmep.data);
       if(tmep.data.length < 10) _refreshController.loadNoData();
       if(mounted) setState(() {
@@ -108,30 +110,55 @@ class _Cell extends StatelessWidget {
   final ReelModel model;
 
   const _Cell({Key key, this.model}) : super(key: key);
+
+  String _getadd(String minaccount) {
+    return minaccount == model.fromUser ? "-" : "+";
+  }
+
+  String _getStatus(BuildContext context) {
+    switch (model.ticketType) {
+      case 1:
+        return I18n.of(context).reelstatus1;
+        break;
+      case 2: 
+        return I18n.of(context).reelstatus2;
+        break;
+      case 3:
+        return I18n.of(context).reelstatus3;
+        break;
+      case 4:
+        return I18n.of(context).reelstatus4;
+        break;
+      default:
+        return "--";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(model.ticketTitle, style: AppFont.textStyle(12, color: AppColor.back998),),
-              Text(I18n.of(context).reeledfinish, style: AppFont.textStyle(12, color: AppColor.back998),),
-              
-            ],
-          ),
-          SizedBox(height: 4,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(Tool.timeFormat("yyyy/MM/dd HH:mm", model.createTime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
-              Text(model.toUser, style: AppFont.textStyle(12, color: AppColor.back998),),
-            ],
-          ),
-        ],
-      ),
+      child: Consumer<UserModel>(builder: (context, value, child) {
+        return Column(
+          children: [
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("${_getadd(value.data.mobile ?? value.data.email)}${model.ticketNumber} "+model.ticketTitle, style: AppFont.textStyle(12, color: AppColor.back998),),
+                  Text(_getStatus(context), style: AppFont.textStyle(12, color: AppColor.back998),),
+                ],
+            ),
+            SizedBox(height: 4,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(Tool.timeFormat("yyyy/MM/dd HH:mm", model.createTime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
+                Text(_getadd(value.data.mobile ?? value.data.email) == "+" ? model.fromUser : model.toUser, style: AppFont.textStyle(12, color: AppColor.back998),),
+              ],
+            ),
+          ],
+        );
+      },)
     );
   }
 }
