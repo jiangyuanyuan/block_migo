@@ -572,10 +572,8 @@ class I18n implements WidgetsLocalizations {
   String get reealnotice2 => "2. 你可以一次性转赠最多五个用户。";
   /// "3. 请先验证您输入的用户ID，确认为已注册用户方能转赠。"
   String get reealnotice3 => "3. 请先验证您输入的用户ID，确认为已注册用户方能转赠。";
-  /// "转赠认证卷需知："
-  String get reealnotice4 => "转赠认证卷需知：";
   /// "4. 点击左上角的图标可以查看您的认证卷转赠记录。"
-  String get reealnotice5 => "4. 点击左上角的图标可以查看您的认证卷转赠记录。";
+  String get reealnotice4 => "4. 点击左上角的图标可以查看您的认证卷转赠记录。";
   /// "转卷记录"
   String get reelrecord => "转卷记录";
   /// "实名认证卷转赠记录"
@@ -1429,12 +1427,9 @@ class _I18n_en_US extends I18n {
   /// "3. Please verify the user ID you entered first, and confirm that it is a registered user before adding it."
   @override
   String get reealnotice3 => "3. Please verify the user ID you entered first, and confirm that it is a registered user before adding it.";
-  /// "Need to know when transferring certification volume:"
+  /// "4. Click the icon in the upper left corner to view your certification voucher transfer record."
   @override
-  String get reealnotice4 => "Need to know when transferring certification volume:";
-  /// "4. Click the icon in the upper left corner to view your certification volume transfer record."
-  @override
-  String get reealnotice5 => "4. Click the icon in the upper left corner to view your certification volume transfer record.";
+  String get reealnotice4 => "4. Click the icon in the upper left corner to view your certification voucher transfer record.";
   /// "Reel Record"
   @override
   String get reelrecord => "Reel Record";

@@ -279,7 +279,6 @@ class _MineReelPageState extends State<MineReelPage> {
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Text(I18n.of(context).reealnotice4, style: AppFont.textStyle(12, color: Colors.white.withOpacity(0.5)),),
                       ),
-                      Text(I18n.of(context).reealnotice5, style: AppFont.textStyle(12, color: Colors.white.withOpacity(0.5)),),
                     ],
                   ),
                 )
@@ -489,7 +488,7 @@ class __ItemState extends State<_Item> {
             ],
           ),
           Visibility(
-            visible: num.parse(controller1.text, (e) => 0) == 0,
+            visible: num.parse(controller1.text, (e) => null) == 0,
             child: Padding(
               padding: const EdgeInsets.only(top:8.0),
               child: Text(I18n.of(context).pleaseinputreelnumber, style: AppFont.textStyle(12, color: AppColor.red),),

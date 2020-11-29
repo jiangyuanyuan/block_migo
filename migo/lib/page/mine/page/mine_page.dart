@@ -45,7 +45,6 @@ class _MinePageState extends State<MinePage> {
 
   @override
   void dispose() {
-    print("abc");
     super.dispose();
   }
 

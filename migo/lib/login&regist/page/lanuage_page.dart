@@ -1,4 +1,5 @@
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/main.dart' show FreeLocalizations;
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class _LanguagePageState extends State<LanguagePage> {
   String lang = "zh";
 
   _setCurrentDeviceLocale(Locale deviceLocale) async {
+    EventBus.instance.commit(EventKeys.RefreshMine, null);
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('languageCode', deviceLocale.languageCode);
     prefs.setString('countryCode', deviceLocale.countryCode);
