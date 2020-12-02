@@ -18,6 +18,8 @@ import 'package:migo/page/home/view/home_detail_tabbar.dart';
 import 'package:migo/page/home/view/home_detail_use.dart';
 import 'package:migo/page/home/view/home_gradient_text.dart';
 import 'package:migo/page/mine/model/me_model.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomeDetailPage extends StatefulWidget {
@@ -33,8 +35,8 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
   int tabindex = 0;
   HomeModel model;
   HomeDetialModel detailModel;
-  List<MineEarnRecordModel> mineEarnRecordList = [];
-  List<MinePayRecordModel> minePayRecordList = [];
+  // List<MineEarnRecordModel> mineEarnRecordList = [];
+  List<MmineUserModel> minePayRecordList = [];
   RefreshController _refreshController = RefreshController();
   num migoAmount = 0;
   @override
@@ -52,6 +54,13 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
     //     Future.delayed(const Duration(milliseconds: 100)).then((value) => _inputPwd(sender));    
     //   },
     // ));
+    final user = Provider.of<UserModel>(context, listen: false).data;
+    if(user.txPassword == null || user.txPassword == "") {
+      Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).nottxpwd, callback: () {
+        Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});
+      });
+      return;
+    }
     _inputPwd("");
   }
 
@@ -83,14 +92,14 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
 
   /// 请求挖矿列表详情
   void _request() {
-    Networktool.request(API.getMyMineList + model.id, method: HTTPMETHOD.GET, success: (data) {
+    Networktool.request(API.getMineBaseById + model.id, method: HTTPMETHOD.GET, success: (data) {
       final temp = HomeDetailResponse.fromJson(data);
       detailModel = temp.data;
-      if(detailModel.mineEarnRecordList != null) {
-        mineEarnRecordList = detailModel.mineEarnRecordList;
-      }
-      if(detailModel.minePayRecordList != null) {
-        minePayRecordList = detailModel.minePayRecordList;
+      // if(detailModel.mineEarnRecordList != null) {
+      //   mineEarnRecordList = detailModel.mineEarnRecordList;
+      // }
+      if(detailModel.mmineUserList != null) {
+        minePayRecordList = detailModel.mmineUserList;
       }
       if(mounted) setState(() {
         
@@ -119,7 +128,7 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
         ],
         child: Column(
           children: [
-            HomeDetailHeadView(model: model, userCount: detailModel?.useCount,),
+            HomeDetailHeadView(model: model, userCount: detailModel?.count,),
             SizedBox(height: 20,),
             Expanded(
               child: Stack(
@@ -132,53 +141,27 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
                     left: 0,
                     right: 0,
                     top: 0,
-                    child: HomeDetailUserView(onTap: _getAction, title: model.mineTitle, endTime: detailModel?.endTime, coinName: model.pledgeCoinName, amount: model.pledgeAmount, shovelCount: detailModel?.useCount ?? 0,),
+                    bottom: 0,
+                    child: Column(
+                      children: [
+                        HomeDetailUserView(onTap: _getAction, title: model.mineTitle, endTime: null, coinName: model.pledgeCoinName, amount: model.pledgeAmount),
+                        SizedBox(height: 60,),
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: minePayRecordList.length,
+                            padding: const EdgeInsets.only(top: 0),
+                            itemBuilder: (context, index) {
+                              final tempmodel = minePayRecordList[index];
+                              return Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                                child: HomeDetailUserView(onTap: _getAction, paytime: tempmodel.createTime, title: model.mineTitle, endTime: tempmodel.endTime, coinName: model.pledgeCoinName, amount: model.pledgeAmount,),
+                              );
+                            }
+                          ),
+                        )
+                      ],
+                    )
                   ),
-                  Positioned(
-                    top: 215,
-                    left: 0,
-                    right: 0,
-                    child: Visibility(
-                      visible: detailModel?.endTime != null,
-                      child: HomeDetailUserView(onTap: _getAction, title: model.mineTitle, endTime: null, coinName: model.pledgeCoinName, amount: model.pledgeAmount, shovelCount: detailModel?.useCount ?? 0,)
-                    ),
-                    // child: Container(
-                    //   decoration: BoxDecoration(
-                    //     color: const Color(0xffFDFEFF),
-                    //     borderRadius: BorderRadius.vertical(top: Radius.circular(8))
-                    //   ),
-                      // child: Column(
-                      //   children: [
-                          
-                          // HomeDetailBarView(onTabIndex: (sender) {
-                          //   setState(() {
-                          //     tabindex = sender;
-                          //   });
-                          // },),
-                          // Expanded(
-                          //   child: RefreshWidget(
-                          //     controller: _refreshController,
-                          //     onRefresh: _refresh,
-                          //     child: ListView.separated(
-                          //       padding: const EdgeInsets.symmetric(horizontal: 24),
-                          //       itemBuilder: (context, index) {
-                          //         if(tabindex == 0) {
-                          //           final model = minePayRecordList[index];
-                          //           return HomeDetailCell(tabindex: tabindex, coinName: model.coinName, amount: model.payAmount, createtime: model.payTime,);
-                          //         } else {
-                          //           final model = mineEarnRecordList[index];
-                          //           return HomeDetailCell(tabindex: tabindex, coinName: model.coinName, amount: model.earnAmount, createtime: model.earnTime,);
-                          //         }
-                          //       }, 
-                          //       separatorBuilder: (context, index) => Divider(height: 1,), 
-                          //       itemCount: tabindex == 0 ? minePayRecordList.length : mineEarnRecordList.length
-                          //     ),
-                          //   ),
-                          // )
-                        // ],
-                      // ),
-                    // )
-                  )
                 ],
               ),
             )

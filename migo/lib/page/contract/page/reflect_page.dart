@@ -5,7 +5,6 @@ import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
-import 'package:migo/common/qrcode/qr_page.dart';
 import 'package:migo/common/textstyle/textfield_number.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/event_bus.dart';
@@ -15,7 +14,6 @@ import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/page/contract/model/reflect_model.dart';
 import 'package:migo/page/contract/view/alert_password_view.dart';
 import 'package:migo/page/contract/view/choose_coin_view.dart';
-import 'package:migo/page/contract/view/recharge_head_view.dart';
 
 class ReflectPage extends StatefulWidget {
   
@@ -146,8 +144,8 @@ class _ReflectPageState extends State<ReflectPage> {
       Navigator.pushNamed(context, "/reflectsuccess", arguments: {
         "coinName":coinName,
         "num": outnumber,
-        "realnum":Tool.number(outnumber * (1 - fee), 4),
-        "fee":"${Tool.number(fee * 100, 2)}%"
+        "realnum":Tool.number((outnumber - fee) < 0 ? 0 : (outnumber - fee), 2),
+        "fee":"${Tool.number(fee, 2)}%"
       });
     }, fail: (e) => EasyLoading.showError(e));
   }
@@ -196,7 +194,7 @@ class _ReflectPageState extends State<ReflectPage> {
                             height: 42,
                             child: Container(
                               alignment: Alignment.center,
-                              child: Text(coinName, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
+                              child: Text(coinName, style: AppFont.textStyle(12, color: Colors.black), textAlign: TextAlign.center,)
                             ),
                           ),
                           Positioned(
@@ -312,9 +310,9 @@ class _ReflectPageState extends State<ReflectPage> {
                                   children: [
                                     _Row(titles: I18n.of(context).availableamount, val: "${Tool.number(banlance, 2)} $coinName",),
                                     SizedBox(height: 10,),
-                                    _Row(titles: I18n.of(context).handlingfee, val: "${Tool.number(fee * 100, 2)}%",),
+                                    _Row(titles: I18n.of(context).handlingfee, val: "${Tool.number(fee, 2)} USDT",),
                                     SizedBox(height: 10,),
-                                    _Row(titles: I18n.of(context).actualarrival, val: "${Tool.number(outnumber * (1 - fee), 4)} $coinName",)
+                                    _Row(titles: I18n.of(context).actualarrival, val: "${Tool.number((outnumber - fee) < 0 ? 0 : (outnumber - fee), 2)} $coinName",)
                                   ],
                                 ),
                               ),

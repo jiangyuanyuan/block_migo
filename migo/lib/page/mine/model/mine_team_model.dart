@@ -299,6 +299,7 @@ class PseniorityConfigModel {
   String id;
   num proportion;
   String remark;
+  String enRemark;
   int userCount;
   int userLevel;
   String seeRemark;
@@ -319,6 +320,7 @@ class PseniorityConfigModel {
     seeRemark = json["seeRemark"];
     proportion = json['proportion'];
     remark = json['remark'];
+    enRemark = json['enRemark'];
     enSeeRemark = json["enSeeRemark"];
     userCount = json['userCount'];
     userLevel = json['userLevel'];

@@ -1,3 +1,4 @@
+import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -352,6 +353,17 @@ class __ItemState extends State<_Item> {
       EasyLoading.showToast(I18n.of(context).pleaseinputuserid);
       return;
     }
+    final temp = Provider.of<UserModel>(context, listen: false);
+    final useraccount = temp.data.mobile == null ? temp.data.email : temp.data.mobile;
+    if(controller.text == useraccount) {
+      setState(() {
+        widget.status = 4;
+      });
+      if(widget.onVerfied != null) {
+        widget.onVerfied(4, num.parse(controller1.text, (e) => 0), widget.index);
+      }
+      return;
+    }
     EasyLoading.show(status: "Loading...");
     Networktool.request(API.checkUser, params: {
       "userMsg": controller.text
@@ -379,6 +391,8 @@ class __ItemState extends State<_Item> {
       return I18n.of(context).reelsuccess;
     } else if(widget.status == 2) {
       return I18n.of(context).reelerror;
+    } else if(widget.status == 4) {
+      return I18n.of(context).notsameaccount;
     } else {
       return I18n.of(context).pleasereelverified;
     }

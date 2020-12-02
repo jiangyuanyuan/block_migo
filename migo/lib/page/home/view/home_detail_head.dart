@@ -35,7 +35,7 @@ class HomeDetailHeadView extends StatelessWidget {
               Text(I18n.of(context).miningoutput, style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
               SizedBox(height: 10,),
               HomeGradientText(
-                data: "${model.totalMine / model.mineTimes}",
+                data: Tool.number(model.totalMine / model.mineTimes, 4),
                 fontstyle: AppFont.textStyle(16, fontWeight: FontWeight.bold),
               ),
             ],

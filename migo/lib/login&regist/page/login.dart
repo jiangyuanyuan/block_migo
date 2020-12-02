@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:device_info/device_info.dart';
 import 'package:migo/common/authbyimage/auth_manager.dart';
 import 'package:migo/common/authbyimage/wangyi_verfied.dart';
 import 'package:migo/common/commview/alert.dart';
@@ -56,7 +59,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     },finaly: () => EasyLoading.dismiss());
   }
 
-  void _login(String account, String pwd, String code, bool isemail) {
+  void _login(String account, String pwd, String code, bool isemail) async {
     if(account.isEmpty) {
       EasyLoading.showToast(isemail ? I18n.of(context).pleaseinputemail : I18n.of(context).pleaseinputphone);
       return;
@@ -92,6 +95,17 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     }
     print(Tool.generateMd5(pwd));
 
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    String deviceId = "";
+    
+    if(Platform.isAndroid) {
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      deviceId = androidInfo.id;
+    } else {
+      IosDeviceInfo info = await deviceInfo.iosInfo;
+      deviceId = info.identifierForVendor;
+    }
+
     WangyVerfied.showCaptcha((issuccess) {
       if(issuccess) {
         EasyLoading.showToast("Loading...");
@@ -100,6 +114,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
             "loginType": isemail ? 2 : 1,
             "passWord": Tool.generateMd5(pwd),
             "userNumber": account,
+            "deviceNo":deviceId
         }, success: (data) {
           EasyLoading.dismiss();
           final temp = data["data"];

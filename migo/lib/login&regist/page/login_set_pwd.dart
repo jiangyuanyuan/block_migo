@@ -163,7 +163,7 @@ class _LoginSetPwdState extends State<LoginSetPwd> {
                     NormalTextfield(
                       focusNode: _pwdNode,
                       controller: _pwdController,
-                      hintText: I18n.of(context).pleaseinputnewpwd,
+                      hintText: istxpwd ? I18n.of(context).pleasesixpwd: I18n.of(context).pleaseinputnewpwd,
                       obscureText: true,
                       maxLength: istxpwd ? 6 : null,
                       inputFormatters: istxpwd ? [WhitelistingTextInputFormatter.digitsOnly] : null,

@@ -564,40 +564,46 @@ class I18n implements WidgetsLocalizations {
   String withdrawnoticerule(String e) => "1. 最小提币量为${e}.\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审";
   /// "密码不一致"
   String get notsamepwd => "密码不一致";
-  /// "转赠认证卷需知："
-  String get reealnotice => "转赠认证卷需知：";
+  /// "转赠认证券需知："
+  String get reealnotice => "转赠认证券需知：";
   /// "1. 最低转赠单位为1。"
   String get reealnotice1 => "1. 最低转赠单位为1。";
   /// "2. 你可以一次性转赠最多五个用户。"
   String get reealnotice2 => "2. 你可以一次性转赠最多五个用户。";
   /// "3. 请先验证您输入的用户ID，确认为已注册用户方能转赠。"
   String get reealnotice3 => "3. 请先验证您输入的用户ID，确认为已注册用户方能转赠。";
-  /// "4. 点击左上角的图标可以查看您的认证卷转赠记录。"
-  String get reealnotice4 => "4. 点击左上角的图标可以查看您的认证卷转赠记录。";
-  /// "转卷记录"
-  String get reelrecord => "转卷记录";
-  /// "实名认证卷转赠记录"
-  String get reelrecordhead => "实名认证卷转赠记录";
-  /// "实名认证卷"
-  String get reelusename => "实名认证卷";
-  /// "你目前有${e}张可用认证卷，确认使用吗？"
-  String reelusecontent(String e) => "你目前有${e}张可用认证卷，确认使用吗？";
-  /// "已消耗一张认证卷！请耐心等待认证结果"
-  String get reeluserd => "已消耗一张认证卷！请耐心等待认证结果";
-  /// "您目前没有任何可用认证卷，\n请跟您的邀请人或者上级领导获取！"
-  String get reelnouse => "您目前没有任何可用认证卷，\n请跟您的邀请人或者上级领导获取！";
+  /// "4. 点击左上角的图标可以查看您的认证券转赠记录。"
+  String get reealnotice4 => "4. 点击左上角的图标可以查看您的认证券转赠记录。";
+  /// "转券记录"
+  String get reelrecord => "转券记录";
+  /// "实名认证券转赠记录"
+  String get reelrecordhead => "实名认证券转赠记录";
+  /// "实名认证券"
+  String get reelusename => "实名认证券";
+  /// "你目前有${e}张可用认证券，确认使用吗？"
+  String reelusecontent(String e) => "你目前有${e}张可用认证券，确认使用吗？";
+  /// "已消耗一张认证券！请耐心等待认证结果"
+  String get reeluserd => "已消耗一张认证券！请耐心等待认证结果";
+  /// "您目前没有任何可用认证券，\n请跟您的邀请人或者上级领导获取！"
+  String get reelnouse => "您目前没有任何可用认证券，\n请跟您的邀请人或者上级领导获取！";
   /// "请输入手机号或者邮箱"
   String get pleaseinputuserid => "请输入手机号或者邮箱";
   /// "请输入数量: 最低为1"
   String get pleaseinputreelnumber => "请输入数量: 最低为1";
   /// "转赠用户数达到上限"
   String get reelnumbertomax => "转赠用户数达到上限";
-  /// "已转卷成功"
-  String get reelrequestSuccess => "已转卷成功";
-  /// "当前认证卷数量："
-  String get reelrequestcurrnumber => "当前认证卷数量：";
+  /// "已转券成功"
+  String get reelrequestSuccess => "已转券成功";
+  /// "当前认证券数量："
+  String get reelrequestcurrnumber => "当前认证券数量：";
+  /// "无法转券给同个账号"
+  String get notsameaccount => "无法转券给同个账号";
   /// "认证券数量不足, 请修改数量"
   String get reelnumbertonotenough => "认证券数量不足, 请修改数量";
+  /// "请输入6位数的交易密码"
+  String get pleasesixtxpwd => "请输入6位数的交易密码";
+  /// "汇率"
+  String get huilv => "汇率";
   /// "已转赠"
   String get reelstatus1 => "已转赠";
   /// "已加额"
@@ -1463,9 +1469,18 @@ class _I18n_en_US extends I18n {
   /// "Current certification volume number:"
   @override
   String get reelrequestcurrnumber => "Current certification volume number:";
+  /// "Cannot transfer to the same account"
+  @override
+  String get notsameaccount => "Cannot transfer to the same account";
   /// "The number of certification coupons is insufficient, please modify the number"
   @override
   String get reelnumbertonotenough => "The number of certification coupons is insufficient, please modify the number";
+  /// "Please enter a 6-digit transaction password"
+  @override
+  String get pleasesixtxpwd => "Please enter a 6-digit transaction password";
+  /// "Exchange Rate"
+  @override
+  String get huilv => "Exchange Rate";
   /// "Transferred"
   @override
   String get reelstatus1 => "Transferred";

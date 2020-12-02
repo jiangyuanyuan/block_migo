@@ -1,190 +1,145 @@
 class HomeDetailResponse {
   int code;
-  HomeDetialModel data;
   String msg;
+  HomeDetialModel data;
 
-  HomeDetailResponse({this.code, this.data, this.msg});
+  HomeDetailResponse({this.code, this.msg, this.data});
 
   HomeDetailResponse.fromJson(Map<String, dynamic> json) {
     code = json['code'];
-    data = json['data'] != null ? new HomeDetialModel.fromJson(json['data']) : null;
     msg = json['msg'];
+    data = json['data'] != null ? new HomeDetialModel.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['code'] = this.code;
+    data['msg'] = this.msg;
     if (this.data != null) {
       data['data'] = this.data.toJson();
     }
-    data['msg'] = this.msg;
     return data;
   }
 }
 
 class HomeDetialModel {
-  int endTime;
-  List<MineEarnRecordModel> mineEarnRecordList;
-  List<MinePayRecordModel> minePayRecordList;
-  int mineTimes;
+  String baseName;
+  String enBaseName;
+  int count;
   num oneDayAmount;
-  num totalMine;
-  int useCount;
+  int mineTimes;
+  double totalMine;
+  String mineCoinName;
+  String pledgeCoinName;
+  num pledgeAmount;
+  List<MmineUserModel> mmineUserList;
 
   HomeDetialModel(
-      {this.endTime,
-      this.mineEarnRecordList,
-      this.minePayRecordList,
-      this.mineTimes,
+      {this.baseName,
+      this.enBaseName,
+      this.count,
       this.oneDayAmount,
+      this.mineTimes,
       this.totalMine,
-      this.useCount});
+      this.mineCoinName,
+      this.pledgeCoinName,
+      this.pledgeAmount,
+      this.mmineUserList});
 
   HomeDetialModel.fromJson(Map<String, dynamic> json) {
-    endTime = json['endTime'];
-    if (json['mineEarnRecordList'] != null) {
-      mineEarnRecordList = new List<MineEarnRecordModel>();
-      json['mineEarnRecordList'].forEach((v) {
-        mineEarnRecordList.add(new MineEarnRecordModel.fromJson(v));
-      });
-    }
-    if (json['minePayRecordList'] != null) {
-      minePayRecordList = new List<MinePayRecordModel>();
-      json['minePayRecordList'].forEach((v) {
-        minePayRecordList.add(new MinePayRecordModel.fromJson(v));
-      });
-    }
-    mineTimes = json['mineTimes'];
+    baseName = json['baseName'];
+    enBaseName = json['enBaseName'];
+    count = json['count'];
     oneDayAmount = json['oneDayAmount'];
+    mineTimes = json['mineTimes'];
     totalMine = json['totalMine'];
-    useCount = json['useCount'];
+    mineCoinName = json['mineCoinName'];
+    pledgeCoinName = json['pledgeCoinName'];
+    pledgeAmount = json['pledgeAmount'];
+    if (json['mmineUserList'] != null) {
+      mmineUserList = new List<MmineUserModel>();
+      json['mmineUserList'].forEach((v) {
+        mmineUserList.add(new MmineUserModel.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['endTime'] = this.endTime;
-    if (this.mineEarnRecordList != null) {
-      data['mineEarnRecordList'] =
-          this.mineEarnRecordList.map((v) => v.toJson()).toList();
-    }
-    if (this.minePayRecordList != null) {
-      data['minePayRecordList'] =
-          this.minePayRecordList.map((v) => v.toJson()).toList();
-    }
-    data['mineTimes'] = this.mineTimes;
+    data['baseName'] = this.baseName;
+    data['enBaseName'] = this.enBaseName;
+    data['count'] = this.count;
     data['oneDayAmount'] = this.oneDayAmount;
+    data['mineTimes'] = this.mineTimes;
     data['totalMine'] = this.totalMine;
-    data['useCount'] = this.useCount;
+    data['mineCoinName'] = this.mineCoinName;
+    data['pledgeCoinName'] = this.pledgeCoinName;
+    data['pledgeAmount'] = this.pledgeAmount;
+    if (this.mmineUserList != null) {
+      data['mmineUserList'] =
+          this.mmineUserList.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }
 
-class MineEarnRecordModel {
-  String coinId;
-  String coinName;
-  int createTime;
-  num earnAmount;
-  int earnDay;
-  String earnName;
-  String earnTime;
+class MmineUserModel {
   String id;
   String mineBaseId;
-  String mineUserId;
-  int status;
   String userId;
-
-  MineEarnRecordModel(
-      {this.coinId,
-      this.coinName,
-      this.createTime,
-      this.earnAmount,
-      this.earnDay,
-      this.earnName,
-      this.earnTime,
-      this.id,
-      this.mineBaseId,
-      this.mineUserId,
-      this.status,
-      this.userId});
-
-  MineEarnRecordModel.fromJson(Map<String, dynamic> json) {
-    coinId = json['coinId'];
-    coinName = json['coinName'];
-    createTime = json['createTime'];
-    earnAmount = json['earnAmount'];
-    earnDay = json['earnDay'];
-    earnName = json['earnName'];
-    earnTime = json['earnTime'];
-    id = json['id'];
-    mineBaseId = json['mineBaseId'];
-    mineUserId = json['mineUserId'];
-    status = json['status'];
-    userId = json['userId'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['coinId'] = this.coinId;
-    data['coinName'] = this.coinName;
-    data['createTime'] = this.createTime;
-    data['earnAmount'] = this.earnAmount;
-    data['earnDay'] = this.earnDay;
-    data['earnName'] = this.earnName;
-    data['earnTime'] = this.earnTime;
-    data['id'] = this.id;
-    data['mineBaseId'] = this.mineBaseId;
-    data['mineUserId'] = this.mineUserId;
-    data['status'] = this.status;
-    data['userId'] = this.userId;
-    return data;
-  }
-}
-
-class MinePayRecordModel {
-  String coinId;
-  String coinName;
-  int createTime;
-  String id;
-  String mineBaseId;
-  String mineUserId;
   num payAmount;
-  int payTime;
-  String userId;
+  int mineDays;
+  int datetimeMineDays;
+  int status;
+  double mineEarnTotal;
+  num mineEarnDay;
+  int createTime;
+  int beginTime;
+  int endTime;
 
-  MinePayRecordModel(
-      {this.coinId,
-      this.coinName,
-      this.createTime,
-      this.id,
+  MmineUserModel(
+      {this.id,
       this.mineBaseId,
-      this.mineUserId,
+      this.userId,
       this.payAmount,
-      this.payTime,
-      this.userId});
+      this.mineDays,
+      this.datetimeMineDays,
+      this.status,
+      this.mineEarnTotal,
+      this.mineEarnDay,
+      this.createTime,
+      this.beginTime,
+      this.endTime});
 
-  MinePayRecordModel.fromJson(Map<String, dynamic> json) {
-    coinId = json['coinId'];
-    coinName = json['coinName'];
-    createTime = json['createTime'];
+  MmineUserModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     mineBaseId = json['mineBaseId'];
-    mineUserId = json['mineUserId'];
-    payAmount = json['payAmount'];
-    payTime = json['payTime'];
     userId = json['userId'];
+    payAmount = json['payAmount'];
+    mineDays = json['mineDays'];
+    datetimeMineDays = json['datetimeMineDays'];
+    status = json['status'];
+    mineEarnTotal = json['mineEarnTotal'];
+    mineEarnDay = json['mineEarnDay'];
+    createTime = json['createTime'];
+    beginTime = json['beginTime'];
+    endTime = json['endTime'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['coinId'] = this.coinId;
-    data['coinName'] = this.coinName;
-    data['createTime'] = this.createTime;
     data['id'] = this.id;
     data['mineBaseId'] = this.mineBaseId;
-    data['mineUserId'] = this.mineUserId;
-    data['payAmount'] = this.payAmount;
-    data['payTime'] = this.payTime;
     data['userId'] = this.userId;
+    data['payAmount'] = this.payAmount;
+    data['mineDays'] = this.mineDays;
+    data['datetimeMineDays'] = this.datetimeMineDays;
+    data['status'] = this.status;
+    data['mineEarnTotal'] = this.mineEarnTotal;
+    data['mineEarnDay'] = this.mineEarnDay;
+    data['createTime'] = this.createTime;
+    data['beginTime'] = this.beginTime;
+    data['endTime'] = this.endTime;
     return data;
   }
 }

@@ -31,8 +31,10 @@ class HomeBannerModel {
   String id;
   int createTime;
   String bannerUrl;
+  String enBannerUrl;
   String bannerPage;
-  dynamic param;
+  String param;
+  String enParam;
   String title;
   String type;
   String url;
@@ -44,6 +46,7 @@ class HomeBannerModel {
       this.bannerUrl,
       this.bannerPage,
       this.param,
+      this.enBannerUrl,
       this.title,
       this.type,
       this.url,
@@ -54,9 +57,11 @@ class HomeBannerModel {
     createTime = json['createTime'];
     bannerUrl = json['bannerUrl'];
     bannerPage = json['bannerPage'];
+    enParam = json["enParam"];
     param = json['param'];
     title = json['title'];
     type = json['type'];
+    this.enBannerUrl = json["enBannerUrl"];
     url = json['url'];
     isShow = json['isShow'];
   }

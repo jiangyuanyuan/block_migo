@@ -39,6 +39,8 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   num currfee = 0;
   /// 下一级别手续费
   num nextfee = 0;
+  /// 当前
+  num currhuilv = 0;
   TextEditingController _precontroller = TextEditingController();
   TextEditingController _sufcontroller = TextEditingController();
   FocusNode _preFocusNode = FocusNode();
@@ -142,6 +144,9 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
     _clear();
     exchangeCoinModel.tradings.forEach((element) { 
       if(element.ntn.startsWith(val)){
+        setState(() {
+          currhuilv = element.oneInToOutAmount;
+        });
         outputTitles.add(element.ntn.split("/").last);
       }
     });
@@ -293,6 +298,8 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                                         child: Text(I18n.of(context).currlevel("M${exchangeCoinModel?.level ?? 0}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
                                       ),
                                       Text(I18n.of(context).nextlevel("M${exchangeCoinModel?.nextLevel ?? 0}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                                      SizedBox(height: 14,),
+                                      Text(currCoinName + "/" + outcoinname, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),)
                                     ],
                                   ),
                                   Column(
@@ -309,6 +316,8 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                                         child: Text("${I18n.of(context).feereduction2}${Tool.number(currfee * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.back998),),
                                       ),
                                       Text("${I18n.of(context).feereduction}${Tool.number(nextfee * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.red),),
+                                      SizedBox(height: 14,),
+                                      Text(I18n.of(context).huilv + "${Tool.number(computeFee != 0 ? computeFee : currhuilv, 4)}", style: AppFont.textStyle(12, color: AppColor.fontgrey),),
                                     ],
                                   ),
                                 ],

@@ -37,13 +37,16 @@ class _WebPageState extends State<WebPage> {
       body: CommbackView(
         titles: model.title,
         onPop: () => Navigator.pop(context),
-        child: SafeArea(
-          child: WebView(
-            javascriptMode: JavascriptMode.unrestricted,
-            javascriptChannels: <JavascriptChannel>[
-              _alertJavascriptChannel(context),
-            ].toSet(),
-            initialUrl: model.url,
+        child: Container(
+          color: Colors.white,
+          child: SafeArea(
+            child: WebView(
+              javascriptMode: JavascriptMode.unrestricted,
+              javascriptChannels: <JavascriptChannel>[
+                _alertJavascriptChannel(context),
+              ].toSet(),
+              initialUrl: model.url,
+            ),
           ),
         ),
       )

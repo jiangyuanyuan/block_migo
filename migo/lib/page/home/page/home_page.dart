@@ -54,6 +54,12 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     Networktool.request(API.banner+"1/${isen ? 2 : 1}", method: HTTPMETHOD.GET, success: (data){
       final temp = HomeBannerResponse.fromJson(data);
       banners = temp.data;
+      if(prefs.getString('languageCode') == "en") {
+        banners.forEach((element) { 
+          if(element.enBannerUrl != null) element.bannerUrl = element.enBannerUrl;
+          if(element.enParam != null) element.param = element.enParam;
+        });
+      }
       if(mounted) setState(() {
         
       });

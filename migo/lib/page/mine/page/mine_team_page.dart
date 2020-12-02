@@ -35,7 +35,7 @@ class _MineTeamPageState extends State<MineTeamPage> {
       final isen = prefs.getString('languageCode') == "en";
       if(isen) {
         teamModel.shareDTO.pseniorityConfigList.forEach((e) { 
-          if(e.enSeeRemark != null)e.seeRemark = e.enSeeRemark;
+          if(e.enRemark != null)e.remark = e.enRemark;
         });
         teamModel.leaderDTO.title = teamModel.leaderDTO.enTitle;
         teamModel.directDTO.pdirectConfig.remark = teamModel.directDTO.pdirectConfig.enRemark;

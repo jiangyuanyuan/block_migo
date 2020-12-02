@@ -88,7 +88,7 @@ class _RechagePageState extends State<RechagePage> {
                           height: 42,
                           child: Container(
                             alignment: Alignment.center,
-                            child: Text(coinName, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.2)), textAlign: TextAlign.center,)
+                            child: Text(coinName, style: AppFont.textStyle(12, color: Colors.black), textAlign: TextAlign.center,)
                           ),
                         ),
                         Positioned(

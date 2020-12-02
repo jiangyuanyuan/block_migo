@@ -18,7 +18,7 @@ class TeamShareDetailView extends StatelessWidget {
       showlevel: e.userLevel == shareDTO.userLevel,
       authNum: shareDTO.totalAuthUserCount,
       needNum: e.userCount,
-      seemark: e.seeRemark,
+      seemark: e.remark.replaceFirst(",", "\n"),
     )).toList();
   }
 
@@ -103,7 +103,7 @@ class _Cell extends StatelessWidget {
               ),
 
               Text(
-                index != 0 ? "${I18n.of(context).enjoy} $seemark \n${percent * 100}% ${I18n.of(context).reward}" : I18n.of(context).nomoney, 
+                index != 0 ? seemark : I18n.of(context).nomoney, 
                 textAlign: TextAlign.left, 
                 style: AppFont.textStyle(
                   16, 

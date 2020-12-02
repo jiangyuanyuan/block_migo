@@ -284,7 +284,10 @@
     "reelrequestcurrnumber":"Current certification volume number:",
     "reelstatus1":"Transferred",
     "reelstatus2":"Reloaded",
+    "huilv":"Exchange Rate",
     "reelstatus3":"Used",
+    "pleasesixtxpwd":"Please enter a 6-digit transaction password",
+    "notsameaccount":"Cannot transfer to the same account",
     "reelstatus4":"Returned",
     "reealnotice5":"4. Click the icon in the upper left corner to view your certification volume transfer record."
 }

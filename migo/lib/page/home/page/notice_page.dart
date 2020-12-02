@@ -18,6 +18,7 @@ class NoticePage extends StatelessWidget {
         titles: model.title,
         onPop: () => Navigator.pop(context),
         child: Container(
+          width: double.infinity,
           color: Colors.white,
           padding: const EdgeInsets.all(16),
           child: HtmlWidget(
