@@ -606,6 +606,8 @@ class I18n implements WidgetsLocalizations {
   String get huilv => "汇率";
   /// "已转赠"
   String get reelstatus1 => "已转赠";
+  /// "此区域还未开放"
+  String get notopen => "此区域还未开放";
   /// "已加额"
   String get reelstatus2 => "已加额";
   /// "已使用"
@@ -1484,6 +1486,9 @@ class _I18n_en_US extends I18n {
   /// "Transferred"
   @override
   String get reelstatus1 => "Transferred";
+  /// "This area is not yet open"
+  @override
+  String get notopen => "This area is not yet open";
   /// "Reloaded"
   @override
   String get reelstatus2 => "Reloaded";

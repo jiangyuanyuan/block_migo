@@ -3,6 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/btn_action.dart';
+import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
@@ -67,6 +68,8 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   }
 
   void _submit() {
+    EasyLoading.showToast(I18n.of(context).notopen);
+    return;
     final user = Provider.of<UserModel>(context, listen: false).data;
     if(user.txPassword == null || user.txPassword == "") {
       Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).nottxpwd, callback: () {
@@ -322,8 +325,9 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 30,),
-                              BtnAction(
+                              SizedBox(height: 15,),
+                              BtnImageBottomView(
+                                img: "btn_inactive.png",
                                 title: I18n.of(context).redeemnow,
                                 onTap: _submit,
                               )

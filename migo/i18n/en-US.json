@@ -289,5 +289,6 @@
     "pleasesixtxpwd":"Please enter a 6-digit transaction password",
     "notsameaccount":"Cannot transfer to the same account",
     "reelstatus4":"Returned",
+    "notopen":"This area is not yet open",
     "reealnotice5":"4. Click the icon in the upper left corner to view your certification volume transfer record."
 }

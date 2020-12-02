@@ -44,6 +44,7 @@ class _ReflectPageState extends State<ReflectPage> {
 
     EventBus.instance.addListener(EventKeys.RefreshQrCode, (arg) { 
       _editingController.text = arg;
+      _checkAddress();
     });
 
     _focusNode.addListener(() {
@@ -145,7 +146,7 @@ class _ReflectPageState extends State<ReflectPage> {
         "coinName":coinName,
         "num": outnumber,
         "realnum":Tool.number((outnumber - fee) < 0 ? 0 : (outnumber - fee), 2),
-        "fee":"${Tool.number(fee, 2)}%"
+        "fee":"${Tool.number(fee, 2)}"
       });
     }, fail: (e) => EasyLoading.showError(e));
   }

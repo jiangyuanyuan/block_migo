@@ -19,6 +19,7 @@ class HomeDetailUserView extends StatelessWidget {
   Widget _create(BuildContext context) {
     if(endTime == null || endTime == 0) {
       return BtnImageBottomView(
+        img: "btn_inactive.png",
         title: I18n.of(context).minenow,
         onTap: onTap,
       );
