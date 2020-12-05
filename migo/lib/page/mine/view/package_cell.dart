@@ -42,6 +42,12 @@ class PackageCell extends StatelessWidget {
     }
   }
 
+  String _computeDay(BuildContext context) {
+    DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(model.useTime);
+    DateTime entime = dateTime.add(Duration(days: model.canUseTime));
+    return Tool.timeHourAndDayForNow(context,entime.millisecondsSinceEpoch);
+  }
+
   double _compute() {
     final use = DateTime.fromMillisecondsSinceEpoch(model.useTime);
     final duration = DateTime.now().difference(use);
@@ -107,7 +113,7 @@ class PackageCell extends StatelessWidget {
                   child: CustomProgressView(
                     issmall: true,
                     progress: _compute(),
-                    titles: Tool.timeHourAndDay(context,model.useTime, model.canUseTime),
+                    titles: _computeDay(context),
                   ),
                 )
               ],

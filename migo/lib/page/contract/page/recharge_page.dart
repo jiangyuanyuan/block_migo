@@ -144,7 +144,9 @@ class _RechagePageState extends State<RechagePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(address, style: AppFont.textStyle(12, color: AppColor.back998),),
+                          Expanded(
+                            child: Text(address, textAlign: TextAlign.center, maxLines: 1, overflow: TextOverflow.ellipsis, style: AppFont.textStyle(12, color: AppColor.back998),)
+                          ),
                           IconButton(
                             icon: Image.asset("assets/coin_copy.png"),
                             onPressed: () {
