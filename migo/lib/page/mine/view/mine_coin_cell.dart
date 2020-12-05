@@ -5,8 +5,8 @@ import 'package:migo/page/mine/model/me_model.dart';
 
 class MineCoinCell extends StatelessWidget {
   final MineCoinModel model;
-
-  const MineCoinCell({Key key, this.model}) : super(key: key);
+  final String img;
+  const MineCoinCell({Key key, this.model, this.img}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +15,8 @@ class MineCoinCell extends StatelessWidget {
         children: [
           Row(
             children: [
-              Image.asset("assets/usdt.png"),
+              // Image.asset("assets/usdt.png"),
+              Image.network(img, width: 40, height: 40,),
               SizedBox(width: 20,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

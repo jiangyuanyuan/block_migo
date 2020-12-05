@@ -26,10 +26,12 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
   RefreshController _refreshController = RefreshController();
   List<MineCoinRecordModel> list = [];
   bool sorted = true;
+  String imgs;
   @override
   void initState() {
     super.initState();
     model = widget.params["model"];
+    imgs = widget.params["img"];
     _request();
   }
 
@@ -94,7 +96,7 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                 children: [
                   Row(
                     children: [
-                      Image.asset("assets/usdt.png", width: 48, height: 48, fit: BoxFit.fill,),
+                      Image.network(imgs, width: 48, height: 48, fit: BoxFit.fill,),
                       SizedBox(width: 10,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
