@@ -22,13 +22,6 @@ class _MinePageState extends State<MinePage> {
   MeModel _meModel;
   List<MineCoinModel> list = [];
   String tick = "";
-  List<String> coinImg = [
-    "https://shuziqz.oss-cn-hangzhou.aliyuncs.com/USDT%20currency%20logo.png",
-    "https://shuziqz.oss-cn-hangzhou.aliyuncs.com/MIGO%20currency%20logo.jpg",
-    "https://shuziqz.oss-cn-hangzhou.aliyuncs.com/MIGOs%20currency%20logo.jpg",
-    "https://shuziqz.oss-cn-hangzhou.aliyuncs.com/Mandy%20currency%20logo.jpg",
-    ""
-  ];
   num number = 0;
   @override
   void initState() {
@@ -123,8 +116,8 @@ class _MinePageState extends State<MinePage> {
                     );
                   }
                   return InkWell(
-                    onTap: () => Navigator.pushNamed(context, "/coinsdetail", arguments: {"model":list[index], "img": coinImg[index]}),
-                    child: MineCoinCell(model: list[index], img: coinImg[index],)
+                    onTap: () => Navigator.pushNamed(context, "/coinsdetail", arguments: {"model":list[index]}),
+                    child: MineCoinCell(model: list[index])
                   );
                 }
               ),

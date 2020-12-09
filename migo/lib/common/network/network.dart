@@ -17,7 +17,7 @@ enum HTTPMETHOD {
    DELETE
 }
 
-const String _Host = "http://18.140.231.177:8079/";
+const String _Host = "http://www.migoap.com:8079/";
 const String _Host_test = "http://120.78.65.149:8079/";
 // const String _Host_test = "http://192.168.0.111:8070/";
 

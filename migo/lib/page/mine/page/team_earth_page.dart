@@ -121,9 +121,9 @@ class _TeamEarthPageState extends State<TeamEarthPage> {
                             SizedBox(height: 16,),
                             _Cell(left: I18n.of(context).realuser, right: "${tabindex == 0 ? _earthModel?.myDirectDTO?.authUserCount : _earthModel?.mySubordinateDTO?.subordinateAuthUserCount}",),
                             SizedBox(height: 16,),
-                            _Cell(left: "${I18n.of(context).weakaddMEGO}MEGO", right: "${tabindex == 0 ? _earthModel?.myDirectDTO?.thisWeekAmount : _earthModel?.mySubordinateDTO?.thisWeekSubordinateAmount}",),
+                            _Cell(left: "${I18n.of(context).weakaddMEGO}MIGO", right: "${tabindex == 0 ? _earthModel?.myDirectDTO?.thisWeekAmount : _earthModel?.mySubordinateDTO?.thisWeekSubordinateAmount}",),
                             SizedBox(height: 16,),
-                            _Cell(left: "${I18n.of(context).allmego}MEGO", right: "${tabindex == 0 ? _earthModel?.myDirectDTO?.totalAmount : _earthModel?.mySubordinateDTO?.totalSubordinateAmount}",),
+                            _Cell(left: "${I18n.of(context).allmego}MIGO", right: "${tabindex == 0 ? _earthModel?.myDirectDTO?.totalAmount : _earthModel?.mySubordinateDTO?.totalSubordinateAmount}",),
                           ],
                         ),
                       ),
@@ -150,7 +150,7 @@ class _Cell extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(left, style: AppFont.textStyle(16, color: Colors.black),),
-        Text(right == "null" ? "0" : right, style: AppFont.textStyle(16, color: Colors.black.withOpacity(0.5)),),
+        Text(right == null ? "0" : right, style: AppFont.textStyle(16, color: Colors.black.withOpacity(0.5)),),
       ],
     );
   }

@@ -16,7 +16,7 @@ class MineCoinCell extends StatelessWidget {
           Row(
             children: [
               // Image.asset("assets/usdt.png"),
-              Image.network(img, width: 40, height: 40,),
+              Image.network(model.coinUrl ?? "", width: 40, height: 40,),
               SizedBox(width: 20,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

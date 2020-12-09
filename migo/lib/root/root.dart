@@ -91,6 +91,7 @@ class _RootPageState extends State<RootPage> {
       Alert.showMsgDialog(context,
           barrierDismissible: temp.type == 0,
           title: I18n.of(context).upnotice,
+          iswillpop: temp.isForce == 1 ? false : true,
           msg: temp.content.replaceAll(";", "\n"), callback: () async {
         if (Platform.isIOS) {
           launch(temp.url);
@@ -100,6 +101,7 @@ class _RootPageState extends State<RootPage> {
         if (status.isUndetermined) {
           final _ = await Permission.storage.request();
         }
+        Navigator.pop(context);
         _download(temp.url);
       });
     });

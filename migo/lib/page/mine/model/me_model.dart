@@ -82,6 +82,7 @@ class MineCoinModel {
   num refereeAmount;
   num teamAmount;
   int createTime;
+  String coinUrl;
   num withdrawAmount;
   String coinName;
   String address;
@@ -98,6 +99,7 @@ class MineCoinModel {
   MineCoinModel(
       {this.id,
       this.userId,
+      this.coinUrl,
       this.amount,
       this.frozenAmount,
       this.refereeAmount,
@@ -120,6 +122,7 @@ class MineCoinModel {
     id = json['id'];
     userId = json['userId'];
     amount = json['amount'];
+    coinUrl = json["coinUrl"];
     frozenAmount = json['frozenAmount'];
     refereeAmount = json['refereeAmount'];
     teamAmount = json['teamAmount'];

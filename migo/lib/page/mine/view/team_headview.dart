@@ -18,7 +18,7 @@ class TeamHeadView extends StatelessWidget {
     return [
       I18n.of(context).teamgroupshare,
       I18n.of(context).teamgroupleader,
-      I18n.of(context).teamgrouppush,
+      I18n.of(context).seePoint,
     ];
   }
 

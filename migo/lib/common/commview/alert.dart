@@ -173,46 +173,48 @@ class Alert {
 
 
   /// 提示确认框，确定
-  static showMsgDialog(BuildContext context, {bool barrierDismissible = false, String msg, String title = "提示", Function callback}) {
+  static showMsgDialog(BuildContext context, {bool barrierDismissible = false, bool iswillpop = false, String msg, String title = "提示", Function callback}) {
     showDialog(
       context: context,
       barrierDismissible: barrierDismissible, //点击遮罩不关闭对话框
       builder: (context) {
-        return AlertDialog(
-          contentPadding: const EdgeInsets.all(0),
-          actionsPadding: const EdgeInsets.all(0),
-          backgroundColor: Colors.transparent,
-          content: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10)
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Text(title, style: AppFont.textStyle(15, color: AppColor.font333, fontWeight: FontWeight.bold),),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Text(msg, textAlign: TextAlign.center, style: AppFont.textStyle(15, color: AppColor.font333)),
-                ),
-                Divider(height: 1,indent: 12,endIndent: 12,),
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).pop();
-                    if(callback != null) callback();
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    child: Text(I18n.of(context).sure, style: AppFont.textStyle(15, color: AppColor.blue)),
+        return WillPopScope(
+          onWillPop: () async => iswillpop,
+          child: AlertDialog(
+            contentPadding: const EdgeInsets.all(0),
+            actionsPadding: const EdgeInsets.all(0),
+            backgroundColor: Colors.transparent,
+            content: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: Text(title, style: AppFont.textStyle(15, color: AppColor.font333, fontWeight: FontWeight.bold),),
                   ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Text(msg, textAlign: TextAlign.center, style: AppFont.textStyle(15, color: AppColor.font333)),
+                  ),
+                  Divider(height: 1,indent: 12,endIndent: 12,),
+                  InkWell(
+                    onTap: (){
+                      if(callback != null) callback();
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      child: Text(I18n.of(context).sure, style: AppFont.textStyle(15, color: AppColor.blue)),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         );

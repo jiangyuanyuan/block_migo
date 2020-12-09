@@ -96,7 +96,7 @@ class _CoinsDetailPageState extends State<CoinsDetailPage> {
                 children: [
                   Row(
                     children: [
-                      Image.network(imgs, width: 48, height: 48, fit: BoxFit.fill,),
+                      Image.network(model.coinUrl ?? "", width: 48, height: 48, fit: BoxFit.fill,),
                       SizedBox(width: 10,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
