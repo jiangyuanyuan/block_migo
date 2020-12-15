@@ -18,7 +18,8 @@ class TeamLeadingDetailView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(I18n.of(context).mycommunity, style: AppFont.textStyle(12, color: Colors.black)),
+              // Text(I18n.of(context).mycommunity, style: AppFont.textStyle(12, color: Colors.black)),
+              Text(I18n.of(context).myteam, style: AppFont.textStyle(12, color: Colors.black)),
               Text.rich(
                 TextSpan(
                   children: [
@@ -94,7 +95,8 @@ class _Cell extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(I18n.of(context).dynamicincome, style: AppFont.textStyle(12, color: Colors.black),),
+                        // Text(I18n.of(context).dynamicincome, style: AppFont.textStyle(12, color: Colors.black),),
+                        Text(I18n.of(context).teamminetotal, style: AppFont.textStyle(12, color: Colors.black),),
                         Text.rich(
                           TextSpan(
                             children: [

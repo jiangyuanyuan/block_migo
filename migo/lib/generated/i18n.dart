@@ -186,8 +186,8 @@ class I18n implements WidgetsLocalizations {
   String get totalnotice => "建立自己团队的矿场\n参与MIGO矿池分红";
   /// "立即参与"
   String get teamjoin => "立即参与";
-  /// "小区静态产出"
-  String get teamstaticvalue => "小区静态产出";
+  /// "小区日静态产出"
+  String get teamstaticvalue => "小区日静态产出";
   /// "余额"
   String get balance => "余额";
   /// "选择币种"
@@ -608,14 +608,24 @@ class I18n implements WidgetsLocalizations {
   String get reelstatus1 => "已转赠";
   /// "此区域还未开放"
   String get notopen => "此区域还未开放";
+  /// "质押挖矿总额"
+  String get teamminetotal => "质押挖矿总额";
   /// "已加额"
   String get reelstatus2 => "已加额";
   /// "已使用"
   String get reelstatus3 => "已使用";
   /// "已返还"
   String get reelstatus4 => "已返还";
+  /// "全球分红"
+  String get globlalmoney => "全球分红";
+  /// "团队奖励"
+  String get teammoney => "团队奖励";
   /// "已转赠"
   String get reeledfinish => "已转赠";
+  /// "总区质押挖矿总额"
+  String get teamtotaltotal => "总区质押挖矿总额";
+  /// "“小区质押挖矿总额"
+  String get teamtotalmin => "“小区质押挖矿总额";
 }
 
 class _I18n_zh_CN extends I18n {
@@ -859,9 +869,9 @@ class _I18n_en_US extends I18n {
   /// "Participate"
   @override
   String get teamjoin => "Participate";
-  /// "Community static output"
+  /// "Daily static of community"
   @override
-  String get teamstaticvalue => "Community static output";
+  String get teamstaticvalue => "Daily static of community";
   /// "Balance"
   @override
   String get balance => "Balance";
@@ -1063,9 +1073,9 @@ class _I18n_en_US extends I18n {
   /// "My community"
   @override
   String get mycommunity => "My community";
-  /// "Number of people certified"
+  /// "People certified"
   @override
-  String get numberpeople => "Number of people certified";
+  String get numberpeople => "People certified";
   /// "Total certified"
   @override
   String get totalnumberpeople => "Total certified";
@@ -1489,6 +1499,9 @@ class _I18n_en_US extends I18n {
   /// "This area is not yet open"
   @override
   String get notopen => "This area is not yet open";
+  /// "Pledged Mining Total"
+  @override
+  String get teamminetotal => "Pledged Mining Total";
   /// "Reloaded"
   @override
   String get reelstatus2 => "Reloaded";
@@ -1498,9 +1511,21 @@ class _I18n_en_US extends I18n {
   /// "Returned"
   @override
   String get reelstatus4 => "Returned";
+  /// "Global Dividend"
+  @override
+  String get globlalmoney => "Global Dividend";
+  /// "Team Rewards"
+  @override
+  String get teammoney => "Team Rewards";
   /// "Reposted"
   @override
   String get reeledfinish => "Reposted";
+  /// "Total pledged mining"
+  @override
+  String get teamtotaltotal => "Total pledged mining";
+  /// "Community mining"
+  @override
+  String get teamtotalmin => "Community mining";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

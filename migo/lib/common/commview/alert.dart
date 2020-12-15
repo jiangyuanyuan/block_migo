@@ -173,7 +173,7 @@ class Alert {
 
 
   /// 提示确认框，确定
-  static showMsgDialog(BuildContext context, {bool barrierDismissible = false, bool iswillpop = false, String msg, String title = "提示", Function callback}) {
+  static showMsgDialog(BuildContext context, {bool barrierDismissible = false, bool iswillpop = true, String msg, String title = "提示", Function callback}) {
     showDialog(
       context: context,
       barrierDismissible: barrierDismissible, //点击遮罩不关闭对话框
@@ -204,6 +204,7 @@ class Alert {
                   Divider(height: 1,indent: 12,endIndent: 12,),
                   InkWell(
                     onTap: (){
+                      if(iswillpop) Navigator.pop(context);
                       if(callback != null) callback();
                     },
                     child: Container(

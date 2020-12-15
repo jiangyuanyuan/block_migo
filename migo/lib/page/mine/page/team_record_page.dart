@@ -59,9 +59,11 @@ class _TeamRecordPageState extends State<TeamRecordPage> {
     return [
       I18n.of(context).all,
       I18n.of(context).teamgroupshare,
-      I18n.of(context).teamgroupleader,
+      // I18n.of(context).teamgroupleader,
+      I18n.of(context).teammoney,
       I18n.of(context).seePoint,
-      I18n.of(context).minedividends
+      // I18n.of(context).minedividends
+      I18n.of(context).globlalmoney
     ];
   }
 

@@ -54,8 +54,8 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
     //     Future.delayed(const Duration(milliseconds: 100)).then((value) => _inputPwd(sender));    
     //   },
     // ));
-    EasyLoading.showToast(I18n.of(context).notopen);
-    return;
+    // EasyLoading.showToast(I18n.of(context).notopen);
+    // return;
     final user = Provider.of<UserModel>(context, listen: false).data;
     if(user.txPassword == null || user.txPassword == "") {
       Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).nottxpwd, callback: () {

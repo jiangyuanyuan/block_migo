@@ -86,7 +86,7 @@
     "totalteamvalue": "总价值收益",
     "totalnotice": "建立自己团队的矿场\n参与MIGO矿池分红",
     "teamjoin":"立即参与",
-    "teamstaticvalue": "小区静态产出",
+    "teamstaticvalue": "小区日静态产出",
     "balance":"余额",
     "choosecoin":"选择币种",
     "price":"价格",
@@ -307,10 +307,14 @@
     "huilv":"汇率",
     "reelstatus1":"已转赠",
     "notopen":"此区域还未开放",
+    "teamminetotal":"质押挖矿总额",
     "reelstatus2":"已加额",
     "reelstatus3":"已使用",
     "reelstatus4":"已返还",
-    "reeledfinish":"已转赠"
-    
+    "globlalmoney":"全球分红",
+    "teammoney":"团队奖励",
+    "reeledfinish":"已转赠",
+    "teamtotaltotal":"总区质押挖矿总额",
+    "teamtotalmin":"“小区质押挖矿总额"
 
 }

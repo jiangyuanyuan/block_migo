@@ -20,23 +20,1133 @@ class ConstHTML {
   ''';
 
   static const String minesexpla = '''
-  <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Style-Type" content="text/css" /><meta name="generator" content="Aspose.Words for .NET 15.1.0.0" /><title></title></head><body><div><p style="margin:0pt"><span style="font-family:宋体; font-size:14pt">矿场配套收益解释</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:14pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:宋体; font-size:12pt; font-weight:bold">矿场新手区</span></p><p style="margin:0pt"><span style="font-family:宋体; font-size:10pt">如果你是挖矿新手，请看这里：</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">MIGO</span><span style="font-family:宋体; font-size:10pt">矿场区有分新手区和进阶区，新手区目前可以购买的配套为乐屋。</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:宋体; font-size:10pt">你可以把你从铲子挖矿得到的</span><span style="font-family:Calibri; font-size:10pt">MIGOs</span><span style="font-family:宋体; font-size:10pt">用来购买乐屋配套。</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:宋体; font-size:10pt">目前乐屋套餐为</span><span style="font-family:Calibri; font-size:10pt">50 MIGOs</span><span style="font-family:宋体; font-size:10pt">，你可以支付</span><span style="font-family:Calibri; font-size:10pt">50 MIGOs</span><span style="font-family:宋体; font-size:10pt">以进行挖矿，挖矿日收益请看下表：</span></p><table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin-left:0pt"><tr style="height:16.65pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.9pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">配套</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:59.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO</span><span style="color:#494949; font-family:宋体; font-size:11pt">套餐</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:63.9pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">支付</span><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGOs</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:56.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">支付</span><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:37.7pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">日产量</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:76.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">总产量（</span><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO</span><span style="color:#494949; font-family:宋体; font-size:11pt">）</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:51.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">挖矿周期</span></p></td></tr><tr style="height:16.65pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.9pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO </span><span style="color:#494949; font-family:宋体; font-size:11pt">乐屋</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:59.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">50</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:63.9pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">50</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:56.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:37.7pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">1.8</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:76.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">54</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:51.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30</span><span style="color:#494949; font-family:宋体; font-size:11pt">天</span></p></td></tr></table><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:宋体; font-size:10pt">支付</span><span style="font-family:Calibri; font-size:10pt">50 MIGOs</span><span style="font-family:宋体; font-size:10pt">购买乐屋套餐，三十天后你将总共获得</span><span style="font-family:Calibri; font-size:10pt">54 MIGO!</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:宋体; font-size:12pt; font-weight:bold">矿场进阶区</span></p><p style="margin:0pt"><span style="font-family:宋体; font-size:10pt">如果你是认真想赚更多钱的玩家，请看这里：</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">MIGO</span><span style="font-family:宋体; font-size:10pt">矿场区有分新手区和进阶区，进阶区目前可以购买的配套为乐巷，乐堂，乐坊，乐乡，乐城，乐都。</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）你可以支付</span><span style="font-family:Calibri; font-size:10pt">MIGO</span><span style="font-family:宋体; font-size:10pt">购买相关套餐，不同挖矿套餐的价格和收益各不相同。</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）请查阅以下的套餐价格与收益表：</span></p><table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin-left:0pt"><tr style="height:16.65pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">配套</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO</span><span style="color:#494949; font-family:宋体; font-size:11pt">套餐</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">支付</span><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGOs</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">支付</span><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">日产量</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">总产量（</span><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO</span><span style="color:#494949; font-family:宋体; font-size:11pt">）</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:宋体; font-size:11pt">挖矿周期</span></p></td></tr><tr style="height:16.65pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO </span><span style="color:#494949; font-family:宋体; font-size:11pt">乐巷</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">100</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">100</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">4</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">112</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30</span><span style="color:#494949; font-family:宋体; font-size:11pt">天</span></p></td></tr><tr style="height:15.55pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO </span><span style="color:#494949; font-family:宋体; font-size:11pt">乐堂</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">500</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">500</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">19</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">570</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30</span><span style="color:#494949; font-family:宋体; font-size:11pt">天</span></p></td></tr><tr style="height:15pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO </span><span style="color:#494949; font-family:宋体; font-size:11pt">乐坊</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">1000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">1000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">40</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">1200</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30</span><span style="color:#494949; font-family:宋体; font-size:11pt">天</span></p></td></tr><tr style="height:15pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO </span><span style="color:#494949; font-family:宋体; font-size:11pt">乐乡</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">4000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">4000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">165</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">4950</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30</span><span style="color:#494949; font-family:宋体; font-size:11pt">天</span></p></td></tr><tr style="height:15pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO </span><span style="color:#494949; font-family:宋体; font-size:11pt">乐城</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">10000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">10000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">420</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">12600</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30</span><span style="color:#494949; font-family:宋体; font-size:11pt">天</span></p></td></tr><tr style="height:15pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO </span><span style="color:#494949; font-family:宋体; font-size:11pt">乐都</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">50000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">50000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">2130</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">63900</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30</span><span style="color:#494949; font-family:宋体; font-size:11pt">天</span></p></td></tr></table><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）在进阶区玩得比较久也比较快速能够赚取更多的</span><span style="font-family:Calibri; font-size:10pt">MIGO</span><span style="font-family:宋体; font-size:10pt">的关键在于购买更多高收益套餐和壮大你的团队，获取更多的团队奖励！</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">5</span><span style="font-family:宋体; font-size:10pt">）你可以充值</span><span style="font-family:Calibri; font-size:10pt">USDT</span><span style="font-family:宋体; font-size:10pt">然后在兑换区兑换成</span><span style="font-family:Calibri; font-size:10pt">MIGO</span><span style="font-family:宋体; font-size:10pt">来购买更多的套餐，迅速称霸！</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p></div><div class="cnzz" style="display: none;">
-	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
-            </div>
-            <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            
-            </div>
-            </body></html>
+  <html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Helvetica Neue";}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:10.0pt;
+	font-family:"Arial Unicode MS",sans-serif;
+	color:black;
+	border:none;}
+p
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS",sans-serif;
+	color:black;
+	border:none;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	border:none;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.0pt 842.0pt;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#000000" vlink=fuchsia style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=ZH-TW style='font-size:14.0pt'>矿场配套收益解释</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW style='font-size:12.0pt'>矿场新手区</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW>如果你是挖矿新手，请看这里：</span></p>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'>1.<span
+style='font-family:"Calibri",sans-serif'>MIGO</span><span lang=ZH-TW>矿场区有分新手区和进阶区，新手区目前可以购买的配套为乐屋。</span></p>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'><span
+lang=ZH-TW>2.</span><span lang=ZH-TW>你可以把你从铲子挖矿得到的</span><span
+style='font-family:"Calibri",sans-serif'>MIGOs</span><span lang=ZH-TW>用来购买乐屋配套。</span></p>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'><span
+lang=ZH-TW>3.</span><span lang=ZH-TW>目前乐屋套餐为</span><span style='font-family:
+"Calibri",sans-serif'>50 MIGOs</span><span lang=ZH-TW>，你可以支付</span><span
+style='font-family:"Calibri",sans-serif'>50 MIGOs</span><span lang=ZH-TW>以进行挖矿，挖矿日收益请看下表：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=553
+ style='margin-left:5.4pt;background:#D0DDEF;border-collapse:collapse;
+ border:none'>
+ <tr style='height:32.5pt'>
+  <td width=80 valign=top style='width:60.25pt;border:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>配套</span></p>
+  </td>
+  <td width=81 valign=top style='width:60.6pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO</span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>套餐</span></p>
+  </td>
+  <td width=87 valign=top style='width:65.3pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>支付</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGOs</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.25pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>支付</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGO</span></p>
+  </td>
+  <td width=52 valign=top style='width:38.8pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>日产量</span></p>
+  </td>
+  <td width=105 valign=top style='width:78.45pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>总产量（</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGO</span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>）</span></p>
+  </td>
+  <td width=71 valign=top style='width:53.2pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>挖矿周期</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=80 valign=top style='width:60.25pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>乐屋</span></p>
+  </td>
+  <td width=81 valign=top style='width:60.6pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-CN style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>5</span></p>
+  </td>
+  <td width=87 valign=top style='width:65.3pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>50</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=52 valign=top style='width:38.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>0.18</span></p>
+  </td>
+  <td width=105 valign=top style='width:78.45pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>5.4</span></p>
+  </td>
+  <td width=71 valign=top style='width:53.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>天</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'>4.&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'><span
+lang=ZH-TW>4.</span><span lang=ZH-TW>支付</span><span style='font-family:"Calibri",sans-serif'>50
+MIGOs</span><span lang=ZH-TW>购买乐屋套餐，三十天后你将总共获得</span><span style='font-family:
+"Calibri",sans-serif'>5</span><span lang=ZH-CN style='font-family:"Calibri",sans-serif'>.</span><span
+style='font-family:"Calibri",sans-serif'>4 MIGO!</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW style='font-size:12.0pt'>矿场进阶区</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW>如果你是认真想赚更多钱的玩家，请看这里：</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>1</span><span
+lang=ZH-TW>）</span><span style='font-family:"Calibri",sans-serif'>MIGO</span><span
+lang=ZH-TW>矿场区有分新手区和进阶区，进阶区目前可以购买的配套为乐巷，乐堂，乐坊，乐乡，乐城，乐都。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>2</span><span
+lang=ZH-TW>）你可以支付</span><span style='font-family:"Calibri",sans-serif'>MIGO</span><span
+lang=ZH-TW>购买相关套餐，不同挖矿套餐的价格和收益各不相同。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>3</span><span
+lang=ZH-TW>）请查阅以下的套餐价格与收益表：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=547
+ style='margin-left:5.4pt;background:#D0DDEF;border-collapse:collapse;
+ border:none'>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>配套</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO</span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>套餐</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>支付</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGOs</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>支付</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGO</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>日产量</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>总产量（</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGO</span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>）</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>挖矿周期</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>乐巷</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>10</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>10</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>0.4</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>12</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>天</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>乐堂</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>50</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>50</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>2</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>60</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>天</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>乐坊</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>100</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>100</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>4</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>120</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>天</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>乐乡</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>400</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>400</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>16.5</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>495</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>天</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>乐城</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>1000</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>1000</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>42</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>1260</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>天</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>乐都</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>5000</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>5000</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>213</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>6390</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>天</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>4</span><span
+lang=ZH-TW>）在进阶区玩得比较久也比较快速能够赚取更多的</span><span style='font-family:"Calibri",sans-serif'>MIGO</span><span
+lang=ZH-TW>的关键在于购买更多高收益套餐和壮大你的团队，获取更多的团队奖励！</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>5</span><span
+lang=ZH-TW>）你可以充值</span><span style='font-family:"Calibri",sans-serif'>USDT</span><span
+lang=ZH-TW>然后在兑换区兑换成</span><span style='font-family:"Calibri",sans-serif'>MIGO</span><span
+lang=ZH-TW>来购买更多的套餐，迅速称霸！</span></p>
+
+</div>
+
+</body>
+
+</html>
+
   ''';
 
   static const String minesexpla_en = '''
-  <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Style-Type" content="text/css" /><meta name="generator" content="Aspose.Words for .NET 15.1.0.0" /><title></title></head><body><div><p style="margin:0pt"><span style="font-family:Calibri; font-size:14pt">Explanation of supporting income of mine</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:14pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:12pt; font-weight:bold">Mine novice area</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">If you are new to mining, please see here:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The MIGO mine area is divided into a novice area and an advanced area. The currently available package for the novice area is Lewu.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">You can use the MIGOs you get from shovel mining to purchase the Happy House package.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The current Le House package is 50 MIGOs. You can pay 50 MIGOs for mining. Please see the following table for the daily income of mining:</span></p><table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin-left:0pt"><tr style="height:16.65pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.9pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Matching</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:59.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO package</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:63.9pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Pay MIGOs</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:56.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Pay MIGO</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:37.7pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Daily output</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:76.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Total production (MIGO)</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:51.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Mining cycle</span></p></td></tr><tr style="height:16.65pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.9pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO Raku House</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:59.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">50</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:63.9pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">50</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:56.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:37.7pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">1.8</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:76.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">54</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:51.95pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30 days</span></p></td></tr></table><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Pay 50 MIGOs to buy the Happy House package, after 30 days you will get a total of 54 MIGO!</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:12pt; font-weight:bold">Mine advanced zone</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">If you are a serious player who wants to make more money, please see here:</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">1) The MIGO mine area is divided into a novice area and an advanced area. The currently available packages in the advanced area are Lexiang, Letang, Lefang, Lexiang, Lecheng, and Ledu.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">2) You can pay MIGO to purchase related packages, and the prices and benefits of different mining packages are different.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">3) Please refer to the following package price and income table:</span></p><table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin-left:0pt"><tr style="height:16.65pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Matching</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO package</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Pay MIGOs</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Pay MIGO</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Daily output</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Total production (MIGO)</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">Mining cycle</span></p></td></tr><tr style="height:16.65pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO Music Lane</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">100</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">100</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">4</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">112</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30 days</span></p></td></tr><tr style="height:15.55pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO Music Hall</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">500</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">500</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">19</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">570</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30 days</span></p></td></tr><tr style="height:15pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO Band</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">1000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">1000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">40</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">1200</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30 days</span></p></td></tr><tr style="height:15pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO Lexiang</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">4000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">4000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">165</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">4950</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30 days</span></p></td></tr><tr style="height:15pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO Happy City</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">10000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">10000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">420</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">12600</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30 days</span></p></td></tr><tr style="height:15pt"><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:57pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">MIGO</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.1pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">50000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:66.15pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">0</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:58.5pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">50000</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:35.8pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">2130</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:79.25pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">63900</span></p></td><td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-bottom:1.62pt; padding-top:1.62pt; vertical-align:top; width:50pt"><p style="line-height:11pt; margin:0pt; text-align:center"><span style="color:#494949; font-family:'Times New Roman'; font-size:11pt">30 days</span></p></td></tr></table><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">4) The key to earning more MIGO by playing longer and faster in the advanced zone is to buy more high-yield packages and grow your team to get more team rewards!</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">5) You can recharge USDT and exchange it into MIGO in the exchange area to buy more packages and quickly dominate!</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p></div><div class="cnzz" style="display: none;">
-	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
-            </div>
-            <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
-            
-            </div>
-            </body></html>
+  <html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Helvetica Neue";}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:10.0pt;
+	font-family:"Arial Unicode MS",sans-serif;
+	color:black;
+	border:none;}
+p
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Arial Unicode MS",sans-serif;
+	color:black;
+	border:none;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	border:none;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.0pt 842.0pt;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#000000" vlink=fuchsia style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=ZH-TW style='font-size:14.0pt'>Explanation of
+supporting income of mine</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW style='font-size:14.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW style='font-size:12.0pt'>Mine novice area</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW>If you are new to mining, please see here:</span></p>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'>1.<span
+style='font-family:"Calibri",sans-serif'>MIGO</span><span lang=ZH-TW>The mine
+area is divided into a novice area and an advanced area. The currently
+available package for the novice area is Lewu.</span></p>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'><span
+lang=ZH-TW>2.</span><span lang=ZH-TW>You can take what you get from shovel
+mining</span><span style='font-family:"Calibri",sans-serif'>MIGOs</span><span
+lang=ZH-TW>Used to purchase the music house package.</span></p>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'><span
+lang=ZH-TW>3.</span><span lang=ZH-TW>The current Le House package is</span><span
+style='font-family:"Calibri",sans-serif'>50 MIGOs</span><span lang=ZH-TW>,you
+can pay</span><span style='font-family:"Calibri",sans-serif'>50 MIGOs</span><span
+lang=ZH-TW>For mining, please see the following table for the daily income of
+mining:</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=553
+ style='margin-left:5.4pt;background:#D0DDEF;border-collapse:collapse;
+ border:none'>
+ <tr style='height:32.5pt'>
+  <td width=80 valign=top style='width:60.25pt;border:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Matching</span></p>
+  </td>
+  <td width=81 valign=top style='width:60.6pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO</span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>Set meal</span></p>
+  </td>
+  <td width=87 valign=top style='width:65.3pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Pay</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGOs</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.25pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Pay</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGO</span></p>
+  </td>
+  <td width=52 valign=top style='width:38.8pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Daily output</span></p>
+  </td>
+  <td width=105 valign=top style='width:78.45pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Total output (</span><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGO</span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>)</span></p>
+  </td>
+  <td width=71 valign=top style='width:53.2pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.5pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Mining cycle</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=80 valign=top style='width:60.25pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>Rakuya</span></p>
+  </td>
+  <td width=81 valign=top style='width:60.6pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-CN style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>5</span></p>
+  </td>
+  <td width=87 valign=top style='width:65.3pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>50</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=52 valign=top style='width:38.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>0.18</span></p>
+  </td>
+  <td width=105 valign=top style='width:78.45pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>5.4</span></p>
+  </td>
+  <td width=71 valign=top style='width:53.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>day</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'>4.&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:5.05pt;text-indent:-5.05pt'><span
+lang=ZH-TW>4.</span><span lang=ZH-TW>Pay</span><span style='font-family:"Calibri",sans-serif'>50
+MIGOs</span><span lang=ZH-TW>Buy the Happy House package, after 30 days you
+will get a total of</span><span style='font-family:"Calibri",sans-serif'>5.4
+MIGO!</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW style='font-size:12.0pt'>Mine advanced zone</span></p>
+
+<p class=MsoNormal><span lang=ZH-TW>If you are a serious player who wants to
+make more money, please see here:</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>1</span><span
+lang=ZH-TW>)</span><span style='font-family:"Calibri",sans-serif'>MIGO</span><span
+lang=ZH-TW>The mine area is divided into a novice area and an advanced area.
+The currently available packages for the advanced area are Lexiang, Letang,
+Lefang, Lexiang, Lecheng, and Ledu.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>2</span><span
+lang=ZH-TW>)you can pay</span><span style='font-family:"Calibri",sans-serif'>MIGO</span><span
+lang=ZH-TW>Purchasing related packages, the price and income of different
+mining packages are different.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>3</span><span
+lang=ZH-TW>) Please refer to the following package price and income table:</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=547
+ style='margin-left:5.4pt;background:#D0DDEF;border-collapse:collapse;
+ border:none'>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Matching</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO</span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>Set meal</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Pay</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGOs</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Pay</span><span style='font-size:
+  11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGO</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Daily output</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Total output (</span><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>MIGO</span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>)</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border:solid black 1.0pt;
+  border-left:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span lang=ZH-TW style='font-size:
+  11.0pt;font-family:SimSun;color:#494949'>Mining cycle</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>Lexiang</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>10</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>10</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>0.4</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>12</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>day</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>Letang</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>50</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>50</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>2</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>60</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>day</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>Band</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>100</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>100</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>4</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>120</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>day</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>Le Xiang</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>400</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>400</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>16.5</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>495</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>day</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>Lecheng</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>1000</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>1000</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>42</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>1260</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>day</span></p>
+  </td>
+ </tr>
+ <tr style='height:32.95pt'>
+  <td width=77 valign=top style='width:57.75pt;border:solid black 1.0pt;
+  border-top:none;background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;
+  height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>MIGO </span><span
+  lang=ZH-TW style='font-size:11.0pt;font-family:SimSun;color:#494949'>Ledu</span></p>
+  </td>
+  <td width=78 valign=top style='width:58.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>5000</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.9pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;background:
+  transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>0</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>5000</span></p>
+  </td>
+  <td width=49 valign=top style='width:36.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>213</span></p>
+  </td>
+  <td width=107 valign=top style='width:80.0pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:11.0pt;font-family:"Times New Roman",serif;color:#494949'>6390</span></p>
+  </td>
+  <td width=68 valign=top style='width:50.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  background:transparent;padding:4.0pt 4.0pt 4.0pt 4.0pt;height:32.95pt'>
+  <p align=center style='text-align:center'><span style='font-size:11.0pt;
+  font-family:"Times New Roman",serif;color:#494949'>30</span><span lang=ZH-TW
+  style='font-size:11.0pt;font-family:SimSun;color:#494949'>day</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>4</span><span
+lang=ZH-TW>) Play longer and faster in the advanced zone to earn more</span><span
+style='font-family:"Calibri",sans-serif'>MIGO</span><span lang=ZH-TW>The key is
+to buy more high-yield packages and grow your team to get more team rewards!</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri",sans-serif'>5</span><span
+lang=ZH-TW>) You can recharge</span><span style='font-family:"Calibri",sans-serif'>USDT</span><span
+lang=ZH-TW>Then redeem it in the exchange area</span><span style='font-family:
+"Calibri",sans-serif'>MIGO</span><span lang=ZH-TW>Come buy more packages and
+quickly dominate!</span></p>
+
+</div>
+
+</body>
+
+</html>
+
   ''';
 
   static const String mine = '''
@@ -67,7 +1177,7 @@ class ConstHTML {
             </body></html>
   ''';
   static const String invite_en = '''
-  <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Style-Type" content="text/css" /><meta name="generator" content="Aspose.Words for .NET 15.1.0.0" /><title></title></head><body><div><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">Friend invitation process</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">Hello, welcome to join the MIGO APP family. Here we briefly introduce the process of friend invitation, so that you can invite your friends to mine together and receive more blind box rewards together.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">First, you can go to my page in the bottom right corner</span><img src="bd437268-1209-4540-849b-afb17889016a.001.png" width="31" height="40" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /><span style="font-family:Calibri; font-size:10pt">, Then click the settings icon in the upper right corner</span><img src="bd437268-1209-4540-849b-afb17889016a.002.png" width="29" height="25" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /><span style="font-family:Calibri; font-size:10pt">, Click "invite friends", the system will make an invitation poster so that you can forward your friends.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">Your friends can register through the poster scan code or through the invitation link.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">Your invitation code has been bound to the poster and invitation link, so you can send it out with confidence.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">Your friends can register via mobile phone number or email. Each mobile phone number and email can only be registered once.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">5</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">When you have five friends who accept the invitation to register and complete the real-name authentication, you will receive a blind box reward! (unlimited)</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">6</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">You can also go to the upper right corner of the "Invite Friends" page</span><img src="bd437268-1209-4540-849b-afb17889016a.003.png" width="24" height="20" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /><span style="font-family:Calibri; font-size:10pt">Icon to view your invitation record.</span></p></div><div class="cnzz" style="display: none;">
+  <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Style-Type" content="text/css" /><meta name="generator" content="Aspose.Words for .NET 15.1.0.0" /><title></title></head><body><div><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">Friend invitation process</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">Hello, welcome to join the MIGO APP family. Here we briefly introduce the process of friend invitation, so that you can invite your friends to mine together and receive more blind box rewards together.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">First, you can go to my page in the bottom right corner</span><img src="bd437268-1209-4540-849b-afb17889016a.001.png" width="31" height="40" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /><span style="font-family:Calibri; font-size:10pt">, Then click the settings icon in the upper right corner</span><img src="bd437268-1209-4540-849b-afb17889016a.002.png" width="29" height="25" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /><span style="font-family:Calibri; font-size:10pt">, Click "invite friends", the system will make an invitation poster so that you can forward your friends.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">Your friends can register through the poster scan code or through the invitation link.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">Your invitation code has been bound to the poster and invitation link, so you can send it out with confidence.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">Your friends can register via mobile phone number or email. Each mobile phone number and email can only be registered once.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">5</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">When you have five friends who accept the invitation to register and complete the real-name authentication, you will receive a blind box reward! (unlimited)</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">6</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font:7.0pt 'Times New Roman'">&#xa0; </span><span style="font-family:Calibri; font-size:10pt">You can also go to the upper right corner of the "Invite Friends" page </span><img src="bd437268-1209-4540-849b-afb17889016a.003.png" width="24" height="20" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /><span style="font-family:Calibri; font-size:10pt">Icon to view your invitation record.</span></p></div><div class="cnzz" style="display: none;">
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">
@@ -103,7 +1213,7 @@ class ConstHTML {
             </body></html>
   ''';
   static const String account_en = '''
-  <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Style-Type" content="text/css" /><meta name="generator" content="Aspose.Words for .NET 15.1.0.0" /><title></title></head><body><div><p style="margin:0pt"><span style="font-family:Calibri; font-size:16pt; font-weight:bold">Account management matters</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">New User Registration:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">All new user registrations can only register by obtaining the invitation code and invitation link.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Users can register by email or mobile number</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Registered mobile phone users can register by selecting the relevant country code and mobile phone number. You need to press to obtain the verification code. Later, you will receive a four-digit verification code from the SMS. Please enter it for verification. If you cannot obtain it, please Get it again after 60s.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Email registered users, please enter the relevant email to register. The format must be an email with @. You will receive a four-digit check code from the email later. Please enter it for verification. If you cannot get it, please wait for 60s. Get it once.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">5</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The login password must be a combination of 6 to 12 letters and numbers. (No case restriction)</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">6</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">After registration, you can go to the download page and download the Android app or ios app individually according to the phone type.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">User login:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The user enters the email or mobile number used for registration.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">If you forget the password, you can perform the forget password operation.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The user needs to perform the safety certification test puzzle operation, and put the puzzle in the correct position according to the drag instruction to complete. If it times out or the verification is unsuccessful, the user can refresh the graph by himself for verification.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">After logging in, the user will enter the home page.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">Forgot password operation:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Users can forget to log in through the mailbox or mobile phone number that was originally registered.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">You need to press "Get Verification Code" and then enter the verification code.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Press "Next" to enter the new password setting page</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The login password must be a combination of 6 to 12 letters and numbers. (No case restriction)</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">Change the bound mobile phone number or email operation:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The mobile phone number or email address used during registration is the default binding ID.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Users only need to bind either one.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The user can enter the "Security Center" in the settings to change the binding ID operation</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">You need to press "Get Verification Code" and then enter the verification code.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">5</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The binding is changed successfully.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">Verified:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Each new registered user can get a blind box reward after completing real-name authentication. (One ID can only be used once)</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">After passing the real-name authentication, the withdrawal function can be unlocked, and the withdrawal application can be successful.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">use</span><span style="font-family:Calibri; font-size:10pt">Users can enter the "Security Center" in the settings to perform real-name authentication operations.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt; font-weight:normal">Chinese domestic users can choose the domestic authentication service, and they need to fill in the real name, ID number, bank card number and mobile phone number that match the ID card. (Please make sure that the real name, ID number and bank card number are correct)</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">5</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt; font-weight:normal">The system will conduct verification and certification. If the information does not meet the requirements, it will be rejected by the review. You need to wait two hours before submitting the application.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">6</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt; font-weight:normal">Overseas users can choose overseas authentication and need to fill in the real name, certificate number and mobile phone number that match the certificate.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">7</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt; font-weight:normal">The user needs to hold the ID photo and upload the front and back of the photo file. The customer service staff will conduct audit and certification. If the audit fails, you can reapply (processing within one working day)</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">Change login password:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The user can enter the "Security Center" in the settings to change the login password</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">To obtain the verification code from the bound email address or mobile phone number, you need to press "Get Verification Code" and then enter the verification code.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The login password was changed successfully.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p></div><div class="cnzz" style="display: none;">
+  <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Style-Type" content="text/css" /><meta name="generator" content="Aspose.Words for .NET 15.1.0.0" /><title></title></head><body><div><p style="margin:0pt"><span style="font-family:Calibri; font-size:16pt; font-weight:bold">Account management matters</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">New User Registration:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">All new user registrations can only register by obtaining the invitation code and invitation link.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Users can register by email or mobile number</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Registered mobile phone users can register by selecting the relevant country code and mobile phone number. You need to press to obtain the verification code. Later, you will receive a four-digit verification code from the SMS. Please enter it for verification. If you cannot obtain it, please Get it again after 60s.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Email registered users, please enter the relevant email to register. The format must be an email with @. You will receive a four-digit check code from the email later. Please enter it for verification. If you cannot get it, please wait for 60s. Get it once.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">5</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The login password must be a combination of 6 to 12 letters and numbers. (No case restriction)</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">6</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">After registration, you can go to the download page and download the Android app or ios app individually according to the phone type.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">User login:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The user enters the email or mobile number used for registration.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">If you forget the password, you can perform the forget password operation.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The user needs to perform the safety certification test puzzle operation, and put the puzzle in the correct position according to the drag instruction to complete. If it times out or the verification is unsuccessful, the user can refresh the graph by himself for verification.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">After logging in, the user will enter the home page.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">Forgot password operation:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Users can forget to log in through the mailbox or mobile phone number that was originally registered.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">You need to press "Get Verification Code" and then enter the verification code.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Press "Next" to enter the new password setting page</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The login password must be a combination of 6 to 12 letters and numbers. (No case restriction)</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">Change the bound mobile phone number or email operation:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The mobile phone number or email address used during registration is the default binding ID.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Users only need to bind either one.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The user can enter the "Security Center" in the settings to change the binding ID operation</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">You need to press "Get Verification Code" and then enter the verification code.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">5</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The binding is changed successfully.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">Verified:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">Each new registered user can get a blind box reward after completing real-name authentication. (One ID can only be used once)</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">After passing the real-name authentication, the withdrawal function can be unlocked, and the withdrawal application can be successful.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt"></span><span style="font-family:Calibri; font-size:10pt">Users can enter the "Security Center" in the settings to perform real-name authentication operations.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">4</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt; font-weight:normal">Chinese domestic users can choose the domestic authentication service, and they need to fill in the real name, ID number, bank card number and mobile phone number that match the ID card. (Please make sure that the real name, ID number and bank card number are correct)</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">5</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt; font-weight:normal">The system will conduct verification and certification. If the information does not meet the requirements, it will be rejected by the review. You need to wait two hours before submitting the application.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">6</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt; font-weight:normal">Overseas users can choose overseas authentication and need to fill in the real name, certificate number and mobile phone number that match the certificate.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">7</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt; font-weight:normal">The user needs to hold the ID photo and upload the front and back of the photo file. The customer service staff will conduct audit and certification. If the audit fails, you can reapply (processing within one working day)</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt; font-weight:bold">Change login password:</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">1</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The user can enter the "Security Center" in the settings to change the login password</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">2</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">To obtain the verification code from the bound email address or mobile phone number, you need to press "Get Verification Code" and then enter the verification code.</span></p><p style="margin:0pt; text-indent:0pt"><span style="font-family:Calibri; font-size:10pt">3</span><span style="font-family:宋体; font-size:10pt">）</span><span style="font-family:Calibri; font-size:10pt">The login password was changed successfully.</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p><p style="margin:0pt"><span style="font-family:Calibri; font-size:10pt">&#xa0;</span></p></div><div class="cnzz" style="display: none;">
 	        <script src="https://s23.cnzz.com/z_stat.php?id=1277655852&web_id=1277655852" language="JavaScript"></script>
             </div>
             <div class="docpe" style="position: absolute;color: white;margin-left:-450;">

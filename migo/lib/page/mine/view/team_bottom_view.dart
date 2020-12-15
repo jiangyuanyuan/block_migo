@@ -56,7 +56,8 @@ class _TeamBottomViewState extends State<TeamBottomView> {
   String _getRightTitle(BuildContext context) {
     List<String> temp = [
       I18n.of(context).totalnumberpeople,
-      I18n.of(context).cumulativepledgedmining,
+      // I18n.of(context).cumulativepledgedmining,
+      I18n.of(context).teamtotalmin,
       I18n.of(context).seePoint
     ];
     return temp[widget.tabindex];
@@ -105,6 +106,17 @@ class _TeamBottomViewState extends State<TeamBottomView> {
                     SizedBox(height: 10,),
                     Text(_getLeftValue(), style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
                   ],
+                ),
+                Visibility(
+                  visible: widget.tabindex == 1,
+                  child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(I18n.of(context).teamtotaltotal, style: AppFont.textStyle(12, color: Color(0xffDBF0FF)),),
+                      SizedBox(height: 10,),
+                      Text("10000", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
+                    ],
+                  ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,

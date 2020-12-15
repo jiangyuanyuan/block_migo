@@ -17,7 +17,8 @@ class TeamHeadView extends StatelessWidget {
   List<String> _tags(BuildContext context) {
     return [
       I18n.of(context).teamgroupshare,
-      I18n.of(context).teamgroupleader,
+      // I18n.of(context).teamgroupleader,
+      I18n.of(context).teammoney,
       I18n.of(context).seePoint,
     ];
   }
