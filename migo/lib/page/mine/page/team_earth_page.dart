@@ -50,7 +50,7 @@ class _TeamEarthPageState extends State<TeamEarthPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("${I18n.of(context).mineaddgrade}(MIGOs)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
+            Text("${I18n.of(context).mineaddgrade}(MIGO)", style: AppFont.textStyle(12, color: const Color(0xffDBF0FF), showshadow: true),),
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 20),
               child: HomeGradientText(data: "${_earthModel?.newAmount ?? 00}", fontstyle: AppFont.textStyle(24, color: Colors.white, fontWeight: FontWeight.bold, showshadow: true),),

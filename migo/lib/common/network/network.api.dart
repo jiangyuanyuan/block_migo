@@ -75,5 +75,8 @@ class API {
   static const String checkUser = "user/uUserTicket/checkUser";
   static const String sendUserTicket = "user/uUserTicket/sendUserTicket";
   static const String uUserTicketRecord = "user/uUserTicketRecord/record/";
+  /// 
+  static const String shareDetails = "user/uUserReferee/shareDetails/";
+  static const String checkStatus = "user/uUser/checkStatus";
 }
   

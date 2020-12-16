@@ -1,3 +1,5 @@
+import 'package:migo/common/util/tool.dart';
+
 class TeamRecordResponse {
   int code;
   String msg;
@@ -61,7 +63,7 @@ class TeamRecordModel {
     changeType = json['changeType'];
     businessType = json['businessType'];
     businessRemark = json['businessRemark'];
-    createTime = json['createTime'];
+    createTime = DateTime.parse(json["timeString"]).millisecondsSinceEpoch;
     accountType = json['accountType'];
     coinName = json['coinName'];
   }

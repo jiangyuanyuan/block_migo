@@ -10,6 +10,7 @@ import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/login&regist/model/login_status_model.dart';
 import 'package:migo/login&regist/model/user_model.dart';
 import 'package:migo/login&regist/view/login_email.dart';
 import 'package:migo/login&regist/view/login_phone.dart';
@@ -36,6 +37,8 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
   // 1: 修改密码 2: 修改交易密码 3 忘记密码
   int modtype = 0;
   bool showerror = false;
+  bool isopenemail = false;
+  List<LoginStatusModel> listStatus = [];
   @override
   void dispose() {
     _controller.dispose();
@@ -49,6 +52,19 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     if(widget.param != null) {
       modtype = widget.param["modtype"];
     }
+    Future.delayed(const Duration(milliseconds: 100)).then((value) => _requestStatus());
+  }
+
+  void _requestStatus() {
+    EasyLoading.showToast("Loading...");
+    Networktool.request(API.checkStatus, method: HTTPMETHOD.GET, success: (data) {
+      final temp = LoginStatusResponse.fromJson(data).data;
+      EasyLoading.dismiss();
+      if(temp != null) {
+        listStatus = temp;
+      }
+      isopenemail = listStatus.last.configValue == "1";
+    }, fail: (msg) => EasyLoading.showToast(msg),);
   }
 
   void _jumpSmsCode() {
@@ -205,6 +221,12 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                   SizedBox(width: 1,),
                   InkWell(
                     onTap: () {
+                      if(!isopenemail) {
+                        print("$isopenemail");
+                        EasyLoading.showToast(I18n.of(context).notopen);
+                        return;
+                      }
+                      Alert.showConfirmDialog(context, title: I18n.of(context).cannoteamil,);
                       setState(() {
                         tabIndex = 1;
                       });
@@ -223,6 +245,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
               Expanded(
                 child: PageView(
                   controller: _pageController,
+                  physics: NeverScrollableScrollPhysics(),
                   children: [
                     LoginPhoneView(modetype: modtype, showerror: showerror, onLogin: (sender, pwd, code) => _login(sender, pwd, code, false),),
                     LoginEmailView(modtype: modtype, onLogin: (sender, pwd, code) => _login(sender, pwd, code, true))

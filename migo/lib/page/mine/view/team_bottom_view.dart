@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/model/mine_team_model.dart';
 import 'package:migo/page/mine/view/mine_reward_view.dart';
@@ -114,7 +115,7 @@ class _TeamBottomViewState extends State<TeamBottomView> {
                     children: [
                       Text(I18n.of(context).teamtotaltotal, style: AppFont.textStyle(12, color: Color(0xffDBF0FF)),),
                       SizedBox(height: 10,),
-                      Text("10000", style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
+                      Text(Tool.number(widget.model?.leaderDTO?.totalTeamPledgeAmount, 2), style: AppFont.textStyle(16, color: Colors.white, fontWeight: FontWeight.bold),)
                     ],
                   ),
                 ),

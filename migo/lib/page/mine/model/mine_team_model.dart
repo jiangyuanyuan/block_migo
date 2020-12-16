@@ -199,6 +199,7 @@ class LeaderDTO {
   int minTeamUserCount;
   List<SubordinateLeaderDTOModel> subordinateLeaderDTOList;
   String title;
+  num totalTeamPledgeAmount;
   String enTitle;
 
   LeaderDTO(
@@ -211,6 +212,7 @@ class LeaderDTO {
   LeaderDTO.fromJson(Map<String, dynamic> json) {
     minTeamPledgeAmount = json['minTeamPledgeAmount'];
     minTeamUserCount = json['minTeamUserCount'];
+    totalTeamPledgeAmount = json["totalTeamPledgeAmount"];
     enTitle = json["enTitle"];
     if (json['subordinateLeaderDTOList'] != null) {
       subordinateLeaderDTOList = new List<SubordinateLeaderDTOModel>();
@@ -238,6 +240,7 @@ class SubordinateLeaderDTOModel {
   num maxTeamAmount;
   int subordinateUserCount;
   String userNumber;
+  int isAuthStatus;
 
   SubordinateLeaderDTOModel(
       {this.maxTeamAmount, this.subordinateUserCount, this.userNumber});
@@ -246,6 +249,7 @@ class SubordinateLeaderDTOModel {
     maxTeamAmount = json['maxTeamAmount'];
     subordinateUserCount = json['subordinateUserCount'];
     userNumber = json['userNumber'];
+    isAuthStatus = json["isAuthStatus"];
   }
 
   Map<String, dynamic> toJson() {

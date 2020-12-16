@@ -334,8 +334,8 @@ class I18n implements WidgetsLocalizations {
   String get teamleadertotal => "共";
   /// "团队人数"
   String get teamnumber => "团队人数";
-  /// "团队总业绩"
-  String get teamperformance => "团队总业绩";
+  /// "昨日团队总业绩"
+  String get teamperformance => "昨日团队总业绩";
   /// "大区挖矿金额"
   String get dynamicincome => "大区挖矿金额";
   /// "直推奖"
@@ -462,8 +462,8 @@ class I18n implements WidgetsLocalizations {
   String get shovel => "铲子";
   /// "已支付"
   String get paid => "已支付";
-  /// "我的新增业绩"
-  String get mineaddgrade => "我的新增业绩";
+  /// "全球矿池分红总额"
+  String get mineaddgrade => "全球矿池分红总额";
   /// "起止日期"
   String get startdate => "起止日期";
   /// "分红日期"
@@ -624,8 +624,16 @@ class I18n implements WidgetsLocalizations {
   String get reeledfinish => "已转赠";
   /// "总区质押挖矿总额"
   String get teamtotaltotal => "总区质押挖矿总额";
-  /// "“小区质押挖矿总额"
-  String get teamtotalmin => "“小区质押挖矿总额";
+  /// "小区质押挖矿总额"
+  String get teamtotalmin => "小区质押挖矿总额";
+  /// "提示\n请您在12月18号前前往安全中心绑定您的手机号码，否则将无法登录"
+  String get cannoteamil => "提示\n请您在12月18号前前往安全中心绑定您的手机号码，否则将无法登录";
+  /// "第${e}代"
+  String secondegenra(String e) => "第${e}代";
+  /// "已实名"
+  String get auth => "已实名";
+  /// "未实名"
+  String get notauth => "未实名";
 }
 
 class _I18n_zh_CN extends I18n {
@@ -1283,9 +1291,9 @@ class _I18n_en_US extends I18n {
   /// "Paid"
   @override
   String get paid => "Paid";
-  /// "My new performance"
+  /// "Total amount of global mining pool dividends"
   @override
-  String get mineaddgrade => "My new performance";
+  String get mineaddgrade => "Total amount of global mining pool dividends";
   /// "Start and end date"
   @override
   String get startdate => "Start and end date";
@@ -1526,6 +1534,18 @@ class _I18n_en_US extends I18n {
   /// "Community mining"
   @override
   String get teamtotalmin => "Community mining";
+  /// "Prompt\nPlease go to the security center to bind your mobile number before December 18, otherwise you will not be able to log in"
+  @override
+  String get cannoteamil => "Prompt\nPlease go to the security center to bind your mobile number before December 18, otherwise you will not be able to log in";
+  /// "Generation ${e}"
+  @override
+  String secondegenra(String e) => "Generation ${e}";
+  /// "Real-named"
+  @override
+  String get auth => "Real-named";
+  /// "Not Real Name"
+  @override
+  String get notauth => "Not Real Name";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

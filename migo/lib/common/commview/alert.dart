@@ -157,9 +157,9 @@ class Alert {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    _createBtn(cancel, null, const Color(0xff999999)),
+                    _createBtn(I18n.of(context).cancel, null, const Color(0xff999999)),
                     Container(width: 0.5 ,height: 25,color: AppColor.divigrey),
-                    _createBtn(sure, sureCallback, AppColor.blue)
+                    _createBtn(I18n.of(context).sure, sureCallback, AppColor.blue)
                   ],
                 )
               ],

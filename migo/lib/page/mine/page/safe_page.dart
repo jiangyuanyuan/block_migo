@@ -88,7 +88,7 @@ class _SafePageState extends State<SafePage> {
 
   void _jump(BuildContext context, int index) {
     switch (index) {
-      case 0:
+      case 0:{
         if(model.isAuth == 0 || model.isAuth == 3) {
           Navigator.pushNamed(context, "/authmanage");
         } else if(model.isAuth == 1){
@@ -96,6 +96,7 @@ class _SafePageState extends State<SafePage> {
             
           },));
         }
+      }
         break;
       case 1:
         Navigator.pushNamed(context, "/mineexchangebind");

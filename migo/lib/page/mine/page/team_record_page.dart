@@ -7,6 +7,7 @@ import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/model/team_record_model.dart';
 import 'package:migo/page/mine/view/mine_team_tab.dart';
+import 'package:migo/page/mine/view/team_record_cell.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,41 +20,51 @@ class _TeamRecordPageState extends State<TeamRecordPage> {
 
   int tabIndex = 0;
   int type = -1;
-  RefreshController _refreshController = RefreshController();
   List<TeamRecordModel> list = [];
+  int page = 0;
+  RefreshController _refreshController = RefreshController(initialRefresh: true);
+  
   @override
   void initState() {
     super.initState();
-
-    _request();
   }
-
+  
   @override
   void dispose() {
     _refreshController.dispose();
     super.dispose();
   }
-
-  void _request() {
-    Networktool.request(API.teamProfitPage + type.toString(), success: (data) async{
+  
+  void _refresh() {
+    page = 1;
+    _request(true);
+  }
+  
+  void _loading() {
+    page += 1;
+    _request();
+  }
+  
+  void _request([bool refresh = false]) {
+    Networktool.request(API.teamProfitPage + type.toString() + "/$page/10", success: (data) async{
       final temp = TeamRecordResponse.fromJson(data).data;
-      list = temp;
+      if(refresh) list.clear();
+      if(temp.length < 10) _refreshController.loadNoData();
       SharedPreferences prefs = await SharedPreferences.getInstance();
       final isen = prefs.getString('languageCode') == "en";
       if(isen) temp.forEach((e) { if(e.enBusinessRemark != null)e.businessRemark = e.enBusinessRemark;});
+      list.addAll(temp);
       if(mounted) setState(() {
         
       });
-    }, finaly: _endrefresh);
+    }, finaly: _endRefresh);
   }
-
-  void _refresh() {
-    _request();
-  }
-
-  void _endrefresh() {
+  
+  void _endRefresh() {
     _refreshController.refreshCompleted();
+    _refreshController.loadComplete();
   }
+  
 
   List<String> _tags() {
     return [
@@ -121,10 +132,11 @@ class _TeamRecordPageState extends State<TeamRecordPage> {
                 child: RefreshWidget(
                   controller: _refreshController,
                   onRefresh: _refresh,
+                  onLoading: _loading,
                   child: ListView.separated(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     itemBuilder: (context, index) {
-                      return _Cell(model: list[index]);
+                      return TeamRecordCell(model: list[index], isshowarrow: tabIndex == 1,);
                     }, 
                     separatorBuilder: (context, index) => Divider(height: 1, color: const Color(0xffD8D8D8),), 
                     itemCount: list.length
@@ -139,40 +151,3 @@ class _TeamRecordPageState extends State<TeamRecordPage> {
   }
 }
 
-class _Cell extends StatelessWidget {
-  final TeamRecordModel model;
-
-  const _Cell({Key key, this.model}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0, top: 16),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(model.businessRemark, style: AppFont.textStyle(14, color: Colors.black),),
-              
-              Row(
-                children: [
-                  Text("+${model.amount}", style: AppFont.textStyle(14, color: AppColor.green, fontWeight: FontWeight.bold),),
-                  SizedBox(width: 4,),
-                  Text("${model.coinName}", style: AppFont.textStyle(14, color: Colors.black),)
-                ],
-              )
-            ],
-          ),
-          SizedBox(height: 8,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("${Tool.timeFormat("MM/dd", model.createTime)} ${I18n.of(context).arriveAim} ${model.businessRemark}", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
-              Text(Tool.timeFormat("yyyy-MM-dd HH:mm", model.createTime), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}

@@ -33,6 +33,7 @@ import 'package:migo/page/mine/page/mine_shovel_record.dart';
 import 'package:migo/page/mine/page/mine_team_page.dart';
 import 'package:migo/page/mine/page/safe_page.dart';
 import 'package:migo/page/mine/page/team_earth_page.dart';
+import 'package:migo/page/mine/page/team_record_detail_page.dart';
 import 'package:migo/page/mine/page/team_record_page.dart';
 import 'package:migo/page/mine/page/threeauth_page.dart';
 import 'package:migo/root/root.dart';
@@ -91,6 +92,7 @@ final routes = {
   '/qrcode': (context,{arguments}) => QrCodePage(),// 第一次登录密码设置
   '/contractrecord': (context,{arguments}) => ConstractRecordPage(),// 第一次登录密码设置
   '/web': (context,{arguments}) => WebPage(params: arguments,),// 第一次登录密码设置
+  '/teamrecorddetail': (context,{arguments}) => TeamRecordDetailPage(params: arguments,),// 第一次登录密码设置
 };
 
 var onGenerateRoute = (RouteSettings settings) {

@@ -81,7 +81,13 @@ class _Cell extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("${model.userNumber}", style: AppFont.textStyle(12, color: Colors.black),),
+                    Row(
+                      children: [
+                        Text("${model.userNumber}", style: AppFont.textStyle(12, color: Colors.black),),
+                        SizedBox(width: 4,),
+                        Text(model.isAuthStatus == 1 ? I18n.of(context).auth : I18n.of(context).notauth, style: AppFont.textStyle(12, color: model.isAuthStatus == 1 ? AppColor.red : AppColor.blue),),
+                      ],
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       child: Row(

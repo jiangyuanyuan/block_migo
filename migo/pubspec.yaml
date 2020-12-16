@@ -66,6 +66,7 @@ dependencies:
   country_calling_code_picker: ^1.0.8+1
   devicelocale: ^0.3.3
   device_info: ^1.0.0
+  
 
 dev_dependencies:
   flutter_test:

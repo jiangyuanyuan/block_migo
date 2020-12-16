@@ -167,7 +167,7 @@
     "space":"{sender}",
     "teamleadertotal":"共",
     "teamnumber":"团队人数",
-    "teamperformance": "团队总业绩",
+    "teamperformance": "昨日团队总业绩",
     "dynamicincome":"大区挖矿金额",
     "directPushAward":"直推奖",
     "aimreward":"达标领导奖励",
@@ -234,7 +234,7 @@
     "using":"使用中",
     "shovel":"铲子",
     "paid":"已支付",
-    "mineaddgrade":"我的新增业绩",
+    "mineaddgrade":"全球矿池分红总额",
     "startdate":"起止日期",
     "getmoneydate":"分红日期",
     "teamdetail":"团队概况",
@@ -315,6 +315,9 @@
     "teammoney":"团队奖励",
     "reeledfinish":"已转赠",
     "teamtotaltotal":"总区质押挖矿总额",
-    "teamtotalmin":"“小区质押挖矿总额"
-
+    "teamtotalmin":"小区质押挖矿总额",
+    "cannoteamil":"提示\n请您在12月18号前前往安全中心绑定您的手机号码，否则将无法登录",
+    "secondegenra":"第{e}代",
+    "auth":"已实名",
+    "notauth":"未实名"
 }

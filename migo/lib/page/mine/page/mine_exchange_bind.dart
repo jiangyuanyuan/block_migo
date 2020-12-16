@@ -46,17 +46,17 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 100)).then((value){
-      if(mounted) setState(() {
-        final data = Provider.of<UserModel>(context, listen: false).data;
-        type = data.registerType;
-        if(data.registerType == 1) {
-          oldphone = data.internationalCode + "_" + data.mobile;
-        } else {
-          oldphone = data.email;
-        }
-      });
-    });
+    // Future.delayed(const Duration(milliseconds: 100)).then((value){
+    //   if(mounted) setState(() {
+    //     final data = Provider.of<UserModel>(context, listen: false).data;
+    //     type = data.registerType;
+    //     if(data.registerType == 1) {
+    //       oldphone = data.internationalCode + "_" + data.mobile;
+    //     } else {
+    //       oldphone = data.email;
+    //     }
+    //   });
+    // });
     _initCode();
   }
 

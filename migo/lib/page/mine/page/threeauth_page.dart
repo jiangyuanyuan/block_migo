@@ -10,6 +10,8 @@ import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/page/mine/page/alert_auth_view.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 
 class ThreeAuthPage extends StatefulWidget {
   @override
@@ -34,6 +36,10 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
   void initState() {
     super.initState();
     _getUser();
+    Future.delayed(const Duration(milliseconds: 100)).then((value) {
+      final temp = Provider.of<UserModel>(context, listen: false).data;
+      _phonecontroller.text = temp.mobile;
+    });
   }
 
   @override
@@ -180,15 +186,18 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
             SizedBox(height: 10,),
             Stack(
               children: [
-                NormalTextfield(
-                  hintText: I18n.of(context).pleaseinputbanknumber,
-                  align: TextAlign.right,
-                  controller: _phonecontroller,
-                  focusNode: _phonefocusNode,
-                  maxLength: 11,
-                  inputFormatters: [
-                    WhitelistingTextInputFormatter.digitsOnly
-                  ],
+                IgnorePointer(
+                  ignoring: true,
+                  child: NormalTextfield(
+                    hintText: I18n.of(context).pleaseinputbanknumber,
+                    align: TextAlign.right,
+                    controller: _phonecontroller,
+                    focusNode: _phonefocusNode,
+                    maxLength: 11,
+                    inputFormatters: [
+                      WhitelistingTextInputFormatter.digitsOnly
+                    ],
+                  ),
                 ),
                 Positioned(
                   left: 5,
