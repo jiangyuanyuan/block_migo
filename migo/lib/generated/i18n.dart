@@ -334,8 +334,8 @@ class I18n implements WidgetsLocalizations {
   String get teamleadertotal => "共";
   /// "团队人数"
   String get teamnumber => "团队人数";
-  /// "昨日团队总业绩"
-  String get teamperformance => "昨日团队总业绩";
+  /// "昨日团队收益"
+  String get teamperformance => "昨日团队收益";
   /// "大区挖矿金额"
   String get dynamicincome => "大区挖矿金额";
   /// "直推奖"
@@ -1099,9 +1099,9 @@ class _I18n_en_US extends I18n {
   /// "Number of team"
   @override
   String get teamnumber => "Number of team";
-  /// "Team Grades"
+  /// "Team Performance"
   @override
-  String get teamperformance => "Team Grades";
+  String get teamperformance => "Team Performance";
   /// "Mining amount"
   @override
   String get dynamicincome => "Mining amount";

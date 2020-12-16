@@ -83,10 +83,9 @@ class _RootPageState extends State<RootPage> {
         success: (data) {
       final temp = VersionResponse.fromJson(data).data;
       if (temp == null) return;
-      return;
-      // if (temp.version == version) {
-      //   return;
-      // }
+      if (temp.version == version) {
+        return;
+      }
       if(isen) temp.content = temp.enContent;
       Alert.showMsgDialog(context,
           barrierDismissible: temp.type == 0,

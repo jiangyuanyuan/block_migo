@@ -242,16 +242,16 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                 ],
               ),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 6.0, top: 10),
-                child: Row(
-                  children: [
-                    Image.asset("assets/sign_tip_arrow_right.png"),
-                    SizedBox(width: 6,),
-                    Expanded(child: Text(I18n.of(context).bindrule, style: AppFont.textStyle(14, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),))
-                  ],
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(left: 6.0, top: 10),
+              //   child: Row(
+              //     children: [
+              //       Image.asset("assets/sign_tip_arrow_right.png"),
+              //       SizedBox(width: 6,),
+              //       Expanded(child: Text(I18n.of(context).bindrule, style: AppFont.textStyle(14, color: const Color(0xffDBF0FF), fontWeight: FontWeight.bold, showshadow: true),))
+              //     ],
+              //   ),
+              // ),
               SizedBox(height: 46,),
               BtnImageBottomView(
                 title: I18n.of(context).submit,
