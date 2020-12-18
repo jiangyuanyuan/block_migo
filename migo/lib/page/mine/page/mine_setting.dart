@@ -56,7 +56,7 @@ class _MineSettingPageState extends State<MineSettingPage> {
     //   Navigator.pushNamedAndRemoveUntil(context, '/login',(route) => false);
     // });
     Alert.showViewDialog(context, AlertExitView(onSure: () {
-      SharedPreferences.getInstance().then((value) => value.clear());// 清楚用户数据
+      // SharedPreferences.getInstance().then((value) => value.clear());// 清楚用户数据
       Navigator.pushNamedAndRemoveUntil(context, '/login',(route) => false);
     },));
   }

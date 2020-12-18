@@ -298,6 +298,7 @@
     "secondegenra":"Generation {e}",
     "auth":"Real-named",
     "notauth":"Not Real Name",
+    "authother":"Overseas manual authentication",
     "reealnotice5":"4. Click the icon in the upper left corner to view your certification volume transfer record.",
     "cannoteamil":"Prompt\nPlease go to the security center to bind your mobile number before December 18, otherwise you will not be able to log in"
 }

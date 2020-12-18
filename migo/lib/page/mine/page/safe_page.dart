@@ -75,8 +75,8 @@ class _SafePageState extends State<SafePage> {
       {
         final data = Provider.of<UserModel>(context, listen: false).data;
         String account = data.mobile;
-        if(data.registerType == 1) {
-          account = data.mobile;
+        if(data.registerType == 2) {
+          account = data.email;
         }
         return account;
       }

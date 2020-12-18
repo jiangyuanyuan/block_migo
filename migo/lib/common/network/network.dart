@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/util/event_bus.dart';
-import 'package:migo/common/util/tool.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';

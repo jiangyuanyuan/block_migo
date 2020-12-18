@@ -1,21 +1,19 @@
 import 'package:country_calling_code_picker/functions.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
-import 'package:migo/common/commview/custom_menu_view.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
-import 'package:migo/common/util/tool.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/login&regist/view/sms_counter.dart';
-import 'package:migo/page/contract/view/alert_password_view.dart';
 import 'package:migo/provider/user.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MineExchangeBindPage extends StatefulWidget {
   @override
@@ -46,29 +44,28 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
   @override
   void initState() {
     super.initState();
-    // Future.delayed(const Duration(milliseconds: 100)).then((value){
-    //   if(mounted) setState(() {
-    //     final data = Provider.of<UserModel>(context, listen: false).data;
-    //     type = data.registerType;
-    //     if(data.registerType == 1) {
-    //       oldphone = data.internationalCode + "_" + data.mobile;
-    //     } else {
-    //       oldphone = data.email;
-    //     }
-    //   });
-    // });
+    Future.delayed(const Duration(milliseconds: 100)).then((value){
+      if(mounted) setState(() {
+        final data = Provider.of<UserModel>(context, listen: false).data;
+        type = data.registerType;
+        if(data.registerType == 1) {
+          oldphone = data.internationalCode + "_" + data.mobile;
+        } else {
+          oldphone = data.email;
+        }
+      });
+    });
     _initCode();
   }
 
   void _submit() {
-
     if(_oldcodeController.text.isEmpty) {
       EasyLoading.showToast(I18n.of(context).pleaseinput);
       return;
     }
 
     if(_editingController.text.isEmpty) {
-      EasyLoading.showToast(type == 1 ? I18n.of(context).pleaseinputphone : I18n.of(context).pleaseinputemail);
+      EasyLoading.showToast(I18n.of(context).pleaseinputphone);
       return;
     }
     if(_codeController.text.isEmpty) {
@@ -86,15 +83,13 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
           "internationalCode":contryCode.replaceFirst("+", "")
       }, success: (data) {
         EasyLoading.showToast(I18n.of(context).success);
-        final temp = Provider.of<UserModel>(context, listen: false);
-        final curr = temp.data;
-        if(type == 1) {
-          curr.mobile = _editingController.text;
-        } else {
-          curr.email = _editingController.text;
-        }
-        temp.setModel(curr);
-        Navigator.pop(context);
+        // final temp = Provider.of<UserModel>(context, listen: false);
+        // final curr = temp.data;
+        // curr.mobile = _editingController.text;
+        // curr.registerType = 1;
+        // temp.setModel(curr);
+        // SharedPreferences.getInstance().then((value) => value.clear());// 清楚用户数据
+        Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
       }, fail: (msg) => EasyLoading.showToast(msg),);
   }
 
@@ -181,7 +176,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
               Stack(
                 children: [
                   NormalTextfield(
-                    hintText: type == 1 ? I18n.of(context).pleaseinputphone : I18n.of(context).pleaseinputemail,
+                    hintText: I18n.of(context).pleaseinputphone,
                     align: TextAlign.right,
                     controller: _editingController,
                     focusNode: _focusNode,
@@ -206,10 +201,10 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                       color: Colors.white,
                       alignment: Alignment.centerLeft,
                       child: InkWell(
-                        onTap: type == 1 ? _createBuild : null,
+                        onTap: _createBuild,
                         child: Row(
                           children: [
-                            Text(type == 1  ? (I18n.of(context).phone + contryCode) : I18n.of(context).email, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+                            Text(I18n.of(context).phone + contryCode, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
                             SizedBox(width: 6,),
                             Image.asset("assets/sign_choos_arrow_down.png"),
                           ],
@@ -237,7 +232,7 @@ class _MineExchangeBindPageState extends State<MineExchangeBindPage> {
                     right: 12,
                     top: 0,
                     bottom: 0,
-                    child: Center(child: SmsCounterView(phone: type == 1 ? (contryCode.replaceFirst("+", "") + "_" + phone) : phone, isemail: type != 1,)),
+                    child: Center(child: SmsCounterView(phone: contryCode.replaceFirst("+", "") + "_" + phone, isemail: false,)),
                   )
                 ],
               ),

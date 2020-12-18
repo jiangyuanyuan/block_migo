@@ -74,6 +74,7 @@ class _RootPageState extends State<RootPage> {
 
    // 自动更新
   void _requestVersion() async {
+    if(AppConst.APP_IS_RELEASE == false) return;
     final info = await PackageInfo.fromPlatform();
     String version = Platform.isAndroid ? info.version : info.buildNumber;
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -88,7 +89,7 @@ class _RootPageState extends State<RootPage> {
       }
       if(isen) temp.content = temp.enContent;
       Alert.showMsgDialog(context,
-          barrierDismissible: temp.type == 0,
+          barrierDismissible: temp.isForce == 1 ? false : true,
           title: I18n.of(context).upnotice,
           iswillpop: temp.isForce == 1 ? false : true,
           msg: temp.content.replaceAll(";", "\n"), callback: () async {

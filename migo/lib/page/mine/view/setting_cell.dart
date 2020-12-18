@@ -38,9 +38,9 @@ class SettingCell extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               child: Row(
                 children: <Widget>[
-                  Text(title, style: AppFont.textStyle(16, color: AppColor.font333),),
+                  Text(title ?? "", style: AppFont.textStyle(16, color: AppColor.font333),),
                   Spacer(),
-                  Text(detail, style: AppFont.textStyle(16, color: detailColor),),
+                  Text(detail ?? "", style: AppFont.textStyle(16, color: detailColor),),
                   SizedBox(width: 10,),
                   Visibility(
                     visible: showArrowIcon,

@@ -7,6 +7,7 @@ class API {
   static const String sms = "sms/sms/sendPhone/";
   static const String emailcode = "sms/email/sendEmailCode/";
   static const String login = "user/uUser/loginByPass";
+  static const String authTimes = "user/uUser/authTimes";
   static const String identityAuthen = "user/uUser/authUserByPhoto";
   static const String version = "user/bAppVersion/getNewVersion/";
   static const String getMyProfitListByShovel = "user/uMineUserShovel/getMyProfitListByShovel";
@@ -78,5 +79,9 @@ class API {
   /// 
   static const String shareDetails = "user/uUserReferee/shareDetails/";
   static const String checkStatus = "user/uUser/checkStatus";
+  static const String myTeamPage2 = "user/uUserReferee/myTeamPage2";
+  static const String myTeamPage3 = "user/uUserReferee/myTeamPage3";
+  static const String myTeamPage4 = "user/uUserReferee/myTeamPage4";
+  static const String myTeamPage5 = "user/uUserReferee/myTeamPage5";
 }
   

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -12,6 +13,9 @@ import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/page/mine/page/alert_auth_view.dart';
 import 'package:migo/provider/user.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'mine_auth_page.dart';
 
 class ThreeAuthPage extends StatefulWidget {
   @override
@@ -31,6 +35,7 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
 
   int number = 0;
   String tick = "--";
+  int errount = 0;
 
   @override
   void initState() {
@@ -40,6 +45,7 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
       final temp = Provider.of<UserModel>(context, listen: false).data;
       _phonecontroller.text = temp.mobile;
     });
+    _requestTime();
   }
 
   @override
@@ -80,7 +86,6 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
       EasyLoading.showToast(I18n.of(context).pleaseinputphone);
       return;
     }
-
     Alert.showViewDialog(context, AlertAuthView(status: number == 0 ? 3 : 0,onSure: () {
       EasyLoading.show(status: "Loading...");
       Networktool.request(API.authUserByBank, params: {
@@ -92,7 +97,34 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
         EasyLoading.showToast(I18n.of(context).success);
         Navigator.pop(context);
         EventBus.instance.commit(EventKeys.RefreshAuth, null);
-      }, fail: (msg) => EasyLoading.showToast(msg),);
+      }, fail: (msg) {
+        EasyLoading.showToast(msg);
+        _requestTime();
+      },);
+    },));
+  }
+
+  void _requestTime() {
+    Networktool.request(API.authTimes, method: HTTPMETHOD.GET, success: (data){
+      if(data["data"] != null) {
+        errount = data["data"];
+        if(mounted) setState(() {
+          
+        });
+      }
+    }, fail: (msg) => EasyLoading.showToast(msg),);
+  }
+
+  void _otherAuth() {
+    Navigator.pop(context);
+    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+      return Scaffold(
+        body: CommbackView(
+          titles: I18n.of(context).verified,
+          onPop: () => Navigator.pop(context),
+          child: MineAuthPage(),
+        )
+      );
     },));
   }
 
@@ -231,7 +263,15 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
                 ),
               ),
               Spacer(),
+              Visibility(
+                visible: errount >= 2,
+                child: BtnImageBottomView(
+                  title: I18n.of(context).authother,
+                  onTap: _otherAuth,
+                ),
+              ),
               SafeArea(
+                top: false,
                 child: BtnImageBottomView(
                   title: I18n.of(context).submit,
                   onTap: _submit,

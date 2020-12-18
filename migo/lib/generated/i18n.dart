@@ -632,6 +632,8 @@ class I18n implements WidgetsLocalizations {
   String secondegenra(String e) => "第${e}代";
   /// "已实名"
   String get auth => "已实名";
+  /// "海外人工认证"
+  String get authother => "海外人工认证";
   /// "未实名"
   String get notauth => "未实名";
 }
@@ -1543,6 +1545,9 @@ class _I18n_en_US extends I18n {
   /// "Real-named"
   @override
   String get auth => "Real-named";
+  /// "Overseas manual authentication"
+  @override
+  String get authother => "Overseas manual authentication";
   /// "Not Real Name"
   @override
   String get notauth => "Not Real Name";

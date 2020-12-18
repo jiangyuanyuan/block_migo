@@ -319,5 +319,6 @@
     "cannoteamil":"提示\n请您在12月18号前前往安全中心绑定您的手机号码，否则将无法登录",
     "secondegenra":"第{e}代",
     "auth":"已实名",
+    "authother":"海外人工认证",
     "notauth":"未实名"
 }

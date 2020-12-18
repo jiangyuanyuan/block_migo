@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
@@ -20,13 +21,15 @@ class _TeamEarthPageState extends State<TeamEarthPage> {
   @override
   void initState() {
     super.initState();
-    _request();
+    Future.delayed(const Duration(milliseconds: 100)).then((value) => _request());
   }
 
   void _request() {
+    EasyLoading.show(status: "Loading...");
     Networktool.request(API.poolBonusPage, success: (data) {
       final temp = TeamEarthResponse.fromJson(data).data;
       _earthModel = temp;
+      EasyLoading.dismiss();
       if(mounted) setState(() {
         
       });
