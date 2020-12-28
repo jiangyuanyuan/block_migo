@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/home/view/home_gradient_text.dart';
 import 'package:migo/page/mine/model/me_model.dart';
+import 'package:migo/page/mine/view/headdetail_view.dart';
 import 'package:migo/provider/user.dart';
 import 'package:provider/provider.dart';
 
@@ -76,9 +77,9 @@ class MainHeadView extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _DetailView(title: "${I18n.of(context).teamperformance}(MIGO)", detail: Tool.number(model?.totalTeamUserAmount, 2),),
-                  _DetailView(title: "${I18n.of(context).yearterdayoutput}(MIGO)", detail: Tool.number(model?.todayProfit, 2),),
-                  _DetailView(title: "${I18n.of(context).yearterdayoutput}(MIGOs)", detail: Tool.number(model?.faceValue, 2),),
+                  HeadDetailView(title: "${I18n.of(context).teamperformance}(MIGO)", detail: Tool.number(model?.totalTeamUserAmount, 2),),
+                  HeadDetailView(title: "${I18n.of(context).yearterdayoutput}(MIGO)", detail: Tool.number(model?.todayProfit, 2),),
+                  HeadDetailView(title: "${I18n.of(context).yearterdayoutput}(MIGOs)", detail: Tool.number(model?.faceValue, 2),),
                 ],
               ),
             ),
@@ -118,36 +119,6 @@ class LevelView extends StatelessWidget {
       children: [
         Icon(Icons.account_circle, size: 20,),
         Text(titles)
-      ],
-    );
-  }
-}
-
-class _DetailView extends StatelessWidget {
-  final String title;
-  final String detail;
-
-  const _DetailView({Key key, this.title, this.detail}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(title, style: AppFont.textStyle(
-            12, 
-            color: const Color(0xffDBF0FF),
-            showshadow: true
-          ),
-        ),
-        SizedBox(height: 8,),
-        HomeGradientText(
-          data: detail,
-          fontstyle: AppFont.textStyle(
-            16, 
-            fontWeight: FontWeight.bold,
-            showshadow: true
-          ),
-        )
       ],
     );
   }

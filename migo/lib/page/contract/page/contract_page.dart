@@ -4,6 +4,7 @@ import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/appbar.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
+import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
@@ -49,15 +50,15 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
-    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
-    _animationController.addListener(() { 
-      setState(() {
+    // _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
+    // _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
+    // _animationController.addListener(() { 
+    //   setState(() {
         
-      });
-    });
+    //   });
+    // });
 
-    _request();
+    // _request();
   }
 
   @override
@@ -200,149 +201,156 @@ class _ContractPageState extends State<ContractPage> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: GestureDetector(
-        onTap: _clear,
-        behavior: HitTestBehavior.translucent,
-        child: Container(
-          height: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/背景图.png"),
-              fit: BoxFit.cover
-            )
-          ),
-          child: SingleChildScrollView(
-            child: SizedBox(
-              height: size.height,
-              width: size.width,
-              child: Stack(
-                children: [
-                  Positioned(
-                    left: 0,
-                    right: 0,
-                    top: 390 + _animation.value * 180,
-                    child: ExchangeBottomView(
-                      getAmount: outputAmount,
-                      level: "${exchangeCoinModel?.level ?? 0}",
-                      fee: "${Tool.number(currfee * 100, 2)}%",
-                    ),
-                  ),
-                  Positioned.fill(
-                    child: Column(
-                      children: [
-                        NormalAppbar.normal(
-                          color: Colors.transparent,
-                          title: Text(I18n.of(context).exchange,style: AppFont.textStyle(14, color: Colors.white),),
-                          leading: SizedBox(),
-                          actions: [
-                            IconButton(
-                              icon: Image.asset("assets/coins_record.png"),
-                              onPressed: () {
-                                Navigator.pushNamed(context, "/contractrecord");
-                              },
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 18,),
-                        Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 16),
-                          padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 19),
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 8, 
-                                color: Colors.black.withOpacity(0.3), 
-                                spreadRadius: 0,
-                                offset: Offset(0, 2)
-                              )
-                            ]
-                          ),
-                          child: Column(
-                            children: [
-                              Text(I18n.of(context).exchange, style: AppFont.textStyle(14, color: AppColor.back998, fontWeight: FontWeight.bold),),
-                              Padding(
-                                padding: const EdgeInsets.only(top:19.0, bottom: 17),
-                                child: ExchangeCell(
-                                  titles: exchangeCoinModel?.canUseInputCoinNames ?? [], 
-                                  onSelected: _onselectedCoin,
-                                  tradings: exchangeCoinModel?.tradings,
-                                  onChanged: _inputAmout,
-                                  controller: _precontroller,
-                                  focusNode: _preFocusNode,
-                                ),
-                              ),
-                              Image.asset("assets/pull_next.png"),
-                              Padding(
-                                padding: const EdgeInsets.only(top:19.0),
-                                child: ExchangeCell(
-                                  ispre: false, 
-                                  titles: outputTitles,
-                                  onSelected: _onselectedCoin2,
-                                  outputAmount: outputAmount,
-                                  currCoinsName: outcoinname,
-                                  controller: _sufcontroller,
-                                  focusNode: _sufFocusNode,
-                                  tradings: exchangeCoinModel?.tradings,
-                                ),
-                              ),
-                              SizedBox(height: 32,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      // Text(I18n.of(context).price, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(vertical: 14),
-                                        child: Text(I18n.of(context).currlevel("M${exchangeCoinModel?.level ?? 0}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                                      ),
-                                      Text(I18n.of(context).nextlevel("M${exchangeCoinModel?.nextLevel ?? 0}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                                      SizedBox(height: 14,),
-                                      Text(currCoinName + "/" + outcoinname, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),)
-                                    ],
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      // Row(
-                                      //   children: [
-                                      //     Text("$price ", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-                                      //     Image.asset("assets/change_icon.png")
-                                      //   ],
-                                      // ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(vertical: 14),
-                                        child: Text("${I18n.of(context).feereduction2}${Tool.number(currfee * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.back998),),
-                                      ),
-                                      Text("${I18n.of(context).feereduction}${Tool.number(nextfee * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.red),),
-                                      SizedBox(height: 14,),
-                                      Text(I18n.of(context).huilv + "${Tool.number(computeFee != 0 ? computeFee : currhuilv, 4)}", style: AppFont.textStyle(12, color: AppColor.fontgrey),),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 15,),
-                              BtnImageBottomView(
-                                img: "btn_inactive.png",
-                                title: I18n.of(context).redeemnow,
-                                onTap: _submit,
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+      body: CommbackView(
+        titles: I18n.of(context).coinexchange,
+        leading: SizedBox(),
+        child: Center(child: Text(I18n.of(context).notopen2, style: AppFont.textStyle(14, color: Colors.white, fontWeight: FontWeight.bold),)),
       ),
     );
+    // return Scaffold(
+    //   body: GestureDetector(
+    //     onTap: _clear,
+    //     behavior: HitTestBehavior.translucent,
+    //     child: Container(
+    //       height: double.infinity,
+    //       decoration: BoxDecoration(
+    //         image: DecorationImage(
+    //           image: AssetImage("assets/背景图.png"),
+    //           fit: BoxFit.cover
+    //         )
+    //       ),
+    //       child: SingleChildScrollView(
+    //         child: SizedBox(
+    //           height: size.height,
+    //           width: size.width,
+    //           child: Stack(
+    //             children: [
+    //               Positioned(
+    //                 left: 0,
+    //                 right: 0,
+    //                 top: 390 + _animation.value * 180,
+    //                 child: ExchangeBottomView(
+    //                   getAmount: outputAmount,
+    //                   level: "${exchangeCoinModel?.level ?? 0}",
+    //                   fee: "${Tool.number(currfee * 100, 2)}%",
+    //                 ),
+    //               ),
+    //               Positioned.fill(
+    //                 child: Column(
+    //                   children: [
+    //                     NormalAppbar.normal(
+    //                       color: Colors.transparent,
+    //                       title: Text(I18n.of(context).exchange,style: AppFont.textStyle(14, color: Colors.white),),
+    //                       leading: SizedBox(),
+    //                       actions: [
+    //                         IconButton(
+    //                           icon: Image.asset("assets/coins_record.png"),
+    //                           onPressed: () {
+    //                             Navigator.pushNamed(context, "/contractrecord");
+    //                           },
+    //                         )
+    //                       ],
+    //                     ),
+    //                     SizedBox(height: 18,),
+    //                     Container(
+    //                       margin: const EdgeInsets.symmetric(horizontal: 16),
+    //                       padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 19),
+    //                       width: double.infinity,
+    //                       decoration: BoxDecoration(
+    //                         color: Colors.white,
+    //                         borderRadius: BorderRadius.circular(10),
+    //                         boxShadow: [
+    //                           BoxShadow(
+    //                             blurRadius: 8, 
+    //                             color: Colors.black.withOpacity(0.3), 
+    //                             spreadRadius: 0,
+    //                             offset: Offset(0, 2)
+    //                           )
+    //                         ]
+    //                       ),
+    //                       child: Column(
+    //                         children: [
+    //                           Text(I18n.of(context).exchange, style: AppFont.textStyle(14, color: AppColor.back998, fontWeight: FontWeight.bold),),
+    //                           Padding(
+    //                             padding: const EdgeInsets.only(top:19.0, bottom: 17),
+    //                             child: ExchangeCell(
+    //                               titles: exchangeCoinModel?.canUseInputCoinNames ?? [], 
+    //                               onSelected: _onselectedCoin,
+    //                               tradings: exchangeCoinModel?.tradings,
+    //                               onChanged: _inputAmout,
+    //                               controller: _precontroller,
+    //                               focusNode: _preFocusNode,
+    //                             ),
+    //                           ),
+    //                           Image.asset("assets/pull_next.png"),
+    //                           Padding(
+    //                             padding: const EdgeInsets.only(top:19.0),
+    //                             child: ExchangeCell(
+    //                               ispre: false, 
+    //                               titles: outputTitles,
+    //                               onSelected: _onselectedCoin2,
+    //                               outputAmount: outputAmount,
+    //                               currCoinsName: outcoinname,
+    //                               controller: _sufcontroller,
+    //                               focusNode: _sufFocusNode,
+    //                               tradings: exchangeCoinModel?.tradings,
+    //                             ),
+    //                           ),
+    //                           SizedBox(height: 32,),
+    //                           Row(
+    //                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //                             children: [
+    //                               Column(
+    //                                 crossAxisAlignment: CrossAxisAlignment.start,
+    //                                 children: [
+    //                                   // Text(I18n.of(context).price, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+    //                                   Padding(
+    //                                     padding: const EdgeInsets.symmetric(vertical: 14),
+    //                                     child: Text(I18n.of(context).currlevel("M${exchangeCoinModel?.level ?? 0}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+    //                                   ),
+    //                                   Text(I18n.of(context).nextlevel("M${exchangeCoinModel?.nextLevel ?? 0}"), style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+    //                                   SizedBox(height: 14,),
+    //                                   Text(currCoinName + "/" + outcoinname, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),)
+    //                                 ],
+    //                               ),
+    //                               Column(
+    //                                 crossAxisAlignment: CrossAxisAlignment.end,
+    //                                 children: [
+    //                                   // Row(
+    //                                   //   children: [
+    //                                   //     Text("$price ", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+    //                                   //     Image.asset("assets/change_icon.png")
+    //                                   //   ],
+    //                                   // ),
+    //                                   Padding(
+    //                                     padding: const EdgeInsets.symmetric(vertical: 14),
+    //                                     child: Text("${I18n.of(context).feereduction2}${Tool.number(currfee * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.back998),),
+    //                                   ),
+    //                                   Text("${I18n.of(context).feereduction}${Tool.number(nextfee * 100, 2)}%", style: AppFont.textStyle(12, color: AppColor.red),),
+    //                                   SizedBox(height: 14,),
+    //                                   Text(I18n.of(context).huilv + "${Tool.number(computeFee != 0 ? computeFee : currhuilv, 4)}", style: AppFont.textStyle(12, color: AppColor.fontgrey),),
+    //                                 ],
+    //                               ),
+    //                             ],
+    //                           ),
+    //                           SizedBox(height: 15,),
+    //                           BtnImageBottomView(
+    //                             img: "btn_inactive.png",
+    //                             title: I18n.of(context).redeemnow,
+    //                             onTap: _submit,
+    //                           )
+    //                         ],
+    //                       ),
+    //                     )
+    //                   ],
+    //                 ),
+    //               ),
+    //             ],
+    //           ),
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 }

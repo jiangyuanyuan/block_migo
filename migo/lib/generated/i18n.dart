@@ -634,6 +634,36 @@ class I18n implements WidgetsLocalizations {
   String get auth => "已实名";
   /// "海外人工认证"
   String get authother => "海外人工认证";
+  /// "交易所"
+  String get coinexchange => "交易所";
+  /// "敬请期待"
+  String get notopen2 => "敬请期待";
+  /// "今日参考价"
+  String get extodayprice => "今日参考价";
+  /// "昨日价格"
+  String get exyesterdayprice => "昨日价格";
+  /// "涨幅"
+  String get exupdown => "涨幅";
+  /// "今日交易量"
+  String get extodaycount => "今日交易量";
+  /// "平台累计交易量"
+  String get explatformcount => "平台累计交易量";
+  /// "可用余额"
+  String get exablebanence => "可用余额";
+  /// "购买"
+  String get exbuy => "购买";
+  /// "当前购买列表"
+  String get exbuylist => "当前购买列表";
+  /// "订单号"
+  String get exorderno => "订单号";
+  /// "订单数量"
+  String get exordernoNum => "订单数量";
+  /// "单价"
+  String get exsingleprice => "单价";
+  /// "预计金额"
+  String get expreamount => "预计金额";
+  /// "立即出售"
+  String get exsellnow => "立即出售";
   /// "未实名"
   String get notauth => "未实名";
 }
@@ -1548,6 +1578,51 @@ class _I18n_en_US extends I18n {
   /// "Overseas manual authentication"
   @override
   String get authother => "Overseas manual authentication";
+  /// "Exchange"
+  @override
+  String get coinexchange => "Exchange";
+  /// "Look forward to it"
+  @override
+  String get notopen2 => "Look forward to it";
+  /// "Today's price"
+  @override
+  String get extodayprice => "Today's price";
+  /// "Yesterday Price"
+  @override
+  String get exyesterdayprice => "Yesterday Price";
+  /// "Increase"
+  @override
+  String get exupdown => "Increase";
+  /// "Today's Transaction Volume"
+  @override
+  String get extodaycount => "Today's Transaction Volume";
+  /// "Platform transaction volume"
+  @override
+  String get explatformcount => "Platform transaction volume";
+  /// "Available balance"
+  @override
+  String get exablebanence => "Available balance";
+  /// "Buy"
+  @override
+  String get exbuy => "Buy";
+  /// "Current Purchase List"
+  @override
+  String get exbuylist => "Current Purchase List";
+  /// "Order Number"
+  @override
+  String get exorderno => "Order Number";
+  /// "Quantity"
+  @override
+  String get exordernoNum => "Quantity";
+  /// "Price"
+  @override
+  String get exsingleprice => "Price";
+  /// "Amount"
+  @override
+  String get expreamount => "Amount";
+  /// "Sell Now"
+  @override
+  String get exsellnow => "Sell Now";
   /// "Not Real Name"
   @override
   String get notauth => "Not Real Name";

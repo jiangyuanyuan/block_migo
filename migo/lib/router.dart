@@ -7,6 +7,7 @@ import 'package:migo/page/contract/page/exchange_success_page.dart';
 import 'package:migo/page/contract/page/recharge_page.dart';
 import 'package:migo/page/contract/page/reflect_page.dart';
 import 'package:migo/page/contract/page/reflect_success_page.dart';
+import 'package:migo/page/exchange/page/exchange_buy_page.dart';
 import 'package:migo/page/home/page/home_detail_page.dart';
 import 'package:migo/page/home/page/notice_page.dart';
 import 'package:migo/page/home/page/web_page.dart';
@@ -93,6 +94,7 @@ final routes = {
   '/contractrecord': (context,{arguments}) => ConstractRecordPage(),// 第一次登录密码设置
   '/web': (context,{arguments}) => WebPage(params: arguments,),// 第一次登录密码设置
   '/teamrecorddetail': (context,{arguments}) => TeamRecordDetailPage(params: arguments,),// 第一次登录密码设置
+  '/exchangebuy': (context,{arguments}) => ExchangeBuyPage(params: arguments,),// 第一次登录密码设置
 };
 
 var onGenerateRoute = (RouteSettings settings) {

@@ -17,6 +17,7 @@ class NormalTextfield extends StatelessWidget {
   final Function(String val) onSubmited;
   final Function(String val) onChanged;
   final EdgeInsets padding;
+  final TextStyle textStyle;
   final TextAlign align;
 
   const NormalTextfield({
@@ -28,6 +29,7 @@ class NormalTextfield extends StatelessWidget {
     this.focusNode,
     this.align = TextAlign.left,
     this.keyboardType,
+    this.textStyle,
     this.padding,
     this.inputFormatters,
     this.controller,
@@ -60,6 +62,7 @@ class NormalTextfield extends StatelessWidget {
         inputFormatters: inputFormatters,
         onChanged: onChanged,
         onSubmitted: onChanged,
+        style: textStyle,
         decoration: InputDecoration(
           border: InputBorder.none,
           labelStyle: AppFont.textStyle(15, color: AppColor.font333),

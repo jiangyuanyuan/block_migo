@@ -320,5 +320,22 @@
     "secondegenra":"第{e}代",
     "auth":"已实名",
     "authother":"海外人工认证",
+    "coinexchange":"交易所",
+    "notopen2":"敬请期待",
+
+    "extodayprice":"今日参考价",
+    "exyesterdayprice":"昨日价格",
+    "exupdown":"涨幅",
+    "extodaycount":"今日交易量",
+    "explatformcount":"平台累计交易量",
+    "exablebanence":"可用余额",
+    "exbuy":"购买",
+    "exbuylist":"当前购买列表",
+    "exorderno":"订单号",
+    "exordernoNum":"订单数量",
+    "exsingleprice":"单价",
+    "expreamount":"预计金额",
+    "exsellnow":"立即出售",
+    
     "notauth":"未实名"
 }

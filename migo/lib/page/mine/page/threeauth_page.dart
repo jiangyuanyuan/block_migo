@@ -143,29 +143,29 @@ class _ThreeAuthPageState extends State<ThreeAuthPage> {
         child: Column(
           children: [
             SizedBox(height: 18,),
-             Stack(
-              children: [
-                NormalTextfield(
-                  hintText: I18n.of(context).pleaseinputname,
-                  align: TextAlign.right,
-                  controller: _controller,
-                  focusNode: _focusNode,
-                ),
-                Positioned(
-                  left: 5,
-                  top: 8,
-                  bottom: 8,
-                  child: Container(
-                    width: 100,
-                    padding: const EdgeInsets.only(left: 12),
-                    color: Colors.white,
-                    alignment: Alignment.centerLeft,
-                    child: Text(I18n.of(context).name, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
+            Stack(
+            children: [
+              NormalTextfield(
+                hintText: I18n.of(context).pleaseinputname,
+                align: TextAlign.right,
+                controller: _controller,
+                focusNode: _focusNode,
+              ),
+              Positioned(
+                left: 5,
+                top: 8,
+                bottom: 8,
+                child: Container(
+                  width: 100,
+                  padding: const EdgeInsets.only(left: 12),
+                  color: Colors.white,
+                  alignment: Alignment.centerLeft,
+                  child: Text(I18n.of(context).name, style: AppFont.textStyle(14, color: const Color(0xff654248), fontWeight: FontWeight.bold),),
 
-                  ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
+          ),
             SizedBox(height: 10,),
             Stack(
               children: [

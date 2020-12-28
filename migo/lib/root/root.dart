@@ -9,6 +9,7 @@ import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/common/util/tool_apk.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/contract/page/contract_page.dart';
+import 'package:migo/page/exchange/page/exchange_page.dart';
 import 'package:migo/page/home/page/home_page.dart';
 import 'package:migo/page/mine/page/mine_page.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,8 @@ class _RootPageState extends State<RootPage> {
   List<Widget> pages = <Widget>[
           HomePage(),
           // RechagePage(),
-          ContractPage(),
+          // ContractPage(),
+          ExchangeCoinPage(),
           MineTeamPage(),
           // MarketPage(),
           MinePage()
@@ -124,7 +126,7 @@ class _RootPageState extends State<RootPage> {
   List<BottomNavigationBarItem> _createTabarList() {
     List<String> tabTitles = [
       I18n.of(context).home,
-      I18n.of(context).exchange,
+      I18n.of(context).coinexchange,
       I18n.of(context).team,
       I18n.of(context).mine,
     ];
