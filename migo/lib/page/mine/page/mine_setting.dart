@@ -38,12 +38,15 @@ class _MineSettingPageState extends State<MineSettingPage> {
         Navigator.pushNamed(context, "/safe");
         break;
       case 2:
-        Navigator.pushNamed(context, "/language");
+        Navigator.pushNamed(context, "/paymain");
         break;
       case 3:
-        Navigator.pushNamed(context, "/feedback");
+        Navigator.pushNamed(context, "/language");
         break;
       case 4:
+        Navigator.pushNamed(context, "/feedback");
+        break;
+      case 5:
         Navigator.pushNamed(context, "/about");
         break;
       default:
@@ -65,6 +68,7 @@ class _MineSettingPageState extends State<MineSettingPage> {
     List<String> titles = [
       I18n.of(context).invite,
       I18n.of(context).safecenter,
+      I18n.of(context).spaysetting,
       I18n.of(context).lang,
       I18n.of(context).feedback,
       I18n.of(context).about,

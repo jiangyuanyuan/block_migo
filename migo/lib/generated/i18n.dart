@@ -664,6 +664,94 @@ class I18n implements WidgetsLocalizations {
   String get expreamount => "预计金额";
   /// "立即出售"
   String get exsellnow => "立即出售";
+  /// "发布购买"
+  String get expostbuy => "发布购买";
+  /// "数额"
+  String get exposetnumber => "数额";
+  /// "请输入购买数额"
+  String get expostplease => "请输入购买数额";
+  /// "同步参考价"
+  String get expostasync => "同步参考价";
+  /// "自定义价格"
+  String get expostself => "自定义价格";
+  /// "涨价比例"
+  String get expostbili => "涨价比例";
+  /// "支付方式"
+  String get expostpaymethod => "支付方式";
+  /// "微信"
+  String get paywx => "微信";
+  /// "支付宝"
+  String get payalipay => "支付宝";
+  /// "银行卡"
+  String get paybank => "银行卡";
+  /// "确认发布"
+  String get expostsend => "确认发布";
+  /// "总价"
+  String get totalprice => "总价";
+  /// "成交时间"
+  String get subtime => "成交时间";
+  /// "待付款"
+  String get rnotpay => "待付款";
+  /// "待确认"
+  String get rnotsure => "待确认";
+  /// "已完成"
+  String get rfinish => "已完成";
+  /// "已撤销"
+  String get rnotfinish => "已撤销";
+  /// "交易订单"
+  String get rtitle => "交易订单";
+  /// "出售"
+  String get rsell => "出售";
+  /// "确定已支付"
+  String get rsurepay => "确定已支付";
+  /// "收款方式"
+  String get spaysetting => "收款方式";
+  /// "购买"
+  String get rbuy => "购买";
+  /// "收款人姓名："
+  String get susername => "收款人姓名：";
+  /// "请输入收款人姓名"
+  String get susernameplease => "请输入收款人姓名";
+  /// "例如：微信名/支付宝名/银行卡持有人名"
+  String get snameeg => "例如：微信名/支付宝名/银行卡持有人名";
+  /// "收款账号："
+  String get saccount => "收款账号：";
+  /// "请输入收款账户"
+  String get saccountplease => "请输入收款账户";
+  /// "例如：微信注册账号/支付宝手机号/银行卡号"
+  String get saccounteg => "例如：微信注册账号/支付宝手机号/银行卡号";
+  /// "开户银行："
+  String get bankename => "开户银行：";
+  /// "请输入开户银行"
+  String get pleasebankname => "请输入开户银行";
+  /// "例如：中国建设银行"
+  String get bandeg => "例如：中国建设银行";
+  /// "开户支行(选填)："
+  String get sbank => "开户支行(选填)：";
+  /// "请输入开户支行"
+  String get pleasesbank => "请输入开户支行";
+  /// "提示：一旦设置成功，将无法修改，请您谨慎填写。"
+  String get paynotice => "提示：一旦设置成功，将无法修改，请您谨慎填写。";
+  /// "买家："
+  String get selluser => "买家：";
+  /// "交易手续费用"
+  String get sellfee => "交易手续费用";
+  /// "交易须知："
+  String get sellneedknow => "交易须知：";
+  /// "M0级别用户将无法出售MIGO。"
+  String get sellneedknowinfo => "M0级别用户将无法出售MIGO。";
+  /// "买家的支付方式："
+  String get sellpaymethod => "买家的支付方式：";
+  /// "订单已完成支付"
+  String get sellpaid => "订单已完成支付";
+  /// "创建订单"
+  String get sellcreate => "创建订单";
+  /// "完成支付"
+  String get sellorderpaid => "完成支付";
+  /// "买家确认"
+  String get sellsure => "买家确认";
+  /// "订单完成"
+  String get sellfinish => "订单完成";
   /// "未实名"
   String get notauth => "未实名";
 }
@@ -1623,6 +1711,138 @@ class _I18n_en_US extends I18n {
   /// "Sell Now"
   @override
   String get exsellnow => "Sell Now";
+  /// "Post Buy"
+  @override
+  String get expostbuy => "Post Buy";
+  /// "Amount"
+  @override
+  String get exposetnumber => "Amount";
+  /// "Please enter the purchase amount"
+  @override
+  String get expostplease => "Please enter the purchase amount";
+  /// "Synchronization Price"
+  @override
+  String get expostasync => "Synchronization Price";
+  /// "Custom Price"
+  @override
+  String get expostself => "Custom Price";
+  /// "price increase ratio"
+  @override
+  String get expostbili => "price increase ratio";
+  /// "Payment Method"
+  @override
+  String get expostpaymethod => "Payment Method";
+  /// "WeChat"
+  @override
+  String get paywx => "WeChat";
+  /// "Alipay"
+  @override
+  String get payalipay => "Alipay";
+  /// "Bank Card"
+  @override
+  String get paybank => "Bank Card";
+  /// "Confirm Post"
+  @override
+  String get expostsend => "Confirm Post";
+  /// "Total Price"
+  @override
+  String get totalprice => "Total Price";
+  /// "Transaction time"
+  @override
+  String get subtime => "Transaction time";
+  /// "Pending Payment"
+  @override
+  String get rnotpay => "Pending Payment";
+  /// "To be confirmed"
+  @override
+  String get rnotsure => "To be confirmed";
+  /// "Finished"
+  @override
+  String get rfinish => "Finished";
+  /// "Revoked"
+  @override
+  String get rnotfinish => "Revoked";
+  /// "Trade Order"
+  @override
+  String get rtitle => "Trade Order";
+  /// "Sale"
+  @override
+  String get rsell => "Sale";
+  /// "Confirm paid"
+  @override
+  String get rsurepay => "Confirm paid";
+  /// "Payment Method"
+  @override
+  String get spaysetting => "Payment Method";
+  /// "Buy"
+  @override
+  String get rbuy => "Buy";
+  /// "Payee Name:"
+  @override
+  String get susername => "Payee Name:";
+  /// "Please enter the payee name"
+  @override
+  String get susernameplease => "Please enter the payee name";
+  /// "For example: WeChat name/Alipay name/Bank card holder name"
+  @override
+  String get snameeg => "For example: WeChat name/Alipay name/Bank card holder name";
+  /// "Receiving account number:"
+  @override
+  String get saccount => "Receiving account number:";
+  /// "Please enter the receiving account"
+  @override
+  String get saccountplease => "Please enter the receiving account";
+  /// "For example: WeChat registered account/Alipay mobile phone number/bank card number"
+  @override
+  String get saccounteg => "For example: WeChat registered account/Alipay mobile phone number/bank card number";
+  /// "Account Bank:"
+  @override
+  String get bankename => "Account Bank:";
+  /// "Please enter the bank that opened the account"
+  @override
+  String get pleasebankname => "Please enter the bank that opened the account";
+  /// "For example: China Construction Bank"
+  @override
+  String get bandeg => "For example: China Construction Bank";
+  /// "Account opening branch (optional):"
+  @override
+  String get sbank => "Account opening branch (optional):";
+  /// "Please enter the account opening branch"
+  @override
+  String get pleasesbank => "Please enter the account opening branch";
+  /// "Prompt: Once the setting is successful, it cannot be modified. Please fill in carefully."
+  @override
+  String get paynotice => "Prompt: Once the setting is successful, it cannot be modified. Please fill in carefully.";
+  /// "Buyer:"
+  @override
+  String get selluser => "Buyer:";
+  /// "Transaction fees"
+  @override
+  String get sellfee => "Transaction fees";
+  /// "Transaction Instructions:"
+  @override
+  String get sellneedknow => "Transaction Instructions:";
+  /// "M0 users will not be able to sell MIGO."
+  @override
+  String get sellneedknowinfo => "M0 users will not be able to sell MIGO.";
+  /// "Buyer's payment method:"
+  @override
+  String get sellpaymethod => "Buyer's payment method:";
+  /// "The order has been paid for"
+  @override
+  String get sellpaid => "The order has been paid for";
+  /// "Create Order"
+  @override
+  String get sellcreate => "Create Order";
+  /// "Sellorderpaid"
+  @override
+  String get sellorderpaid => "Sellorderpaid";
+  /// "Buyer Confirmation"
+  @override
+  String get sellsure => "Buyer Confirmation";
+  /// "Order completed"
+  @override
+  String get sellfinish => "Order completed";
   /// "Not Real Name"
   @override
   String get notauth => "Not Real Name";

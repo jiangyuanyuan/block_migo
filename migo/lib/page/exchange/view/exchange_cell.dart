@@ -37,6 +37,7 @@ class ExchangeCell extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
             child: BtnImageBottomView(
+              onTap: () => Navigator.pushNamed(context, "/sell"),
               title: I18n.of(context).exsellnow,
             ),
           ),

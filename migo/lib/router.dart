@@ -8,6 +8,8 @@ import 'package:migo/page/contract/page/recharge_page.dart';
 import 'package:migo/page/contract/page/reflect_page.dart';
 import 'package:migo/page/contract/page/reflect_success_page.dart';
 import 'package:migo/page/exchange/page/exchange_buy_page.dart';
+import 'package:migo/page/exchange/page/exchange_record_page.dart';
+import 'package:migo/page/exchange/page/sell_page.dart';
 import 'package:migo/page/home/page/home_detail_page.dart';
 import 'package:migo/page/home/page/notice_page.dart';
 import 'package:migo/page/home/page/web_page.dart';
@@ -32,6 +34,8 @@ import 'package:migo/page/mine/page/mine_reel_record.dart';
 import 'package:migo/page/mine/page/mine_setting.dart';
 import 'package:migo/page/mine/page/mine_shovel_record.dart';
 import 'package:migo/page/mine/page/mine_team_page.dart';
+import 'package:migo/page/mine/page/pay_main_page.dart';
+import 'package:migo/page/mine/page/pay_setting_page.dart';
 import 'package:migo/page/mine/page/safe_page.dart';
 import 'package:migo/page/mine/page/team_earth_page.dart';
 import 'package:migo/page/mine/page/team_record_detail_page.dart';
@@ -95,6 +99,10 @@ final routes = {
   '/web': (context,{arguments}) => WebPage(params: arguments,),// 第一次登录密码设置
   '/teamrecorddetail': (context,{arguments}) => TeamRecordDetailPage(params: arguments,),// 第一次登录密码设置
   '/exchangebuy': (context,{arguments}) => ExchangeBuyPage(params: arguments,),// 第一次登录密码设置
+  '/exchangerecord': (context,{arguments}) => ExchangeRecordPage(),// 第一次登录密码设置
+  '/paysetting': (context,{arguments}) => PaySettingPage(),// 第一次登录密码设置
+  '/paymain': (context,{arguments}) => PayMainPage(),// 第一次登录密码设置
+  '/sell': (context,{arguments}) => SellPage(),// 第一次登录密码设置
 };
 
 var onGenerateRoute = (RouteSettings settings) {

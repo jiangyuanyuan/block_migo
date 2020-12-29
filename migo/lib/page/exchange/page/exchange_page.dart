@@ -15,7 +15,7 @@ class ExchangeCoinPage extends StatelessWidget {
           IconButton(
             icon: Image.asset("assets/coins_record.png"),
             onPressed: () {
-              // Navigator.pushNamed(context, "/coinsrecord", arguments: {"isrecharge" : false});
+              Navigator.pushNamed(context, "/exchangerecord");
             },
           )
         ],
