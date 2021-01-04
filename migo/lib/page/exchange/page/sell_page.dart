@@ -1,44 +1,275 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/contract/view/alert_password_view.dart';
+import 'package:migo/page/exchange/model/sell_detail_model.dart';
+import 'package:migo/page/exchange/view/alert_payinfo_dart.dart';
+import 'package:migo/page/exchange/view/alert_userinfo.dart';
 import 'package:migo/page/exchange/view/row_pay_view.dart';
 import 'package:migo/page/exchange/view/step_view.dart';
+import 'package:migo/page/mine/model/mine_pay_model.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 
 class SellPage extends StatefulWidget {
+  final Map params;
+
+  const SellPage({Key key, this.params}) : super(key: key);
   @override
   _SellPageState createState() => _SellPageState();
 }
 
 class _SellPageState extends State<SellPage> {
 
-  Set paymethod = {};
-
+  Set<String> paymethod = {};
+  int step = 1;
+  SellDetailModel detailModel;
+  int ordertype = 2;
   @override
   void initState() {
     super.initState();
+    detailModel = widget.params["model"];
+    if(detailModel.orderPayWay != null) {
+      paymethod = detailModel.orderPayWay.split(",").toSet();
+    }
+    if(widget.params["step"] != null) {
+      // step = widget.params["step"];
+      switch (detailModel.status) {
+        case 0:
+          step = 2;
+          break;
+        case 1:
+          step = 3;
+          break;
+        case 2:
+          step = 4;
+          break;
+        default:
+      }
+    }
+    if(widget.params["ordertype"] != null) {
+      ordertype = widget.params["ordertype"];
+    }
   }
 
-  void _onSelectPay(int sender) {
-    if(paymethod.contains(sender)) {
-      paymethod.remove(sender);
-    } else {
-      paymethod.add(sender);
+  void _submit() {
+    final user = Provider.of<UserModel>(context, listen: false).data;
+    if(user.txPassword == null || user.txPassword == "") {
+      Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).nottxpwd, callback: () {
+        Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});
+      });
+      return;
     }
-    setState(() {
-    });
+    Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (sender) {
+      EasyLoading.show(status: 'Loading...');
+      Networktool.request(API.sureaddOrder, params: {
+        "adId": detailModel.adId,
+        "orderNo": detailModel.orderNo,
+        "txPassword": Tool.generateMd5(sender)
+      }, success: (data) {
+        EasyLoading.showToast(I18n.of(context).success);
+        Navigator.pop(context, {"refresh": true});
+      }, fail: (msg) => EasyLoading.showToast(msg),);
+    },));
   }
+
+  Widget _createpay(BuildContext context) {
+    final listtitle = {
+      "1":I18n.of(context).payalipay, 
+      "2":I18n.of(context).paybank,
+      "3":"TRC20",
+    };
+    if(detailModel.orderPayWay == null) {
+      return SizedBox();
+    }
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xffE5F0FA),
+        borderRadius: BorderRadius.circular(4)
+      ),
+      margin: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 16),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: detailModel.orderPayWay.split(",").map((e) => RowPaySelectItem(titles: listtitle[e], isselect: true,),).toList()),
+    );
+  }
+
+  Widget _createBottom(BuildContext context) {
+    if(ordertype == 1) {
+      switch (detailModel.status) {
+        case 0:{
+          if(detailModel.userPayWay != null) {
+            return Column(
+              children: [
+                InkWell(
+                  onTap: () => _requestChangePay(context),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: Container(
+                      height: 42,
+                      child: Stack(
+                        children: [
+                          Image.asset("assets/input_back.png", fit: BoxFit.fill, width: double.infinity,),
+                          Positioned(
+                            left: 10,
+                            height: 42,
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: Text(_getpayString(context), style: AppFont.textStyle(12, color: Colors.black), textAlign: TextAlign.center,)
+                            ),
+                          ),
+                          Positioned(
+                            right: 10,
+                            height: 42,
+                            child: Image.asset("assets/coin_select.png"),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                BtnImageBottomView(
+                  title: I18n.of(context).rsurepay,
+                  onTap: () {
+                    _requestChangeStatus(context);
+                  },
+                )
+              ],
+            );
+          } else {
+            return BtnImageBottomView(
+              title: I18n.of(context).rpayinfo,
+              onTap: () => _requestChangePay(context),
+            );
+          }
+        }
+          break;
+        case 1:
+          return BtnImageBottomView(
+            title: I18n.of(context).rsurepaycoin,
+            onTap: () {
+              Alert.showViewDialog(context, AlerUserInfoView(usermobile: detailModel.userMobile, username: detailModel.userName ?? "--",));
+            },
+          );
+          break;
+        default:
+          return SizedBox();
+      }
+    } else {
+      switch (detailModel.status) {
+        case 0:{
+          return BtnImageBottomView(
+            img: "btn_inactive.png",
+            title: I18n.of(context).sellwaitpay,
+          );
+        }
+          break;
+        case 1:
+          return BtnImageBottomView(
+            title: I18n.of(context).sellsellcoin,
+            onTap: () => _requestChangeCoinStatus(context),
+          );
+          break;
+        default:
+          return SizedBox();
+      }
+    }
+  }
+
+
+  String _getpayString(BuildContext context) {
+    final listtitle = {
+      1:I18n.of(context).payalipay, 
+      2:I18n.of(context).paybank,
+      3:"TRC20",
+    };
+    num money = detailModel.userPayWay == 3 ? detailModel.orderTotalUsdt : detailModel.orderTotalCny;
+    String uint = detailModel.userPayWay == 3 ? "USDT" : "CNY";
+    return I18n.of(context).rsurepay + " ${Tool.number(money, 2)} $uint(${listtitle[detailModel.userPayWay]})";
+  }
+
+  void _requestChangePay(BuildContext context) {
+    EasyLoading.show(status: 'Loading...');
+    Networktool.request(API.getUserPay+"${detailModel.adId}/${detailModel.adUserId}", method: HTTPMETHOD.GET, success: (data) {
+      EasyLoading.dismiss();
+      final temp = MinePaymethodResponse.fromJson(data);
+      Alert.showViewDialog(context, AlertPayInfoView(
+        list: temp.data,
+        onSelect: (sender) {
+          // print("abc");
+          _changeStatus(sender.id, detailModel.id, detailModel.adId, sender.payWay);
+        },
+      ));
+    }, fail: (msg) => EasyLoading.showToast(msg),);
+  }
+
+  void _changeStatus(String payid, String orderid, String aid, int payway) {
+    EasyLoading.show(status: 'Loading...');
+    Networktool.request(API.orderPay, params: {
+      	"adId": aid,
+        "orderId": orderid,
+        "userPayId": payid
+    }, success: (data) {
+      EasyLoading.dismiss();
+      setState(() {
+        detailModel.userPayWay = payway;
+      });
+    }, fail: (msg) => EasyLoading.showToast(msg),);
+  }
+
+  // 确定付款
+  void _requestChangeStatus(BuildContext context) {
+    EasyLoading.show(status: 'Loading...');
+    Networktool.request(API.payMoney, params: {
+      "orderId":detailModel.id,
+    }, success: (data) {
+      EasyLoading.dismiss();
+      setState(() {
+        detailModel.status = 1;
+        step = 3;
+      });
+    }, fail: (msg) => EasyLoading.showToast(msg),);
+  }
+
+  //确认放币
+  void _requestChangeCoinStatus(BuildContext context) {
+    Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (pwd) {
+      EasyLoading.show(status: 'Loading...');
+      Networktool.request(API.payCoin, params: {
+        "orderId":detailModel.id,
+        "txPassword":Tool.generateMd5(pwd)
+      }, success: (data) {
+        EasyLoading.dismiss();
+        setState(() {
+          detailModel.status = 2;
+          step = 4;
+        });
+      }, fail: (msg) => EasyLoading.showToast(msg),);
+    },));
+  }
+
   @override
   Widget build(BuildContext context) {
+    final listtitle = {
+      1:I18n.of(context).payalipay, 
+      2:I18n.of(context).paybank,
+      3:"TRC20",
+    };
     return Scaffold(
       body: CommbackView(
-        titles: I18n.of(context).rsell + "(MIGO)",
-        onPop: () => Navigator.pop(context),
+        titles: (ordertype == 1 ? I18n.of(context).rbuy : I18n.of(context).rsell) + "(MIGO)",
+        onPop: () => Navigator.pop(context, {"refresh": true}),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              StepView(step: 4,),
+              StepView(step: step,),
               SizedBox(height: 20,),
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 24),
@@ -67,13 +298,14 @@ class _SellPageState extends State<SellPage> {
                       padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 2),
                       child: Column(
                         children: [
-                          _ItemLabel(title: I18n.of(context).exorderno + "：", val: "1000",),
-                          _ItemLabel(title: I18n.of(context).selluser, val: "1000",),
-                          _ItemLabel(title: I18n.of(context).exposetnumber + "：", val: "1000 MIGO",),
-                          _ItemLabel(title: I18n.of(context).exsingleprice + "：", val: "1.10 USDT",),
-                          _ItemLabel(title: I18n.of(context).totalprice + "：", val: "1000 USDT",),
-                          _ItemLabel(title: I18n.of(context).sellfee + "%：", val: "M3 30%", color: const Color(0xffF28600),),
-                          _ItemLabel(title: I18n.of(context).sellfee + "：", val: "30 MIGO",),
+                          _ItemLabel(title: I18n.of(context).exorderno + "：", val: detailModel.orderNo,),
+                          _ItemLabel(title: I18n.of(context).selluser, val: detailModel.userMobile,),
+                          _ItemLabel(title: I18n.of(context).exposetnumber + "：", val: "${Tool.number(detailModel.orderNumber, 2)} MIGO",),
+                          _ItemLabel(title: I18n.of(context).selllevel + "：", val: "M${detailModel.userLevel} ${Tool.number(detailModel.userFee * 100, 2)}%", color: const Color(0xffF28600),),
+                          _ItemLabel(title: I18n.of(context).sellfee + "：", val: "${Tool.number(detailModel.userTotalSell - detailModel.orderNumber, 2)} MIGO",),
+                          _ItemLabel(title: I18n.of(context).selltotalnumber + "：", val: "${Tool.number(detailModel.userTotalSell, 2)} MIGO",),
+                          _ItemLabel(title: I18n.of(context).sellsingleprice + "：", val: "${Tool.number(detailModel.orderPrice, 2)} USDT",),
+                          _ItemLabel(title: I18n.of(context).selltotalprice + "：", val: "${detailModel.orderTotalUsdt} USDT ≈ ${Tool.number(detailModel.orderTotalCny, 2)} CNY",),
                         ],
                       ),
                     ),
@@ -90,52 +322,44 @@ class _SellPageState extends State<SellPage> {
                       padding: const EdgeInsets.only(left: 24.0, top: 10, bottom: 10),
                       child: Text(I18n.of(context).sellpaymethod, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xffE5F0FA),
-                        borderRadius: BorderRadius.circular(4)
-                      ),
-                      margin: const EdgeInsets.symmetric(horizontal: 24),
-                      padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 2),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    _createpay(context),
+                    Visibility(
+                      visible: step > 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xffE5F0FA),
+                          borderRadius: BorderRadius.circular(4)
+                        ),
+                        margin: const EdgeInsets.symmetric(horizontal: 24),
+                        padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 2),
+                        child: Column(
                           children: [
-                            // Text("微信", style: AppFont.textStyle(14, color: AppColor.back998),),
-                            RowPaySelectItem(titles: I18n.of(context).paywx, isselect: paymethod.contains(0), onTap: () => _onSelectPay(0),),
-                            RowPaySelectItem(titles: I18n.of(context).payalipay, isselect: paymethod.contains(1),onTap: () => _onSelectPay(1)),
-                            RowPaySelectItem(titles: I18n.of(context).paybank, isselect: paymethod.contains(2),onTap: () => _onSelectPay(2)),
+                            _ItemLabel(title: I18n.of(context).selluser, val: detailModel.userPayName,),
+                            _ItemLabel(title: I18n.of(context).expostpaymethod + "：", val: listtitle[detailModel.userPayWay],),
+                            _ItemLabel(title: I18n.of(context).realpayamount + "：", val: "${detailModel.orderTotalUsdt} USDT / ${Tool.number(detailModel.orderTotalCny, 2)} CNY",),
                           ],
                         ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xffE5F0FA),
-                        borderRadius: BorderRadius.circular(4)
-                      ),
-                      margin: const EdgeInsets.symmetric(horizontal: 24),
-                      padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 2),
-                      child: Column(
-                        children: [
-                          _ItemLabel(title: I18n.of(context).selluser, val: "1000",),
-                          _ItemLabel(title: I18n.of(context).expostpaymethod + "：", val: I18n.of(context).payalipay,),
-                        ],
                       ),
                     ),
                     Divider(height: 40,),
-                    Center(
-                      child: Column(
-                        children: [
-                          Image.asset("assets/success_icon.png"),
-                          SizedBox(height: 14,),
-                          Text(I18n.of(context).sellpaid, style: AppFont.textStyle(14, color: AppColor.back998, fontWeight: FontWeight.bold),)
-                        ],
+                    Visibility(
+                      visible: step > 2,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Image.asset("assets/success_icon.png"),
+                            SizedBox(height: 14,),
+                            Text(I18n.of(context).sellpaid, style: AppFont.textStyle(14, color: AppColor.back998, fontWeight: FontWeight.bold),)
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
-                      child: BtnImageBottomView(
+                      child: step == 1 ? BtnImageBottomView(
                         title: I18n.of(context).sure,
-                      ),
+                        onTap: _submit,
+                      ) : _createBottom(context),
                     )
                   ],
                 ),
@@ -163,7 +387,7 @@ class _ItemLabel extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
-          Text(val, style: AppFont.textStyle(12, color: color ?? AppColor.back998),)
+          Text(val ?? "--", style: AppFont.textStyle(12, color: color ?? AppColor.back998),)
         ],
       ),
     );

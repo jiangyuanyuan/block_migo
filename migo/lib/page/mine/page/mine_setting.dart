@@ -1,23 +1,20 @@
 import 'package:migo/common/commview/alert.dart';
-import 'package:migo/common/commview/appbar.dart';
-import 'package:migo/common/commview/bottom_buttom.dart';
 import 'package:migo/common/commview/btn_action.dart';
 import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/view/alert_exit.dart';
-import 'package:migo/page/mine/view/cache_cell.dart';
 import 'package:migo/page/mine/view/setting_cell.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MineSettingPage extends StatefulWidget {
 
   static const List<String> titles = [
     "邀请好友",
     "安全中心",
+    "收款方式",
     "操作语言",
     "帮助反馈",
     "关于",

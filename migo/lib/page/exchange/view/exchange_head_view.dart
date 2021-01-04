@@ -1,12 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/exchange/model/basead_model.dart';
 import 'package:migo/page/home/view/home_gradient_text.dart';
 import 'package:migo/page/mine/view/headdetail_view.dart';
 
-class ExhangeCoinHeadView extends StatelessWidget {
+class ExhangeCoinHeadView extends StatefulWidget {
+  static const List<String> rangesTitles = [
+    "1-20",
+    "21-100",
+    "101-200",
+    "201-300",
+    "300以上",
+  ];
+  final BaseAdModel model;
+  final Function onRefresh;
+  final Function(String rate) onSelect;
+  const ExhangeCoinHeadView({Key key, this.model, this.onSelect, this.onRefresh}) : super(key: key);
+
+  @override
+  _ExhangeCoinHeadViewState createState() => _ExhangeCoinHeadViewState();
+}
+
+class _ExhangeCoinHeadViewState extends State<ExhangeCoinHeadView> {
+
+  int selectIndex = 0;
+
+  num _getnumber() {
+    if(widget.model == null || widget.model?.yesterdayPrice == null) return 0;
+    return (num.parse(widget.model?.todayPrice) - num.parse(widget.model?.yesterdayPrice)) * 100;
+  }
+
+  num _todayPrice() {
+    num today = num.parse(widget.model?.todayPrice ?? "0",(e) => 0);
+    num newp = num.parse(widget.model?.newUsdtPrice ?? '0',(e) => 0);
+    return today * newp;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,9 +49,19 @@ class ExhangeCoinHeadView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              HeadDetailView(title: "${I18n.of(context).extodayprice}(USDT)", detail: Tool.number(100, 2),),
-              HeadDetailView(title: "${I18n.of(context).exyesterdayprice}(USDT)", detail: Tool.number(100, 2),),
-              HeadDetailView(title: I18n.of(context).exupdown, detail: Tool.number(50, 2),),
+              HeadDetailView(title: "${I18n.of(context).extodayprice}(USDT)", detail: widget.model?.todayPrice,),
+              HeadDetailView(title: I18n.of(context).exupdown, isright: true, detail: Tool.number(_getnumber(), 2) + "%",),
+            ],
+          ),
+        ),
+        SizedBox(height: 14,),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              HeadDetailView(title: "${I18n.of(context).exyesterdayprice}(USDT)", detail: widget.model?.yesterdayPrice,),
+              HeadDetailView(title: "${I18n.of(context).extodaypricecny}", isright: true, detail: "${widget.model?.todayPrice ?? "--"} USDT≈${Tool.number(_todayPrice(), 2)} CNY",),
             ],
           ),
         ),
@@ -40,8 +83,8 @@ class ExhangeCoinHeadView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _Item(title: I18n.of(context).extodaycount, val: "10000",),
-              _Item(title: I18n.of(context).explatformcount, val: "10000",),
+              _Item(title: I18n.of(context).extodaycount, val: Tool.number(widget.model?.todayTradeAmount, 2),),
+              _Item(title: I18n.of(context).explatformcount, val: Tool.number(widget.model?.totalTradeAmount, 2),),
             ],
           ),
         ),
@@ -57,7 +100,7 @@ class ExhangeCoinHeadView extends StatelessWidget {
                 ),
               ),
               HomeGradientText(
-                data: "17023.58343743 MIGO",
+                data: "${Tool.number(widget.model?.balance, 2)} MIGO",
                 fontstyle: AppFont.textStyle(
                   12, 
                   showshadow: true
@@ -70,7 +113,12 @@ class ExhangeCoinHeadView extends StatelessWidget {
           padding: const EdgeInsets.only(top: 4, left: 24, right: 24.0),
           child: BtnImageBottomView(
             title: I18n.of(context).exbuy,
-            onTap: () => Navigator.pushNamed(context, "/exchangebuy"),
+            onTap: () async {
+              final res = await Navigator.pushNamed(context, "/exchangebuy", arguments: {"price":widget.model?.todayPrice});
+              if(res != null) {
+                if(widget.onRefresh != null) widget.onRefresh();
+              }
+            },
           ),
         ),
         Container(
@@ -86,11 +134,19 @@ class ExhangeCoinHeadView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(I18n.of(context).exbuylist, style: AppFont.textStyle(12, color: Colors.black)),
-              Padding(
-                padding: const EdgeInsets.only(top: 20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(4, (index) => _Btn(titles: index.toString(), isselect: index == 0,))
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: List.generate(5, (index) => _Btn(titles: ExhangeCoinHeadView.rangesTitles[index], isselect: index == selectIndex, onTap: () {
+                      setState(() {
+                        selectIndex = index;
+                      });
+                      if(widget.onSelect != null) widget.onSelect(ExhangeCoinHeadView.rangesTitles[index]);
+                    },))
+                  ),
                 ),
               )
             ],

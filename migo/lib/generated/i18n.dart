@@ -270,6 +270,12 @@ class I18n implements WidgetsLocalizations {
   String get miningcycle => "挖矿周期";
   /// "挖矿量"
   String get miningamount => "挖矿量";
+  /// "添加其他方式"
+  String get addother => "添加其他方式";
+  /// "请添加支付方式"
+  String get addpaymethod => "请添加支付方式";
+  /// "请选择支付方式"
+  String get pleaseaddpay => "请选择支付方式";
   /// "矿池日产量"
   String get miningoutput => "矿池日产量";
   /// "矿池总产量"
@@ -446,6 +452,8 @@ class I18n implements WidgetsLocalizations {
   String get feedmines => "矿场收益解释";
   /// "其他功能使用"
   String get feeduse => "其他功能使用";
+  /// "实际支付金额"
+  String get realpayamount => "实际支付金额";
   /// "我要发送反馈"
   String get feed => "我要发送反馈";
   /// "撤资删号流程"
@@ -490,6 +498,10 @@ class I18n implements WidgetsLocalizations {
   String get bankNo => "银行卡号";
   /// "请输入正确的银行卡号"
   String get pleasebankNo => "请输入正确的银行卡号";
+  /// "请输入单价"
+  String get pleaseprice => "请输入单价";
+  /// "交易手续费用等级"
+  String get selllevel => "交易手续费用等级";
   /// "待认证"
   String get auth0 => "待认证";
   /// "审核中"
@@ -638,8 +650,12 @@ class I18n implements WidgetsLocalizations {
   String get coinexchange => "交易所";
   /// "敬请期待"
   String get notopen2 => "敬请期待";
+  /// "即将开放"
+  String get notopen3 => "即将开放";
   /// "今日参考价"
   String get extodayprice => "今日参考价";
+  /// "今日价格"
+  String get extodaypricecny => "今日价格";
   /// "昨日价格"
   String get exyesterdayprice => "昨日价格";
   /// "涨幅"
@@ -702,24 +718,34 @@ class I18n implements WidgetsLocalizations {
   String get rtitle => "交易订单";
   /// "出售"
   String get rsell => "出售";
-  /// "确定已支付"
-  String get rsurepay => "确定已支付";
+  /// "确认已支付"
+  String get rsurepay => "确认已支付";
+  /// "等待对方放币"
+  String get rsurepaycoin => "等待对方放币";
+  /// "付款信息"
+  String get rpayinfo => "付款信息";
   /// "收款方式"
   String get spaysetting => "收款方式";
   /// "购买"
   String get rbuy => "购买";
+  /// "我购买的"
+  String get rbuytitle => "我购买的";
+  /// "我出售的"
+  String get rselltitle => "我出售的";
   /// "收款人姓名："
   String get susername => "收款人姓名：";
   /// "请输入收款人姓名"
   String get susernameplease => "请输入收款人姓名";
-  /// "例如：微信名/支付宝名/银行卡持有人名"
-  String get snameeg => "例如：微信名/支付宝名/银行卡持有人名";
+  /// "例如：支付宝名/银行卡/TRC20钱包持有人名"
+  String get snameeg => "例如：支付宝名/银行卡/TRC20钱包持有人名";
   /// "收款账号："
   String get saccount => "收款账号：";
+  /// "收款地址："
+  String get saccountaddress => "收款地址：";
   /// "请输入收款账户"
   String get saccountplease => "请输入收款账户";
-  /// "例如：微信注册账号/支付宝手机号/银行卡号"
-  String get saccounteg => "例如：微信注册账号/支付宝手机号/银行卡号";
+  /// "例如：支付宝手机号/银行卡号/TRC20钱包地址"
+  String get saccounteg => "例如：支付宝手机号/银行卡号/TRC20钱包地址";
   /// "开户银行："
   String get bankename => "开户银行：";
   /// "请输入开户银行"
@@ -748,10 +774,52 @@ class I18n implements WidgetsLocalizations {
   String get sellcreate => "创建订单";
   /// "完成支付"
   String get sellorderpaid => "完成支付";
+  /// "买家付款"
+  String get sellmakesure => "买家付款";
+  /// "卖家放币"
+  String get sellmakesurecoin => "卖家放币";
   /// "买家确认"
   String get sellsure => "买家确认";
   /// "订单完成"
   String get sellfinish => "订单完成";
+  /// "购买量"
+  String get buynumber => "购买量";
+  /// "需付"
+  String get buyamout => "需付";
+  /// "出售量"
+  String get sellnumber => "出售量";
+  /// "收款"
+  String get sellamount => "收款";
+  /// "等待买家付款"
+  String get sellwaitpay => "等待买家付款";
+  /// "收款人手机号："
+  String get payusermobile => "收款人手机号：";
+  /// "已收款,确认放行"
+  String get sellsellcoin => "已收款,确认放行";
+  /// "付款信息(任选一种)"
+  String get alertpaynotice => "付款信息(任选一种)";
+  /// "收款人信息"
+  String get alertuserinfo => "收款人信息";
+  /// "扣除MIGO总量"
+  String get selltotalnumber => "扣除MIGO总量";
+  /// "交易单价"
+  String get sellsingleprice => "交易单价";
+  /// "交易总价"
+  String get selltotalprice => "交易总价";
+  /// "银行卡支付"
+  String get bankpay => "银行卡支付";
+  /// "银行卡号："
+  String get banknumber => "银行卡号：";
+  /// "开户支行："
+  String get bankbranch => "开户支行：";
+  /// "支付宝支付"
+  String get alipaypay => "支付宝支付";
+  /// "支付宝账号："
+  String get alipayaccount => "支付宝账号：";
+  /// "TRC20支付"
+  String get trcpay => "TRC20支付";
+  /// "如果收款人还没发放MIGO币给你，请联系以上号码"
+  String get notpaycoin => "如果收款人还没发放MIGO币给你，请联系以上号码";
   /// "未实名"
   String get notauth => "未实名";
 }
@@ -1123,6 +1191,15 @@ class _I18n_en_US extends I18n {
   /// "Mining amount"
   @override
   String get miningamount => "Mining amount";
+  /// "Add other methods"
+  @override
+  String get addother => "Add other methods";
+  /// "Please add a payment method"
+  @override
+  String get addpaymethod => "Please add a payment method";
+  /// "Please choose a payment method"
+  @override
+  String get pleaseaddpay => "Please choose a payment method";
   /// "Daily output"
   @override
   String get miningoutput => "Daily output";
@@ -1387,6 +1464,9 @@ class _I18n_en_US extends I18n {
   /// "Use of other functions"
   @override
   String get feeduse => "Use of other functions";
+  /// "Actual payment amount"
+  @override
+  String get realpayamount => "Actual payment amount";
   /// "Send feedback"
   @override
   String get feed => "Send feedback";
@@ -1453,6 +1533,12 @@ class _I18n_en_US extends I18n {
   /// "Please enter the correct bank card number"
   @override
   String get pleasebankNo => "Please enter the correct bank card number";
+  /// "Please enter the unit price"
+  @override
+  String get pleaseprice => "Please enter the unit price";
+  /// "Transaction fee level"
+  @override
+  String get selllevel => "Transaction fee level";
   /// "Pending Authentication"
   @override
   String get auth0 => "Pending Authentication";
@@ -1672,9 +1758,15 @@ class _I18n_en_US extends I18n {
   /// "Look forward to it"
   @override
   String get notopen2 => "Look forward to it";
+  /// "Opening soon"
+  @override
+  String get notopen3 => "Opening soon";
   /// "Today's price"
   @override
   String get extodayprice => "Today's price";
+  /// "Today's Price"
+  @override
+  String get extodaypricecny => "Today's Price";
   /// "Yesterday Price"
   @override
   String get exyesterdayprice => "Yesterday Price";
@@ -1771,30 +1863,45 @@ class _I18n_en_US extends I18n {
   /// "Confirm paid"
   @override
   String get rsurepay => "Confirm paid";
+  /// "Waiting for the other party to release coins"
+  @override
+  String get rsurepaycoin => "Waiting for the other party to release coins";
+  /// "Payment Information"
+  @override
+  String get rpayinfo => "Payment Information";
   /// "Payment Method"
   @override
   String get spaysetting => "Payment Method";
   /// "Buy"
   @override
   String get rbuy => "Buy";
+  /// "I bought it"
+  @override
+  String get rbuytitle => "I bought it";
+  /// "I sold it"
+  @override
+  String get rselltitle => "I sold it";
   /// "Payee Name:"
   @override
   String get susername => "Payee Name:";
   /// "Please enter the payee name"
   @override
   String get susernameplease => "Please enter the payee name";
-  /// "For example: WeChat name/Alipay name/Bank card holder name"
+  /// "For example: Alipay name/bank card/TRC20 wallet holder name"
   @override
-  String get snameeg => "For example: WeChat name/Alipay name/Bank card holder name";
+  String get snameeg => "For example: Alipay name/bank card/TRC20 wallet holder name";
   /// "Receiving account number:"
   @override
   String get saccount => "Receiving account number:";
+  /// "Payment address:"
+  @override
+  String get saccountaddress => "Payment address:";
   /// "Please enter the receiving account"
   @override
   String get saccountplease => "Please enter the receiving account";
-  /// "For example: WeChat registered account/Alipay mobile phone number/bank card number"
+  /// "For example: Alipay mobile phone number/bank card number/TRC20 wallet address"
   @override
-  String get saccounteg => "For example: WeChat registered account/Alipay mobile phone number/bank card number";
+  String get saccounteg => "For example: Alipay mobile phone number/bank card number/TRC20 wallet address";
   /// "Account Bank:"
   @override
   String get bankename => "Account Bank:";
@@ -1822,9 +1929,9 @@ class _I18n_en_US extends I18n {
   /// "Transaction Instructions:"
   @override
   String get sellneedknow => "Transaction Instructions:";
-  /// "M0 users will not be able to sell MIGO."
+  /// "M0 users can`t sell MIGO."
   @override
-  String get sellneedknowinfo => "M0 users will not be able to sell MIGO.";
+  String get sellneedknowinfo => "M0 users can`t sell MIGO.";
   /// "Buyer's payment method:"
   @override
   String get sellpaymethod => "Buyer's payment method:";
@@ -1837,12 +1944,66 @@ class _I18n_en_US extends I18n {
   /// "Sellorderpaid"
   @override
   String get sellorderpaid => "Sellorderpaid";
+  /// "Buyer pays"
+  @override
+  String get sellmakesure => "Buyer pays";
+  /// "Makesurecoin"
+  @override
+  String get sellmakesurecoin => "Makesurecoin";
   /// "Buyer Confirmation"
   @override
   String get sellsure => "Buyer Confirmation";
   /// "Order completed"
   @override
   String get sellfinish => "Order completed";
+  /// "Buy Number"
+  @override
+  String get buynumber => "Buy Number";
+  /// "Payment required"
+  @override
+  String get buyamout => "Payment required";
+  /// "sellnumber"
+  @override
+  String get sellnumber => "sellnumber";
+  /// "Collection"
+  @override
+  String get sellamount => "Collection";
+  /// "Waiting for buyer to pay"
+  @override
+  String get sellwaitpay => "Waiting for buyer to pay";
+  /// "Payee's mobile phone number:"
+  @override
+  String get payusermobile => "Payee's mobile phone number:";
+  /// "Received, confirm release"
+  @override
+  String get sellsellcoin => "Received, confirm release";
+  /// "Payment information (choose one)"
+  @override
+  String get alertpaynotice => "Payment information (choose one)";
+  /// "Payee Information"
+  @override
+  String get alertuserinfo => "Payee Information";
+  /// "Deduct the total amount of MIGO"
+  @override
+  String get selltotalnumber => "Deduct the total amount of MIGO";
+  /// "Unit price"
+  @override
+  String get sellsingleprice => "Unit price";
+  /// "Total price"
+  @override
+  String get selltotalprice => "Total price";
+  /// "Alipay Pay"
+  @override
+  String get alipaypay => "Alipay Pay";
+  /// "Alipay account number:"
+  @override
+  String get alipayaccount => "Alipay account number:";
+  /// "TRC20 payment"
+  @override
+  String get trcpay => "TRC20 payment";
+  /// "If the payee has not issued MIGO coins to you, please contact the above number"
+  @override
+  String get notpaycoin => "If the payee has not issued MIGO coins to you, please contact the above number";
   /// "Not Real Name"
   @override
   String get notauth => "Not Real Name";

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/common/commview/btn_image_bottom.dart';
 import 'package:migo/common/commview/commback_view.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/mine/model/mine_pay_model.dart';
 
 class PayMainPage extends StatefulWidget {
   @override
@@ -9,34 +14,72 @@ class PayMainPage extends StatefulWidget {
 }
 
 class _PayMainPageState extends State<PayMainPage> {
-  List<String> imgs = [
-    "logo_colle_wechat_def",
-    "logo_colle_wechat_def备份",
-    "logo_colle_bank_def"
-  ];
+  Map<int, String> imgs = {
+    3:"logo_colle_trc_def",
+    1:"logo_colle_wechat_def备份",
+    2:"logo_colle_bank_def"
+};
+
+  List<PaymethodModel> list = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _request();
+  }
+
+  void _request() {
+    Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
+      final temp = MinePaymethodResponse.fromJson(data);
+      list = temp.data;
+      if(mounted) setState(() {
+        
+      });
+    }, fail: (msg) => EasyLoading.showToast(msg),);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CommbackView(
         titles: I18n.of(context).spaysetting,
         onPop: () => Navigator.pop(context),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () {
-              Navigator.pushNamed(context, "/paysetting");
-            },
-          )
-        ],
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 16),
-          child: Column(
-            children: [
-              _Cell(type: 0, title: I18n.of(context).paybank, val: "1891289", img: imgs[0],),
-              _Cell(type: 1, title: I18n.of(context).payalipay, val: "1891289", img: imgs[1],),
-              _Cell(type: 2, title: I18n.of(context).paywx, val: "1891289", img: imgs[2],),
-            ],
-          ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 16),
+              child: Column(
+                children: list.map((e) => _Cell(type: e.payWay, title: e.payName, val: e.payNo, img: imgs[e.payWay])).toList(),
+                // children: [
+                //   // _Cell(type: 0, title: I18n.of(context).paybank, val: "1891289", img: imgs[0],),
+                //   // _Cell(type: 1, title: I18n.of(context).payalipay, val: "1891289", img: imgs[1],),
+                //   // _Cell(type: 2, title: I18n.of(context).paywx, val: "1891289", img: imgs[2],),
+                // ],
+              ),
+            ),
+            Spacer(),
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Visibility(
+                  visible: list.length != 3,
+                  child: BtnImageBottomView(
+                    title: I18n.of(context).addother,
+                    onTap: () async {
+                      List<int> temp = [1, 2,3];
+                      list.forEach((element) { 
+                        temp.remove(element.payWay);
+                      });
+                      final res = await Navigator.pushNamed(context, "/paysetting", arguments: {"payways":temp});
+                      if(res != null) {
+                        _request();
+                      }
+                    },
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

@@ -58,6 +58,7 @@ class _ReflectPageState extends State<ReflectPage> {
   void dispose() {
     _editingController.dispose();
     _numController.dispose();
+    EventBus.instance.removeListener(EventKeys.RefreshQrCode);
     super.dispose();
   }
 

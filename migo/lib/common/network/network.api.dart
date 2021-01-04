@@ -83,5 +83,19 @@ class API {
   static const String myTeamPage3 = "user/uUserReferee/myTeamPage3";
   static const String myTeamPage4 = "user/uUserReferee/myTeamPage4";
   static const String myTeamPage5 = "user/uUserReferee/myTeamPage5";
+  
+  ///设置收款账号
+  static const String addUserPay = "otc/oUserPay/addUserPay";
+  static const String userPays = "otc/oUserPay/userPays";
+  static const String adBase = "otc/oAd/adBase";
+  static const String otcAdd = "otc/oAd/addAd";
+  static const String adList = "otc/oAd/adList";
+  static const String buildOrder = "otc/oOrder/buildOrder";
+  static const String sureaddOrder = "otc/oOrder/addOrder";
+  static const String orderList = "otc/oOrder/orderList/";
+  static const String getUserPay = "otc/oOrder/getUserPay/";
+  static const String orderPay = "otc/oOrder/orderPay";
+  static const String payMoney = "otc/oOrder/payMoney";
+  static const String payCoin = "otc/oOrder/payCoin";
 }
   

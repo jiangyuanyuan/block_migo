@@ -45,6 +45,6 @@ class ScreenTool {
     if(content == null) return;
     print(content);
     Clipboard.setData(new ClipboardData(text: content));
-    EasyLoading.showSuccess("复制成功");
+    EasyLoading.showSuccess("success");
   }
 }

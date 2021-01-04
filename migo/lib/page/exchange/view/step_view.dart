@@ -18,8 +18,8 @@ class StepView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _BackItem(titles: I18n.of(context).sellcreate, index: 1,),
-                _BackItem(titles: I18n.of(context).sellorderpaid, index: 2,),
-                _BackItem(titles: I18n.of(context).sellsure, index: 3,),
+                _BackItem(titles: I18n.of(context).sellmakesure, index: 2,),
+                _BackItem(titles: I18n.of(context).sellmakesurecoin, index: 3,),
                 _BackItem(titles: I18n.of(context).sellfinish, index: 4,),
               ],
             ),
@@ -29,8 +29,8 @@ class StepView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _FrontItem(titles: I18n.of(context).sellcreate, img: "img_step1_bg_def", isshow: step == 1, index: 1,),
-                _FrontItem(titles: I18n.of(context).sellorderpaid, index: 2, img: "img_step2_bg_def", isshow: step == 2,),
-                _FrontItem(titles: I18n.of(context).sellsure, index: 3,img: "img_step2_bg_def", isshow: step == 3,),
+                _FrontItem(titles: I18n.of(context).sellmakesure, index: 2, img: "img_step2_bg_def", isshow: step == 2,),
+                _FrontItem(titles: I18n.of(context).sellmakesurecoin, index: 3,img: "img_step2_bg_def", isshow: step == 3,),
                 _FrontItem(titles: I18n.of(context).sellfinish, index: 4,img: "img_step4_bg_def", isshow: step == 4,),
               ],
             ),

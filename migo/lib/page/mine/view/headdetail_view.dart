@@ -5,12 +5,12 @@ import 'package:migo/page/home/view/home_gradient_text.dart';
 class HeadDetailView extends StatelessWidget {
   final String title;
   final String detail;
-
-  const HeadDetailView({Key key, this.title, this.detail}) : super(key: key);
+  final bool isright;
+  const HeadDetailView({Key key, this.isright = false, this.title, this.detail}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: isright ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
         Text(title, style: AppFont.textStyle(
             12, 
@@ -20,7 +20,7 @@ class HeadDetailView extends StatelessWidget {
         ),
         SizedBox(height: 8,),
         HomeGradientText(
-          data: detail,
+          data: detail ?? "--",
           fontstyle: AppFont.textStyle(
             16, 
             fontWeight: FontWeight.bold,

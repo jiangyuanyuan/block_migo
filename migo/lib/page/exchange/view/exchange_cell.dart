@@ -1,9 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/exchange/model/exchange_model.dart';
+import 'package:migo/page/exchange/model/sell_detail_model.dart';
+import 'package:migo/page/mine/model/mine_pay_model.dart';
 
 class ExchangeCell extends StatelessWidget {
+  final int index;
+  final ExhangeModel model;
+  final Function onRefresh;
+  const ExchangeCell({Key key, this.index, this.onRefresh, this.model}) : super(key: key);
+  
+
+  void _submit(BuildContext context) {
+    Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
+      final temp = MinePaymethodResponse.fromJson(data);
+      if(temp.data.length == 0) {
+        Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).addpaymethod, callback: () {
+          // Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});
+          Navigator.pushNamed(context, "/paysetting", arguments: {"payways":[1,2,3]});
+        });
+      } else {
+        _jumppage(context);
+      }
+    }, fail: (msg) => EasyLoading.showToast(msg),);
+  }
+
+  void _jumppage(BuildContext context) {
+    EasyLoading.show(status: 'Loading...');
+    Networktool.request(API.buildOrder, params: {
+      "adId":model.id,
+    }, success: (data) async {
+      EasyLoading.dismiss();
+      final temp = SellDetailResponse.fromJson(data);
+      final res = await Navigator.pushNamed(context, "/sell", arguments: {"model": temp.data});
+      if(res != null) onRefresh();
+    }, fail: (msg) => EasyLoading.showToast(msg),);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +58,7 @@ class ExchangeCell extends StatelessWidget {
               children: [
                 Text(I18n.of(context).exorderno, style: AppFont.textStyle(14, color: AppColor.back998, fontWeight: FontWeight.bold),),
                 SizedBox(width: 10,),
-                Text("028475889493", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),)
+                Text(model.adNo, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),)
               ],
             ),
           ),
@@ -28,16 +67,18 @@ class ExchangeCell extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _Item(title: "${I18n.of(context).exordernoNum}(MIGO)", val: "100",),
-                _Item(title: "${I18n.of(context).exsingleprice}(USDT)", val: "1",),
-                _Item(title: "${I18n.of(context).expreamount}(USDT)", val: "100",),
+                _Item(title: "${I18n.of(context).exordernoNum}(MIGO)", val: Tool.number(model.orderNumber, 2),),
+                _Item(title: "${I18n.of(context).exsingleprice}(USDT)", val: Tool.number(model.orderPrice, 2),),
+                _Item(title: "${I18n.of(context).expreamount}(USDT)", val: Tool.number(model.orderAmount, 2),),
               ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
             child: BtnImageBottomView(
-              onTap: () => Navigator.pushNamed(context, "/sell"),
+              onTap: () {
+                _submit(context);
+              },
               title: I18n.of(context).exsellnow,
             ),
           ),

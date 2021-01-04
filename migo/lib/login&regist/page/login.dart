@@ -221,6 +221,10 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                   SizedBox(width: 1,),
                   InkWell(
                     onTap: () {
+                      if(modtype != 0) {
+                        EasyLoading.showToast(I18n.of(context).notopen);
+                        return;
+                      }
                       if(!isopenemail) {
                         print("$isopenemail");
                         EasyLoading.showToast(I18n.of(context).notopen);

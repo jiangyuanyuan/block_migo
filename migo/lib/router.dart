@@ -100,9 +100,9 @@ final routes = {
   '/teamrecorddetail': (context,{arguments}) => TeamRecordDetailPage(params: arguments,),// 第一次登录密码设置
   '/exchangebuy': (context,{arguments}) => ExchangeBuyPage(params: arguments,),// 第一次登录密码设置
   '/exchangerecord': (context,{arguments}) => ExchangeRecordPage(),// 第一次登录密码设置
-  '/paysetting': (context,{arguments}) => PaySettingPage(),// 第一次登录密码设置
+  '/paysetting': (context,{arguments}) => PaySettingPage(params: arguments,),// 第一次登录密码设置
   '/paymain': (context,{arguments}) => PayMainPage(),// 第一次登录密码设置
-  '/sell': (context,{arguments}) => SellPage(),// 第一次登录密码设置
+  '/sell': (context,{arguments}) => SellPage(params: arguments,),// 第一次登录密码设置
 };
 
 var onGenerateRoute = (RouteSettings settings) {
