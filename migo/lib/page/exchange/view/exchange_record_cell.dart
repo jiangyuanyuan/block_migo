@@ -115,7 +115,6 @@ class ExchangeRecordCell extends StatelessWidget {
       }, success: (data) {
         EasyLoading.dismiss();
         onRefresh();
-        
       }, fail: (msg) => EasyLoading.showToast(msg),);
     },));
   }

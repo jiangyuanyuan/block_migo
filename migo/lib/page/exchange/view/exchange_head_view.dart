@@ -31,7 +31,9 @@ class _ExhangeCoinHeadViewState extends State<ExhangeCoinHeadView> {
 
   num _getnumber() {
     if(widget.model == null || widget.model?.yesterdayPrice == null) return 0;
-    return (num.parse(widget.model?.todayPrice) - num.parse(widget.model?.yesterdayPrice)) * 100;
+    num last = num.parse(widget.model?.yesterdayPrice);
+    num today = num.parse(widget.model?.todayPrice);
+    return last == 0 ? 0 : ((today - last) / last) * 100;
   }
 
   num _todayPrice() {
@@ -49,7 +51,7 @@ class _ExhangeCoinHeadViewState extends State<ExhangeCoinHeadView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              HeadDetailView(title: "${I18n.of(context).extodayprice}(USDT)", detail: widget.model?.todayPrice,),
+              HeadDetailView(title: "${I18n.of(context).extodayprice}(USDT)", detail: Tool.number(num.parse(widget.model?.todayPrice ?? "0"), 3),),
               HeadDetailView(title: I18n.of(context).exupdown, isright: true, detail: Tool.number(_getnumber(), 2) + "%",),
             ],
           ),
@@ -61,7 +63,7 @@ class _ExhangeCoinHeadViewState extends State<ExhangeCoinHeadView> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               HeadDetailView(title: "${I18n.of(context).exyesterdayprice}(USDT)", detail: widget.model?.yesterdayPrice,),
-              HeadDetailView(title: "${I18n.of(context).extodaypricecny}", isright: true, detail: "${widget.model?.todayPrice ?? "--"} USDT≈${Tool.number(_todayPrice(), 2)} CNY",),
+              HeadDetailView(title: "${I18n.of(context).extodaypricecny}", isright: true, detail: "${ Tool.number(num.parse(widget.model?.todayPrice ?? "0"), 3)} USDT≈${Tool.number(_todayPrice(), 2)} CNY",),
             ],
           ),
         ),

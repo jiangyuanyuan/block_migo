@@ -18,8 +18,10 @@ class ExchangeCell extends StatelessWidget {
   
 
   void _submit(BuildContext context) {
+    EasyLoading.show(status: "Loading...");
     Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
       final temp = MinePaymethodResponse.fromJson(data);
+      EasyLoading.dismiss();
       if(temp.data.length == 0) {
         Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).addpaymethod, callback: () {
           // Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});

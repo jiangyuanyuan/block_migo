@@ -82,7 +82,8 @@ class _PaySettingPageState extends State<PaySettingPage> {
         "payNo": _controller1.text,
         "payWay": paymethod
     }, success: (data) {
-      EasyLoading.dismiss();
+      // EasyLoading.dismiss();
+      EasyLoading.showSuccess(I18n.of(context).success);
       Navigator.pop(context, {"success":true});
     }, fail: (msg) => EasyLoading.showToast(msg),);
   }
