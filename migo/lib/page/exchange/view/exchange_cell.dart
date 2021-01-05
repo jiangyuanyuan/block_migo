@@ -82,6 +82,10 @@ class ExchangeCell extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 15.0, right: 5),
+                  child: Text(I18n.of(context).expostpaymethod + ":", style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
+                ),
                 _ImageItem(isshow: pays.contains("3"), name: "usdt",),
                 _ImageItem(isshow: pays.contains("2"), name: "logo_colle_bank_def",),
                 _ImageItem(isshow: pays.contains("1"), name: "alipay",),
@@ -133,7 +137,7 @@ class _ImageItem extends StatelessWidget {
     return Visibility(
       visible: isshow,
       child: Padding(
-        padding: const EdgeInsets.only(top: 15.0, right: 15),
+        padding: const EdgeInsets.only(top: 15.0, right: 10),
         child: Image.asset("assets/$name.png", fit: BoxFit.fitHeight, height: 20,),
       )
     );
