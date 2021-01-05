@@ -454,6 +454,8 @@ class I18n implements WidgetsLocalizations {
   String get feeduse => "其他功能使用";
   /// "实际支付金额"
   String get realpayamount => "实际支付金额";
+  /// "当前购买量"
+  String get realpayamount2 => "当前购买量";
   /// "我要发送反馈"
   String get feed => "我要发送反馈";
   /// "撤资删号流程"
@@ -1467,6 +1469,9 @@ class _I18n_en_US extends I18n {
   /// "Actual payment amount"
   @override
   String get realpayamount => "Actual payment amount";
+  /// "Current purchase amount"
+  @override
+  String get realpayamount2 => "Current purchase amount";
   /// "Send feedback"
   @override
   String get feed => "Send feedback";

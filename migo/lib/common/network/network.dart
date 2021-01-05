@@ -47,8 +47,9 @@ class Networktool {
     
     Response response;
     String temp = baseURL;
-    // if(url.contains("lend")) temp = temp.replaceFirst("8070", "8073");
-    // if(url.contains("lend")) temp = "http://10.168.1.36:8073/";
+    // if(!AppConst.APP_IS_RELEASE) {
+    //   url = url.replaceFirst("otc/", "");
+    // }
     url = temp + url;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String languageStr = prefs.getString('languageCode') ?? "cn";

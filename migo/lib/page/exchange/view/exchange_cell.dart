@@ -21,8 +21,9 @@ class ExchangeCell extends StatelessWidget {
     EasyLoading.show(status: "Loading...");
     Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
       final temp = MinePaymethodResponse.fromJson(data);
-      EasyLoading.dismiss();
+      
       if(temp.data.length == 0) {
+        EasyLoading.dismiss();
         Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).addpaymethod, callback: () {
           // Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});
           Navigator.pushNamed(context, "/paysetting", arguments: {"payways":[1,2,3]});
@@ -47,6 +48,7 @@ class ExchangeCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pays = model.orderPayWay.split(",");
     return Container(
       color: Colors.white,
       child: Column(
@@ -70,18 +72,32 @@ class ExchangeCell extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _Item(title: "${I18n.of(context).exordernoNum}(MIGO)", val: Tool.number(model.orderNumber, 2),),
-                _Item(title: "${I18n.of(context).exsingleprice}(USDT)", val: Tool.number(model.orderPrice, 2),),
+                _Item(title: "${I18n.of(context).exsingleprice}(USDT)", val: Tool.number(model.orderPrice, 3),),
                 _Item(title: "${I18n.of(context).expreamount}(USDT)", val: Tool.number(model.orderAmount, 2),),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
-            child: BtnImageBottomView(
-              onTap: () {
-                _submit(context);
-              },
-              title: I18n.of(context).exsellnow,
+            padding: const EdgeInsets.symmetric(horizontal: 24,),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _ImageItem(isshow: pays.contains("3"), name: "usdt",),
+                _ImageItem(isshow: pays.contains("2"), name: "logo_colle_bank_def",),
+                _ImageItem(isshow: pays.contains("1"), name: "alipay",),
+                Spacer(),
+                SizedBox(
+                  width: 80,
+                  height: 45,
+                  child: BtnImageBottomView(
+                    img: "home_btn.png",
+                    onTap: () {
+                      _submit(context);
+                    },
+                    title: I18n.of(context).exsellnow,
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(height: 16,)
@@ -104,6 +120,22 @@ class _Item extends StatelessWidget {
         SizedBox(height: 8,),
         Text(val, style: AppFont.textStyle(12, color: AppColor.back998),)
       ],
+    );
+  }
+}
+
+class _ImageItem extends StatelessWidget {
+  final String name;
+  final bool isshow;
+  const _ImageItem({Key key, this.name, this.isshow = false}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Visibility(
+      visible: isshow,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 15.0, right: 15),
+        child: Image.asset("assets/$name.png", fit: BoxFit.fitHeight, height: 20,),
+      )
     );
   }
 }

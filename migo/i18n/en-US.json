@@ -370,7 +370,7 @@
     "selltotalprice":"Total price",
     "addpaymethod":"Please add a payment method",
     "realpayamount":"Actual payment amount",
-
+    "realpayamount2": "Current purchase amount",
     "selluser":"Buyer:",
     "sellcreate":"Create Order",
     "sellorderpaid":"Sellorderpaid",

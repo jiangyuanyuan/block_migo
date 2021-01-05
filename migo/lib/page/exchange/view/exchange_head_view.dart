@@ -86,7 +86,7 @@ class _ExhangeCoinHeadViewState extends State<ExhangeCoinHeadView> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _Item(title: I18n.of(context).extodaycount, val: Tool.number(widget.model?.todayTradeAmount, 2),),
-              _Item(title: I18n.of(context).explatformcount, val: Tool.number(widget.model?.totalTradeAmount, 2),),
+              _Item(title: I18n.of(context).realpayamount2, val: Tool.number(widget.model?.totalTradeAmount, 2),),
             ],
           ),
         ),

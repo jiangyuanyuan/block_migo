@@ -51,10 +51,10 @@ class _ExchangeBuyPageState extends State<ExchangeBuyPage> {
         num max = num.parse(price) * 1.05;
         num min = num.parse(price) * 0.95;
         if(temp > max) {
-          _controller1.text = Tool.number(max, 2);
+          _controller1.text = Tool.number(max, 3);
         }
         if(temp < min) {
-          _controller1.text = Tool.number(min, 2);
+          _controller1.text = Tool.number(min, 3);
         }
       }
     });
@@ -104,11 +104,23 @@ class _ExchangeBuyPageState extends State<ExchangeBuyPage> {
       EasyLoading.showToast(I18n.of(context).pleaseprice);
       return;
     }
+
+    num temp = num.parse(_controller1.text);
+    num max = num.parse(price) * 1.05;
+    num min = num.parse(price) * 0.95;
+    String tempp = temp.toString();
+    if(temp > max) {
+      tempp = Tool.number(max, 3);
+    }
+    if(temp < min) {
+      tempp = Tool.number(min, 3);
+    }
+
     EasyLoading.show(status: 'Loading...');
     Networktool.request(API.otcAdd, params: {
       	"orderNumber": _controller.text,
         "orderPayWay": paymethod.join(","),
-        "orderPrice": _controller1.text,
+        "orderPrice": tempp,
         "orderType": 1,
         "priceRate": rate,
         "priceType": isasyncprice ? 1 : 2
@@ -275,7 +287,7 @@ class _ExchangeBuyPageState extends State<ExchangeBuyPage> {
                                       setState(() {
                                         rate -= 1;
                                       });
-                                      _controller1.text = (num.parse(price) * (1 + rate / 100)).toStringAsFixed(2);
+                                      _controller1.text = (num.parse(price) * (1 + rate / 100)).toStringAsFixed(3);
                                     },),
                                     Expanded(
                                       child: Center(
@@ -287,7 +299,7 @@ class _ExchangeBuyPageState extends State<ExchangeBuyPage> {
                                       setState(() {
                                         rate += 1;
                                       });
-                                      _controller1.text = (num.parse(price) * (1 + rate / 100)).toStringAsFixed(2);
+                                      _controller1.text = (num.parse(price) * (1 + rate / 100)).toStringAsFixed(3);
                                     },),
                                   ],
                                 ),
