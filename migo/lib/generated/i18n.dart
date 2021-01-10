@@ -682,6 +682,8 @@ class I18n implements WidgetsLocalizations {
   String get expreamount => "预计金额";
   /// "立即出售"
   String get exsellnow => "立即出售";
+  /// "已完成"
+  String get finished => "已完成";
   /// "发布购买"
   String get expostbuy => "发布购买";
   /// "数额"
@@ -762,6 +764,8 @@ class I18n implements WidgetsLocalizations {
   String get paynotice => "提示：一旦设置成功，将无法修改，请您谨慎填写。";
   /// "买家："
   String get selluser => "买家：";
+  /// "卖家："
+  String get sellllllluser => "卖家：";
   /// "交易手续费用"
   String get sellfee => "交易手续费用";
   /// "交易须知："
@@ -1808,6 +1812,9 @@ class _I18n_en_US extends I18n {
   /// "Sell Now"
   @override
   String get exsellnow => "Sell Now";
+  /// "Finished"
+  @override
+  String get finished => "Finished";
   /// "Post Buy"
   @override
   String get expostbuy => "Post Buy";
@@ -1928,6 +1935,9 @@ class _I18n_en_US extends I18n {
   /// "Buyer:"
   @override
   String get selluser => "Buyer:";
+  /// "Seller:"
+  @override
+  String get sellllllluser => "Seller:";
   /// "Transaction fees"
   @override
   String get sellfee => "Transaction fees";

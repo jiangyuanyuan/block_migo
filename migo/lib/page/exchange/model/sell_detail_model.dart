@@ -29,6 +29,7 @@ class SellDetailModel {
   int userPayWay;
   String userName;
   String userMobile;
+  String sellMobile;
   String userPayName;
   String adUserPayNo;
   String adOpenBank;
@@ -56,6 +57,7 @@ class SellDetailModel {
       {this.id,
       this.adId,
       this.adUserId,
+      this.sellMobile,
       this.userPayWay,
       this.userName,
       this.userMobile,
@@ -91,6 +93,7 @@ class SellDetailModel {
     userMobile = json['userMobile'];
     userPayName = json['userPayName'];
     adUserPayNo = json['adUserPayNo'];
+    sellMobile = json["sellUserMobile"];
     adOpenBank = json['adOpenBank'];
     adOpenBranchBank = json['adOpenBranchBank'];
     userId = json['userId'];

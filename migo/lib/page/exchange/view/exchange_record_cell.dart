@@ -32,7 +32,7 @@ class ExchangeRecordCell extends StatelessWidget {
       case 2:
         return AppColor.green;
       default:
-        return AppColor.grey;
+        return AppColor.fontgrey;
     }
   }
   Color _getBackColor() {
@@ -46,10 +46,10 @@ class ExchangeRecordCell extends StatelessWidget {
       case 2:
         return const Color(0xffF2FBF4);
       case 3:
-        return const Color(0xffF2FBF4);
+        return Colors.black.withOpacity(0.05);
         break;
       default:
-        return const Color(0xffF4F7FA);
+        return Colors.black12;
     }
   }
 

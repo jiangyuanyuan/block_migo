@@ -346,6 +346,7 @@
     "exsingleprice":"单价",
     "expreamount":"预计金额",
     "exsellnow":"立即出售",
+    "finished":"已完成",
 
     "expostbuy":"发布购买",
     "exposetnumber":"数额",
@@ -389,6 +390,7 @@
     "paynotice":"提示：一旦设置成功，将无法修改，请您谨慎填写。",
 
     "selluser":"买家：",
+    "sellllllluser":"卖家：",
     "sellfee":"交易手续费用",
     "sellneedknow":"交易须知：",
     "sellneedknowinfo":"M0级别用户将无法出售MIGO。",

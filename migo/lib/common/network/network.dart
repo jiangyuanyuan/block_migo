@@ -47,9 +47,14 @@ class Networktool {
     
     Response response;
     String temp = baseURL;
-    // if(!AppConst.APP_IS_RELEASE) {
-    //   url = url.replaceFirst("otc/", "");
-    // }
+    if(!AppConst.APP_IS_RELEASE) {
+      // if(url.startsWith("otc/")) {
+      //   url = url.replaceFirst("otc/", "");
+      // }
+      // if(url.startsWith("user/")) {
+      //   url = url.replaceFirst("user/", "/");
+      // }
+    }
     url = temp + url;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String languageStr = prefs.getString('languageCode') ?? "cn";

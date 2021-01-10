@@ -42,6 +42,18 @@ class _ExhangeCoinHeadViewState extends State<ExhangeCoinHeadView> {
     return today * newp;
   }
 
+  String _getTotal() {
+    num val = widget.model?.totalTradeAmount ?? 0;
+    return val.toStringAsFixed(0);
+    // if(val < 1000){
+    //   return val.toStringAsFixed(0);
+    // } else if(val < 1000000) {
+    //   return (val / 1000.0).toStringAsFixed(0) + "K";
+    // } else{
+    //   return (val / 1000000.0).toStringAsFixed(0) + "M";
+    // }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -85,8 +97,8 @@ class _ExhangeCoinHeadViewState extends State<ExhangeCoinHeadView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _Item(title: I18n.of(context).extodaycount, val: Tool.number(widget.model?.todayTradeAmount, 2),),
-              _Item(title: I18n.of(context).realpayamount2, val: Tool.number(widget.model?.totalTradeAmount, 2),),
+              _Item(title: I18n.of(context).extodaycount, val: (widget.model?.todayTradeAmount ?? 0).toStringAsFixed(0),),
+              _Item(title: I18n.of(context).realpayamount2, val: _getTotal(),),
             ],
           ),
         ),

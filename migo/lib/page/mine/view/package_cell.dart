@@ -35,8 +35,9 @@ class PackageCell extends StatelessWidget {
         onTap: onUserAction,
       );
     } else {
+      bool isfinish = DateTime.now().millisecondsSinceEpoch > model.useTime;
       return BtnImageBottomView(
-        title: I18n.of(context).using,
+        title: isfinish ? I18n.of(context).finished : I18n.of(context).using,
         img: "btn_inactive.png",
       );
     }

@@ -299,7 +299,10 @@ class _SellPageState extends State<SellPage> {
                       child: Column(
                         children: [
                           _ItemLabel(title: I18n.of(context).exorderno + "：", val: detailModel.orderNo,),
-                          _ItemLabel(title: I18n.of(context).selluser, val: detailModel.userMobile,),
+                          Consumer<UserModel>(builder: (context, value, child) {
+                            bool isshobuy = value.data.id == detailModel.adUserId;
+                            return _ItemLabel(title: isshobuy ? I18n.of(context).sellllllluser : I18n.of(context).selluser, val: !isshobuy ? detailModel.sellMobile : detailModel.userMobile,);
+                          },),
                           _ItemLabel(title: I18n.of(context).exposetnumber + "：", val: "${Tool.number(detailModel.orderNumber, 2)} MIGO",),
                           _ItemLabel(title: I18n.of(context).selllevel + "：", val: "M${detailModel.userLevel} ${Tool.number(detailModel.userFee * 100, 2)}%", color: const Color(0xffF28600),),
                           _ItemLabel(title: I18n.of(context).sellfee + "：", val: "${Tool.number(detailModel.userTotalSell - detailModel.orderNumber, 2)} MIGO",),

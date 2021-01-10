@@ -131,6 +131,9 @@ class Tool {
     DateTime now = DateTime.now();
     Duration duration = to.difference(now);
     int hour = duration.inHours;
+    if(hour < 0) {
+      return I18n.of(context).finished;
+    }
     if(hour % 24 == 0) {
       return "${hour / 24}${I18n.of(context).day}";
     } else {
