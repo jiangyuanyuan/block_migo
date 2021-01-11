@@ -21,7 +21,6 @@ class ExchangeCell extends StatelessWidget {
     EasyLoading.show(status: "Loading...");
     Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
       final temp = MinePaymethodResponse.fromJson(data);
-      
       if(temp.data.length == 0) {
         EasyLoading.dismiss();
         Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).addpaymethod, callback: () {
@@ -41,7 +40,8 @@ class ExchangeCell extends StatelessWidget {
     }, success: (data) async {
       EasyLoading.dismiss();
       final temp = SellDetailResponse.fromJson(data);
-      final res = await Navigator.pushNamed(context, "/sell", arguments: {"model": temp.data});
+      temp.data.sellMobile = "--";
+      final res = await Navigator.pushNamed(context, "/sell", arguments: {"model": temp.data, "issell": true});
       if(res != null) onRefresh();
     }, fail: (msg) => EasyLoading.showToast(msg),);
   }

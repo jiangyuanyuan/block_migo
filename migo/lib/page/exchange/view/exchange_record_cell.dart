@@ -8,7 +8,6 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/contract/view/alert_password_view.dart';
-import 'package:migo/page/contract/view/choose_coin_view.dart';
 import 'package:migo/page/exchange/model/sell_detail_model.dart';
 import 'package:migo/page/exchange/view/alert_payinfo_dart.dart';
 import 'package:migo/page/mine/model/mine_pay_model.dart';
@@ -208,7 +207,7 @@ class ExchangeRecordCell extends StatelessWidget {
         if(model.status == 3) {
           return;
         }
-        final res = await Navigator.pushNamed(context, "/sell", arguments: {"model":model, "step":true, "ordertype": orderType});
+        final res = await Navigator.pushNamed(context, "/sell", arguments: {"model":model, "step":true, "ordertype": orderType, "issell": orderType == 2});
         if(onRefresh != null && res != null) onRefresh();
       },
       child: Container(

@@ -60,6 +60,8 @@ class MineShovelModel {
     status = json['status'];
     createTime = json['createTime'];
     useTime = json['useTime'];
+    // useTime = 1610335755329;
+    // 
     canUseTime = json['canUseTime'];
     toolbox =
         json['toolbox'] != null ? new Toolbox.fromJson(json['toolbox']) : null;

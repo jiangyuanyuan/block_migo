@@ -369,6 +369,8 @@
     "selltotalnumber":"Deduct the total amount of MIGO",
     "sellsingleprice": "Unit price",
     "selltotalprice":"Total price",
+    "minetotaladdgrade":"Global mining pool dividend total",
+    "minetodayaddgrade":"Today's global mining pool dividends",
     "addpaymethod":"Please add a payment method",
     "realpayamount":"Actual payment amount",
     "finished":"Finished",

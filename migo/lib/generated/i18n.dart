@@ -474,6 +474,10 @@ class I18n implements WidgetsLocalizations {
   String get paid => "已支付";
   /// "全球矿池分红总额"
   String get mineaddgrade => "全球矿池分红总额";
+  /// "今日全球矿池分红"
+  String get minetodayaddgrade => "今日全球矿池分红";
+  /// "累积全球矿池分红总额"
+  String get minetotaladdgrade => "累积全球矿池分红总额";
   /// "起止日期"
   String get startdate => "起止日期";
   /// "分红日期"
@@ -1503,6 +1507,12 @@ class _I18n_en_US extends I18n {
   /// "Total amount of global mining pool dividends"
   @override
   String get mineaddgrade => "Total amount of global mining pool dividends";
+  /// "Today's global mining pool dividends"
+  @override
+  String get minetodayaddgrade => "Today's global mining pool dividends";
+  /// "Global mining pool dividend total"
+  @override
+  String get minetotaladdgrade => "Global mining pool dividend total";
   /// "Start and end date"
   @override
   String get startdate => "Start and end date";

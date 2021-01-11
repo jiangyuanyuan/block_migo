@@ -31,10 +31,12 @@ class _SellPageState extends State<SellPage> {
   int step = 1;
   SellDetailModel detailModel;
   int ordertype = 2;
+  bool issell = true;
   @override
   void initState() {
     super.initState();
     detailModel = widget.params["model"];
+    issell = widget.params["issell"];
     if(detailModel.orderPayWay != null) {
       paymethod = detailModel.orderPayWay.split(",").toSet();
     }
@@ -299,10 +301,7 @@ class _SellPageState extends State<SellPage> {
                       child: Column(
                         children: [
                           _ItemLabel(title: I18n.of(context).exorderno + "：", val: detailModel.orderNo,),
-                          Consumer<UserModel>(builder: (context, value, child) {
-                            bool isshobuy = value.data.id == detailModel.adUserId;
-                            return _ItemLabel(title: isshobuy ? I18n.of(context).sellllllluser : I18n.of(context).selluser, val: !isshobuy ? detailModel.sellMobile : detailModel.userMobile,);
-                          },),
+                          _ItemLabel(title: issell ? I18n.of(context).selluser : I18n.of(context).sellllllluser, val: issell ? detailModel.sellMobile : detailModel.userMobile,),
                           _ItemLabel(title: I18n.of(context).exposetnumber + "：", val: "${Tool.number(detailModel.orderNumber, 2)} MIGO",),
                           _ItemLabel(title: I18n.of(context).selllevel + "：", val: "M${detailModel.userLevel} ${Tool.number(detailModel.userFee * 100, 2)}%", color: const Color(0xffF28600),),
                           _ItemLabel(title: I18n.of(context).sellfee + "：", val: "${Tool.number(detailModel.userTotalSell - detailModel.orderNumber, 2)} MIGO",),

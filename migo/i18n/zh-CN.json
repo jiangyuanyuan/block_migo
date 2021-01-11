@@ -240,6 +240,8 @@
     "shovel":"铲子",
     "paid":"已支付",
     "mineaddgrade":"全球矿池分红总额",
+    "minetodayaddgrade":"今日全球矿池分红",
+    "minetotaladdgrade":"累积全球矿池分红总额",
     "startdate":"起止日期",
     "getmoneydate":"分红日期",
     "teamdetail":"团队概况",

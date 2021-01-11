@@ -24,6 +24,7 @@ class TeamEarthResponse {
 
 class TeamEarthModel {
   num newAmount;
+  num todayAmount;
   String startToEndTime;
   String bonusStartToEndTime;
   MyDirectDTO myDirectDTO;
@@ -38,6 +39,7 @@ class TeamEarthModel {
 
   TeamEarthModel.fromJson(Map<String, dynamic> json) {
     newAmount = json['newAmount'];
+    todayAmount = json['todayAmount'];
     startToEndTime = json['startToEndTime'];
     bonusStartToEndTime = json['bonusStartToEndTime'];
     myDirectDTO = json['myDirectDTO'] != null
