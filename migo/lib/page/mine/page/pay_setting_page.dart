@@ -9,6 +9,11 @@ import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/page/contract/view/choose_coin_view.dart';
 
+import '../../../common/commview/alert.dart';
+import '../../../common/util/tool.dart';
+import '../../contract/view/alert_password_view.dart';
+import '../model/mine_pay_model.dart';
+
 class PaySettingPage extends StatefulWidget {
   final Map params;
 
@@ -29,10 +34,35 @@ class _PaySettingPageState extends State<PaySettingPage> {
   FocusNode _focusNode2 = FocusNode();
   FocusNode _focusNode3 = FocusNode();
   List<int> payways = [];
+  bool iscanselect = true;
+  /// 修改支付方式id
+  String id;
   @override
   void initState() {
     super.initState();
     payways = widget.params["payways"];
+    if(widget.params["model"] != null) {
+      iscanselect = false;
+      PaymethodModel model = widget.params["model"];
+      id = model.id;
+      switch (model.payWay) {
+        case 3:
+        case 1:{
+          _controller.text = model.payName;
+          _controller1.text = model.payNo;
+        }
+          break;
+        case 2:{
+          _controller.text = model.payName;
+          _controller1.text = model.payNo;
+          _controller2.text = model.openBank;
+          _controller3.text = model.openBranchBank;
+        }
+          break;
+        default:
+      }
+    }
+    
     paymethod = payways.first;
     EventBus.instance.addListener(EventKeys.RefreshQrCode, (arg) { 
       _controller1.text = arg;
@@ -74,6 +104,33 @@ class _PaySettingPageState extends State<PaySettingPage> {
       EasyLoading.showToast(I18n.of(context).pleasesbank);
       return;
     }
+
+    if(paymethod == 2 && _controller3.text.isEmpty) {
+      EasyLoading.showToast(I18n.of(context).pleasesbank);
+      return;
+    }
+    
+    if(!iscanselect) {
+      /// 修改支付方式
+      Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (pwd) {
+        EasyLoading.show(status: "Loading...");
+        Networktool.request(API.updateUserPay, params: {
+            "openBank": _controller2.text,
+            "openBranchBank": _controller3.text,
+            "payName": _controller.text,
+            "payNo": _controller1.text,
+            "payWay": paymethod,
+            "id":id,
+            "txPassword":Tool.generateMd5(pwd)
+        }, success: (data) {
+          // EasyLoading.dismiss();
+          EasyLoading.showSuccess(I18n.of(context).success);
+          Navigator.pop(context, {"success":true});
+        }, fail: (msg) => EasyLoading.showToast(msg),);
+      },));
+      return;
+    }
+    /// 新增加支付方式
     EasyLoading.show(status: "Loading...");
     Networktool.request(API.addUserPay, params: {
       	"openBank": _controller2.text,
@@ -109,35 +166,38 @@ class _PaySettingPageState extends State<PaySettingPage> {
               children: [
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18),
-                    child: ChooseCoinView(
-                      iscoupon: true,
-                      onSelected: (selectindex, sender) {
-                        setState(() {
-                          paymethod = payways[selectindex];
-                        });
-                      },
-                      child: Container(
-                        height: 42,
-                        child: Stack(
-                          children: [
-                            Image.asset("assets/input_back.png", fit: BoxFit.fill, width: double.infinity,),
-                            Positioned(
-                              left: 10,
-                              height: 42,
-                              child: Container(
-                                alignment: Alignment.center,
-                                child: Text(listtitle[paymethod], style: AppFont.textStyle(12, color: Colors.black), textAlign: TextAlign.center,)
+                    child: IgnorePointer(
+                      ignoring: !iscanselect,
+                      child: ChooseCoinView(
+                        iscoupon: true,
+                        onSelected: (selectindex, sender) {
+                          setState(() {
+                            paymethod = payways[selectindex];
+                          });
+                        },
+                        child: Container(
+                          height: 42,
+                          child: Stack(
+                            children: [
+                              Image.asset("assets/input_back.png", fit: BoxFit.fill, width: double.infinity,),
+                              Positioned(
+                                left: 10,
+                                height: 42,
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  child: Text(listtitle[paymethod], style: AppFont.textStyle(12, color: Colors.black), textAlign: TextAlign.center,)
+                                ),
                               ),
-                            ),
-                            Positioned(
-                              right: 10,
-                              height: 42,
-                              child: Image.asset("assets/coin_select.png"),
-                            )
-                          ],
+                              Positioned(
+                                right: 10,
+                                height: 42,
+                                child: Image.asset("assets/coin_select.png"),
+                              )
+                            ],
+                          ),
                         ),
+                        titles: payways.map((e) => listtitle[e]).toList(),
                       ),
-                      titles: payways.map((e) => listtitle[e]).toList(),
                     ),
                   ),
                 Container(
@@ -226,10 +286,11 @@ class _PaySettingPageState extends State<PaySettingPage> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0),
-                        child: Text(I18n.of(context).paynotice, style: AppFont.textStyle(12, color: AppColor.red),),
-                      ),
+                      SizedBox(height: 30,),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(top: 30.0),
+                      //   child: Text(I18n.of(context).paynotice, style: AppFont.textStyle(12, color: AppColor.red),),
+                      // ),
                       BtnImageBottomView(
                         title: I18n.of(context).sure,
                         onTap: () {

@@ -50,7 +50,18 @@ class _PayMainPageState extends State<PayMainPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 16),
               child: Column(
-                children: list.map((e) => _Cell(type: e.payWay, title: e.payName, val: e.payNo, img: imgs[e.payWay])).toList(),
+                children: list.map((e) => _Cell(
+                  type: e.payWay, 
+                  title: e.payName, 
+                  val: e.payNo, 
+                  img: imgs[e.payWay],
+                  onTap: () async {
+                    final res = await Navigator.pushNamed(context, "/paysetting", arguments: {"payways":[e.payWay], "model":e});
+                    if(res != null) {
+                      _request();
+                    }
+                  },
+                )).toList(),
                 // children: [
                 //   // _Cell(type: 0, title: I18n.of(context).paybank, val: "1891289", img: imgs[0],),
                 //   // _Cell(type: 1, title: I18n.of(context).payalipay, val: "1891289", img: imgs[1],),
@@ -93,24 +104,26 @@ class _Cell extends StatelessWidget {
   final String title;
   final String val;
   final String img;
-  const _Cell({Key key, this.type, this.img, this.title, this.val}) : super(key: key);
+  final Function onTap;
+  const _Cell({Key key, this.type, this.onTap, this.img, this.title, this.val}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/bg_list_sett_def.png"),
-          fit: BoxFit.fill
-        )
-      ),
-      padding: const EdgeInsets.all(20),
-      margin: const EdgeInsets.only(bottom: 10),
-      child: Row(
-        children: [
-          Image.asset("assets/$img.png"),
-          SizedBox(width: 10,),
-          Expanded(
-            child: Column(
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/bg_list_sett_def.png"),
+            fit: BoxFit.fill
+          )
+        ),
+        padding: const EdgeInsets.all(20),
+        margin: const EdgeInsets.only(bottom: 10),
+        child: Row(
+          children: [
+            Image.asset("assets/$img.png"),
+            SizedBox(width: 10,),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title, style: AppFont.textStyle(14,),),
@@ -118,15 +131,8 @@ class _Cell extends StatelessWidget {
                 Text(val, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
               ],
             ),
-          ),
-          CupertinoSwitch(
-            value: true,
-            activeColor: const Color(0xffFF8128),
-            onChanged: (value) {
-              
-            },
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

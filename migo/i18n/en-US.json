@@ -362,7 +362,7 @@
     "bankename":"Account Bank:",
     "pleasebankname":"Please enter the bank that opened the account",
     "bandeg":"For example: China Construction Bank",
-    "sbank":"Account opening branch (optional):",
+    "sbank":"Account opening branch:",
     "pleasesbank":"Please enter the account opening branch",
     "paynotice":"Prompt: Once the setting is successful, it cannot be modified. Please fill in carefully.",
     

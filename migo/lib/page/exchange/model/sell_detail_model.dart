@@ -52,11 +52,13 @@ class SellDetailModel {
   String orderPayWay;
   int payMoneyStatus;
   int payCoinStatus;
+  int orderType;
 
   SellDetailModel(
       {this.id,
       this.adId,
       this.adUserId,
+      this.orderType,
       this.sellMobile,
       this.userPayWay,
       this.userName,
@@ -98,6 +100,7 @@ class SellDetailModel {
     adOpenBranchBank = json['adOpenBranchBank'];
     userId = json['userId'];
     orderNo = json['orderNo'];
+    orderType = json["orderType"];
     orderNumber = json['orderNumber'];
     orderPrice = json['orderPrice'];
     orderTotalUsdt = json['orderTotalUsdt'];

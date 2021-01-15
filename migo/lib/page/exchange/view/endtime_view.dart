@@ -63,7 +63,7 @@ class _EndTimeViewState extends State<EndTimeView> {
       return;
     }
     setState(() {
-      timeString = Tool.timeFormat2("HH:mm:ss", currTime);
+      timeString = Tool.timeFormat("HH:mm:ss", currTime);
     });
   }
 

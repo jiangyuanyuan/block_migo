@@ -86,6 +86,7 @@ class API {
   
   ///设置收款账号
   static const String addUserPay = "otc/oUserPay/addUserPay";
+  static const String updateUserPay = "otc/oUserPay/updateUserPay";
   static const String userPays = "otc/oUserPay/userPays";
   static const String adBase = "otc/oAd/adBase";
   static const String otcAdd = "otc/oAd/addAd";
@@ -97,5 +98,7 @@ class API {
   static const String orderPay = "otc/oOrder/orderPay";
   static const String payMoney = "otc/oOrder/payMoney";
   static const String payCoin = "otc/oOrder/payCoin";
+  /// 委托中的订单
+  static const String myad = "otc/oAd/myAd";
 }
   

@@ -7,8 +7,12 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/exchange/model/otc_order_model.dart';
 import 'package:migo/page/exchange/model/sell_detail_model.dart';
+import 'package:migo/page/exchange/view/ad_delegate_cell.dart';
 import 'package:migo/page/exchange/view/exchange_record_cell.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
+import '../model/otc_order_model.dart';
+import '../model/otc_order_model.dart';
 
 class ExchangeRecordPage extends StatefulWidget {
   @override
@@ -22,6 +26,7 @@ class _ExchangeRecordPageState extends State<ExchangeRecordPage> {
   int page = 0;
   RefreshController _refreshController = RefreshController(initialRefresh: true);
   List<SellDetailModel> list = [];
+  List<MyAdDelegateModel> listad = [];
   @override
   void initState() {
     super.initState();
@@ -45,14 +50,26 @@ class _ExchangeRecordPageState extends State<ExchangeRecordPage> {
   
   void _request([bool refresh = false]) {
     // 1 买 2卖
-    Networktool.request(API.orderList + "$orderType/$selecttype/$page/10", method: HTTPMETHOD.GET, params: {}, success: (data) {
-      final temp = OtcOrderResponse.fromJson(data);
-      if(refresh) list.clear();
-      if(temp.data.length < 10) _refreshController.loadNoData();
-      list.addAll(temp.data);
-      if(mounted) setState(() {
-        
-      });
+    String url = API.orderList + "$orderType/$selecttype/$page/10";
+    if(orderType == 3) {
+      url = API.myad + "/$page/10";
+    }
+    Networktool.request(url, method: HTTPMETHOD.GET, params: {}, success: (data) {
+      if(orderType == 3) {
+        final temp = AdDelegateResponse.fromJson(data);
+        if(refresh) listad.clear();
+        if(temp.data.length < 10) _refreshController.loadNoData();
+        listad.addAll(temp.data);
+        if(mounted) setState(() {});
+      } else {
+        final temp = OtcOrderResponse.fromJson(data);
+        if(refresh) list.clear();
+        if(temp.data.length < 10) _refreshController.loadNoData();
+        list.addAll(temp.data);
+        if(mounted) setState(() {
+          
+        });
+      }
     }, fail: (msg) => EasyLoading.showToast(msg)
     , finaly: _endRefresh);
   }
@@ -172,7 +189,7 @@ class _ExchangeRecordPageState extends State<ExchangeRecordPage> {
           ),
           child: Column(
             children: [
-              _createHead(),
+              orderType == 3 ? SizedBox() : _createHead(),
               Expanded(
                 child: RefreshWidget(
                   controller: _refreshController,
@@ -181,13 +198,18 @@ class _ExchangeRecordPageState extends State<ExchangeRecordPage> {
                   minPage: page,
                   child: ListView.builder(
                     padding: EdgeInsets.zero,
-                    itemCount: list.length,
+                    itemCount: orderType == 3 ? listad.length : list.length,
                     itemBuilder: (context, index) {
-                      return ExchangeRecordCell(model: list[index], orderType: orderType, onChangeStatus: (payid, orderid, adid) {
-                          _changeStatus(payid, orderid, adid);
-                        },
-                        onRefresh: () => _refreshController.requestRefresh(),
-                      );
+                      if(orderType == 3) {
+                        return AdDelegateCell(model: listad[index], orderType: 1,);
+                      } else {
+                        final model = list[index];
+                        return ExchangeRecordCell(model: model, orderType: orderType, onChangeStatus: (payid, orderid, adid) {
+                            _changeStatus(payid, orderid, adid);
+                          },
+                          onRefresh: () => _refreshController.requestRefresh(),
+                        );
+                      }
                     }
                   ),
                 ),

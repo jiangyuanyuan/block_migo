@@ -33,6 +33,7 @@ class _SellPageState extends State<SellPage> {
   Set<String> paymethod = {};
   int step = 1;
   SellDetailModel detailModel;
+  /// 1买入, 2卖出
   int ordertype = 2;
   bool issell = true;
   @override
@@ -189,7 +190,7 @@ class _SellPageState extends State<SellPage> {
           return Column(
             children: [
               EndTimeView(
-                endtime: 1610698444000,
+                endtime: detailModel.outOfTime,
                 onTap: () {
                   Alert.showBottomDialog(context, [I18n.of(context).buynotpay, I18n.of(context).buypaiad], onTapIndex: (index){
                     _requestChangeCoinStatus(context); // 已收款放
