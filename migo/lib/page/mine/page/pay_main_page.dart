@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:migo/common/commview/btn_image_bottom.dart';
@@ -108,13 +109,22 @@ class _Cell extends StatelessWidget {
         children: [
           Image.asset("assets/$img.png"),
           SizedBox(width: 10,),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(title, style: AppFont.textStyle(14,),),
-              SizedBox(height: 6,),
-              Text(val, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: AppFont.textStyle(14,),),
+                SizedBox(height: 6,),
+                Text(val, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.4)),)
+              ],
+            ),
+          ),
+          CupertinoSwitch(
+            value: true,
+            activeColor: const Color(0xffFF8128),
+            onChanged: (value) {
+              
+            },
           )
         ],
       ),

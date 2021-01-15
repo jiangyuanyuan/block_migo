@@ -23,6 +23,11 @@ class Tool {
     return _getWeekday(time.weekday);
   }
 
+  static String timeFormat2(String format, int createtime) {
+    int time = (createtime ?? 0) - 28800000;
+    return DateFormat(format).format(DateTime.fromMillisecondsSinceEpoch(time));
+  }
+
   /// 计算相差多久
   static String timeDistance(int createtime) {
     

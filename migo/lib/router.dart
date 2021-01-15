@@ -15,6 +15,7 @@ import 'package:migo/page/home/page/notice_page.dart';
 import 'package:migo/page/home/page/web_page.dart';
 import 'package:migo/page/mine/page/about_page.dart';
 import 'package:migo/page/mine/page/auth_manage_page.dart';
+import 'package:migo/page/mine/page/auto_account_page.dart';
 import 'package:migo/page/mine/page/choose_month_page.dart';
 import 'package:migo/page/mine/page/coins_detial_page.dart';
 import 'package:migo/page/mine/page/feedback_page.dart';
@@ -103,6 +104,7 @@ final routes = {
   '/paysetting': (context,{arguments}) => PaySettingPage(params: arguments,),// 第一次登录密码设置
   '/paymain': (context,{arguments}) => PayMainPage(),// 第一次登录密码设置
   '/sell': (context,{arguments}) => SellPage(params: arguments,),// 第一次登录密码设置
+  '/autoaccount': (context,{arguments}) => AutoAccountPage(),// 第一次登录密码设置
 };
 
 var onGenerateRoute = (RouteSettings settings) {

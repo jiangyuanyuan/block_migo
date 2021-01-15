@@ -11,11 +11,14 @@ import 'package:migo/page/contract/view/alert_password_view.dart';
 import 'package:migo/page/exchange/model/sell_detail_model.dart';
 import 'package:migo/page/exchange/view/alert_payinfo_dart.dart';
 import 'package:migo/page/exchange/view/alert_userinfo.dart';
+import 'package:migo/page/exchange/view/endtime_view.dart';
 import 'package:migo/page/exchange/view/row_pay_view.dart';
 import 'package:migo/page/exchange/view/step_view.dart';
 import 'package:migo/page/mine/model/mine_pay_model.dart';
 import 'package:migo/provider/user.dart';
 import 'package:provider/provider.dart';
+
+import '../../../common/commview/alert.dart';
 
 class SellPage extends StatefulWidget {
   final Map params;
@@ -154,11 +157,27 @@ class _SellPageState extends State<SellPage> {
         }
           break;
         case 1:
-          return BtnImageBottomView(
-            title: I18n.of(context).rsurepaycoin,
-            onTap: () {
-              Alert.showViewDialog(context, AlerUserInfoView(usermobile: detailModel.userMobile, username: detailModel.userName ?? "--",));
-            },
+          return Column(
+            children: [
+              EndTimeView(
+                endtime: 1610698444000,
+                onTap: () {
+                  Alert.showBottomDialog(context, [I18n.of(context).sellnotpaycoin], onTapIndex: (index){
+                    if(index == 1) {
+                      _requestChangeCoinStatus(context); // 已收款放行
+                    } else {
+
+                    }
+                  });
+                },
+              ),
+              BtnImageBottomView(
+                title: I18n.of(context).rsurepaycoin,
+                onTap: () {
+                  Alert.showViewDialog(context, AlerUserInfoView(usermobile: detailModel.userMobile, username: detailModel.userName ?? "--",));
+                },
+              ),
+            ],
           );
           break;
         default:
@@ -167,9 +186,21 @@ class _SellPageState extends State<SellPage> {
     } else {
       switch (detailModel.status) {
         case 0:{
-          return BtnImageBottomView(
-            img: "btn_inactive.png",
-            title: I18n.of(context).sellwaitpay,
+          return Column(
+            children: [
+              EndTimeView(
+                endtime: 1610698444000,
+                onTap: () {
+                  Alert.showBottomDialog(context, [I18n.of(context).buynotpay, I18n.of(context).buypaiad], onTapIndex: (index){
+                    _requestChangeCoinStatus(context); // 已收款放
+                  });
+                },
+              ),
+              BtnImageBottomView(
+                img: "btn_inactive.png",
+                title: I18n.of(context).sellwaitpay,
+              ),
+            ],
           );
         }
           break;

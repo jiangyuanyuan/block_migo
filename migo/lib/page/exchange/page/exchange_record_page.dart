@@ -137,11 +137,29 @@ class _ExchangeRecordPageState extends State<ExchangeRecordPage> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.horizontal(right: Radius.circular(4)),
                   color: orderType == 2 ? Colors.white : Colors.transparent,
                   border: Border.all(width: 1, color: orderType == 2 ? Colors.white : const Color(0xffDBF0FF))
                 ),
                 child: Text(I18n.of(context).rselltitle, style: AppFont.textStyle(12, color: orderType == 2 ? AppColor.back998 : const Color(0xffDBF0FF)),),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                setState(() {
+                  orderType = 3;
+                });
+                _refreshController.requestRefresh();
+              },
+              child: Container(
+                height: 30,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.horizontal(right: Radius.circular(4)),
+                  color: orderType == 3 ? Colors.white : Colors.transparent,
+                  border: Border.all(width: 1, color: orderType == 3 ? Colors.white : const Color(0xffDBF0FF))
+                ),
+                child: Text(I18n.of(context).weituo, style: AppFont.textStyle(12, color: orderType == 3 ? AppColor.back998 : const Color(0xffDBF0FF)),),
               ),
             )
           ],

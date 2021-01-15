@@ -10,16 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 
 class MineSettingPage extends StatefulWidget {
-
-  static const List<String> titles = [
-    "邀请好友",
-    "安全中心",
-    "收款方式",
-    "操作语言",
-    "帮助反馈",
-    "关于",
-  ];
-
   @override
   _MineSettingPageState createState() => _MineSettingPageState();
 }
@@ -41,9 +31,12 @@ class _MineSettingPageState extends State<MineSettingPage> {
         Navigator.pushNamed(context, "/language");
         break;
       case 4:
-        Navigator.pushNamed(context, "/feedback");
+        Navigator.pushNamed(context, "/autoaccount");
         break;
       case 5:
+        Navigator.pushNamed(context, "/feedback");
+        break;
+      case 6:
         Navigator.pushNamed(context, "/about");
         break;
       default:
@@ -67,6 +60,7 @@ class _MineSettingPageState extends State<MineSettingPage> {
       I18n.of(context).safecenter,
       I18n.of(context).spaysetting,
       I18n.of(context).lang,
+      I18n.of(context).autoaccount,
       I18n.of(context).feedback,
       I18n.of(context).about,
     ];
@@ -89,7 +83,7 @@ class _MineSettingPageState extends State<MineSettingPage> {
                 //   if(index == MineSettingPage.titles.length - 1) return VersionCell();
                   return SettingCell(title: _getTitle(context, index), onTap: () => _jump(index),);
                 }, 
-                itemCount: MineSettingPage.titles.length
+                itemCount: 7
               ),
             ),
             SafeArea(

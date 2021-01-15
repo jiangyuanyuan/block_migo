@@ -76,6 +76,22 @@ class I18n implements WidgetsLocalizations {
   String get myearn => "我的收益";
   /// "邀请好友"
   String get invite => "邀请好友";
+  /// "申诉"
+  String get shensu => "申诉";
+  /// "买家未付款，交易取消"
+  String get buynotpay => "买家未付款，交易取消";
+  /// "买家已付款，确认放币"
+  String get buypaiad => "买家已付款，确认放币";
+  /// "我已付款，卖家未放币"
+  String get sellnotpaycoin => "我已付款，卖家未放币";
+  /// "自助解封"
+  String get autoaccount => "自助解封";
+  /// "您的账户交易规范，无不良记录，请继续保持！"
+  String get accountright => "您的账户交易规范，无不良记录，请继续保持！";
+  /// "解封账号"
+  String get unlockaccount => "解封账号";
+  /// "委托中的"
+  String get weituo => "委托中的";
   /// "密码"
   String get password => "密码";
   /// "请填写证件上的真实姓名"
@@ -910,6 +926,30 @@ class _I18n_en_US extends I18n {
   /// "Invite friends"
   @override
   String get invite => "Invite friends";
+  /// "Appeal"
+  @override
+  String get shensu => "Appeal";
+  /// "Buy not paid, transaction canceled"
+  @override
+  String get buynotpay => "Buy not paid, transaction canceled";
+  /// "The buyer has paid, confirm the currency release"
+  @override
+  String get buypaiad => "The buyer has paid, confirm the currency release";
+  /// "I have paid and the seller has not released the currency"
+  @override
+  String get sellnotpaycoin => "I have paid and the seller has not released the currency";
+  /// "self-unblocking"
+  @override
+  String get autoaccount => "self-unblocking";
+  /// "Your account transaction is regulated and there is no bad record, please keep it!"
+  @override
+  String get accountright => "Your account transaction is regulated and there is no bad record, please keep it!";
+  /// "Unlock account"
+  @override
+  String get unlockaccount => "Unlock account";
+  /// "Commissioned"
+  @override
+  String get weituo => "Commissioned";
   /// "Password"
   @override
   String get password => "Password";
