@@ -107,6 +107,18 @@ class _SellPageState extends State<SellPage> {
     );
   }
 
+  // 申诉类型 1 状态为买家付款时,卖家点(买家已付款,确认放币) 2 状态为买家付款时 卖家点(买家未付款，交易取消) 3 状态为卖家放币时 卖家点(买家未付款，交易取消) 4 状态为卖家放币时 买家点(我已付款，卖家未放币)
+  Widget _applyOrder(int type) {
+    EasyLoading.show(status: "Loading...");
+    Networktool.request(API.otctappealOrder, params: {
+      	"appealType": type,
+	      "id": detailModel.id
+    }, success: (data) {
+      EasyLoading.showToast(I18n.of(context).success);
+      Navigator.pop(context, {"refresh": true});
+    }, fail: (msg) => EasyLoading.showToast(msg),);
+  }
+
   Widget _createBottom(BuildContext context) {
     if(ordertype == 1) {
       switch (detailModel.status) {
@@ -161,14 +173,10 @@ class _SellPageState extends State<SellPage> {
           return Column(
             children: [
               EndTimeView(
-                endtime: 1610698444000,
+                endtime: detailModel.buyCancelOfTime,
                 onTap: () {
                   Alert.showBottomDialog(context, [I18n.of(context).sellnotpaycoin], onTapIndex: (index){
-                    if(index == 1) {
-                      _requestChangeCoinStatus(context); // 已收款放行
-                    } else {
-
-                    }
+                    _applyOrder(4);
                   });
                 },
               ),
@@ -193,7 +201,11 @@ class _SellPageState extends State<SellPage> {
                 endtime: detailModel.outOfTime,
                 onTap: () {
                   Alert.showBottomDialog(context, [I18n.of(context).buynotpay, I18n.of(context).buypaiad], onTapIndex: (index){
-                    _requestChangeCoinStatus(context); // 已收款放
+                    if(index == 1) {
+                      _applyOrder(1);
+                    } else {
+                      _applyOrder(2);
+                    }
                   });
                 },
               ),
@@ -206,9 +218,21 @@ class _SellPageState extends State<SellPage> {
         }
           break;
         case 1:
-          return BtnImageBottomView(
-            title: I18n.of(context).sellsellcoin,
-            onTap: () => _requestChangeCoinStatus(context),
+          return Column(
+            children: [
+              EndTimeView(
+                endtime: detailModel.cancelOfTime,
+                onTap: () {
+                  Alert.showBottomDialog(context, [I18n.of(context).buynotpay], onTapIndex: (index){
+                    _applyOrder(3);
+                  });
+                },
+              ),
+              BtnImageBottomView(
+                title: I18n.of(context).sellsellcoin,
+                onTap: () => _requestChangeCoinStatus(context),
+              ),
+            ],
           );
           break;
         default:
@@ -231,7 +255,7 @@ class _SellPageState extends State<SellPage> {
 
   void _requestChangePay(BuildContext context) {
     EasyLoading.show(status: 'Loading...');
-    Networktool.request(API.getUserPay+"${detailModel.adId}/${detailModel.adUserId}", method: HTTPMETHOD.GET, success: (data) {
+    Networktool.request(API.getUserPay+"${detailModel.adId}/${detailModel.userId}", method: HTTPMETHOD.GET, success: (data) {
       EasyLoading.dismiss();
       final temp = MinePaymethodResponse.fromJson(data);
       Alert.showViewDialog(context, AlertPayInfoView(

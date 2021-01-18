@@ -486,6 +486,12 @@ class I18n implements WidgetsLocalizations {
   String get using => "使用中";
   /// "铲子"
   String get shovel => "铲子";
+  /// "待成交"
+  String get waitbuy => "待成交";
+  /// "交易中"
+  String get buying => "交易中";
+  /// "点击修改支付信息"
+  String get modpay => "点击修改支付信息";
   /// "已支付"
   String get paid => "已支付";
   /// "全球矿池分红总额"
@@ -776,8 +782,8 @@ class I18n implements WidgetsLocalizations {
   String get pleasebankname => "请输入开户银行";
   /// "例如：中国建设银行"
   String get bandeg => "例如：中国建设银行";
-  /// "开户支行(选填)："
-  String get sbank => "开户支行(选填)：";
+  /// "开户支行："
+  String get sbank => "开户支行：";
   /// "请输入开户支行"
   String get pleasesbank => "请输入开户支行";
   /// "提示：一旦设置成功，将无法修改，请您谨慎填写。"
@@ -1541,6 +1547,15 @@ class _I18n_en_US extends I18n {
   /// "shovel"
   @override
   String get shovel => "shovel";
+  /// "Pending deal"
+  @override
+  String get waitbuy => "Pending deal";
+  /// "Transactioning"
+  @override
+  String get buying => "Transactioning";
+  /// "Click to modify payment information"
+  @override
+  String get modpay => "Click to modify payment information";
   /// "Paid"
   @override
   String get paid => "Paid";
@@ -1973,9 +1988,9 @@ class _I18n_en_US extends I18n {
   /// "For example: China Construction Bank"
   @override
   String get bandeg => "For example: China Construction Bank";
-  /// "Account opening branch (optional):"
+  /// "Account opening branch:"
   @override
-  String get sbank => "Account opening branch (optional):";
+  String get sbank => "Account opening branch:";
   /// "Please enter the account opening branch"
   @override
   String get pleasesbank => "Please enter the account opening branch";

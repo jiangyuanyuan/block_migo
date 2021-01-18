@@ -14,7 +14,9 @@ class HomeDetailUserView extends StatelessWidget {
   final int endTime;
   final int paytime;
   final String title;
-  const HomeDetailUserView({Key key, this.title, this.paytime, this.endTime, this.onTap, this.coinName, this.amount,}) : super(key: key);
+  final int currDay;
+  final int totalDay;
+  const HomeDetailUserView({Key key, this.title, this.currDay, this.totalDay, this.paytime, this.endTime, this.onTap, this.coinName, this.amount,}) : super(key: key);
 
   Widget _create(BuildContext context) {
     if(endTime == null || endTime == 0) {
@@ -24,13 +26,14 @@ class HomeDetailUserView extends StatelessWidget {
         onTap: onTap,
       );
     } else {
-      final now = DateTime.now();
-      final to = DateTime.fromMillisecondsSinceEpoch(endTime);
-      final todu = to.difference(DateTime.now());
-      final nowdu = now.difference(DateTime.fromMillisecondsSinceEpoch(paytime));
-      double progress = nowdu.inHours / (todu.inHours.toDouble() == 0 ? 1 : todu.inHours.toDouble());
-      if(progress > 1) progress = 1.0;
-      return CustomProgressView(titles: Tool.timeHourAndDayForNow(context,endTime), progress: progress,);
+      // final now = DateTime.now();
+      // final to = DateTime.fromMillisecondsSinceEpoch(endTime);
+      // final todu = to.difference(DateTime.now());
+      // final nowdu = now.difference(DateTime.fromMillisecondsSinceEpoch(paytime));
+      // double progress = nowdu.inHours / (todu.inHours.toDouble() == 0 ? 1 : todu.inHours.toDouble());
+      // if(progress > 1) progress = 1.0;
+      double progress = (totalDay - currDay) / totalDay.toDouble();
+      return CustomProgressView(titles: "${totalDay - currDay}/$totalDay", progress: progress,);
     }
   }
 

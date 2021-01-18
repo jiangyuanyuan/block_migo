@@ -69,7 +69,9 @@ class _PayMainPageState extends State<PayMainPage> {
                 // ],
               ),
             ),
+            
             Spacer(),
+            Text(I18n.of(context).modpay, style: AppFont.textStyle(10, color: Colors.white),),
             SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),

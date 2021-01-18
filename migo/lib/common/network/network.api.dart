@@ -100,5 +100,10 @@ class API {
   static const String payCoin = "otc/oOrder/payCoin";
   /// 委托中的订单
   static const String myad = "otc/oAd/myAd";
+  /// 订单申诉
+  static const String otctappealOrder = "otc/oOrder/appealOrder";
+  static const String getUserMsg = "user/uUser/getUserMsg";
+  static const String unsealUser = "otc/oAd/unsealUser";
+   
 }
   

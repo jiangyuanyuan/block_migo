@@ -373,6 +373,10 @@
     "sellpaymethod":"Buyer's payment method:",
     "sellpaid":"The order has been paid for",
     "sellllllluser":"Seller:",
+    "waitbuy":"Pending deal",
+    "modpay":"Click to modify payment information",
+    "buying":"Transactioning",
+
 
     "selltotalnumber":"Deduct the total amount of MIGO",
     "sellsingleprice": "Unit price",

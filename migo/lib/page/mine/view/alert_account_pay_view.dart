@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:migo/common/util/tool.dart';
 
 import '../../../common/commview/btn_image_bottom.dart';
 import '../../../common/textstyle/textstyle.dart';
@@ -10,8 +11,8 @@ import '../../../generated/i18n.dart';
 class AlertAccountPayView extends StatelessWidget {
   
   final Function onTap;
-
-  const AlertAccountPayView({Key key, this.onTap}) : super(key: key);
+  final num amount;
+  const AlertAccountPayView({Key key, this.onTap, this.amount}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,7 +43,7 @@ class AlertAccountPayView extends StatelessWidget {
               padding: const EdgeInsets.only(top: 42, bottom: 10.0),
               child: Image.asset("assets/img_unlock_money_def.png"),
             ),
-            Text("${I18n.of(context).balance}：108.55 MIGO", style: AppFont.textStyle(12),),
+            Text("${I18n.of(context).balance}：${Tool.number(amount, 2)} MIGO", style: AppFont.textStyle(12),),
             Padding(
               padding: const EdgeInsets.only(top: 50, bottom: 40, left: 20, right: 20),
               child: BtnImageBottomView(

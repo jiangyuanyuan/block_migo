@@ -156,7 +156,7 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
                               final tempmodel = minePayRecordList[index];
                               return Padding(
                                 padding: const EdgeInsets.only(top: 10.0),
-                                child: HomeDetailUserView(onTap: _getAction, paytime: tempmodel.createTime, title: model.mineTitle, endTime: tempmodel.endTime, coinName: model.pledgeCoinName, amount: model.pledgeAmount,),
+                                child: HomeDetailUserView(onTap: _getAction, totalDay: tempmodel.mineDays, currDay: tempmodel.datetimeMineDays, paytime: tempmodel.createTime, title: model.mineTitle, endTime: tempmodel.endTime, coinName: model.pledgeCoinName, amount: model.pledgeAmount,),
                               );
                             }
                           ),
