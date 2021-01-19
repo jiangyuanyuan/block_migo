@@ -262,13 +262,13 @@ class _SellPageState extends State<SellPage> {
         list: temp.data,
         onSelect: (sender) {
           // print("abc");
-          _changeStatus(sender.id, detailModel.id, detailModel.adId, sender.payWay);
+          _changeStatus(sender.id, detailModel.id, detailModel.adId, sender.payWay, sender.payName);
         },
       ));
     }, fail: (msg) => EasyLoading.showToast(msg),);
   }
 
-  void _changeStatus(String payid, String orderid, String aid, int payway) {
+  void _changeStatus(String payid, String orderid, String aid, int payway, String payname) {
     EasyLoading.show(status: 'Loading...');
     Networktool.request(API.orderPay, params: {
       	"adId": aid,
@@ -278,6 +278,7 @@ class _SellPageState extends State<SellPage> {
       EasyLoading.dismiss();
       setState(() {
         detailModel.userPayWay = payway;
+        detailModel.userPayName = payname;
       });
     }, fail: (msg) => EasyLoading.showToast(msg),);
   }
@@ -288,11 +289,13 @@ class _SellPageState extends State<SellPage> {
     Networktool.request(API.payMoney, params: {
       "orderId":detailModel.id,
     }, success: (data) {
-      EasyLoading.dismiss();
-      setState(() {
-        detailModel.status = 1;
-        step = 3;
-      });
+      // EasyLoading.dismiss();
+      // setState(() {
+      //   detailModel.status = 1;
+      //   step = 3;
+      // });
+      EasyLoading.showToast(I18n.of(context).success);
+      Navigator.pop(context, {"refresh": true});
     }, fail: (msg) => EasyLoading.showToast(msg),);
   }
 

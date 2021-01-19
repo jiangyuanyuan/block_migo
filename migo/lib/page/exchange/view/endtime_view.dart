@@ -40,6 +40,7 @@ class _EndTimeViewState extends State<EndTimeView> {
   }
 
   void _begin() {
+    // if(widget.endtime == null) return;
     endtime = widget.endtime;
     currTime = widget.endtime - DateTime.now().millisecondsSinceEpoch;
     _timer?.cancel();
