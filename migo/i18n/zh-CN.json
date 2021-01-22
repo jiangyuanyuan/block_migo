@@ -434,6 +434,10 @@
     "banknumber":"银行卡号：",
     "bankbranch":"开户支行：",
 
+    "submitapply":"提交申诉",
+    "submitapplynotice":"您当前正在进行申诉，一旦申诉成功，对方账号将会进入冻结状态。请小心操作，恶意申诉者，核实后将被系统冻结",
+
+    "notpayall":"未付全款，恢复订单",
 
     "alipaypay":"支付宝支付",
     "alipayaccount":"支付宝账号：",

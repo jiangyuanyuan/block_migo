@@ -9,6 +9,7 @@ import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/contract/view/alert_password_view.dart';
 import 'package:migo/page/exchange/model/sell_detail_model.dart';
+import 'package:migo/page/exchange/view/alert_choose_apply.dart';
 import 'package:migo/page/exchange/view/alert_payinfo_dart.dart';
 import 'package:migo/page/exchange/view/alert_userinfo.dart';
 import 'package:migo/page/exchange/view/endtime_view.dart';
@@ -120,7 +121,7 @@ class _SellPageState extends State<SellPage> {
   }
 
   Widget _createBottom(BuildContext context) {
-    if(ordertype == 1) {
+    if(ordertype == 1) { // 买单
       switch (detailModel.status) {
         case 0:{
           if(detailModel.userPayWay != null) {
@@ -175,9 +176,15 @@ class _SellPageState extends State<SellPage> {
               EndTimeView(
                 endtime: detailModel.buyCancelOfTime,
                 onTap: () {
-                  Alert.showBottomDialog(context, [I18n.of(context).sellnotpaycoin], onTapIndex: (index){
-                    _applyOrder(4);
-                  });
+                  // Alert.showBottomDialog(context, [I18n.of(context).sellnotpaycoin], onTapIndex: (index){
+                  //   _applyOrder(4);
+                  // });
+                  Alert.showViewDialog(context, AlertChooseApplyView(
+                    titles: [I18n.of(context).sellnotpaycoin],
+                    onTap: (sender) {
+                      _applyOrder(4);
+                    },
+                  ));
                 },
               ),
               BtnImageBottomView(
@@ -200,13 +207,25 @@ class _SellPageState extends State<SellPage> {
               EndTimeView(
                 endtime: detailModel.outOfTime,
                 onTap: () {
-                  Alert.showBottomDialog(context, [I18n.of(context).buynotpay, I18n.of(context).buypaiad], onTapIndex: (index){
-                    if(index == 1) {
-                      _applyOrder(1);
-                    } else {
-                      _applyOrder(2);
-                    }
-                  });
+                  // Alert.showBottomDialog(context, [I18n.of(context).buynotpay, I18n.of(context).buypaiad, I18n.of(context).notpayall], onTapIndex: (index){
+                  //   if(index == 1) {
+                  //     _applyOrder(1);
+                  //   } else {
+                  //     _applyOrder(2);
+                  //   }
+                  // });
+                  Alert.showViewDialog(context, AlertChooseApplyView(
+                    titles: [I18n.of(context).buynotpay, I18n.of(context).buypaiad, I18n.of(context).notpayall],
+                    onTap: (sender) {
+                      if(sender == 0) {
+                        _applyOrder(1);
+                      } else if(sender == 1){
+                        _applyOrder(2);
+                      } else {
+                        _applyOrder(5);
+                      }
+                    },
+                  ));
                 },
               ),
               BtnImageBottomView(
@@ -223,9 +242,19 @@ class _SellPageState extends State<SellPage> {
               EndTimeView(
                 endtime: detailModel.cancelOfTime,
                 onTap: () {
-                  Alert.showBottomDialog(context, [I18n.of(context).buynotpay], onTapIndex: (index){
-                    _applyOrder(3);
-                  });
+                  // Alert.showBottomDialog(context, [I18n.of(context).buynotpay], onTapIndex: (index){
+                  //   _applyOrder(3);
+                  // });
+                  Alert.showViewDialog(context, AlertChooseApplyView(
+                    titles: [I18n.of(context).buynotpay, I18n.of(context).notpayall],
+                    onTap: (sender) {
+                      if(sender == 0) {
+                        _applyOrder(3);
+                      } else {
+                        _applyOrder(5);
+                      }
+                    },
+                  ));
                 },
               ),
               BtnImageBottomView(

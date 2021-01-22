@@ -600,8 +600,8 @@ class I18n implements WidgetsLocalizations {
   String get threeauthNotice => "1）姓名、身份证件号在认证后将无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。\n2）请填写您的绑定该银行卡的手机号。\n3）请您耐心等候，因为审核认证过程需要时间处理。";
   /// "1）姓名、身份证件号在认证后将无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。\n2）请您在按下一步后手持该证件照拍照，需要清晰地看到您的人脸，证件前后的资料信息。除此之外，你需要另备一小小字条，清晰地写上你自己MIGO里的邀请码，如不符合，客服有权拒绝审核认证。\n3）请您耐心等候，因为审核认证过程需要时间处理。（海外用户会需时更久）"
   String get threeauthNotice2 => "1）姓名、身份证件号在认证后将无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请慎重填写您的真实信息。\n2）请您在按下一步后手持该证件照拍照，需要清晰地看到您的人脸，证件前后的资料信息。除此之外，你需要另备一小小字条，清晰地写上你自己MIGO里的邀请码，如不符合，客服有权拒绝审核认证。\n3）请您耐心等候，因为审核认证过程需要时间处理。（海外用户会需时更久）";
-  /// "1. 最小提币量为${e}.\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审"
-  String withdrawnoticerule(String e) => "1. 最小提币量为${e}.\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审";
+  /// "1. 最小提币量为${e}。\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审核"
+  String withdrawnoticerule(String e) => "1. 最小提币量为${e}。\n2. 提现会扣取部分手续费，以实际到账为主。\n3. 实际到账数量会经过一定的审核判断，以每日可提现额度为基准。\n4. 为保障您的资金的安全，当您改变了密码或者其他安全相关的个人信息，我们会对提币进行人工审核";
   /// "密码不一致"
   String get notsamepwd => "密码不一致";
   /// "转赠认证券需知："
@@ -612,8 +612,8 @@ class I18n implements WidgetsLocalizations {
   String get reealnotice2 => "2. 你可以一次性转赠最多五个用户。";
   /// "3. 请先验证您输入的用户ID，确认为已注册用户方能转赠。"
   String get reealnotice3 => "3. 请先验证您输入的用户ID，确认为已注册用户方能转赠。";
-  /// "4. 点击左上角的图标可以查看您的认证券转赠记录。"
-  String get reealnotice4 => "4. 点击左上角的图标可以查看您的认证券转赠记录。";
+  /// "4. 点击右上角的图标可以查看您的认证券转赠记录。"
+  String get reealnotice4 => "4. 点击右上角的图标可以查看您的认证券转赠记录。";
   /// "转券记录"
   String get reelrecord => "转券记录";
   /// "实名认证券转赠记录"
@@ -844,6 +844,12 @@ class I18n implements WidgetsLocalizations {
   String get banknumber => "银行卡号：";
   /// "开户支行："
   String get bankbranch => "开户支行：";
+  /// "提交申诉"
+  String get submitapply => "提交申诉";
+  /// "您当前正在进行申诉，一旦申诉成功，对方账号将会进入冻结状态。请小心操作，恶意申诉者，核实后将被系统冻结"
+  String get submitapplynotice => "您当前正在进行申诉，一旦申诉成功，对方账号将会进入冻结状态。请小心操作，恶意申诉者，核实后将被系统冻结";
+  /// "未付全款，恢复订单"
+  String get notpayall => "未付全款，恢复订单";
   /// "支付宝支付"
   String get alipaypay => "支付宝支付";
   /// "支付宝账号："
@@ -1733,9 +1739,9 @@ class _I18n_en_US extends I18n {
   /// "3. Please verify the user ID you entered first, and confirm that it is a registered user before adding it."
   @override
   String get reealnotice3 => "3. Please verify the user ID you entered first, and confirm that it is a registered user before adding it.";
-  /// "4. Click the icon in the upper left corner to view your certification voucher transfer record."
+  /// "4. Click the icon in the upper right corner to view your certification voucher transfer record."
   @override
-  String get reealnotice4 => "4. Click the icon in the upper left corner to view your certification voucher transfer record.";
+  String get reealnotice4 => "4. Click the icon in the upper right corner to view your certification voucher transfer record.";
   /// "Reel Record"
   @override
   String get reelrecord => "Reel Record";
@@ -2072,6 +2078,15 @@ class _I18n_en_US extends I18n {
   /// "Total price"
   @override
   String get selltotalprice => "Total price";
+  /// "Submit an Appeal"
+  @override
+  String get submitapply => "Submit an Appeal";
+  /// "You are currently appealing. Once the appeal is successful, the other party's account will be frozen. Please be careful, malicious applicants will be frozen by the system after verification"
+  @override
+  String get submitapplynotice => "You are currently appealing. Once the appeal is successful, the other party's account will be frozen. Please be careful, malicious applicants will be frozen by the system after verification";
+  /// "Unpaid full payment, resume order"
+  @override
+  String get notpayall => "Unpaid full payment, resume order";
   /// "Alipay Pay"
   @override
   String get alipaypay => "Alipay Pay";
