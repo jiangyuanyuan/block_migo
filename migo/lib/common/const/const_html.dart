@@ -1221,4 +1221,236 @@ quickly dominate!</span></p>
             </div>
             </body></html>
   ''';
+
+  static const String rule = '''
+    <html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word;text-justify-trim:punctuation'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b>MIGO </b><b><span lang=ZH-CN style='font-family:SimSun'>交易规则：</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>1<span lang=ZH-CN style='font-family:SimSun'>）</span><span
+lang=ZH-CN> </span><span lang=ZH-CN style='font-family:SimSun'>每日北京时间</span>24:00<span
+lang=ZH-CN style='font-family:SimSun'>，根据当日的成交平均数据，系统推算次日的参考价格，买家与卖家可根据此价格上下浮动最高位</span>5%<span
+lang=ZH-CN style='font-family:SimSun'>进行交易。</span></p>
+
+<p class=MsoNormal><br>
+2<span lang=ZH-CN style='font-family:SimSun'>）</span><span lang=ZH-CN> </span><span
+lang=ZH-CN style='font-family:SimSun'>发布的订单，以当日订单日期为准，有</span>24<span
+lang=ZH-CN style='font-family:SimSun'>小时的有效期，截止到有效期未成交的单子将自动撤单。</span><br>
+<br>
+</p>
+
+<p class=MsoNormal>3<span lang=ZH-CN style='font-family:SimSun'>）</span><span
+lang=ZH-CN> </span><span lang=ZH-CN style='font-family:SimSun'>购买</span>MIGO<span
+lang=ZH-CN style='font-family:SimSun'>的数量上限为</span>5000<span lang=ZH-CN
+style='font-family:SimSun'>，求购量上限为</span>5<span lang=ZH-CN style='font-family:
+SimSun'>个订单，购买数量限制于</span>1<span lang=ZH-CN style='font-family:SimSun'>的倍数，即不可有小数点。</span></p>
+
+<p class=MsoNormal><br>
+4<span lang=ZH-CN style='font-family:SimSun'>）</span><span lang=ZH-CN> </span><span
+lang=ZH-CN style='font-family:SimSun'>交易收款方式包括支付宝、银行卡及</span>TRC20<span
+lang=ZH-CN style='font-family:SimSun'>的</span>USDT<span lang=ZH-CN
+style='font-family:SimSun'>。</span><br>
+<br>
+</p>
+
+<p class=MsoNormal>5<span lang=ZH-CN style='font-family:SimSun'>）</span><span
+lang=ZH-CN> </span><span lang=ZH-CN style='font-family:SimSun'>交易所开放的交易对为</span>USDT/MIGO<span
+lang=ZH-CN style='font-family:SimSun'>及</span>RMB/MIGO<span lang=ZH-CN
+style='font-family:SimSun'>。</span></p>
+
+<p class=MsoNormal><br>
+6<span lang=ZH-CN style='font-family:SimSun'>）</span><span lang=ZH-CN> </span><span
+lang=ZH-CN style='font-family:SimSun'>挂买单列表，每秒自动刷新，以最高的求购价位置顶并往下顺序排列。</span><br>
+<br>
+</p>
+
+<p class=MsoNormal>7<span lang=ZH-CN style='font-family:SimSun'>）</span><span
+lang=ZH-CN> </span><span lang=ZH-CN style='font-family:SimSun'>超过</span>1<span
+lang=ZH-CN style='font-family:SimSun'>小时未付款的买家，账户将被自动冻结。若要自助解封，用户必须支付</span>3<span
+lang=ZH-CN style='font-family:SimSun'>个</span>MIGO<span lang=ZH-CN
+style='font-family:SimSun'>来进行解封。（注：恶意封禁帐户不能自助解封）</span><br>
+<br>
+</p>
+
+<p class=MsoNormal>8<span lang=ZH-CN style='font-family:SimSun'>）买家付款后，超过</span>1<span
+lang=ZH-CN style='font-family:SimSun'>小时未放行的卖家，账户将被自动冻结。若要自助解封，用户必须支付</span>3<span
+lang=ZH-CN style='font-family:SimSun'>个</span>MIGO<span lang=ZH-CN
+style='font-family:SimSun'>来进行解封。（注：恶意封禁帐户不能自助解封）</span></p>
+
+<p class=MsoNormal><br>
+9<span lang=ZH-CN style='font-family:SimSun'>）订单一旦产生恶意诈骗、虚假支付的行为，平台会对用户进行封禁，并没收其交易权限，严重时将追究其法律责任。</span></p>
+
+<p class=MsoNormal><br>
+10<span lang=ZH-CN style='font-family:SimSun'>）</span><span lang=ZH-CN> </span><span
+lang=ZH-CN style='font-family:SimSun'>交易手续费：</span>M1-M2 40%, M3-M4 30%, M5-M6
+20%, M7 10%<span lang=ZH-CN style='font-family:SimSun'>。</span><br>
+<br>
+</p>
+
+<p class=MsoNormal>11<span lang=ZH-CN style='font-family:SimSun'>）</span><span
+lang=ZH-CN> </span><span lang=ZH-CN style='font-family:SimSun'>开放交易时间为北京时间</span>09:00
+- 21:00<span lang=ZH-CN style='font-family:SimSun'>，在</span>21:00<span
+lang=ZH-CN style='font-family:SimSun'>后买家可发起挂买订单，但卖家无法对发起的订单进行出售。</span><br>
+<br>
+</p>
+
+</div>
+
+</body>
+
+</html>
+
+  ''';
+  static const rule_en = '''
+  <html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word;text-justify-trim:punctuation'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b>MIGO trading rules:</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>1) At 24:00 Beijing time every day, based on the average
+transaction data of the day, the system calculates the reference price of the
+next day. Buyers and sellers can trade according to the highest 5% fluctuation
+of this price.</p>
+
+<p class=MsoNormal><br>
+2) The issued order is subject to the order date of the day and has a validity
+period of 24 hours. Orders that have not been executed by the validity period
+will be automatically cancelled.<br>
+<br>
+</p>
+
+<p class=MsoNormal>3) The upper limit of the purchase quantity of MIGO is 5000,
+the upper limit of the purchase quantity is 5 orders, and the purchase quantity
+is limited to a multiple of 1, that is, no decimal point is allowed.</p>
+
+<p class=MsoNormal><br>
+4) Transaction collection methods include Alipay, bank card and TRC20 USDT.<br>
+<br>
+</p>
+
+<p class=MsoNormal>5) The trading pairs open on the exchange are USDT/MIGO and
+RMB/MIGO.</p>
+
+<p class=MsoNormal><br>
+6) The list of pending buy orders is automatically refreshed every second,
+arranged in order of the highest bidding price position and descending order.<br>
+<br>
+</p>
+
+<p class=MsoNormal>7) Buyers who have not paid for more than 1 hour will
+automatically freeze their accounts. To unblock it by yourself, users must pay
+3 MIGOs to unblock it. (Note: maliciously blocked accounts cannot be unblocked
+by themselves)<br>
+<br>
+</p>
+
+<p class=MsoNormal>8) After the buyer pays, the account of the seller who has
+not been released for more than 1 hour will be automatically frozen. To unblock
+it by yourself, users must pay 3 MIGOs to unblock it. (Note: maliciously
+blocked accounts cannot be unblocked by themselves)</p>
+
+<p class=MsoNormal><br>
+9) Once the order has malicious fraud or false payment, the platform will ban
+the user and confiscate the transaction authority, and the legal responsibility
+will be pursued in serious cases.</p>
+
+<p class=MsoNormal><br>
+10) Transaction fees: M1-M2 40%, M3-M4 30%, M5-M6 20%, M7 10%.<br>
+<br>
+</p>
+
+<p> 11) The open trading hours are 09:00-21:00 Beijing time.
+After 21:00, buyers can initiate pending buy orders, but sellers cannot sell
+the initiated orders.<br>
+<br>
+</span></p>
+
+</div>
+
+</body>
+
+</html>
+
+  ''';
 }

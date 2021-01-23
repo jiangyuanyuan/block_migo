@@ -36,6 +36,9 @@ class FeedbackPage extends StatelessWidget {
               SettingCell(title: I18n.of(context).feedmines, onTap: () {
                 _pushname(context, ConstHTML.minesexpla, ConstHTML.minesexpla_en, I18n.of(context).feedmines);
               },),
+              SettingCell(title: I18n.of(context).rule, onTap: () {
+                _pushname(context, ConstHTML.rule, ConstHTML.rule_en, I18n.of(context).feedmines);
+              },),
               SettingCell(title: I18n.of(context).feeduse, onTap: () {
                 _pushname(context, ConstHTML.desc, ConstHTML.desc_en, I18n.of(context).feedmines);
               },),

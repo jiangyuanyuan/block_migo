@@ -844,6 +844,10 @@ class I18n implements WidgetsLocalizations {
   String get banknumber => "银行卡号：";
   /// "开户支行："
   String get bankbranch => "开户支行：";
+  /// "交易规则"
+  String get rule => "交易规则";
+  /// "卖家付款信息不吻合，交易取消"
+  String get notrealname => "卖家付款信息不吻合，交易取消";
   /// "提交申诉"
   String get submitapply => "提交申诉";
   /// "您当前正在进行申诉，一旦申诉成功，对方账号将会进入冻结状态。请小心操作，恶意申诉者，核实后将被系统冻结"
@@ -2078,6 +2082,12 @@ class _I18n_en_US extends I18n {
   /// "Total price"
   @override
   String get selltotalprice => "Total price";
+  /// "Trading Rules"
+  @override
+  String get rule => "Trading Rules";
+  /// "Payment info error, cancelled"
+  @override
+  String get notrealname => "Payment info error, cancelled";
   /// "Submit an Appeal"
   @override
   String get submitapply => "Submit an Appeal";

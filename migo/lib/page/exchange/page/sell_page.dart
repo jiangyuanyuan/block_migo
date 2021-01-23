@@ -117,7 +117,7 @@ class _SellPageState extends State<SellPage> {
     }, success: (data) {
       EasyLoading.showToast(I18n.of(context).success);
       Navigator.pop(context, {"refresh": true});
-    }, fail: (msg) => EasyLoading.showToast(msg),);
+    }, fail: (msg) => EasyLoading.showToast(msg));
   }
 
   Widget _createBottom(BuildContext context) {
@@ -154,6 +154,17 @@ class _SellPageState extends State<SellPage> {
                     ),
                   ),
                 ),
+                EndTimeView(
+                  endtime: 0,
+                  onTap: () {
+                    Alert.showViewDialog(context, AlertChooseApplyView(
+                      titles: [I18n.of(context).notrealname],
+                      onTap: (sender) {
+                        _applyOrder(6);
+                      },
+                    ));
+                  },
+                ),
                 BtnImageBottomView(
                   title: I18n.of(context).rsurepay,
                   onTap: () {
@@ -163,9 +174,24 @@ class _SellPageState extends State<SellPage> {
               ],
             );
           } else {
-            return BtnImageBottomView(
-              title: I18n.of(context).rpayinfo,
-              onTap: () => _requestChangePay(context),
+            return Column(
+              children: [
+                EndTimeView(
+                  endtime: 0,
+                  onTap: () {
+                    Alert.showViewDialog(context, AlertChooseApplyView(
+                      titles: [I18n.of(context).notrealname],
+                      onTap: (sender) {
+                        _applyOrder(6);/// 付款信息不符合交易取消
+                      },
+                    ));
+                  },
+                ),
+                BtnImageBottomView(
+                  title: I18n.of(context).rpayinfo,
+                  onTap: () => _requestChangePay(context),
+                ),
+              ],
             );
           }
         }

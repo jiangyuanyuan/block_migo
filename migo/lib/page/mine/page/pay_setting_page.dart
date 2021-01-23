@@ -8,6 +8,8 @@ import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/page/contract/view/choose_coin_view.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 
 import '../../../common/commview/alert.dart';
 import '../../../common/util/tool.dart';
@@ -67,7 +69,10 @@ class _PaySettingPageState extends State<PaySettingPage> {
     EventBus.instance.addListener(EventKeys.RefreshQrCode, (arg) { 
       _controller1.text = arg;
     });
-
+    Future.delayed(const Duration(milliseconds: 100)).then((value) {
+      final temp = Provider.of<UserModel>(context, listen: false).data;
+      _controller.text = temp.realName;
+    });
   }
 
   @override
@@ -220,10 +225,21 @@ class _PaySettingPageState extends State<PaySettingPage> {
                     children: [
                       Text(I18n.of(context).susername, style: AppFont.textStyle(12, color: Colors.black.withOpacity(0.5)),),
                       SizedBox(height: 10,),
-                      NormalTextfield(
-                        hintText: I18n.of(context).susernameplease,
-                        controller: _controller,
-                        focusNode: _focusNode,
+                      IgnorePointer(
+                        ignoring: true,
+                        child: Stack(
+                          children: [
+                            NormalTextfield(
+                              hintText: I18n.of(context).susernameplease,
+                              controller: _controller,
+                              focusNode: _focusNode,
+                            ),
+                            Positioned.fill(child: Container(
+                              color: Colors.grey.withOpacity(0.5),
+                              margin: EdgeInsets.all(4),
+                            ))
+                          ],
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 10, bottom: 20.0),
