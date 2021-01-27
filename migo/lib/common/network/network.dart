@@ -16,8 +16,9 @@ enum HTTPMETHOD {
    DELETE
 }
 
-const String _Host = "http://www.migoap.com:8079/";
-const String _Host_test = "http://120.78.65.149:8079/";
+// const String _Host = "http://d39zs9rlff2e2c.cloudfront.net:8079/";
+const String _Host = "http://api.0bas7l.cn/";
+const String _Host_test = "http://120.25.153.148:8079/";
 // const String _Host_test = "http://192.168.0.112:8097/";
 
 class Networktool {
@@ -96,7 +97,7 @@ class Networktool {
     } catch (e) {
       if(finaly != null) finaly();
       print(e.toString());
-      if(fail != null)fail(e.toString());
+      if(fail != null)fail("您目前的网络不佳或服务器目前过于繁忙，建议切换流量或WIFI，再次尝试登录");
     }
     
 
@@ -122,7 +123,8 @@ class Networktool {
         if(response.data is Map) {
           fail(response.data["msg"].toString());
         } else {
-          fail(response.toString());
+          // fail(response.toString());
+          fail("您目前的网络不佳或服务器目前过于繁忙，建议切换流量或WIFI，再次尝试登录");
         }
       }
     }
@@ -185,7 +187,8 @@ class Networktool {
     try{
       response = await Dio().post(url, data: formData, options: options);
     } catch (e) {
-      fail(e.toString());
+      // fail("您目前的网络不佳，建议切换流量或WIFI，再次尝试登录");
+      fail("您目前的网络不佳或服务器目前过于繁忙，建议切换流量或WIFI，再次尝试登录");
       return;
     }
     
@@ -202,7 +205,8 @@ class Networktool {
         if(response.data is Map) {
           fail(response.data["msg"].toString());
         } else {
-          fail(response.toString());
+          // fail(response.toString());
+          fail("您目前的网络不佳或服务器目前过于繁忙，建议切换流量或WIFI，再次尝试登录");
         }
       }
     }

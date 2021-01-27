@@ -71,7 +71,14 @@ class _PaySettingPageState extends State<PaySettingPage> {
     });
     Future.delayed(const Duration(milliseconds: 100)).then((value) {
       final temp = Provider.of<UserModel>(context, listen: false).data;
-      _controller.text = temp.realName;
+      if(temp.realName == null) {
+        _controller.clear();
+        Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).servicehelp, callback: () {
+          Navigator.pop(context);
+        });
+      } else {
+        _controller.text = temp.realName;
+      }
     });
   }
 

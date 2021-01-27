@@ -846,6 +846,8 @@ class I18n implements WidgetsLocalizations {
   String get bankbranch => "开户支行：";
   /// "交易规则"
   String get rule => "交易规则";
+  /// "请及时联系客服协助"
+  String get servicehelp => "请及时联系客服协助";
   /// "卖家付款信息不吻合，交易取消"
   String get notrealname => "卖家付款信息不吻合，交易取消";
   /// "提交申诉"
@@ -2085,6 +2087,9 @@ class _I18n_en_US extends I18n {
   /// "Trading Rules"
   @override
   String get rule => "Trading Rules";
+  /// "Please contact customer service for assistance in time"
+  @override
+  String get servicehelp => "Please contact customer service for assistance in time";
   /// "Payment info error, cancelled"
   @override
   String get notrealname => "Payment info error, cancelled";

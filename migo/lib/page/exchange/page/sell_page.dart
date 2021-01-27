@@ -109,15 +109,18 @@ class _SellPageState extends State<SellPage> {
   }
 
   // 申诉类型 1 状态为买家付款时,卖家点(买家已付款,确认放币) 2 状态为买家付款时 卖家点(买家未付款，交易取消) 3 状态为卖家放币时 卖家点(买家未付款，交易取消) 4 状态为卖家放币时 买家点(我已付款，卖家未放币)
-  Widget _applyOrder(int type) {
-    EasyLoading.show(status: "Loading...");
-    Networktool.request(API.otctappealOrder, params: {
-      	"appealType": type,
-	      "id": detailModel.id
-    }, success: (data) {
-      EasyLoading.showToast(I18n.of(context).success);
-      Navigator.pop(context, {"refresh": true});
-    }, fail: (msg) => EasyLoading.showToast(msg));
+  void _applyOrder(int type) {
+    Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (pwd) {
+      EasyLoading.show(status: "Loading...");
+      Networktool.request(API.otctappealOrder, params: {
+          "appealType": type,
+          "id": detailModel.id,
+          "txPassword": Tool.generateMd5(pwd)
+      }, success: (data) {
+        EasyLoading.showToast(I18n.of(context).success);
+        Navigator.pop(context, {"refresh": true});
+      }, fail: (msg) => EasyLoading.showToast(msg));
+    },));
   }
 
   Widget _createBottom(BuildContext context) {

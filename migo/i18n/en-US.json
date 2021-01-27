@@ -79,6 +79,7 @@
     "reward": "Reward",
     "withdrawnoticerule":"1. The minimum withdrawal amount is {e}.\n2. A portion of the handling fee will be deducted for withdrawals, which are based on the actual receipt.\n3. The actual receipt amount will be subject to a certain review and judgment. The withdrawal limit is the benchmark.\n4. To ensure the safety of your funds, when you change your password or other security-related personal information, we will conduct a manual review of the withdrawal.",
     "currentlevel": "My level",
+    "servicehelp":"Please contact customer service for assistance in time",
     "everyactiveuser": "Every active user",
     "cumulativepledgedmining": "Cumulative pledged mining",
     "compliancelevel": "Compliance level",
