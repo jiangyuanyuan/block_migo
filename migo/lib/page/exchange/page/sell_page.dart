@@ -108,7 +108,7 @@ class _SellPageState extends State<SellPage> {
     );
   }
 
-  // 申诉类型 1 状态为买家付款时,卖家点(买家已付款,确认放币) 2 状态为买家付款时 卖家点(买家未付款，交易取消) 3 状态为卖家放币时 卖家点(买家未付款，交易取消) 4 状态为卖家放币时 买家点(我已付款，卖家未放币)
+  // 申诉类型 2 状态为买家付款时,卖家点(买家已付款,确认放币) 1 状态为买家付款时 卖家点(买家未付款，交易取消) 3 状态为卖家放币时 卖家点(买家未付款，交易取消) 4 状态为卖家放币时 买家点(我已付款，卖家未放币), 5: 未付全款, 6: 信息不符合交易取消
   void _applyOrder(int type) {
     Alert.showBottomViewDialog(context, AlertPasswordView(onSure: (pwd) {
       EasyLoading.show(status: "Loading...");
@@ -247,9 +247,9 @@ class _SellPageState extends State<SellPage> {
                     titles: [I18n.of(context).buynotpay, I18n.of(context).buypaiad, I18n.of(context).notpayall],
                     onTap: (sender) {
                       if(sender == 0) {
-                        _applyOrder(1);
+                        _applyOrder(1); /// 买家未付款, 交易取消
                       } else if(sender == 1){
-                        _applyOrder(2);
+                        _applyOrder(2); /// 买家已付款,
                       } else {
                         _applyOrder(5);
                       }
