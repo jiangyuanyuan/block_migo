@@ -141,9 +141,11 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
           Provider.of<UserModel>(context, listen: false).setModel(model);
           Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
         },fail: (e) {
-          setState(() {
-            showerror = true;
-          });
+          if(mounted) {
+            setState(() {
+              showerror = true;
+            });
+          }
           EasyLoading.showError(e);
         });
       }

@@ -438,8 +438,8 @@ class I18n implements WidgetsLocalizations {
   String get authnotice => "姓名、证件号首次提交后无法更改，为避免填写虚假信息导致充值、提现无法审核通过，请您慎重填写真实信息。";
   /// "我的邀请码: "
   String get myinvitecode => "我的邀请码: ";
-  /// "邀请5个好友并完成实名认证 \n 即可获得一个盲盒"
-  String get myinvitecodenotice => "邀请5个好友并完成实名认证 \n 即可获得一个盲盒";
+  /// "邀请10个好友并完成实名认证 \n 即可获得一个盲盒"
+  String get myinvitecodenotice => "邀请10个好友并完成实名认证 \n 即可获得一个盲盒";
   /// "邀请链接"
   String get invitelink => "邀请链接";
   /// "保存海报"
@@ -1487,9 +1487,9 @@ class _I18n_en_US extends I18n {
   /// "Invitation code: "
   @override
   String get myinvitecode => "Invitation code: ";
-  /// "Invite 5 friends and complete real-name authentication \n to get a blind box"
+  /// "Invite 10 friends and complete real-name authentication \n to get a blind box"
   @override
-  String get myinvitecodenotice => "Invite 5 friends and complete real-name authentication \n to get a blind box";
+  String get myinvitecodenotice => "Invite 10 friends and complete real-name authentication \n to get a blind box";
   /// "Invite Link"
   @override
   String get invitelink => "Invite Link";
