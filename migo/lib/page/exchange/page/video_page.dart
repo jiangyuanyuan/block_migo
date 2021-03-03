@@ -21,8 +21,6 @@ class VideoApp extends StatefulWidget {
 class _VideoAppState extends State<VideoApp> {
   VideoPlayerController _controller;
   ExhangeModel model;
-  Timer _timer;
-
   @override
   void initState() {
     super.initState();
@@ -56,15 +54,19 @@ class _VideoAppState extends State<VideoApp> {
             _jumppage(context);
           }
         }, fail: (msg) =>{
-           Navigator.popAndPushNamed(context,"/root"),
+           // Navigator.popAndPushNamed(context,"/root"),
            EasyLoading.showToast(msg),
+           Navigator.pop(context),
          } );
+
 
         }
 
       })
     ;
   }
+
+  Timer _timer;
 
   void _jumppage(BuildContext context) {
     EasyLoading.show(status: 'Loading...');
@@ -74,10 +76,11 @@ class _VideoAppState extends State<VideoApp> {
       EasyLoading.dismiss();
       final temp = SellDetailResponse.fromJson(data);
       temp.data.sellMobile = "--";
-      final res = await Navigator.pushNamed(context, "/sell", arguments: {"model": temp.data, "issell": true});
+      final res = await Navigator.popAndPushNamed(context, "/sell", arguments: {"model": temp.data, "issell": true});
     }, fail: (msg) => {
-      Navigator.popAndPushNamed(context,"/root"),
+      // Navigator.popAndPushNamed(context,"/root"),
       EasyLoading.showToast(msg),
+      Navigator.pop(context),
     });
   }
 
