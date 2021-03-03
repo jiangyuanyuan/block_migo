@@ -47,13 +47,13 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("/Users/zoulin/key.jks")
+            storeFile file("/Users/jiangyuanyuan/dev/flutterwork/migo/migo/android/key.jks")
             storePassword "111111"
             keyAlias "key"
             keyPassword "111111"
         }
         debug {//debug版签名配置
-            storeFile file("/Users/zoulin/key.jks")
+            storeFile file("/Users/jiangyuanyuan/dev/flutterwork/migo/migo/android/key.jks")
             storePassword "111111"
             keyAlias "key"
             keyPassword "111111"
