@@ -18,19 +18,21 @@ class ExchangeCell extends StatelessWidget {
   
 
   void _submit(BuildContext context) {
-    EasyLoading.show(status: "Loading...");
-    Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
-      final temp = MinePaymethodResponse.fromJson(data);
-      if(temp.data.length == 0) {
-        EasyLoading.dismiss();
-        Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).addpaymethod, callback: () {
-          // Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});
-          Navigator.pushNamed(context, "/paysetting", arguments: {"payways":[1,2,3]});
-        });
-      } else {
-        _jumppage(context);
-      }
-    }, fail: (msg) => EasyLoading.showToast(msg),);
+    // EasyLoading.show(status: "Loading...");
+
+    Navigator.pushNamed(context, "/adVideo",arguments: {"model": model});
+    // Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
+    //   final temp = MinePaymethodResponse.fromJson(data);
+    //   if(temp.data.length == 0) {
+    //     EasyLoading.dismiss();
+    //     Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).addpaymethod, callback: () {
+    //       // Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});
+    //       Navigator.pushNamed(context, "/paysetting", arguments: {"payways":[1,2,3]});
+    //     });
+    //   } else {
+    //     _jumppage(context);
+    //   }
+    // }, fail: (msg) => EasyLoading.showToast(msg),);
   }
 
   void _jumppage(BuildContext context) {

@@ -8,7 +8,7 @@ class AppConst {
   ///
   /// 修改这个,注意修改single => websocket的地址
   ///
-  static const bool APP_IS_RELEASE = true;
+  static const bool APP_IS_RELEASE = false;
 
   ///
   /// usertoken

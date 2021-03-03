@@ -10,6 +10,7 @@ import 'package:migo/page/contract/page/reflect_success_page.dart';
 import 'package:migo/page/exchange/page/exchange_buy_page.dart';
 import 'package:migo/page/exchange/page/exchange_record_page.dart';
 import 'package:migo/page/exchange/page/sell_page.dart';
+import 'package:migo/page/exchange/page/video_page.dart';
 import 'package:migo/page/home/page/home_detail_page.dart';
 import 'package:migo/page/home/page/notice_page.dart';
 import 'package:migo/page/home/page/web_page.dart';
@@ -105,6 +106,7 @@ final routes = {
   '/paymain': (context,{arguments}) => PayMainPage(),// 第一次登录密码设置
   '/sell': (context,{arguments}) => SellPage(params: arguments,),// 第一次登录密码设置
   '/autoaccount': (context,{arguments}) => AutoAccountPage(),// 第一次登录密码设置
+  '/adVideo': (context,{arguments}) => VideoApp(params: arguments,),// 视频广告
 };
 
 var onGenerateRoute = (RouteSettings settings) {
