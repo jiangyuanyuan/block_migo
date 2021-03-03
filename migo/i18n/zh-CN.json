@@ -378,6 +378,7 @@
     "rnotsure":"待确认",
     "rfinish":"已完成",
     "rnotfinish":"已撤销",
+    "revoke":"撤销",
     "rtitle":"交易订单",
     "rsell":"出售",
     "rsurepay":"确认已支付",

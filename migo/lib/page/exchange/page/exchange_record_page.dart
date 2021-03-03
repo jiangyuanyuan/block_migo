@@ -201,7 +201,7 @@ class _ExchangeRecordPageState extends State<ExchangeRecordPage> {
                     itemCount: orderType == 3 ? listad.length : list.length,
                     itemBuilder: (context, index) {
                       if(orderType == 3) {
-                        return AdDelegateCell(model: listad[index], orderType: 1,);
+                        return AdDelegateCell(model: listad[index], orderType: 1,onRefresh: () => _refreshController.requestRefresh());
                       } else {
                         final model = list[index];
                         return ExchangeRecordCell(model: model, orderType: orderType, onChangeStatus: (payid, orderid, adid) {

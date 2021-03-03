@@ -72,21 +72,23 @@ class MyAdDelegateModel {
   num priceRate;
   int status;
   int createTime;
+  int cancel;
 
   MyAdDelegateModel(
       {this.id,
-      this.adNo,
-      this.orderNumber,
-      this.freezingNumber,
-      this.orderType,
-      this.orderPrice,
-      this.userId,
-      this.orderAmount,
-      this.orderPayWay,
-      this.priceType,
-      this.priceRate,
-      this.status,
-      this.createTime});
+        this.adNo,
+        this.orderNumber,
+        this.freezingNumber,
+        this.orderType,
+        this.orderPrice,
+        this.userId,
+        this.orderAmount,
+        this.orderPayWay,
+        this.priceType,
+        this.priceRate,
+        this.status,
+        this.cancel,
+        this.createTime});
 
   MyAdDelegateModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -101,6 +103,7 @@ class MyAdDelegateModel {
     priceType = json['priceType'];
     priceRate = json['priceRate'];
     status = json['status'];
+    cancel = json['cancel'];
     createTime = json['createTime'];
   }
 
@@ -118,6 +121,7 @@ class MyAdDelegateModel {
     data['priceType'] = this.priceType;
     data['priceRate'] = this.priceRate;
     data['status'] = this.status;
+    data['cancel'] = this.cancel;
     data['createTime'] = this.createTime;
     return data;
   }

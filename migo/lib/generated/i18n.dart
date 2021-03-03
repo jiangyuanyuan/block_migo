@@ -744,6 +744,8 @@ class I18n implements WidgetsLocalizations {
   String get rfinish => "已完成";
   /// "已撤销"
   String get rnotfinish => "已撤销";
+  /// "撤销"
+  String get revoke => "撤销";
   /// "交易订单"
   String get rtitle => "交易订单";
   /// "出售"

@@ -347,6 +347,7 @@
     "rnotsure":"To be confirmed",
     "rfinish":"Finished",
     "rnotfinish":"Revoked",
+    "revoke":"Revoke",
     "rtitle":"Trade Order",
     "rsell":"Sale",
     "rsurepay":"Confirm paid",

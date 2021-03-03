@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/common/network/network.dart';
 
 import '../../../common/textstyle/textstyle.dart';
 
@@ -10,7 +12,10 @@ import '../model/otc_order_model.dart';
 class AdDelegateCell extends StatelessWidget {
   final MyAdDelegateModel model;
   final int orderType;
-  const AdDelegateCell({Key key, this.model, this.orderType}) : super(key: key);
+  final Function onRefresh;
+
+
+  const AdDelegateCell({Key key, this.model, this.orderType, this.onRefresh}) : super(key: key);
   Color _getColor() {
     switch (model.status) {
       case 1:
@@ -57,6 +62,20 @@ class AdDelegateCell extends StatelessWidget {
         return Text(I18n.of(context).rnotfinish, style: AppFont.textStyle(12, color: _getColor()),);
     }
   }
+  void _revoke(String id) {
+
+    String url = API.myadCancel;
+    EasyLoading.show(status: "Loading...");
+    Networktool.request(url, method: HTTPMETHOD.POST, params: {
+      "id":id,
+    }, success: (data) {
+      EasyLoading.showToast("撤销成功");
+      if(onRefresh != null) onRefresh();
+    }, fail: (msg) => EasyLoading.showToast(msg)
+        , finaly: () => EasyLoading.dismiss());
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -114,9 +133,26 @@ class AdDelegateCell extends StatelessWidget {
                     Text(Tool.timeFormat("yyyy-MM-dd HH:mm", model.createTime), style: AppFont.textStyle(12, color: AppColor.back998),),
                   ],
                 ),
+                SizedBox(height: 8,),
+                Visibility(
+                  child: InkWell(
+                    onTap: () {
+                      _revoke(model.id);
+                    },
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.horizontal(left: Radius.circular(4)),
+                          color: orderType == 1 ? Colors.white : Colors.transparent,
+                          border: Border.all(width: 1, color: orderType == 1 ? Colors.white : const Color(0xffDBF0FF))
+                      ),
+                      child: Text(I18n.of(context).revoke, style: AppFont.textStyle(14, color: _getColor(), fontWeight: FontWeight.bold),),
+                    ),
+                  ),
+                  visible: model.cancel==1,),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
