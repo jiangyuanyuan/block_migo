@@ -19,7 +19,7 @@ enum HTTPMETHOD {
 // const String _Host = "http://d39zs9rlff2e2c.cloudfront.net:8079/";
 // const String _Host = "http://api.0bas7l.cn/";
 const String _Host = "https://api.migoap.xyz/";
-const String _Host_test = "http://120.25.153.148:8079/";
+const String _Host_test = "http://93.179.126.85:8079/";
 // const String _Host_test = "http://192.168.0.112:8097/";
 
 class Networktool {

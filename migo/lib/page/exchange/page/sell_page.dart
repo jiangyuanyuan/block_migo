@@ -7,6 +7,7 @@ import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/login&regist/view/normal_textfield.dart';
 import 'package:migo/page/contract/view/alert_password_view.dart';
 import 'package:migo/page/exchange/model/sell_detail_model.dart';
 import 'package:migo/page/exchange/view/alert_choose_apply.dart';
@@ -37,6 +38,14 @@ class _SellPageState extends State<SellPage> {
   /// 1买入, 2卖出
   int ordertype = 2;
   bool issell = true;
+
+  FocusNode _pwdNode = FocusNode();
+  TextEditingController _pwdController = TextEditingController();
+
+  bool ispwd = true;
+
+
+
   @override
   void initState() {
     super.initState();
@@ -65,6 +74,12 @@ class _SellPageState extends State<SellPage> {
     }
   }
 
+  @override
+  void dispose() {
+    _pwdController.dispose();
+    super.dispose();
+  }
+
   void _submit() {
     final user = Provider.of<UserModel>(context, listen: false).data;
     if(user.txPassword == null || user.txPassword == "") {
@@ -78,6 +93,7 @@ class _SellPageState extends State<SellPage> {
       Networktool.request(API.sureaddOrder, params: {
         "adId": detailModel.adId,
         "orderNo": detailModel.orderNo,
+        "userCode": _pwdController.text,
         "txPassword": Tool.generateMd5(sender)
       }, success: (data) {
         EasyLoading.showToast(I18n.of(context).success);
@@ -473,6 +489,38 @@ class _SellPageState extends State<SellPage> {
                         ),
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24.0, top: 10, bottom: 10,right: 24),
+                      child: Stack(
+                        children: [
+                          NormalTextfield(
+                            focusNode: _pwdNode,
+                            controller: _pwdController,
+                            hintText: I18n.of(context).verificationcode,
+
+                          ),
+                          Positioned(
+                              top: 10,
+                              right: 20,
+                              bottom: 10,
+                              child: Container(
+                                alignment: Alignment.center,
+                                child: InkWell(
+                                  onTap: () {
+                                    final temp = Provider.of<UserModel>(context, listen: false).data;
+                                    Networktool.request(API.sms + temp.internationalCode+"_"+temp.mobile+"/1", method: HTTPMETHOD.GET, success: (data){
+                                      EasyLoading.showToast(I18n.of(context).success,);
+                                    },finaly: () => EasyLoading.dismiss());
+                                  },
+                                  child: Text(I18n.of(context).getcoude, style: AppFont.textStyle(14, color: Colors.blue, fontWeight: FontWeight.bold),),
+                                ),
+                              )
+
+                          )],
+
+                      ),
+                    ),
+                    
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: step == 1 ? BtnImageBottomView(

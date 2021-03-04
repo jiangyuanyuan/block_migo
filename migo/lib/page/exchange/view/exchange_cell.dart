@@ -9,6 +9,8 @@ import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/exchange/model/exchange_model.dart';
 import 'package:migo/page/exchange/model/sell_detail_model.dart';
 import 'package:migo/page/mine/model/mine_pay_model.dart';
+import 'package:migo/provider/user.dart';
+import 'package:provider/provider.dart';
 
 class ExchangeCell extends StatelessWidget {
   final int index;
@@ -19,8 +21,10 @@ class ExchangeCell extends StatelessWidget {
 
   void _submit(BuildContext context) {
     // EasyLoading.show(status: "Loading...");
-
+    // Navigator.pushNamed(context, "/sell", arguments: {"model": temp.data, "issell": true});
     Navigator.pushNamed(context, "/adVideo",arguments: {"model": model});
+
+
     // Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
     //   final temp = MinePaymethodResponse.fromJson(data);
     //   if(temp.data.length == 0) {
@@ -33,6 +37,7 @@ class ExchangeCell extends StatelessWidget {
     //     _jumppage(context);
     //   }
     // }, fail: (msg) => EasyLoading.showToast(msg),);
+    // _jumppage(context);
   }
 
   void _jumppage(BuildContext context) {
