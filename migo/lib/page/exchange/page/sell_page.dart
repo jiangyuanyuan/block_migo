@@ -8,6 +8,7 @@ import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/login&regist/view/normal_textfield.dart';
+import 'package:migo/login&regist/view/sms_counter.dart';
 import 'package:migo/page/contract/view/alert_password_view.dart';
 import 'package:migo/page/exchange/model/sell_detail_model.dart';
 import 'package:migo/page/exchange/view/alert_choose_apply.dart';
@@ -43,6 +44,7 @@ class _SellPageState extends State<SellPage> {
   TextEditingController _pwdController = TextEditingController();
 
   bool ispwd = true;
+  String phone = "";
 
 
 
@@ -54,6 +56,9 @@ class _SellPageState extends State<SellPage> {
     if(detailModel.orderPayWay != null) {
       paymethod = detailModel.orderPayWay.split(",").toSet();
     }
+
+    final temp = Provider.of<UserModel>(context, listen: false).data;
+    phone = temp.internationalCode+"_"+temp.mobile.toString();
     if(widget.params["step"] != null) {
       // step = widget.params["step"];
       switch (detailModel.status) {
@@ -505,15 +510,7 @@ class _SellPageState extends State<SellPage> {
                               bottom: 10,
                               child: Container(
                                 alignment: Alignment.center,
-                                child: InkWell(
-                                  onTap: () {
-                                    final temp = Provider.of<UserModel>(context, listen: false).data;
-                                    Networktool.request(API.sms + temp.internationalCode+"_"+temp.mobile+"/1", method: HTTPMETHOD.GET, success: (data){
-                                      EasyLoading.showToast(I18n.of(context).success,);
-                                    },finaly: () => EasyLoading.dismiss());
-                                  },
-                                  child: Text(I18n.of(context).getcoude, style: AppFont.textStyle(14, color: Colors.blue, fontWeight: FontWeight.bold),),
-                                ),
+                                child: SmsCounterView(phone: phone, isemail: false,),
                               )
 
                           )],
