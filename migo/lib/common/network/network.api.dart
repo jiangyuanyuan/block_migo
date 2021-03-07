@@ -3,6 +3,8 @@ class API {
   
   /// banner图数据1 首页 2理财页
   static const String banner = "user/bBanner/getBanner/";
+  static const String gtRegister = "user/gt/register";
+  static const String gtValidate = "user/gt/gValidate";
   /// 获取验证码, 获取邮箱验证码
   static const String sms = "sms/sms/sendPhone/";
   static const String emailcode = "sms/email/sendEmailCode/";

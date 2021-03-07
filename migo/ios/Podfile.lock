@@ -24,6 +24,9 @@ PODS:
   - Flutter (1.0.0)
   - flutter_des (0.0.1):
     - Flutter
+  - flutter_geetest_plugin (0.2.2):
+    - Flutter
+    - GT3Captcha-iOS
   - flutter_sim_country_code (0.0.1):
     - Flutter
   - flutter_statusbarcolor (0.0.1):
@@ -31,6 +34,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - GT3Captcha-iOS (0.14.6)
   - image_gallery_saver (1.5.0):
     - Flutter
   - image_pickers (0.0.1):
@@ -75,6 +79,7 @@ DEPENDENCIES:
   - devicelocale (from `.symlinks/plugins/devicelocale/ios`)
   - Flutter (from `Flutter`)
   - flutter_des (from `.symlinks/plugins/flutter_des/ios`)
+  - flutter_geetest_plugin (from `.symlinks/plugins/flutter_geetest_plugin/ios`)
   - flutter_sim_country_code (from `.symlinks/plugins/flutter_sim_country_code/ios`)
   - flutter_statusbarcolor (from `.symlinks/plugins/flutter_statusbarcolor/ios`)
   - image_gallery_saver (from `.symlinks/plugins/image_gallery_saver/ios`)
@@ -95,6 +100,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - FMDB
+    - GT3Captcha-iOS
     - MTBBarcodeScanner
     - Reachability
     - SDWebImage
@@ -111,6 +117,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_des:
     :path: ".symlinks/plugins/flutter_des/ios"
+  flutter_geetest_plugin:
+    :path: ".symlinks/plugins/flutter_geetest_plugin/ios"
   flutter_sim_country_code:
     :path: ".symlinks/plugins/flutter_sim_country_code/ios"
   flutter_statusbarcolor:
@@ -149,9 +157,11 @@ SPEC CHECKSUMS:
   devicelocale: feebbe5e7a30adb8c4f83185de1b50ff19b44f00
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_des: af0bb83f27f1468ad652d907958b1d42d5644544
+  flutter_geetest_plugin: c80d01ab4c76ae70f2bc413816bb26953fa06b09
   flutter_sim_country_code: 364e91e71f067cdec1dd1228eb4d1f13ab1a54e5
   flutter_statusbarcolor: 8afb1071ed8c58be929f1e32b36c629771fd2259
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  GT3Captcha-iOS: 74c7d5b208c6d9f4ff24f589e8d55a8318d86e18
   image_gallery_saver: 259eab68fb271cfd57d599904f7acdc7832e7ef2
   image_pickers: 42e1a69c6ef9ea90e3d8dc5e0d7665e8d799f6fa
   install_plugin: a13e7ddd2bab0c701b48cd359c26d0394125b6fb
@@ -170,6 +180,6 @@ SPEC CHECKSUMS:
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
   ZLPhotoBrowser: 638189d99c51f78013c9a0369e385db4a4b9673f
 
-PODFILE CHECKSUM: a75497545d4391e2d394c3668e20cfb1c2bbd4aa
+PODFILE CHECKSUM: 4c049ca18cea87671d52cce6b688acf84327c0bc
 
 COCOAPODS: 1.10.1

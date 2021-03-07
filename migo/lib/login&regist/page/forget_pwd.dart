@@ -1,3 +1,4 @@
+import 'package:migo/common/authbyimage/geetest_verfied.dart';
 import 'package:migo/common/commview/bottom_buttom.dart';
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/network/network.dart';
@@ -27,10 +28,12 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
       EasyLoading.showInfo("请输入11位手机号码");
       return;
     }
-    EasyLoading.show(status: "Loading...");
-    Networktool.request(API.sms + _controller.text, method: HTTPMETHOD.GET, success: (data){
-      Navigator.pushNamed(context, "/smscode", arguments: {"phone":_controller.text, "forget": true, "code": data["data"]});
-    },finaly: () => EasyLoading.dismiss());
+    GeetestVerfied.show((geetestResult) {
+      EasyLoading.show(status: "Loading...");
+      Networktool.requestGeetest(API.sms + _controller.text, method: HTTPMETHOD.GET, success: (data){
+        Navigator.pushNamed(context, "/smscode", arguments: {"phone":_controller.text, "forget": true, "code": data["data"]});
+      },finaly: () => EasyLoading.dismiss(),geetestParams :geetestResult);
+    });
   }
 
   void _userisRegist() {

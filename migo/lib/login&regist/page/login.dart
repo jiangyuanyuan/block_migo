@@ -1,7 +1,10 @@
 import 'dart:io';
 
 import 'package:device_info/device_info.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_geetest_plugin/flutter_geetest_plugin.dart';
 import 'package:migo/common/authbyimage/auth_manager.dart';
+import 'package:migo/common/authbyimage/geetest_verfied.dart';
 import 'package:migo/common/authbyimage/wangyi_verfied.dart';
 import 'package:migo/common/commview/alert.dart';
 import 'package:migo/common/commview/appbar.dart';
@@ -52,8 +55,41 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     if(widget.param != null) {
       modtype = widget.param["modtype"];
     }
+    initPlatformState();
     Future.delayed(const Duration(milliseconds: 100)).then((value) => _requestStatus());
   }
+
+
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initPlatformState() async {
+    String platformVersion;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      platformVersion = await FlutterGeetestPlugin.platformVersion;
+    } on PlatformException {
+      platformVersion = 'Failed to get platform version.';
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+
+  }
+
+  Future<void> getGeetest() async {
+    String result;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      result = await FlutterGeetestPlugin.getGeetest("http://93.179.126.85:8070/"+API.gtRegister, "http://93.179.126.85:8070/"+API.gtValidate);
+    } on Exception {
+//      platformVersion = 'Failed to get platform version.';
+    }
+    print("#######"+result);
+  }
+
 
   void _requestStatus() {
     EasyLoading.showToast("Loading...");
@@ -69,10 +105,14 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
 
   void _jumpSmsCode() {
     if(_controller.text.isEmpty) return;
-    EasyLoading.show(status: "Loading...");
-    Networktool.request(API.sms + _controller.text, method: HTTPMETHOD.GET, success: (data){
-      Navigator.pushNamed(context, "/smscode", arguments: {"phone":_controller.text, "code": data["data"]});
-    },finaly: () => EasyLoading.dismiss());
+
+    GeetestVerfied.show((geetestResult) {
+      EasyLoading.show(status: "Loading...");
+      Networktool.requestGeetest(API.sms + _controller.text, method: HTTPMETHOD.GET, success: (data){
+        Navigator.pushNamed(context, "/smscode", arguments: {"phone":_controller.text, "code": data["data"]});
+      },finaly: () => EasyLoading.dismiss(),geetestParams: geetestResult);
+    });
+
   }
 
   void _login(String account, String pwd, String code, bool isemail) async {
@@ -121,35 +161,41 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       IosDeviceInfo info = await deviceInfo.iosInfo;
       deviceId = info.identifierForVendor;
     }
+    GeetestVerfied.show((geetestResult) {
+      EasyLoading.showToast("Loading...");
+      // 登录类型 1手机号 2邮箱
+      Networktool.requestGeetest(API.login, params: {
+        "loginType": isemail ? 2 : 1,
+        "passWord": Tool.generateMd5(pwd),
+        "userNumber": account,
+        "deviceNo":deviceId
+      }, success: (data) {
+        EasyLoading.dismiss();
+        final temp = data["data"];
+        UserInfoModel model = UserInfoModel.fromJson(temp["user"]);
+        // 保存token
+        SharedPreferences.getInstance().then((value) => value.setString(AppConst.KEY_user_token, temp["token"]));
+        // 更新用户信息
+        Provider.of<UserModel>(context, listen: false).setModel(model);
+        Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
+      },fail: (e) {
+        if(mounted) {
+          setState(() {
+            showerror = true;
+          });
+        }
+        // EasyLoading.showError(e);
+      },geetestParams:geetestResult);
 
-    WangyVerfied.showCaptcha((issuccess) {
-      if(issuccess) {
-        EasyLoading.showToast("Loading...");
-        // 登录类型 1手机号 2邮箱
-        Networktool.request(API.login, params: {
-            "loginType": isemail ? 2 : 1,
-            "passWord": Tool.generateMd5(pwd),
-            "userNumber": account,
-            "deviceNo":deviceId
-        }, success: (data) {
-          EasyLoading.dismiss();
-          final temp = data["data"];
-          UserInfoModel model = UserInfoModel.fromJson(temp["user"]);
-          // 保存token
-          SharedPreferences.getInstance().then((value) => value.setString(AppConst.KEY_user_token, temp["token"]));
-          // 更新用户信息
-          Provider.of<UserModel>(context, listen: false).setModel(model);
-          Navigator.of(context).pushNamedAndRemoveUntil('/root', (route) => false);
-        },fail: (e) {
-          if(mounted) {
-            setState(() {
-              showerror = true;
-            });
-          }
-          EasyLoading.showError(e);
-        });
-      }
+
     });
+
+
+
+    // WangyVerfied.showCaptcha((issuccess) {
+    //   if(issuccess) {
+    //
+    // });
   }
 
   String _getTitle(BuildContext context) {

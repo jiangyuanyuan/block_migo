@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:migo/common/authbyimage/geetest_verfied.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/time_tool.dart';
@@ -75,22 +76,26 @@ class _SmsCounterViewState extends State<SmsCounterView> {
         return;
       }
     }
-    EasyLoading.show(status: "Loading...");
-    String url = API.sms + "$phone/1";
-    if(widget.isemail) {
-      url = API.emailcode;
-      Networktool.request(url, method: HTTPMETHOD.POST, params: {
-        "email":phone,
-      }, success: (data){
-        // 回传新发的验证码
-        _beginTimer();
-      },finaly: () => EasyLoading.dismiss());
-    } else {
-       Networktool.request(url, method: HTTPMETHOD.GET, success: (data){
-        // 回传新发的验证码
-        _beginTimer();
-      },finaly: () => EasyLoading.dismiss());
-    }
+    GeetestVerfied.show((geetestResult) {
+      EasyLoading.show(status: "Loading...");
+      String url = API.sms + "$phone/1";
+      if(widget.isemail) {
+        url = API.emailcode;
+        Networktool.requestGeetest(url, method: HTTPMETHOD.POST, params: {
+          "email":phone,
+        }, success: (data){
+          // 回传新发的验证码
+          _beginTimer();
+        },finaly: () => EasyLoading.dismiss(),geetestParams: geetestResult);
+      } else {
+        Networktool.requestGeetest(url, method: HTTPMETHOD.GET, success: (data){
+          // 回传新发的验证码
+          _beginTimer();
+        },finaly: () => EasyLoading.dismiss(),geetestParams: geetestResult);
+      }
+    });
+
+
   }
 
   @override
