@@ -3,6 +3,7 @@ import 'package:migo/common/commview/commback_view.dart';
 import 'package:migo/common/commview/refresh.dart';
 import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/home/view/home_gradient_text.dart';
 import 'package:migo/page/mine/model/mine_team_model.dart';
@@ -54,6 +55,10 @@ class _MineTeamPageState extends State<MineTeamPage> {
     _requestTeam();
     _requestTeam4();
   }
+  void _loading() {
+    EventBus.instance.commit(EventKeys.RefreshLoading, null);
+  }
+
 
   void _requestMoney() {
     Networktool.request(API.myTeamPage2, success: (data) {
@@ -77,7 +82,7 @@ class _MineTeamPageState extends State<MineTeamPage> {
   }
 
   void _requestTeam() {
-    Networktool.request(API.myTeamPage4, success: (data) {
+    Networktool.request(API.myTeamPageStatistics,method:HTTPMETHOD.GET, success: (data) {
       teamModel.leaderDTO = LeaderDTO.fromJson(data["data"]);
       if(mounted) setState(() {
         
@@ -115,6 +120,7 @@ class _MineTeamPageState extends State<MineTeamPage> {
         child: RefreshWidget(
           controller: _refreshController,
           onRefresh: _refresh,
+          onLoading: _loading,
           child: SingleChildScrollView(
             child: Column(
               children: [

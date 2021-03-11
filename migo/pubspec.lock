@@ -233,9 +233,9 @@ packages:
   flutter_geetest_plugin:
     dependency: "direct main"
     description:
-      name: flutter_geetest_plugin
-      url: "https://pub.flutter-io.cn"
-    source: hosted
+      path: "/Users/jiangyuanyuan/dev/flutterwork/flutter_geetest_plugin"
+      relative: false
+    source: path
     version: "1.0.5"
   flutter_gifimage:
     dependency: "direct main"

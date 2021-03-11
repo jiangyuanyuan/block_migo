@@ -6,6 +6,7 @@ import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
 import 'package:migo/common/util/tool.dart';
 import 'package:migo/generated/i18n.dart';
+import 'package:migo/page/exchange/model/Video_model.dart';
 import 'package:migo/page/exchange/model/exchange_model.dart';
 import 'package:migo/page/exchange/model/sell_detail_model.dart';
 import 'package:migo/page/mine/model/mine_pay_model.dart';
@@ -22,22 +23,27 @@ class ExchangeCell extends StatelessWidget {
   void _submit(BuildContext context) {
     // EasyLoading.show(status: "Loading...");
     // Navigator.pushNamed(context, "/sell", arguments: {"model": temp.data, "issell": true});
-    Navigator.pushNamed(context, "/adVideo",arguments: {"model": model});
-
-
-    // Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
-    //   final temp = MinePaymethodResponse.fromJson(data);
-    //   if(temp.data.length == 0) {
-    //     EasyLoading.dismiss();
-    //     Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).addpaymethod, callback: () {
-    //       // Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});
-    //       Navigator.pushNamed(context, "/paysetting", arguments: {"payways":[1,2,3]});
-    //     });
-    //   } else {
-    //     _jumppage(context);
-    //   }
-    // }, fail: (msg) => EasyLoading.showToast(msg),);
-    // _jumppage(context);
+    // Navigator.pushNamed(context, "/adVideo",arguments: {"model": model,"video":List()});
+    Networktool.request(API.videoAd, method: HTTPMETHOD.GET, success: (data) {
+      final temp = VideoModel.fromJson(data);
+      if(temp.data.isNotEmpty){
+        Navigator.pushNamed(context, "/adVideo",arguments: {"model": model,"video":temp.data});
+      }else{
+        Networktool.request(API.userPays, method: HTTPMETHOD.GET, success: (data) {
+          final temp = MinePaymethodResponse.fromJson(data);
+          if(temp.data.length == 0) {
+            EasyLoading.dismiss();
+            Alert.showMsgDialog(context, title: I18n.of(context).notice, msg: I18n.of(context).addpaymethod, callback: () {
+              // Navigator.pushNamed(context, "/login", arguments: {'modtype': 2});
+              Navigator.pushNamed(context, "/paysetting", arguments: {"payways":[1,2,3]});
+            });
+          } else {
+            _jumppage(context);
+          }
+        }, fail: (msg) => EasyLoading.showToast(msg),);
+        _jumppage(context);
+      }
+    });
   }
 
   void _jumppage(BuildContext context) {

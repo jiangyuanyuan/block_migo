@@ -1,12 +1,78 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:migo/common/commview/refresh.dart';
+import 'package:migo/common/network/network.dart';
 import 'package:migo/common/textstyle/textstyle.dart';
+import 'package:migo/common/util/event_bus.dart';
 import 'package:migo/generated/i18n.dart';
 import 'package:migo/page/mine/model/mine_team_model.dart';
+import 'package:migo/page/mine/model/subordinate_leader_model.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class TeamLeadingDetailView extends StatelessWidget {
+class TeamLeadingDetailView extends StatefulWidget {
+
   final int number;
   final List<SubordinateLeaderDTOModel> subordinateLeaderDTOList;
+
+  @override
+  _TeamLeadingDetailViewState createState() => _TeamLeadingDetailViewState();
+
   const TeamLeadingDetailView({Key key, this.number, this.subordinateLeaderDTOList}) : super(key: key);
+}
+
+class _TeamLeadingDetailViewState extends State<TeamLeadingDetailView> {
+
+  int page = 0;
+  RefreshController _refreshController = RefreshController(initialRefresh: true);
+  String min = "1";
+  String max = "20";
+  List<SubordinateLeaderDTOModel> list = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _request();
+
+    EventBus.instance.addListener(EventKeys.RefreshLoading, (arg) {
+      _loading();
+    });
+  }
+
+  @override
+  void dispose() {
+    EventBus.instance.removeListener(EventKeys.RefreshLoading);
+    super.dispose();
+  }
+
+  void _refresh() {
+    page = 1;
+    _request(true);
+  }
+
+  void _loading() {
+    page += 1;
+    _request();
+  }
+
+  void _request([bool refresh = false]) {
+    Networktool.request(API.mySmallTeamPageStatistics+"/$page/100", method: HTTPMETHOD.GET,success: (data) {
+      final temp = SubordinateLeaderModel.fromJson(data);
+      print("---------"+temp.data.length.toString());
+      if(refresh) list.clear();
+      if(temp.data.length < 10) _refreshController.loadNoData();
+      list.addAll(temp.data);
+      if(mounted) setState(() {
+
+      });
+    }, fail: (msg) => EasyLoading.showToast(msg)
+        ,finaly: _endRefresh);
+  }
+
+  void _endRefresh() {
+    _refreshController.refreshCompleted();
+    _refreshController.loadComplete();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,7 +94,7 @@ class TeamLeadingDetailView extends StatelessWidget {
                       style: AppFont.textStyle(12, color: Colors.black)
                     ),
                     TextSpan(
-                      text: "$number ",
+                      text: widget.number.toString(),
                       style: AppFont.textStyle(12, color: Colors.black, fontWeight: FontWeight.bold)
                     ),
                     TextSpan(
@@ -43,14 +109,22 @@ class TeamLeadingDetailView extends StatelessWidget {
         ),
         Divider(height: 30,),
         Expanded(
+          child:RefreshWidget(
+          onRefresh: _refresh,
+          onLoading: _loading,
+
+          controller: _refreshController,
+            minPage: page,
           child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
             padding: const EdgeInsets.all(16),
-            itemCount: subordinateLeaderDTOList.length,
+            itemCount: list.length,
             itemBuilder: (context, index){
-              final model = subordinateLeaderDTOList[index];
+              final model = list[index];
               return _Cell(index: index + 1, model: model,);
             }
           ),
+        )
         )
       ]
     );

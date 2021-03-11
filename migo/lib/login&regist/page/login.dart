@@ -79,16 +79,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
 
   }
 
-  Future<void> getGeetest() async {
-    String result;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      result = await FlutterGeetestPlugin.getGeetest("http://93.179.126.85:8070/"+API.gtRegister, "http://93.179.126.85:8070/"+API.gtValidate);
-    } on Exception {
-//      platformVersion = 'Failed to get platform version.';
-    }
-    print("#######"+result);
-  }
+
 
 
   void _requestStatus() {
@@ -106,7 +97,8 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
   void _jumpSmsCode() {
     if(_controller.text.isEmpty) return;
 
-    GeetestVerfied.show((geetestResult) {
+    GeetestVerfied geetestVerfied = GeetestVerfied();
+    geetestVerfied.show((geetestResult) {
       EasyLoading.show(status: "Loading...");
       Networktool.requestGeetest(API.sms + _controller.text, method: HTTPMETHOD.GET, success: (data){
         Navigator.pushNamed(context, "/smscode", arguments: {"phone":_controller.text, "code": data["data"]});
@@ -161,8 +153,10 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       IosDeviceInfo info = await deviceInfo.iosInfo;
       deviceId = info.identifierForVendor;
     }
-    GeetestVerfied.show((geetestResult) {
+    GeetestVerfied geetestVerfied = GeetestVerfied();
+    geetestVerfied.show((geetestResult) {
       EasyLoading.showToast("Loading...");
+      // print(geetestResult.toJson().toString());
       // 登录类型 1手机号 2邮箱
       Networktool.requestGeetest(API.login, params: {
         "loginType": isemail ? 2 : 1,
@@ -184,18 +178,12 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
             showerror = true;
           });
         }
-        // EasyLoading.showError(e);
+        EasyLoading.showError(e);
       },geetestParams:geetestResult);
 
 
     });
 
-
-
-    // WangyVerfied.showCaptcha((issuccess) {
-    //   if(issuccess) {
-    //
-    // });
   }
 
   String _getTitle(BuildContext context) {

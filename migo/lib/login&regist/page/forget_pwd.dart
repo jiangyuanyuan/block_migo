@@ -28,11 +28,12 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
       EasyLoading.showInfo("请输入11位手机号码");
       return;
     }
-    GeetestVerfied.show((geetestResult) {
+    GeetestVerfied geetestVerfied = GeetestVerfied();
+    geetestVerfied.show((geetestResult) {
       EasyLoading.show(status: "Loading...");
       Networktool.requestGeetest(API.sms + _controller.text, method: HTTPMETHOD.GET, success: (data){
         Navigator.pushNamed(context, "/smscode", arguments: {"phone":_controller.text, "forget": true, "code": data["data"]});
-      },finaly: () => EasyLoading.dismiss(),geetestParams :geetestResult);
+      },finaly: () => EasyLoading.dismiss(),geetestParams:geetestResult);
     });
   }
 

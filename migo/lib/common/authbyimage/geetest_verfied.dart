@@ -29,8 +29,15 @@ class GeetestResult {
 }
 
 class GeetestVerfied {
+  GeetestVerfied._privateConstructor();
 
-  static Future<void> show(Function(GeetestResult geetestResult) onfinish) async {
+  static final GeetestVerfied _instance = GeetestVerfied._privateConstructor();
+
+  factory GeetestVerfied(){
+    return _instance;
+  }
+
+   Future<void> show(Function(GeetestResult geetestResult) onfinish) async {
     String result;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {

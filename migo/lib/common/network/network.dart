@@ -181,9 +181,10 @@ class Networktool {
         headers: {"token": token, "lang": languageStr,
           "geetest_challenge":geetestParams?.geetestChallenge,"geetest_seccode":geetestParams?.geetestSeccode,"geetest_validate":geetestParams?.geetestValidate}
     );
+  print(geetestParams.geetestSeccode);
+  print(geetestParams.geetestChallenge);
+  print(geetestParams.geetestValidate);
 
-    // EasyLoading.showToast("极验："+geetestParams.geetestValidate,duration: Duration(milliseconds: 100000));
-    // EasyLoading.showToast("极验："+geetestParams.toJson().toString(),duration: Duration(milliseconds: 100000));
     try {
       switch (method) {
         case HTTPMETHOD.POST:
