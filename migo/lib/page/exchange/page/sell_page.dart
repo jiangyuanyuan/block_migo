@@ -481,7 +481,7 @@ class _SellPageState extends State<SellPage> {
                         ),
                       ),
                     ),
-                    Divider(height: 40,),
+                    Divider(height: 20,),
                     Visibility(
                       visible: step > 2,
                       child: Center(

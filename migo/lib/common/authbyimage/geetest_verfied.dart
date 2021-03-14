@@ -28,28 +28,4 @@ class GeetestResult {
   }
 }
 
-class GeetestVerfied {
-
-  static Future<void> show(Function(GeetestResult geetestResult) onfinish) async {
-    String result;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      result = await FlutterGeetestPlugin.getGeetest("http://93.179.126.85:8079/"+API.gtRegister, "http://93.179.126.85:8079/"+API.gtValidate);
-    } on Exception {
-//      platformVersion = 'Failed to get platform version.';
-    }
-    print("极验："+result);
-    // EasyLoading.showToast("极验："+result,duration: Duration(milliseconds: 100000));
-    GeetestResult geetestResult;
-    if (result !=null && result!=""){
-       geetestResult = GeetestResult.fromJson(json.decode(result));
-    }
-    if(onfinish !=null&&geetestResult!=null) {
-      // EasyLoading.showToast("极验："+geetestResult.geetestValidate,duration: Duration(milliseconds: 100000));
-      onfinish(geetestResult);
-    }
-  }
-
-
-}
 

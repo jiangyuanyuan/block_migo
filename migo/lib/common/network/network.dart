@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter_geetest_plugin/flutter_geetest_plugin.dart';
 import 'package:migo/common/authbyimage/geetest_verfied.dart';
 import 'package:migo/common/const/cosnt.dart';
 import 'package:migo/common/util/event_bus.dart';
@@ -181,9 +182,10 @@ class Networktool {
         headers: {"token": token, "lang": languageStr,
           "geetest_challenge":geetestParams?.geetestChallenge,"geetest_seccode":geetestParams?.geetestSeccode,"geetest_validate":geetestParams?.geetestValidate}
     );
+  print(geetestParams.geetestSeccode);
+  print(geetestParams.geetestChallenge);
+  print(geetestParams.geetestValidate);
 
-    // EasyLoading.showToast("极验："+geetestParams.geetestValidate,duration: Duration(milliseconds: 100000));
-    // EasyLoading.showToast("极验："+geetestParams.toJson().toString(),duration: Duration(milliseconds: 100000));
     try {
       switch (method) {
         case HTTPMETHOD.POST:
@@ -327,4 +329,36 @@ class Networktool {
       }
     }
   }
+}
+
+class GeetestVerfied {
+  // GeetestVerfied._privateConstructor();
+  //
+  // static final GeetestVerfied _instance = GeetestVerfied._privateConstructor();
+  //
+  // factory GeetestVerfied(){
+  //   return _instance;
+  // }
+
+  static Future<void> show(Function(GeetestResult geetestResult) onfinish) async {
+     const String baseURL = AppConst.APP_IS_RELEASE ? _Host : _Host_test;
+    String result;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      result = await FlutterGeetestPlugin.getGeetest(baseURL+API.gtRegister, baseURL+API.gtValidate);
+    } on Exception {
+//      platformVersion = 'Failed to get platform version.';
+    }
+    print("极验："+result);
+    // EasyLoading.showToast("极验："+result,duration: Duration(milliseconds: 100000));
+    GeetestResult geetestResult;
+    if (result !=null && result!=""){
+      geetestResult = GeetestResult.fromJson(json.decode(result));
+    }
+    if(onfinish !=null&&geetestResult!=null) {
+      // EasyLoading.showToast("极验："+geetestResult.geetestValidate,duration: Duration(milliseconds: 100000));
+      onfinish(geetestResult);
+    }
+  }
+
 }

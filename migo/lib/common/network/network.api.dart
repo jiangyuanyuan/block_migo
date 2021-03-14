@@ -84,12 +84,17 @@ class API {
   static const String myTeamPage2 = "user/uUserReferee/myTeamPage2";
   static const String myTeamPage3 = "user/uUserReferee/myTeamPage3";
   static const String myTeamPage4 = "user/uUserReferee/myTeamPage4";
+  static const String myTeamPageStatistics = "user/uUserReferee/myTeamPageStatistics";
   static const String myTeamPage5 = "user/uUserReferee/myTeamPage5";
+
+  static const String mySmallTeamPageStatistics = "user/uUserReferee/mySmallTeamPageStatistics";
+
   
   ///设置收款账号
   static const String addUserPay = "otc/oUserPay/addUserPay";
   static const String updateUserPay = "otc/oUserPay/updateUserPay";
   static const String userPays = "otc/oUserPay/userPays";
+  static const String videoAd = "otc/oAd/VideoAd";
   static const String adBase = "otc/oAd/adBase";
   static const String otcAdd = "otc/oAd/addAd";
   static const String adList = "otc/oAd/adList";
