@@ -50,12 +50,13 @@ class _TeamLeadingDetailViewState extends State<TeamLeadingDetailView> {
   }
 
   void _loading() {
+    print("_loading****************");
     page += 1;
     _request();
   }
 
   void _request([bool refresh = false]) {
-    Networktool.request(API.mySmallTeamPageStatistics+"/$page/100", method: HTTPMETHOD.GET,success: (data) {
+    Networktool.request(API.mySmallTeamPageStatistics+"/$page/10", method: HTTPMETHOD.GET,success: (data) {
       final temp = SubordinateLeaderModel.fromJson(data);
       print("---------"+temp.data.length.toString());
       if(refresh) list.clear();
@@ -116,7 +117,7 @@ class _TeamLeadingDetailViewState extends State<TeamLeadingDetailView> {
           controller: _refreshController,
             minPage: page,
           child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+
             padding: const EdgeInsets.all(16),
             itemCount: list.length,
             itemBuilder: (context, index){

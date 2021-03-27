@@ -58,7 +58,9 @@ class _SellPageState extends State<SellPage> {
     }
 
     final temp = Provider.of<UserModel>(context, listen: false).data;
-    phone = temp.internationalCode+"_"+temp.mobile.toString();
+    String internationalCode = temp.internationalCode != null? temp.internationalCode : "86";
+    phone = internationalCode +"_"+temp.mobile.toString();
+
     if(widget.params["step"] != null) {
       // step = widget.params["step"];
       switch (detailModel.status) {

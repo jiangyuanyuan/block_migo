@@ -41,7 +41,7 @@ class ExchangeCell extends StatelessWidget {
             _jumppage(context);
           }
         }, fail: (msg) => EasyLoading.showToast(msg),);
-        _jumppage(context);
+
       }
     });
   }
