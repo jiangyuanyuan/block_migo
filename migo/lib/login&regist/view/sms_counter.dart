@@ -76,7 +76,8 @@ class _SmsCounterViewState extends State<SmsCounterView> {
         return;
       }
     }
-    GeetestVerfied.show((geetestResult) {
+    GeetestVerfied geetestVerfied = GeetestVerfied();
+    geetestVerfied.show((geetestResult) {
       EasyLoading.show(status: "Loading...");
       String url = API.sms + "$phone/1";
       if(widget.isemail) {
